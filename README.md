@@ -1,1 +1,0 @@
-# collibra-integration
