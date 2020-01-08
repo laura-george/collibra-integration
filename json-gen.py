@@ -1,6 +1,7 @@
 import json
 from okera import context
 from pymongo import MongoClient
+from collections import defaultdict
 
 client = MongoClient(port=27017)
 db = client.collibra_ids
@@ -11,7 +12,7 @@ database_domain = "Test Technology Asset Domain"
 
 # Okera REST calls
 ctx = context()
-ctx.enable_token_auth(token_str='AARyb290AARyb290igFvf7hcmooBb6PE4JoFIA$$.febOIKgyU461wWW_KAF2IP_waSA$')
+ctx.enable_token_auth(token_str='AARyb290AARyb290igFvhOIlSYoBb6juqUkGIw$$._8NXTs2izW8z_LrC934Z5jPsdEE$')
 with ctx.connect(host='10.1.10.106', port=12050) as conn:
     databases = conn.list_databases()
     elements = []
@@ -36,7 +37,7 @@ def find_relation_id(head, tail):
         return {"head": x.get('head'), "id": x.get('id')}
 
 # creates relation object for relations between data sets and databases, and data sets and data elements (and vice versa)
-def create_relation(name, domain, asset_type, asset_relation):
+def create_relation(relations):
     # defines the type i.e. the direction of the relation
     def define_relation_type(asset_type, head):
         if asset_type == head:
@@ -49,24 +50,23 @@ def create_relation(name, domain, asset_type, asset_relation):
     
     # relation between data sets and databases, a database is a technology asset
     ds_to_db_info = find_relation_id("Data Set", "Technology Asset")
-
-    # example: relation = 00000000-0000-0000-0000-000000007062:TARGET
-    if (asset_type == "Data Set" and asset_relation == "Database") or asset_type == "Database":
-        relation = ds_to_db_info.get('id') + define_relation_type(asset_type, ds_to_db_info.get('head'))
-    elif (asset_type == "Data Set" and asset_relation == "Data Element") or asset_type == "Data Element":
-        relation = ds_to_de_info.get('id') + define_relation_type(asset_type, ds_to_de_info.get('head'))
     
-    relation_object = { relation: [
-            {
-                "name": name,
-                "domain": {
-                    "name": domain,
-                    "community": {"name": community},
-                },
-            }
-        ]
-    }
-    return relation_object
+    relation_object = None
+
+    for r in relations:
+        # example: relation = 00000000-0000-0000-0000-000000007062:TARGET
+        if (r.get('asset type') == "Data Set" and r.get('asset relation') == "Database") or r.get('asset type') == "Database":
+            relation = ds_to_db_info.get('id') + define_relation_type(r.get('asset type'), ds_to_db_info.get('head'))
+        elif (r.get('asset type') == "Data Set" and r.get('asset relation') == "Data Element") or r.get('asset type') == "Data Element":
+            relation = ds_to_de_info.get('id') + define_relation_type(r.get('asset type'), ds_to_de_info.get('head'))
+        
+        if relation_object == None:
+            relation_object = '"' + relation + '"' + ':' + ' [{"name": ' + '"' + r.get("name") + '"' + ', "domain": {"name": ' + '"' + r.get("domain") + '"' + ', "community": {"name": ' + '"' + community + '"' + '}}}]'
+        else:
+            relation_object = relation_object + ', ' + '"' + relation + '"' + ':' + ' [{"name": ' + '"' + r.get("name") + '"' + ', "domain": {"name": ' + '"' + r.get("domain") + '"' + ', "community": {"name": ' + '"' + community + '"' + '}}}]'
+
+    #print(relation_object)         
+    return '{ ' + relation_object + ' }'
 
 # combines an assets info and its relations into one object and adds it to json_gen
 def create_asset(description, name, domain, community, display_name, type_id, status, relations):
@@ -77,6 +77,7 @@ def create_asset(description, name, domain, community, display_name, type_id, st
         }
     else: attribute = ""
 
+  
     asset = {
         "resourceType": "Asset",
         "attributes": attribute,
@@ -87,8 +88,9 @@ def create_asset(description, name, domain, community, display_name, type_id, st
         "displayName": display_name,
         "type": {"id": type_id},
         "status": {"name": status},
-        "relations": relations,
+        "relations": json.loads(relations),
     }
+    #print(json.loads(relations))
     json_gen.append(asset)
     return asset
 
@@ -116,15 +118,15 @@ def create_dataset():
             dataset_name = d.db[0] + "." + d.name
             print("DATASET:")
             print(dataset_name)
-            db_relation = create_relation(d.db[0], database_domain, asset_info.get('name'), "Database")
+            #db_relation = create_relation(d.db[0], database_domain, asset_info.get('name'), "Database")
             #relations.update( {db_relation.get('relation') : db_relation.get('relation object')} )
             for col in d.schema.cols:
                 name = dataset_name + "." + col.name
-                de_relation = create_relation(name, dataset_domain, asset_info.get('name'), "Data Element")
-                #relations.update( {de_relation.get('relation') : de_relation.get('relation object')} )
+                de_relation = {"name": name, "domain": dataset_domain, "asset type": asset_info.get('name'), "asset relation": "Data Element"}
                 relations.append(de_relation)
-
-            create_asset("", d.name, dataset_domain, community, dataset_name, asset_info.get('id'), "status", json.loads(relations))
+            
+            all_relations = create_relation(relations)
+            create_asset("", d.name, dataset_domain, community, dataset_name, asset_info.get('id'), "status", all_relations)
 
 # gathers database info from Okera, creates relation to its data sets
 def create_database():
@@ -141,13 +143,13 @@ def create_database():
             relation = create_relation(dataset_name, dataset_domain, asset_info.get('name'), "Data Set")
             relations.update( {relation.get('relation') : relation.get('relation object')} )
 
-        print(relations)
         create_asset("", db, database_domain, community, db, asset_info.get('id'), "status", relations)
 
+
 # all functions are called here for now...
-create_database()
+#create_database()
 create_dataset()
-create_data_element()
+#create_data_element()
 
 # dumps json_gen into JSON file
 with open('integration.json', 'w', encoding='utf-8') as f:
