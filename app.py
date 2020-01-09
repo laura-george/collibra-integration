@@ -4,8 +4,7 @@ import os
 
 app = Flask(__name__)
 
-with open('integration.json', 'r') as f:
-    json_dict = json.load(f)
+f1=open('./integration.json', 'w+')
 
 # CORE API
 @app.route('/auth', methods=['POST'])
@@ -30,7 +29,7 @@ def post_data():
         "batchSize": "10000", 
         "simulation": False,
         "field": None,
-        "file": json.dumps(json_dict), 
+        "file": f1, 
         "fileName": "test",
         "deleteFile": False
         }

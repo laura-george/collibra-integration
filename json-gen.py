@@ -12,7 +12,7 @@ database_domain = "Test Technology Asset Domain"
 
 # Okera REST calls
 ctx = context()
-ctx.enable_token_auth(token_str='AARyb290AARyb290igFvhOIlSYoBb6juqUkGIw$$._8NXTs2izW8z_LrC934Z5jPsdEE$')
+ctx.enable_token_auth(token_str='AARyb290AARyb290igFvigtzW4oBb64X91sHJQ$$.BhJrik4EcQ4YMaU5fU6hj76L5dg$')
 with ctx.connect(host='10.1.10.106', port=12050) as conn:
     databases = conn.list_databases()
     elements = []
@@ -20,11 +20,11 @@ with ctx.connect(host='10.1.10.106', port=12050) as conn:
         datasets = conn.list_datasets(database)
         for dataset in datasets:
             columns = [dataset.schema.cols]
-        element = {"database": database, "datasets": datasets}
-        elements.append(element)
+    element = {"database": 'okera_sample', "datasets": datasets}
+    elements.append(element)
 
 # final list of all assets loaded into JSON file
-json_gen = []
+json_gen = None
 
 # finds asset id and name in mongodb collection
 def find_asset_id(asset_name):
@@ -61,96 +61,96 @@ def create_relation(relations):
             relation = ds_to_de_info.get('id') + define_relation_type(r.get('asset type'), ds_to_de_info.get('head'))
         
         if relation_object == None:
-            relation_object = '"' + relation + '"' + ':' + ' [{"name": ' + '"' + r.get("name") + '"' + ', "domain": {"name": ' + '"' + r.get("domain") + '"' + ', "community": {"name": ' + '"' + community + '"' + '}}}]'
+            relation_object = '"' + relation + '":' + ' [{"name": "' + r.get("name") + '", "domain": {"name": "' + r.get("domain") + '", "community": {"name": "' + community + '"}}}]'
         else:
-            relation_object = relation_object + ', ' + '"' + relation + '"' + ':' + ' [{"name": ' + '"' + r.get("name") + '"' + ', "domain": {"name": ' + '"' + r.get("domain") + '"' + ', "community": {"name": ' + '"' + community + '"' + '}}}]'
+            relation_object = relation_object + ', "' + relation + '":' + ' [{"name": "' + r.get("name") + '", "domain": {"name": "' + r.get("domain") + '", "community": {"name": "' + community + '"}}}]'
+    return '{' + relation_object + '}'
 
-    #print(relation_object)         
-    return '{ ' + relation_object + ' }'
+assets = []
 
 # combines an assets info and its relations into one object and adds it to json_gen
-def create_asset(description, name, domain, community, display_name, type_id, status, relations):
-    if description != None:
-        attribute = {"description": [
-                {"value": description}
-            ]
-        }
-    else: attribute = ""
+def create_asset(asset):
+    asset_object = None
+    for a in asset:
+        if a.get('description') != None:
+            attribute = '{"00000000-0000-0000-0000-000000003114": [{"value": "' + a.get('description') + '"}]}'
+        else: attribute = ""
 
-  
-    asset = {
-        "resourceType": "Asset",
-        "attributes": attribute,
-        "identifier": {
-            "name": name,
-            "domain": {"name": domain, "community": {"name": community}},
-        },
-        "displayName": display_name,
-        "type": {"id": type_id},
-        "status": {"name": status},
-        "relations": json.loads(relations),
-    }
-    #print(json.loads(relations))
-    json_gen.append(asset)
-    return asset
+        if asset_object == None:
+            asset_object = '{"resourceType": "Asset","attributes": ' + attribute + ',"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '", "community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + '}'
+        else:
+            asset_object = asset_object + ', {"resourceType": "Asset","attributes": ' + attribute + ',"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '", "community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + '}'
+   
+    assets.append(asset_object)
+    #print(assets)
+
+def create_all():
+    create_database()
+    create_dataset()
+    create_data_element()
+    final = ', '.join(assets)
+    f1 = open('./integration.json', 'w+')
+    f1.write('[' + final + ']')
+    f1.close()
+    #with open('integration.json', 'w', encoding='utf-8') as f:
+        #json.dump(final, f, ensure_ascii=False, indent=4)
+
+
+######### TO DO: REWRITE ORDER OF FILE GENERATION #########
 
 # gathers column (data element) info from Okera, creates relation to its data set
 def create_data_element():
+    data_elements = []
     asset_info = find_asset_id("Data Element")
-
     for element in elements:
-        ds = element.get('datasets')
-        for d in ds:
+    ds = element.get('datasets')
+    for d in ds:
             dataset_name = d.db[0] + "." + d.name
             for col in d.schema.cols:
+                relations = []
                 name = dataset_name + "." + col.name
-                relation = create_relation(dataset_name, dataset_domain, asset_info.get('name'), "Data Set")
-                create_asset("", col.name, dataset_domain, community, name, asset_info.get('id'), "status", relation)
+                relations.append({"name": dataset_name, "domain": dataset_domain, "asset type": asset_info.get('name'), "asset relation": "Data Set"})
+                data_elements.append({"description": "", "name": col.name, "domain": dataset_domain, "community": community, "display name": name, "type id": asset_info.get('id'), "status": "Candidate", "relations": create_relation(relations)})
+    create_asset(data_elements)
 
 # gathers data set info from Okera, creates relation to its database and columns
 def create_dataset():
+    datasets = []
     asset_info = find_asset_id("Data Set")
-
     for element in elements:
         ds = element.get('datasets')
         for d in ds:
             relations = []
             dataset_name = d.db[0] + "." + d.name
-            print("DATASET:")
-            print(dataset_name)
-            #db_relation = create_relation(d.db[0], database_domain, asset_info.get('name'), "Database")
-            #relations.update( {db_relation.get('relation') : db_relation.get('relation object')} )
+            relations.append({"name": d.db[0], "domain": database_domain, "asset type": asset_info.get('name'), "asset relation": "Database"})
             for col in d.schema.cols:
                 name = dataset_name + "." + col.name
-                de_relation = {"name": name, "domain": dataset_domain, "asset type": asset_info.get('name'), "asset relation": "Data Element"}
-                relations.append(de_relation)
-            
+                relations.append({"name": name, "domain": dataset_domain, "asset type": asset_info.get('name'), "asset relation": "Data Element"})
             all_relations = create_relation(relations)
-            create_asset("", d.name, dataset_domain, community, dataset_name, asset_info.get('id'), "status", all_relations)
+            datasets.append({"description": "", "name": d.name, "domain": dataset_domain, "community": community, "display name": dataset_name, "type id": asset_info.get('id'), "status": "Candidate", "relations": all_relations})
+
+    create_asset(datasets)
 
 # gathers database info from Okera, creates relation to its data sets
 def create_database():
+    databases = []
     asset_info = find_asset_id("Database")
-
     for element in elements:
         db = element.get('database')
         ds = element.get('datasets')
-        relations = {}
+        relations = []
         #print("DATABASE:")
         #print(db)
         for d in ds:
             dataset_name = d.db[0] + "." + d.name
-            relation = create_relation(dataset_name, dataset_domain, asset_info.get('name'), "Data Set")
-            relations.update( {relation.get('relation') : relation.get('relation object')} )
-
-        create_asset("", db, database_domain, community, db, asset_info.get('id'), "status", relations)
-
+            relation = {"name": dataset_name, "domain": dataset_domain, "asset type": asset_info.get('name'), "asset relation": "Data Set"}
+            relations.append(relation)
+        if len(relations) != 0:
+            all_relations = create_relation(relations)
+        else:
+            all_relations = '{}'
+        databases.append({"description": "", "name": db, "domain": database_domain, "community": community, "display name": db, "type id": asset_info.get('id'), "status": "Candidate", "relations": all_relations})
+    create_asset(databases)
 
 # all functions are called here for now...
-#create_database()
-create_dataset()
-#create_data_element()
-
-# dumps json_gen into JSON file
-with open('integration.json', 'w', encoding='utf-8') as f:
-    json.dump(json_gen, f, ensure_ascii=False, indent=4)
+# create_all()
