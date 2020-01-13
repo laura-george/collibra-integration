@@ -11,9 +11,9 @@
     "identifier": {
       "name": "okera_sample2",
       "domain": {
-        "name": "Okera Technology Assets",
+        "name": "Test Technology Asset Domain",
         "community": {
-          "name": "Okera"
+          "name": "Okera Collibra Integration Test"
         }
       }
     },
@@ -29,9 +29,9 @@
         {
           "name": "okera_sample.users2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -60,9 +60,9 @@
     "identifier": {
       "name": "okera_sample.users2",
       "domain": {
-        "name": "Okera Data Dictionary",
+        "name": "Test Data Dictionary",
         "community": {
-          "name": "Okera"
+          "name": "Okera Collibra Integration Test"
         }
       }
     },
@@ -78,9 +78,9 @@
         {
           "name": "okera_sample2",
           "domain": {
-            "name": "Okera Technology Assets",
+            "name": "Test Technology Asset Domain",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -89,9 +89,9 @@
         {
           "name": "okera_sample.users.ccn2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -100,9 +100,9 @@
         {
           "name": "okera_sample.users.dob2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -111,9 +111,9 @@
         {
           "name": "okera_sample.users.gender2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -122,9 +122,9 @@
         {
           "name": "okera_sample.users.uid2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -149,9 +149,9 @@
     "identifier": {
       "name": "okera_sample.users.ccn2",
       "domain": {
-        "name": "Okera Data Dictionary",
+        "name": "Test Data Dictionary",
         "community": {
-          "name": "Okera"
+          "name": "Okera Collibra Integration Test"
         }
       }
     },
@@ -167,9 +167,9 @@
         {
           "name": "okera_sample.users2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -193,9 +193,9 @@
     "identifier": {
       "name": "okera_sample.users.dob2",
       "domain": {
-        "name": "Okera Data Dictionary",
+        "name": "Test Data Dictionary",
         "community": {
-          "name": "Okera"
+          "name": "Okera Collibra Integration Test"
         }
       }
     },
@@ -211,9 +211,9 @@
         {
           "name": "okera_sample.users2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -232,9 +232,9 @@
     "identifier": {
       "name": "okera_sample.users.gender2",
       "domain": {
-        "name": "Okera Data Dictionary",
+        "name": "Test Data Dictionary",
         "community": {
-          "name": "Okera"
+          "name": "Okera Collibra Integration Test"
         }
       }
     },
@@ -250,9 +250,9 @@
         {
           "name": "okera_sample.users2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
@@ -276,9 +276,9 @@
     "identifier": {
       "name": "okera_sample.users.uid2",
       "domain": {
-        "name": "Okera Data Dictionary",
+        "name": "Test Data Dictionary",
         "community": {
-          "name": "Okera"
+          "name": "Okera Collibra Integration Test"
         }
       }
     },
@@ -294,9 +294,9 @@
         {
           "name": "okera_sample.users2",
           "domain": {
-            "name": "Okera Data Dictionary",
+            "name": "Test Data Dictionary",
             "community": {
-              "name": "Okera"
+              "name": "Okera Collibra Integration Test"
             }
           }
         }
