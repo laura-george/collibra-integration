@@ -15,7 +15,7 @@ domains = []
 
 # Okera REST calls
 ctx = context()
-ctx.enable_token_auth(token_str='AARyb290AARyb290igFvnm0yVIoBb8J5tlQJLQ$$.RuZ-hYfPQfOUPrHf0WUYMLb0Nq0$')
+ctx.enable_token_auth(token_str='AARyb290AARyb290igFvx9X7p4oBb-vif6cKPA$$.JJiku3dvzDOMoq5OcUsFJtR15Rc$')
 with ctx.connect(host='10.1.10.106', port=12050) as conn:
     databases = conn.list_databases()
     elements = []
@@ -46,25 +46,31 @@ def create_relation(relations):
         else:
             return ":SOURCE"
 
-    # relation between data sets and data elements
-    ds_to_de_info = find_relation_id("Data Set", "Data Element")
+    # relation between table and column
+    tab_to_col_info = find_relation_id("Column", "Table")
     
-    # relation between data sets and databases, a database is a technology asset
-    ds_to_db_info = find_relation_id("Data Set", "Technology Asset")
+    # relation between table and schema, a database is a technology asset
+    tab_to_sche_info = find_relation_id("Schema", "Table")
+
+     # relation between database and schema, a database is a technology asset
+    db_to_sche_info = find_relation_id("Technology Asset", "Schema")
     
     relation_object = None
 
     for r in relations:
         # example: relation = 00000000-0000-0000-0000-000000007062:TARGET
-        if (r.get('asset type') == "Data Set" and r.get('asset relation') == "Database") or r.get('asset type') == "Database":
-            relation = ds_to_db_info.get('id') + define_relation_type(r.get('asset type'), ds_to_db_info.get('head'))
-        elif (r.get('asset type') == "Data Set" and r.get('asset relation') == "Data Element") or r.get('asset type') == "Data Element":
-            relation = ds_to_de_info.get('id') + define_relation_type(r.get('asset type'), ds_to_de_info.get('head'))
+        if (r.get('asset type') == "Schema" and r.get('asset relation') == "Database") or r.get('asset type') == "Database":
+            relation = db_to_sche_info.get('id') + define_relation_type(r.get('asset type'), db_to_sche_info.get('head'))
+        elif (r.get('asset type') == "Table" and r.get('asset relation') == "Schema") or r.get('asset type') == "Schema":
+            relation = tab_to_sche_info.get('id') + define_relation_type(r.get('asset type'), tab_to_sche_info.get('head'))
+        elif (r.get('asset type') == "Table" and r.get('asset relation') == "Column") or r.get('asset type') == "Column":
+            relation = tab_to_col_info.get('id') + define_relation_type(r.get('asset type'), tab_to_col_info.get('head'))
         
         if relation_object == None:
             relation_object = '"' + relation + '":' + ' [{"name": "' + r.get("name") + '", "domain": {"name": "' + r.get("domain") + '", "community": {"name": "' + community + '"}}}]'
         else:
             relation_object = relation_object + ', "' + relation + '":' + ' [{"name": "' + r.get("name") + '", "domain": {"name": "' + r.get("domain") + '", "community": {"name": "' + community + '"}}}]'
+    print(relation_object)
     return '{' + relation_object + '}'
 
 # combines a domains info into one object and adds it to domains list
@@ -81,33 +87,33 @@ def create_domain():
 def create_asset(asset):
     asset_object = None
     for a in asset:
-        if a.get('description') != None:
-            attribute = '{"00000000-0000-0000-0000-000000003114": [{"value": "' + a.get('description') + '"}]}'
+        if a.get('description'):
+            attribute = '"attributes": {"00000000-0000-0000-0000-000000003114": [{"value": "' + a.get('description') + '"}]},' 
         else: attribute = ""
 
         if asset_object == None:
-            asset_object = '{"resourceType": "Asset","attributes": ' + attribute + ',"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '","community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + ', "tags": ["test"]}'
+            asset_object = '{"resourceType": "Asset",' + attribute + '"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '","community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + ', "tags": ["test"]}'
         else:
-            asset_object = asset_object + ', {"resourceType": "Asset","attributes": ' + attribute + ',"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '","community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + ', "tags": ["test"]}'
-   
+            asset_object = asset_object + ', {"resourceType": "Asset",' + attribute + '"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '","community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + ', "tags": ["test"]}'
+    print(asset_object)
     assets.append(asset_object)
 
 # gathers data set and column info from Okera, creates relation to its database and columns
 def create_data(element):
     datasets = []
     data_elements = []
-    ds_info = find_asset_id("Data Set")
-    de_info = find_asset_id("Data Element")
+    ds_info = find_asset_id("Table")
+    de_info = find_asset_id("Column")
     ds = element.get('datasets')
     for d in ds:
         ds_relations = []
         dataset_name = d.db[0] + "." + d.name
-        ds_relations.append({"name": d.db[0], "domain": database_domain.get('name'), "asset type": ds_info.get('name'), "asset relation": "Database"})
+        ds_relations.append({"name": d.db[0] + ".schema", "domain": database_domain.get('name'), "asset type": ds_info.get('name'), "asset relation": "Schema"})
         for col in d.schema.cols:
             name = dataset_name + "." + col.name
-            ds_relations.append({"name": name, "domain": dataset_domain.get('name'), "asset type": ds_info.get('name'), "asset relation": "Data Element"})
+            ds_relations.append({"name": name, "domain": dataset_domain.get('name'), "asset type": ds_info.get('name'), "asset relation": "Column"})
             de_relations = []
-            de_relations.append({"name": dataset_name, "domain": dataset_domain.get('name'), "asset type": de_info.get('name'), "asset relation": "Data Set"})
+            de_relations.append({"name": dataset_name, "domain": dataset_domain.get('name'), "asset type": de_info.get('name'), "asset relation": "Table"})
             data_elements.append({"description": "", "name": name, "domain": dataset_domain.get('name'), "community": community, "display name": col.name, "type id": de_info.get('id'), "status": "Candidate", "relations": create_relation(de_relations)})
 
         all_relations = create_relation(ds_relations)
@@ -116,22 +122,32 @@ def create_data(element):
 
 # gathers database info from Okera, creates relation to its data sets
 def create_database(element):
+    schemas = []
     databases = []
-    asset_info = find_asset_id("Database")
-    #for element in elements:
+    db_info = find_asset_id("Database")
+    schema_info = find_asset_id("Schema")
     db = element.get('database')
+    db_relations = []
+    schema_relations = []
+    schema_name = db + ".schema"
+    schema = {"description": "", "name": schema_name, "domain": database_domain.get('name'), "community": community, "display name": schema_name, "type id": schema_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": db, "domain": dataset_domain.get('name'), "asset type": schema_info.get('name'), "asset relation": "Database"}])}
+    schema_relations.append({"name": db, "domain": dataset_domain.get('name'), "asset type": schema_info.get('name'), "asset relation": "Database"})
     if element.get('datasets'): 
-        relations = []
         ds = element.get('datasets')
         for d in ds:
             dataset_name = d.db[0] + "." + d.name
-            relation = {"name": dataset_name, "domain": dataset_domain.get('name'), "asset type": asset_info.get('name'), "asset relation": "Data Set"}
-            relations.append(relation)
-            all_relations = create_relation(relations)
+            schema_relations.append({"name": dataset_name, "domain": dataset_domain.get('name'), "asset type": schema_info.get('name'), "asset relation": "Table"})
     else:
         all_relations = '{}'
-    databases.append({"description": "", "name": db, "domain": database_domain.get('name'), "community": community, "display name": db, "type id": asset_info.get('id'), "status": "Candidate", "relations": all_relations})
+    
+    all_relations = create_relation(schema_relations)
+    databases.append({"description": "", "name": db, "domain": database_domain.get('name'), "community": community, "display name": db, "type id": db_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": schema_name, "domain": dataset_domain.get('name'), "asset type": db_info.get('name'), "asset relation": "Schema"}])})
+    databases.append({"description": "", "name": schema_name, "domain": database_domain.get('name'), "community": community, "display name": schema_name, "type id": schema_info.get('id'), "status": "Candidate", "relations": all_relations})
+    print(databases)
     create_asset(databases)
+
+#def create_tags():
+
 
 # all functions are called here for now...
 def create_all():
