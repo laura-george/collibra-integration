@@ -22,7 +22,7 @@ def get_relations():
 
 # IMPORT API
 @app.route('/import', methods=['POST'])
-def post_data():
+def import_data():
     files = {'file': open('integration.json', 'rb')}
     params = {
         "sendNotification": True, 
@@ -34,6 +34,23 @@ def post_data():
         "deleteFile": False
         }
     data = requests.post('https://okera.collibra.com:443/rest/2.0/import/json-job',
+     data = params, auth = ('Admin', 'Gac2Quencotdilo'), files = files).content
+
+    return data
+
+@app.route('/sync', methods=['POST'])
+def sync_data():
+    files = {'file': open('integration.json', 'rb')}
+    params = {
+        "sendNotification": True, 
+        "batchSize": "10000", 
+        "simulation": False,
+        "field": None,
+        "file": integration, 
+        "fileName": "test",
+        "deleteFile": False
+        }
+    data = requests.post('https://okera.collibra.com:443/rest/2.0/import/synchronize/okera1/json-job',
      data = params, auth = ('Admin', 'Gac2Quencotdilo'), files = files).content
 
     return data
