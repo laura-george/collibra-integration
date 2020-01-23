@@ -127,7 +127,7 @@ def create_data(element):
     for t in table:
         tab_name = t.db[0] + "." + t.name
         tab_tags = create_tags(t.attribute_values)
-        tables.append({"description": "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": t.db[0] + ".schema", "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": tab_tags})
+        tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": t.db[0] + ".schema", "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": tab_tags})
         for col in t.schema.cols:
             if col.attribute_values: create_tags(col.attribute_values)
             name = tab_name + "." + col.name
