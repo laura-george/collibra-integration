@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, request, json, jsonify
 import os
+from config import configs
 
 app = Flask(__name__)
 
@@ -9,14 +10,14 @@ integration = open('./integration.json', 'w+')
 # CORE API
 @app.route('/auth', methods=['POST'])
 def post_auth(): 
-    auth = {"username": "Admin", "password": "Gac2Quencotdilo"}
+    auth = {"username": configs.get('collibra username'), "password": configs.get('collibra password')}
     data = requests.post('https://okera.collibra.com:443/rest/2.0/auth/sessions', json = auth).content
     return data
 
 @app.route('/relation', methods=['GET'])
 def get_relations(): 
     auth = {"sourceId": "70ddab05-81d4-45d8-bd36-7521dbf7fb51"}
-    data = requests.post('https://okera.collibra.com:443/rest/2.0/relations', json = auth, auth = ('Admin', 'Gac2Quencotdilo')).content
+    data = requests.post('https://okera.collibra.com:443/rest/2.0/relations', json = auth, auth = (configs.get('collibra username'), configs.get('collibra password'))).content
     return data
 
 
@@ -34,7 +35,7 @@ def import_data():
         "deleteFile": False
         }
     data = requests.post('https://okera.collibra.com:443/rest/2.0/import/json-job',
-     data = params, auth = ('Admin', 'Gac2Quencotdilo'), files = files).content
+     data = params, auth = (configs.get('collibra username'), configs.get('collibra password')), files = files).content
 
     return data
 
@@ -51,7 +52,7 @@ def sync_data():
         "deleteFile": False
         }
     data = requests.post('https://okera.collibra.com:443/rest/2.0/import/synchronize/okera1/json-job',
-     data = params, auth = ('Admin', 'Gac2Quencotdilo'), files = files).content
+     data = params, auth = (configs.get('collibra username'), configs.get('collibra password')), files = files).content
 
     return data
 
