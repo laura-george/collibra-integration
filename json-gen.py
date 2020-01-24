@@ -1,4 +1,5 @@
 import json
+import requests
 from okera import context
 from pymongo import MongoClient
 from config import configs
@@ -7,6 +8,7 @@ client = MongoClient(port=27017)
 db = client.collibra_ids
 
 community = configs.get('community')
+community_id = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/communities', params = {"name": community}, auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
 data_dict_domain = configs.get('data_dict_domain')
 tech_asset_domain = configs.get('tech_asset_domain')
 domain_info = [data_dict_domain, tech_asset_domain]
@@ -26,6 +28,37 @@ with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn
         else:
             element = {"database": database}
         elements.append(element)
+
+def set_ids(name):
+    params = {
+    "name": name,
+    "communityId": community_id}
+    domain_id = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/domains', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    return domain_id.get('results')[0].get('id')
+
+
+def update_assets():
+    for element in elements:
+        if element.get('tables'):
+            for t in element.get('tables'):
+                params = {
+                    "name": t.db[0] + "." + t.name,
+                    "nameMatchMode" : "EXACT", 
+                    "simulation": False,
+                    "domainId": set_ids(data_dict_domain.get('name')),
+                    "communityId": community_id
+                    }
+                data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+                asset = data.get('results')[0]
+                asset_name = asset.get('name')
+                asset_id = asset.get('id')
+                tag_data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/tags/asset/' + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+                if tag_data:
+                    tags = []
+                    for t in tag_data:
+                        tags.append(tag_data[0].get('name'))
+
+update_assets()
 
 # creates tags as namespace.key, adds them to list
 def create_tags(attribute_values):
@@ -123,8 +156,7 @@ def create_data(element):
     columns = []
     tab_info = find_asset_id("Table")
     col_info = find_asset_id("Column")
-    table = element.get('tables')
-    for t in table:
+    for t in element.get('tables'):
         tab_name = t.db[0] + "." + t.name
         tab_tags = create_tags(t.attribute_values)
         tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": t.db[0] + ".schema", "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": tab_tags})
@@ -160,4 +192,4 @@ def create_all():
     integration.write('[' + final + ']')
     integration.close()
 
-create_all()
+#create_all()

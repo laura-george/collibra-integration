@@ -14,13 +14,6 @@ def post_auth():
     data = requests.post('https://okera.collibra.com:443/rest/2.0/auth/sessions', json = auth).content
     return data
 
-@app.route('/relation', methods=['GET'])
-def get_relations(): 
-    auth = {"sourceId": "70ddab05-81d4-45d8-bd36-7521dbf7fb51"}
-    data = requests.post('https://okera.collibra.com:443/rest/2.0/relations', json = auth, auth = (configs.get('collibra username'), configs.get('collibra password'))).content
-    return data
-
-
 # IMPORT API
 @app.route('/import', methods=['POST'])
 def import_data():
