@@ -29,35 +29,56 @@ with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn
             element = {"database": database}
         elements.append(element)
 
-def set_ids(name):
+# takes domain name (set in config.py) and retrieves its domain id
+def get_ids(name):
     params = {
     "name": name,
     "communityId": community_id}
     domain_id = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/domains', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     return domain_id.get('results')[0].get('id')
 
+# makes /assets REST call
+def get_assets(name, domain_id):
+    params = {
+        "name": name,
+        "nameMatchMode" : "EXACT", 
+        "simulation": False,
+        "domainId": domain_id,
+        "communityId": community_id
+        }
+    data =json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    return data.get('results')[0]
+
+# makes /tags/asset/{asset id} REST call
+def get_tags(asset_id):
+    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/tags/asset/' + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    if data:
+        tags = []
+        for t in data:
+            tags.append(t.get('name'))
+        return tags
 
 def update_assets():
     for element in elements:
         if element.get('tables'):
             for t in element.get('tables'):
-                params = {
-                    "name": t.db[0] + "." + t.name,
-                    "nameMatchMode" : "EXACT", 
-                    "simulation": False,
-                    "domainId": set_ids(data_dict_domain.get('name')),
-                    "communityId": community_id
-                    }
-                data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
-                asset = data.get('results')[0]
-                asset_name = asset.get('name')
-                asset_id = asset.get('id')
-                tag_data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/tags/asset/' + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
-                if tag_data:
-                    tags = []
-                    for t in tag_data:
-                        tags.append(tag_data[0].get('name'))
-
+                tab_name = t.db[0] + "." + t.name
+                table = get_assets(tab_name, get_ids(data_dict_domain.get('name')))
+                # tab_name2 is the table name from collibra, tab_name is the table name from okera
+                tab_name2 = table.get('name')
+                tab_id = table.get('id')
+                tab_tags = get_tags(tab_id)
+                print({tab_name, tab_id,})
+                print(tab_tags)
+                
+                for col in t.schema.cols:
+                    column = get_assets(tab_name + "." + col.name, get_ids(data_dict_domain.get('name')))
+                    col_name = column.get('name')
+                    col_id = column.get('id')
+                    col_tags = get_tags(col_id)
+                    cols = {col_name, col_id}
+                    print(cols)
+                    print(col_tags)
 update_assets()
 
 # creates tags as namespace.key, adds them to list
