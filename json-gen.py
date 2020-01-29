@@ -58,27 +58,21 @@ def get_tags(asset_id):
             tags.append(t.get('name'))
         return tags
 
+# gets assets and their tags from collibra
 def update_assets():
-    for element in elements:
-        if element.get('tables'):
-            for t in element.get('tables'):
-                tab_name = t.db[0] + "." + t.name
-                table = get_assets(tab_name, get_ids(data_dict_domain.get('name')))
-                # tab_name2 is the table name from collibra, tab_name is the table name from okera
-                tab_name2 = table.get('name')
-                tab_id = table.get('id')
-                tab_tags = get_tags(tab_id)
-                print({tab_name, tab_id,})
-                print(tab_tags)
+    params = {
+        "simulation": False,
+        #"domainId": get_ids(data_dict_domain.get('name')),
+        "communityId": community_id
+        }
+    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    for d in data.get('results'):
+        #update_element = {"name": d.get('displayName'), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))}
+        print(d)
+        #print(update_element)
+        #if d.get('type').get('name') == "Schema":
+            #print("---BLOOP---")
                 
-                for col in t.schema.cols:
-                    column = get_assets(tab_name + "." + col.name, get_ids(data_dict_domain.get('name')))
-                    col_name = column.get('name')
-                    col_id = column.get('id')
-                    col_tags = get_tags(col_id)
-                    cols = {col_name, col_id}
-                    print(cols)
-                    print(col_tags)
 update_assets()
 
 # creates tags as namespace.key, adds them to list

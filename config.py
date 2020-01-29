@@ -3,7 +3,7 @@
 configs = {
  "collibra username": "Admin", 
  "collibra password": "Gac2Quencotdilo", 
- "token": "AARyb290AARyb290igFv5nvIR4oBcAqITEcBBQ$$.WnVtn-TS6YGMqmWldWStnRx0vyM$", 
+ "token": "AARyb290AARyb290igFv8d6m4IoBcBXrKuADCw$$.kzeoF_o-omPLrV8mYm3qVEyEq3c$", 
  "host": "10.1.10.106", 
  "port": 12050, 
  "community": "Okera2.0", 

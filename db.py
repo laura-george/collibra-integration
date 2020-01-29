@@ -8,7 +8,6 @@ collibra_ids = client["collibra_ids"]
 relation_ids= collibra_ids["relation_ids"]
 asset_ids = collibra_ids["asset_ids"]
 domain_ids = collibra_ids["domain_ids"]
-community_ids = collibra_ids["community_ids"]
 
 domains = [
   { "name": "Business Asset Domain", "id": "00000000-0000-0000-0000-000000030002"},
@@ -180,8 +179,6 @@ relations = [
     { "head": "Directory", "role": "contains", "tail": "Directory", "id": "00000000-0000-0000-0001-002600000003"},
     { "head": "Directory", "role": "contains", "tail": "File Group", "id": "00000000-0000-0000-0001-002600000004"},
     { "head": "File Group", "role": "contains", "tail": "Table", "id": "00000000-0000-0000-0001-002600000005"},
-
-
 ]
 
 domain_ids.drop()
@@ -191,9 +188,3 @@ relation_ids.drop()
 domain_ids.insert_many(domains)
 asset_ids.insert_many(assets)
 relation_ids.insert_many(relations)
-
-x = asset_ids.find_one()
-
-
-
-print(x)
