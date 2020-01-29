@@ -67,12 +67,8 @@ def update_assets():
         }
     data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     for d in data.get('results'):
-        #update_element = {"name": d.get('displayName'), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))}
-        print(d)
-        #print(update_element)
-        #if d.get('type').get('name') == "Schema":
-            #print("---BLOOP---")
-                
+        update_element = {"name": d.get('displayName'), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))}
+               
 update_assets()
 
 # creates tags as namespace.key, adds them to list
