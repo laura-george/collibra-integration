@@ -21,6 +21,7 @@ ctx.enable_token_auth(token_str=configs.get('token'))
 with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
     databases = conn.list_databases()
     elements = []
+    #conn.execute_ddl("CREATE EXTERNAL TABLE okera_sample.users_test (uid STRING COMMENT 'Unique user id', dob STRING COMMENT 'Formatted as DD-month-YY', gender STRING, ccn STRING COMMENT 'Sensitive data, should not be accessible without masking.') COMMENT 'Okera sample dataset.' STORED AS PARQUET LOCATION 'file:/opt/data/users'")
     for database in databases:
         tables = conn.list_datasets(database)
         if tables:
@@ -57,19 +58,6 @@ def get_tags(asset_id):
         for t in data:
             tags.append(t.get('name'))
         return tags
-
-# gets assets and their tags from collibra
-def update_assets():
-    params = {
-        "simulation": False,
-        #"domainId": get_ids(data_dict_domain.get('name')),
-        "communityId": community_id
-        }
-    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
-    for d in data.get('results'):
-        update_element = {"name": d.get('displayName'), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))}
-               
-update_assets()
 
 # creates tags as namespace.key, adds them to list
 def create_tags(attribute_values):
@@ -169,13 +157,10 @@ def create_data(element):
     col_info = find_asset_id("Column")
     for t in element.get('tables'):
         tab_name = t.db[0] + "." + t.name
-        tab_tags = create_tags(t.attribute_values)
-        tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": t.db[0] + ".schema", "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": tab_tags})
+        tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": t.db[0] + ".schema", "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": create_tags(t.attribute_values)})
         for col in t.schema.cols:
-            if col.attribute_values: create_tags(col.attribute_values)
             name = tab_name + "." + col.name
-            col_tags = create_tags(col.attribute_values)
-            columns.append({"description": "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": col_tags})
+            columns.append({"description": "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": create_tags(col.attribute_values)})
     create_asset(tables + columns)
 
 # gathers database info from Okera, creates databases and schemas
@@ -203,4 +188,28 @@ def create_all():
     integration.write('[' + final + ']')
     integration.close()
 
-#create_all()
+create_all()
+
+# gets assets and their tags from collibra
+def update_assets():
+    found_elements = []
+    deleted = []
+    params = {
+        "simulation": False,
+        "communityId": community_id
+        }
+    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    for d in data.get('results'):
+        update_element = {"name": d.get('name'), "display name": d.get('displayName'), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))}
+        found_elements.append(d.get('name'))
+    for element in elements:
+        if(element.get('tables')):
+            for t in element.get('tables'):
+                if t.db[0] + "." + t.name not in found_elements:
+                    deleted.append(t.db[0] + "." + t.name)
+                for col in t.schema.cols:
+                     if t.db[0] + "." + t.name + "." + col.name not in found_elements:
+                        deleted.append(t.db[0] + "." + t.name + "." + col.name)
+    # TO DO call execute_ddl(), alter each table/column that has been found, delete each that has been deleted
+        
+update_assets()
