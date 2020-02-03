@@ -169,7 +169,7 @@ def create_data(element):
         tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": "schema." + t.db[0], "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": create_tags(t.attribute_values)})
         for col in t.schema.cols:
             name = tab_name + "." + col.name
-            columns.append({"description": "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": create_tags(col.attribute_values)})
+            columns.append({"description": col.comment if col.comment else "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": create_tags(col.attribute_values)})
     create_asset(tables + columns)
 
 # gathers database info from Okera, creates databases and schemas
@@ -202,15 +202,6 @@ def create_all():
 # gets assets and their tags from collibra
 def update_assets():
     update_elements = []
-    found_elements = []
-    found_tables = []
-    found_cols = []
-    deleted = []
-    tables = []
-    tab_names = []
-    columns = []
-    col_names = []
-    dbs = []
     grouped_objects = []
 
     params = {
@@ -219,68 +210,28 @@ def update_assets():
         }
     data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     for d in data.get('results'):
-        update_elements.append({"name": d.get('name'), "display name": d.get('displayName'), "description": "description goes here", "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": "tags go here"})
-        # get_attributes(d.get('id'))
-        # get_tags(d.get('id'))
-        found_elements.append(d.get('name'))
-        if d.get('type').get('name') == "Table":
-            found_tables.append(d.get('name'))
-        elif d.get('type').get('name') == "Column":
-            found_cols.append(d.get('name'))
+        update_elements.append({"name": d.get('name'), "display name": d.get('displayName'), "description": get_attributes(d.get('id')), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))})
+
+    def find_info(name, info):
+        for ue in update_elements:
+            if ue.get('name') == name:
+                return ue.get(info)
+                break
 
     for element in elements:
-        if element.get('database') not in found_elements:
-            deleted.append({"name": element.get('database'), "type": "Database"})
         if(element.get('tables')):
             for t in element.get('tables'):
-                tab_names.append(t.db[0] + "." + t.name)
-                if t.db[0] + "." + t.name not in found_elements:
-                    deleted.append({"name": t.db[0] + "." + t.name, "type": "Table"})
+                if t.description != find_info(t.db[0] + "." + t.name, "description"):
+                    print("------description changed!------")
+                    print(t.description)                        
+                    #with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+                        #conn.execute_ddl()
                 for col in t.schema.cols:
-                    col_names.append(t.db[0] + "." + t.name + "." + col.name)
-                    if t.db[0] + "." + t.name + "." + col.name not in found_elements:
-                        deleted.append({"name": t.db[0] + "." + t.name + "." + col.name, "type": "Column"})
-    
-    # deletes tables and columns in Okera that have been deleted in Collibra
-    if (deleted):
-        for d in deleted:
-            with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                if d.get('type') == "Table":
-                    conn.execute_ddl("DROP TABLE " + d.get('name'))
-                if d.get('type') == "Column":
-                    name = d.get('name').rsplit('.', 1)
-                    conn.execute_ddl("ALTER TABLE " + name[0] + " DROP COLUMN " + name[1])
-    
-    #elements from collibra
-    for ue in update_elements:
-        if ue.get('type') == "Database":
-            dbs.append(ue)
-        elif ue.get('type') == "Table":
-            tables.append(ue)
-        elif ue.get('type') == "Column":
-            columns.append(ue)
-    
-    # elements from collibra grouped together as database -> tables -> columns
-    for d in dbs: 
-        tabs = []
-        for t in tables:
-            cols = []
-            if t.get('name').startswith(d.get('name')):
-                tabs.append(t)
-            for c in columns:
-                if c.get('name').startswith(t.get('name')):
-                    cols.append(c)
-        grouped_objects.append({"db": d, "tables": tabs, "columns": cols})
+                    if col.comment != find_info(t.db[0] + "." + t.name + "." + col.name, "description"):
+                        print("------description changed!------")
+                        #with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+                        #conn.execute_ddl()
 
-    for name in found_tables:
-        if name in tab_names:
-            print('old table')
-            print(name)
-        else:
-            print('new table found!!!')
-            print(name)
-    #with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-        #print(conn.execute_ddl("ALTER TABLE okera_sample.users ADD COLUMNS (uid STRING COMMENT 'Unique user id')"))
-    # TO DO call execute_ddl(), alter each table/column that has been found, delete each that has been deleted
+    #print(conn.execute_ddl("ALTER TABLE okera_sample.users ADD COLUMNS (uid STRING COMMENT 'Unique user id')"))
         
-update_assets()
+#update_assets()
