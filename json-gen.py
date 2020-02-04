@@ -3,6 +3,7 @@ import requests
 from okera import context
 from pymongo import MongoClient
 from config import configs
+import collections
 
 client = MongoClient(port=27017)
 db = client.collibra_ids
@@ -168,6 +169,7 @@ def create_data(element):
         tab_name = t.db[0] + "." + t.name
         tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": "schema." + t.db[0], "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": create_tags(t.attribute_values)})
         for col in t.schema.cols:
+            print(col.type.type_id)
             name = tab_name + "." + col.name
             columns.append({"description": col.comment if col.comment else "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": create_tags(col.attribute_values)})
     create_asset(tables + columns)
@@ -202,7 +204,7 @@ def create_all():
 # gets assets and their tags from collibra
 def update_assets():
     update_elements = []
-    grouped_objects = []
+    type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
     params = {
         "simulation": False,
@@ -221,17 +223,27 @@ def update_assets():
     for element in elements:
         if(element.get('tables')):
             for t in element.get('tables'):
-                if t.description != find_info(t.db[0] + "." + t.name, "description"):
-                    print("------description changed!------")
-                    print(t.description)                        
-                    #with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                        #conn.execute_ddl()
+                tab_name = t.db[0] + "." + t.name
+                if create_tags(t.attribute_values):
+                    print(tab_name)
+                    if collections.Counter(create_tags(t.attribute_values)) == collections.Counter((tab_name, "tags")):
+                        print('tag found!')
+                        print(create_tags(t.attribute_values))
+                        print(find_info(tab_name, "tags"))
+                if t.description != find_info(t.db[0] + "." + t.name, "description"):                        
+                    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+                        conn.execute_ddl("ALTER TABLE " + tab_name + " SET TBLPROPERTIES ('comment' = '" + find_info(tab_name, "description") + "')")
                 for col in t.schema.cols:
-                    if col.comment != find_info(t.db[0] + "." + t.name + "." + col.name, "description"):
-                        print("------description changed!------")
-                        #with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                        #conn.execute_ddl()
+                    col_name = tab_name + "." + col.name
+                    if create_tags(col.attribute_values):
+                        if collections.Counter(create_tags(col.attribute_values)) == collections.Counter(find_info(col_name, "tags")):
+                            print('column tag found!')
+                            print(create_tags(col.attribute_values))
+                            print(find_info(col_name, "tags"))
+                    if col.comment != find_info(col_name, "description"):
+                        with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+                            conn.execute_ddl("ALTER TABLE " + tab_name + " CHANGE " + col.name + " " + col.name + " " + type_ids[col.type.type_id] + " COMMENT '" + find_info(col_name, "description") + "'")
 
     #print(conn.execute_ddl("ALTER TABLE okera_sample.users ADD COLUMNS (uid STRING COMMENT 'Unique user id')"))
         
-#update_assets()
+update_assets()
