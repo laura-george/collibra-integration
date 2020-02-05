@@ -199,14 +199,17 @@ def create_all():
     integration.write('[' + final + ']')
     integration.close()
 
-#create_all()
+create_all()
 
-# gets assets and their tags from collibra
 def update_assets():
     update_elements = []
     type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
+    # gets assets and their tags from collibra
     params = {
+        # add name and match mode back in to test with just one database (takes a looong time if testing all)
+        #"name": "okera_sample",
+        #"nameMatchMode": "ANYWHERE",
         "simulation": False,
         "communityId": community_id
         }
@@ -219,31 +222,61 @@ def update_assets():
             if ue.get('name') == name:
                 return ue.get(info)
                 break
+    
+    # makes assign_attribute() or unassign_attribute() for either table or column
+    def tag_actions(action, db, name, type, tags):
+        with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+            for tag in tags:
+                nmspc_key = tag.split(".")
+                if action == "assign":
+                    if type == "Column":
+                        tab_col = name.split(".")
+                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    elif type == "Table":
+                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                elif action == "unassign":
+                    if type == "Column":
+                        tab_col = name.split(".")
+                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    elif type == "Table":
+                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
 
     for element in elements:
         if(element.get('tables')):
+            # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
+            # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
             for t in element.get('tables'):
                 tab_name = t.db[0] + "." + t.name
-                if create_tags(t.attribute_values):
-                    print(tab_name)
-                    if collections.Counter(create_tags(t.attribute_values)) == collections.Counter((tab_name, "tags")):
-                        print('tag found!')
-                        print(create_tags(t.attribute_values))
-                        print(find_info(tab_name, "tags"))
-                if t.description != find_info(t.db[0] + "." + t.name, "description"):                        
+                collibra_tab_tags = find_info(tab_name, "tags")
+                okera_tab_tags = create_tags(t.attribute_values)
+                if okera_tab_tags and collibra_tab_tags:
+                    if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
+                        tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+                        tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
+                elif collibra_tab_tags:
+                    tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
+                elif okera_tab_tags:
+                    tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+                if find_info(tab_name, "description"):
                     with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                        conn.execute_ddl("ALTER TABLE " + tab_name + " SET TBLPROPERTIES ('comment' = '" + find_info(tab_name, "description") + "')")
+                        if t.description != find_info(tab_name, "description"):                        
+                            conn.execute_ddl("ALTER TABLE " + tab_name + " SET TBLPROPERTIES ('comment' = '" + find_info(tab_name, "description") + "')")
+                # begin of column loop: same functionality as table loop
                 for col in t.schema.cols:
                     col_name = tab_name + "." + col.name
-                    if create_tags(col.attribute_values):
-                        if collections.Counter(create_tags(col.attribute_values)) == collections.Counter(find_info(col_name, "tags")):
-                            print('column tag found!')
-                            print(create_tags(col.attribute_values))
-                            print(find_info(col_name, "tags"))
-                    if col.comment != find_info(col_name, "description"):
+                    collibra_col_tags = find_info(col_name, "tags")
+                    okera_col_tags = create_tags(col.attribute_values)
+                    if okera_col_tags and collibra_col_tags:
+                        if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
+                            tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+                            tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
+                    elif collibra_col_tags:
+                        tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
+                    elif okera_col_tags:
+                        tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+                    if find_info(col_name, "description"):
                         with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                            conn.execute_ddl("ALTER TABLE " + tab_name + " CHANGE " + col.name + " " + col.name + " " + type_ids[col.type.type_id] + " COMMENT '" + find_info(col_name, "description") + "'")
-
-    #print(conn.execute_ddl("ALTER TABLE okera_sample.users ADD COLUMNS (uid STRING COMMENT 'Unique user id')"))
+                            if col.comment != find_info(col_name, "description"):
+                                conn.execute_ddl("ALTER TABLE " + tab_name + " CHANGE " + col.name + " " + col.name + " " + type_ids[col.type.type_id] + " COMMENT '" + find_info(col_name, "description") + "'")
         
 update_assets()
