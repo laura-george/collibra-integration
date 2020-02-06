@@ -169,7 +169,6 @@ def create_data(element):
         tab_name = t.db[0] + "." + t.name
         tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": "schema." + t.db[0], "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": create_tags(t.attribute_values)})
         for col in t.schema.cols:
-            print(col.type.type_id)
             name = tab_name + "." + col.name
             columns.append({"description": col.comment if col.comment else "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": create_tags(col.attribute_values)})
     create_asset(tables + columns)
@@ -188,7 +187,7 @@ def create_database(element):
     create_asset(databases)
 
 # all functions are called here for now...
-def create_all():
+def import_assets():
     create_domain()
     for element in elements:
         create_database(element)
@@ -199,84 +198,4 @@ def create_all():
     integration.write('[' + final + ']')
     integration.close()
 
-create_all()
-
-def update_assets():
-    update_elements = []
-    type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
-
-    # gets assets and their tags from collibra
-    params = {
-        # add name and match mode back in to test with just one database (takes a looong time if testing all)
-        #"name": "okera_sample",
-        #"nameMatchMode": "ANYWHERE",
-        "simulation": False,
-        "communityId": community_id
-        }
-    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
-    for d in data.get('results'):
-        update_elements.append({"name": d.get('name'), "display name": d.get('displayName'), "description": get_attributes(d.get('id')), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))})
-
-    def find_info(name, info):
-        for ue in update_elements:
-            if ue.get('name') == name:
-                return ue.get(info)
-                break
-    
-    # makes assign_attribute() or unassign_attribute() for either table or column
-    def tag_actions(action, db, name, type, tags):
-        with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-            for tag in tags:
-                nmspc_key = tag.split(".")
-                if action == "assign":
-                    if type == "Column":
-                        tab_col = name.split(".")
-                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
-                    elif type == "Table":
-                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
-                elif action == "unassign":
-                    if type == "Column":
-                        tab_col = name.split(".")
-                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
-                    elif type == "Table":
-                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
-
-    for element in elements:
-        if(element.get('tables')):
-            # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
-            # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
-            for t in element.get('tables'):
-                tab_name = t.db[0] + "." + t.name
-                collibra_tab_tags = find_info(tab_name, "tags")
-                okera_tab_tags = create_tags(t.attribute_values)
-                if okera_tab_tags and collibra_tab_tags:
-                    if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
-                        tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
-                        tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
-                elif collibra_tab_tags:
-                    tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
-                elif okera_tab_tags:
-                    tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
-                if find_info(tab_name, "description"):
-                    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                        if t.description != find_info(tab_name, "description"):                        
-                            conn.execute_ddl("ALTER TABLE " + tab_name + " SET TBLPROPERTIES ('comment' = '" + find_info(tab_name, "description") + "')")
-                # begin of column loop: same functionality as table loop
-                for col in t.schema.cols:
-                    col_name = tab_name + "." + col.name
-                    collibra_col_tags = find_info(col_name, "tags")
-                    okera_col_tags = create_tags(col.attribute_values)
-                    if okera_col_tags and collibra_col_tags:
-                        if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
-                            tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
-                            tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
-                    elif collibra_col_tags:
-                        tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
-                    elif okera_col_tags:
-                        tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
-                    if find_info(col_name, "description"):
-                        with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-                            if col.comment != find_info(col_name, "description"):
-                                conn.execute_ddl("ALTER TABLE " + tab_name + " CHANGE " + col.name + " " + col.name + " " + type_ids[col.type.type_id] + " COMMENT '" + find_info(col_name, "description") + "'")
-        
-update_assets()
+import_assets()
