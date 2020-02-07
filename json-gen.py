@@ -9,7 +9,7 @@ client = MongoClient(port=27017)
 db = client.collibra_ids
 
 community = configs.get('community')
-community_id = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/communities', params = {"name": community}, auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
+community_id = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/communities", params = {'name': community}, auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
 data_dict_domain = configs.get('data_dict_domain')
 tech_asset_domain = configs.get('tech_asset_domain')
 domain_info = [data_dict_domain, tech_asset_domain]
@@ -26,34 +26,34 @@ with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn
     for database in databases:
         tables = conn.list_datasets(database)
         if tables:
-            element = {"database": database, "tables": tables}
+            element = {'database': database, 'tables': tables}
         else:
-            element = {"database": database}
+            element = {'database': database}
         elements.append(element)
 
 # takes domain name (set in config.py) and retrieves its domain id
 def get_ids(name):
     params = {
-    "name": name,
-    "communityId": community_id}
-    domain_id = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/domains', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    'name': name,
+    'communityId': community_id}
+    domain_id = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/domains", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     return domain_id.get('results')[0].get('id')
 
 # makes /assets REST call
 def get_assets(name, domain_id):
     params = {
-        "name": name,
-        "nameMatchMode" : "EXACT", 
-        "simulation": False,
-        "domainId": domain_id,
-        "communityId": community_id
+        'name': name,
+        'nameMatchMode': "EXACT", 
+        'simulation': False,
+        'domainId': domain_id,
+        'communityId': community_id
         }
-    data =json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    data =json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     return data.get('results')[0]
 
 # makes /tags/asset/{asset id} REST call
 def get_tags(asset_id):
-    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/tags/asset/' + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/tags/asset/" + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     if data:
         tags = []
         for t in data:
@@ -62,10 +62,10 @@ def get_tags(asset_id):
 
 def get_attributes(asset_id):
     params = {
-        "typeId": "00000000-0000-0000-0000-000000003114",
-        "assetId": asset_id
+        'typeId': "00000000-0000-0000-0000-000000003114",
+        'assetId': asset_id
         }
-    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/attributes/', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/attributes/", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     if data.get('results'):
         return data.get('results')[0].get('value')
 
@@ -80,13 +80,13 @@ def create_tags(attribute_values):
 
 # finds asset id and name in mongodb collection
 def find_asset_id(asset_name):
-    for x in db.asset_ids.find({"name": asset_name}):
-        return {"name": x.get('name'), "id": x.get('id')}
+    for x in db.asset_ids.find({'name': asset_name}):
+        return {'name': x.get('name'), 'id': x.get('id')}
 
 # finds relation id and head in mongodb collection
 def find_relation_id(head, tail):
-    for x in db.relation_ids.find({"head": head, "tail": tail}):
-        return {"head": x.get('head'), "id": x.get('id')}
+    for x in db.relation_ids.find({'head': head, 'tail': tail}):
+        return {'head': x.get('head'), 'id': x.get('id')}
 
 # creates relation object for relations between data sets and databases, and data sets and data elements (and vice versa)
 def create_relation(relations):
@@ -167,10 +167,10 @@ def create_data(element):
     col_info = find_asset_id("Column")
     for t in element.get('tables'):
         tab_name = t.db[0] + "." + t.name
-        tables.append({"description": t.description if t.description else "", "name": tab_name, "domain": data_dict_domain.get('name'), "community": community, "display name": t.name, "type id": tab_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": "schema." + t.db[0], "domain": tech_asset_domain.get('name'), "asset type": tab_info.get('name'), "asset relation": "Schema"}]), "tags": create_tags(t.attribute_values)})
+        tables.append({'description': t.description if t.description else "", "name": tab_name, 'domain': data_dict_domain.get('name'), 'community': community, 'display name': t.name, 'type id': tab_info.get('id'), 'status': "Candidate", 'relations': create_relation([{'name': "schema." + t.db[0], 'domain': tech_asset_domain.get('name'), 'asset type': tab_info.get('name'), 'asset relation': "Schema"}]), 'tags': create_tags(t.attribute_values)})
         for col in t.schema.cols:
             name = tab_name + "." + col.name
-            columns.append({"description": col.comment if col.comment else "", "name": name, "domain": data_dict_domain.get('name'), "community": community, "display name": col.name, "type id": col_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": tab_name, "domain": data_dict_domain.get('name'), "asset type": col_info.get('name'), "asset relation": "Table"}]), "tags": create_tags(col.attribute_values)})
+            columns.append({'description': col.comment if col.comment else "", 'name': name, 'domain': data_dict_domain.get('name'), 'community': community, 'display name': col.name, 'type id': col_info.get('id'), 'status': "Candidate", 'relations': create_relation([{'name': tab_name, 'domain': data_dict_domain.get('name'), 'asset type': col_info.get('name'), 'asset relation': "Table"}]), 'tags': create_tags(col.attribute_values)})
     create_asset(tables + columns)
 
 # gathers database info from Okera, creates databases and schemas
@@ -182,20 +182,17 @@ def create_database(element):
     schema_info = find_asset_id("Schema")
     db = element.get('database')
     schema_name = "schema." + db
-    databases.append({"description": "", "name": db, "domain": tech_asset_domain.get('name'), "community": community, "display name": db, "type id": db_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": schema_name, "domain": tech_asset_domain.get('name'), "asset type": db_info.get('name'), "asset relation": "Schema"}])})
-    databases.append({"description": "", "name": schema_name, "domain": tech_asset_domain.get('name'), "community": community, "display name": schema_name, "type id": schema_info.get('id'), "status": "Candidate", "relations": create_relation([{"name": db, "domain": tech_asset_domain.get('name'), "asset type": schema_info.get('name'), "asset relation": "Database"}])})
+    databases.append({'description': "", 'name': db, 'domain': tech_asset_domain.get('name'), 'community': community, 'display name': db, 'type id': db_info.get('id'), 'status': "Candidate", 'relations': create_relation([{'name': schema_name, 'domain': tech_asset_domain.get('name'), 'asset type': db_info.get('name'), 'asset relation': "Schema"}])})
+    databases.append({'description': "", 'name': schema_name, 'domain': tech_asset_domain.get('name'), 'community': community, 'display name': schema_name, 'type id': schema_info.get('id'), 'status': "Candidate", 'relations': create_relation([{'name': db, 'domain': tech_asset_domain.get('name'), 'asset type': schema_info.get('name'), 'asset relation': "Database"}])})
     create_asset(databases)
 
 # all functions are called here for now...
-def import_assets():
-    create_domain()
-    for element in elements:
-        create_database(element)
-        if element.get('tables'):
-            create_data(element)
-    final = ', '.join(domains + assets)
-    integration = open('./integration.json', 'w+')
-    integration.write('[' + final + ']')
-    integration.close()
-
-import_assets()
+create_domain()
+for element in elements:
+    create_database(element)
+    if element.get('tables'):
+        create_data(element)
+final = ', '.join(domains + assets)
+integration = open('./integration.json', 'w+')
+integration.write('[' + final + ']')
+integration.close()

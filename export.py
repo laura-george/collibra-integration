@@ -9,16 +9,11 @@ client = MongoClient(port=27017)
 db = client.collibra_ids
 
 community = configs.get('community')
-community_id = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/communities', params = {"name": community}, auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
-data_dict_domain = configs.get('data_dict_domain')
-tech_asset_domain = configs.get('tech_asset_domain')
-domain_info = [data_dict_domain, tech_asset_domain]
-assets = []
-domains = []
+community_id = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/communities", params = {'name': community}, auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
 
 # makes /tags/asset/{asset id} REST call
 def get_tags(asset_id):
-    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/tags/asset/' + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/tags/asset/" + asset_id, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     if data:
         tags = []
         for t in data:
@@ -27,10 +22,10 @@ def get_tags(asset_id):
 
 def get_attributes(asset_id):
     params = {
-        "typeId": "00000000-0000-0000-0000-000000003114",
-        "assetId": asset_id
+        'typeId': "00000000-0000-0000-0000-000000003114",
+        'assetId': asset_id
         }
-    data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/attributes/', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/attributes/", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     if data.get('results'):
         return data.get('results')[0].get('value')
 
@@ -53,23 +48,21 @@ with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn
     for database in databases:
         tables = conn.list_datasets(database)
         if tables:
-            element = {"database": database, "tables": tables}
+            element = {'database': database, 'tables': tables}
         else:
-            element = {"database": database}
+            element = {'database': database}
         elements.append(element)
 update_elements = []
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
 # gets assets and their tags from collibra
 params = {
-    #"name": "okera_sample",
-    #"nameMatchMode": "ANYWHERE",
-    "simulation": False,
-    "communityId": community_id
+    'simulation': False,
+    'communityId': community_id
     }
-data = json.loads(requests.get('https://okera.collibra.com:443/rest/2.0/assets', params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
 for d in data.get('results'):
-    update_elements.append({"name": d.get('name'), "display name": d.get('displayName'), "description": get_attributes(d.get('id')), "type": d.get('type').get('name'), "domain": d.get('domain').get('name'), "status": d.get('status').get('name'), "tags": get_tags(d.get('id'))})
+    update_elements.append({'name': d.get('name'), 'display name': d.get('displayName'), 'description': get_attributes(d.get('id')), 'type': d.get('type').get('name'), 'domain': d.get('domain').get('name'), 'status': d.get('status').get('name'), 'tags': get_tags(d.get('id'))})
 
 def find_info(name, info):
     for ue in update_elements:
@@ -77,7 +70,7 @@ def find_info(name, info):
             return ue.get(info)
             #break
 
-# makes assign_attribute() or unassign_attribute() for either table or column
+# makes assign_attribute() or unassign_attribute() call for either table or column
 def tag_actions(action, db, name, type, tags):
     with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
         for tag in tags:
@@ -95,6 +88,7 @@ def tag_actions(action, db, name, type, tags):
                 elif type == "Table":
                     conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
 
+# alters description for either table, view or column
 def desc_actions(name, type, col_type, description):
     with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
         if type == "Column":
