@@ -68,7 +68,7 @@ def find_info(name, info):
     for ue in update_elements:
         if ue.get('name') == name:
             return ue.get(info)
-            #break
+            break
 
 # makes assign_attribute() or unassign_attribute() call for either table or column
 def tag_actions(action, db, name, type, tags):
