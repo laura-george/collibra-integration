@@ -100,7 +100,7 @@ def desc_actions(name, type, col_type, description):
             conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
 
 for element in elements:
-    if(element.get('tables')):
+    if element.get('database') == "okera_sample":
         # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
         # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
         for t in element.get('tables'):

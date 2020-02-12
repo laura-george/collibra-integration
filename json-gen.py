@@ -140,7 +140,7 @@ def create_asset(asset):
     for a in asset:
         if a.get('description'):
             attribute = '"attributes": {"00000000-0000-0000-0000-000000003114": [{"value": "' + a.get('description') + '"}]},' 
-        else: attribute = ""
+        else: attribute = '"attributes": {"00000000-0000-0000-0000-000000003114": []},' 
 
         if a.get('tags'):
             tag_object = None
@@ -150,7 +150,7 @@ def create_asset(asset):
                 else:
                     tag_object = tag_object + ',"' + tag + '"'
             tags = ',"tags": [' + tag_object +']'
-        else: tags = ""
+        else: tags = ',"tags": []'
 
         if asset_object == None:
             asset_object = '{"resourceType": "Asset",' + attribute + '"identifier": {"name": "' + a.get('name') + '","domain": {"name": "' + a.get('domain') + '","community": {"name": "' + community + '"}}},"displayName": "' + a.get('display name') + '","type": {"id": "' + a.get('type id') + '"},"status": {"name": "' + a.get('status') + '"},"relations": ' + a.get('relations') + tags + '}'
@@ -195,4 +195,5 @@ for element in elements:
 final = ', '.join(domains + assets)
 integration = open('./integration.json', 'w+')
 integration.write('[' + final + ']')
+integration.flush()
 integration.close()

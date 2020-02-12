@@ -27,7 +27,7 @@ def import_data():
         'simulation': False,
         'field': None,
         'file': integration,
-        'fileName': "test",
+        'fileName': "integration",
         'deleteFile': False,
     }
     data = requests.post(
@@ -47,7 +47,7 @@ def sync_data():
         'simulation': False,
         'field': None,
         'file': integration,
-        'fileName': "test",
+        'fileName': "integration",
         'deleteFile': False,
     }
     data = requests.post(
