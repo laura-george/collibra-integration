@@ -57,13 +57,14 @@ type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE"
 
 # gets assets and their tags from collibra
 params = {
+    'name': "marketing",
+    'nameMatchMode': "ANYWHERE",
     'simulation': False,
     'communityId': community_id
     }
 data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
 for d in data.get('results'):
     update_elements.append({'name': d.get('name'), 'display name': d.get('displayName'), 'description': get_attributes(d.get('id')), 'type': d.get('type').get('name'), 'domain': d.get('domain').get('name'), 'status': d.get('status').get('name'), 'tags': get_tags(d.get('id'))})
-
 def find_info(name, info):
     for ue in update_elements:
         if ue.get('name') == name:
@@ -75,6 +76,8 @@ def tag_actions(action, db, name, type, tags):
     with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
         for tag in tags:
             nmspc_key = tag.split(".")
+            if nmspc_key[0] not in conn.list_attribute_namespaces() or nmspc_key[1] not in conn.list_attributes(nmspc_key[0]):
+                conn.create_attribute(nmspc_key[0], nmspc_key[1], True)
             if action == "assign":
                 if type == "Column":
                     tab_col = name.split(".")
@@ -100,7 +103,7 @@ def desc_actions(name, type, col_type, description):
             conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
 
 for element in elements:
-    if element.get('database') == "okera_sample":
+    if element.get('database') == "marketing":
         # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
         # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
         for t in element.get('tables'):

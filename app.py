@@ -51,11 +51,20 @@ def sync_data():
         'deleteFile': False,
     }
     data = requests.post(
-        configs.get('collibra dgc') + "/rest/2.0/import/synchronize/okera1/json-job",
+        configs.get('collibra dgc') + "/rest/2.0/import/synchronize/okera2/json-job",
         data=params,
         auth=(configs.get('collibra username'), configs.get('collibra password')),
         files=files,
     ).content
     return data
+
+@app.route("/finalize", methods=['POST'])
+def finalize_data():
+    data = requests.post(
+        configs.get('collibra dgc') + "/rest/2.0/import/synchronize/okera1/finalize/job",
+        auth=(configs.get('collibra username'), configs.get('collibra password')),
+    ).content
+    return data
+
 
 app.run()

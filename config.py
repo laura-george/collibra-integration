@@ -4,10 +4,10 @@ configs = {
  'collibra dgc': "https://okera.collibra.com:443",
  'collibra username': "Admin", 
  'collibra password': "Gac2Quencotdilo", 
- 'token': "AARyb290AARyb290igFwNYcYIooBcFmTnCICAQ$$.hScOYZKR_2nkRmTln3ceg3tdZ7w$", 
- 'host': "10.1.10.106", 
+ 'token': "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXB8W7wGigFwoGhABgs6.8QyhDovyArJto4v6C_vWrmJOdPk$", 
+ 'host': "sandbox.demo.okera.com", 
  'port': 12050, 
- 'community': "Okera2.0", 
- 'data_dict_domain': {'name': "Okera2.0 Data Dictionary", 'type': "Physical Data Dictionary"}, 
+ 'community': "Okera3.0", 
+ 'data_dict_domain': {'name': "Data Domain", 'type': "Data Asset Domain"}, 
  'tech_asset_domain': {'name': "Okera2.0 Technology Assets", 'type': "Technology Asset Domain"} 
  }
