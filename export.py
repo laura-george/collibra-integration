@@ -140,3 +140,5 @@ for element in elements:
                 okera_col_desc = col.comment
                 if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
                     desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc)
+
+# TODO get attributes in bulk and match them up to their asset using ID
