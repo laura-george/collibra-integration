@@ -69,7 +69,6 @@ def collibra_get(param_obj, call, method, header=None):
             json=param_obj, 
             auth=(configs.get('collibra username'), configs.get('collibra password'))).content
 
-
 # MongoDB find functions
 def find_relation_id(asset1, asset2):
     for x in db.relation_ids.find({'$and': [{'$or': [{'head': asset1}, {'head': asset2}]}, {'$or': [{'tail': asset1}, {'tail': asset2}]}]}):
@@ -79,7 +78,7 @@ def find_attribute_id(name):
     for x in db.attribute_ids.find({'name': name}):
         return x.get('id')
 
-def find_asset_id(asset_type):
+def find_asset_type_id(asset_type):
     for x in db.asset_ids.find({'name': asset_type}):
         return x.get('id')    
 
@@ -87,6 +86,7 @@ def find_asset_id(asset_type):
 ctx = context()
 ctx.enable_token_auth(token_str=configs.get('token'))
 with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+    # creates an Asset object for each database, table and column in Okera and adds it to the list assets[]
     databases = conn.list_databases()
     assets = []
     for d in databases:
@@ -119,11 +119,17 @@ with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn
                         create_tags(col.attribute_values)
                     ))
 
+# finds Asset objects from Okera in assets[], adds asset type id to object
+# used to find assets and their relations, e.g. get_okera_assets("default", "Database") returns the Asset objects for default and all it's tables (default.okera_sample, default. ...)
 def get_okera_assets(name, asset_type):
     okera_assets = []
     for a in assets:
-        if a.name == name and a.asset_type == asset_type or a.name.startswith(name + ".") :
-            a.asset_type_id = find_asset_id(a.asset_type)
+        if name:
+            if a.name == name and a.asset_type == asset_type or a.name.startswith(name + ".") :
+                a.asset_type_id = find_asset_type_id(a.asset_type)
+                okera_assets.append(a)
+        else:
+            a.asset_type_id = find_asset_type_id(a.asset_type)
             okera_assets.append(a)
     return okera_assets
 
@@ -131,16 +137,14 @@ asset_params = []
 attribute_params = []
 relation_params = []
 
-
-
-# gets assets from Collibra
-def get_assets(asset_name=None, asset_type=None):
+# gets assets and their children from Collibra
+def get_assets(asset_name=None, asset_type=None, with_children=True):
     parent_param = {
         'name': asset_name,
         'nameMatchMode': "EXACT",
         'domainId': domain_id,
         'communityId': community_id,
-        'typeId': find_asset_id(asset_type)
+        'typeId': find_asset_type_id(asset_type)
         }
     parent = json.loads(collibra_get(parent_param, "assets", "get")).get('results')
 
@@ -150,15 +154,17 @@ def get_assets(asset_name=None, asset_type=None):
             'nameMatchMode': "START",
             'domainId': domain_id,
             'communityId': community_id,
-            'typeId': find_asset_id(child_type)
+            'typeId': find_asset_type_id(child_type)
             }
         return json.loads(collibra_get(child_param, "assets", "get")).get('results')
 
     if asset_name:
-        if asset_type == 'Table':
-            return parent + find_children(asset_name, 'Column')
-        elif asset_type == 'Database':
-            return parent + find_children(asset_name, 'Table') + find_children(asset_name, 'Column')
+        if with_children:
+            if asset_type == 'Table':
+                return parent + find_children(asset_name, 'Column')
+            elif asset_type == 'Database':
+                return parent + find_children(asset_name, 'Table') + find_children(asset_name, 'Column')
+        else: return parent
 
     else:
         get_all_param = {
@@ -167,105 +173,50 @@ def get_assets(asset_name=None, asset_type=None):
             }
         return json.loads(collibra_get(get_all_param, "assets", "get")).get('results')
 
-def set_assets(a):
+# sets the parameters for /assets Collibra call
+def set_assets(asset):
     return ({
-    'name': a.name,
-    'displayName': a.displayName,
+    'name': asset.name,
+    'displayName': asset.displayName,
     'domainId': domain_id,
-    'typeId': a.asset_type_id,
+    'typeId': asset.asset_type_id,
     'excludedFromAutoHyperlinking': "true"
     })
 
-# WIP
-def import_attributes(a):
-    for asset in get_assets():
-        if asset.get('name') == a.name:
-                a.asset_id = asset.get('id')
-        
-        # adds assets attributes
-        def set_attributes(attr):
+# sets the parameters for /attributes Collibra call
+def set_attributes(asset):
+    if asset.attributes:
+        attribute_params = []
+        def group_attributes(attr):
             attribute_params.append({
-                        'assetId': a.asset_id,
-                        'typeId': find_attribute_id(attr),
-                        'value': a.attributes.get(attr)
+                    'assetId': asset.asset_id,
+                    'typeId': find_attribute_id(attr),
+                    'value': asset.attributes.get(attr)
                     })
 
-        if a.attributes:
-            if a.attributes.get('Description'): set_attributes('Description')
-            if a.attributes.get('Location'): set_attributes('Location')
+        if asset.attributes.get('Description'): group_attributes('Description')
+        if asset.attributes.get('Location'): group_attributes('Location')
+        return attribute_params
 
-# WIP
-def import_relations(a):
-    for asset in get_assets():
-        if asset.get('name') == a.name:
-            a.asset_id = asset.get('id')
-    # adds assets relations
-    if a.relation:
-        relation_info = find_relation_id(a.asset_type, a.relation.get('Type'))
-        relation_params.append({
-            'sourceId': a.asset_id if a.asset_type == relation_info.get('head') else find_asset_id(a.relation.get('Name')),
-            'targetId': a.asset_id if a.asset_type == relation_info.get('tail') else find_asset_id(a.relation.get('Name')),
+# sets the parameters for /relations Collibra call
+def set_relations(asset):
+    if asset.relation:
+        relation_info = find_relation_id(asset.asset_type, asset.relation.get('Type'))
+        return {
+            'sourceId': asset.asset_id if asset.asset_type == relation_info.get('head') else get_assets(asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
+            'targetId': asset.asset_id if asset.asset_type == relation_info.get('tail') else get_assets(asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
             'typeId': relation_info.get('id')
-        })
-
-def bulk_import():
-    # adds all assets
-    for a in assets:
-        a.asset_type_id = find_asset_id(a.asset_type)
-        asset_params.append({
-        'name': a.name,
-        'displayName': a.displayName,
-        'domainId': domain_id,
-        'typeId': a.asset_type_id,
-        'excludedFromAutoHyperlinking': "true"
-        })
-
-        all_assets = get_assets()
-
-        # gets all assets ids
-        for asset in all_assets:
-            if asset.get('name') == a.name:
-                a.asset_id = asset.get('id')
-
-        # adds assets relations
-        if a.relation:
-            relation_info = find_relation_id(a.asset_type, a.relation.get('Type'))
-            relation_params.append({
-                'sourceId': a.asset_id if a.asset_type == relation_info.get('head') else find_asset_id(a.relation.get('Name')),
-                'targetId': a.asset_id if a.asset_type == relation_info.get('tail') else find_asset_id(a.relation.get('Name')),
-                'typeId': relation_info.get('id')
-            })
-        
-        # adds assets attributes
-        def set_attributes(attr):
-            attribute_params.append({
-                        'assetId': a.asset_id,
-                        'typeId': find_attribute_id(attr),
-                        'value': a.attributes.get(attr)
-                    })
-
-        if a.attributes:
-            if a.attributes.get('Description'): set_attributes('Description')
-            if a.attributes.get('Location'): set_attributes('Location')
-
-    # requests sent to collibra
-    collibra_get(asset_params, 'assets/bulk', 'post')
-    requests.post(
-        configs.get('collibra dgc') + "/rest/2.0/relations/bulk", 
-        json=relation_params, 
-        auth=(configs.get('collibra username'), configs.get('collibra password'))
-        )
-    requests.post(
-        configs.get('collibra dgc') + "/rest/2.0/attributes/bulk", 
-        json=attribute_params, 
-        auth=(configs.get('collibra username'), configs.get('collibra password'))
-        )
-
+        }
 
 def update(asset_name=None, asset_type=None):
     collibra_assets = []
     update_attr = []
+    import_params = []
     import_assets = []
+    deleted_assets = []
+    deleted_params = []
+    relation_params = []
+    attr_params = []
     for ua in get_assets(asset_name, asset_type):
         asset = Asset(
             ua.get('name'),
@@ -291,19 +242,35 @@ def update(asset_name=None, asset_type=None):
                     update_attr.append({'id': asset.attribute_ids[key], 'value': matched_attr[key]})
 
     for new_asset in [obj for obj in get_okera_assets(asset_name, asset_type) if obj not in collibra_assets]:
-        import_assets.append(set_assets(new_asset))
+        import_assets.append(new_asset)
+        import_params.append(set_assets(new_asset))
 
+    for deleted_asset in [obj for obj in collibra_assets if obj not in get_okera_assets(asset_name, asset_type)]:
+        deleted_assets.append(deleted_asset.asset_id)
+    
+    if deleted_assets:
+        collibra_get(deleted_assets, "assets/bulk", "delete")
+        
     if import_assets:
-        print(collibra_get(import_assets, "assets/bulk", "post"))
-        # TODO ADD RELATIONS HERE
+        import_response = json.loads(collibra_get(import_params, "assets/bulk", "post"))
+        for a in import_assets:
+            for i in import_response:
+                if i.get('name') == a.name:
+                    a.asset_id = i.get('id')
+            relation_params.append(set_relations(a))
+            if set_attributes(a):
+                for attr in set_attributes(a):
+                    attr_params.append(attr)
+        collibra_get(attr_params, "attributes/bulk", "post")
+        collibra_get(relation_params, "relations/bulk", "post")
 
-    #if update_attr:
-       # collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
+    if update_attr:
+       collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
 
 # TODO add try except block
 #which_asset = input("Please enter the name the asset you wish to update: ")
 #which_type = input("Is this asset of the type Database or Table? ")
-update('default', 'Database')
+update()
 
 
 """ for a in get_assets():
@@ -313,7 +280,3 @@ update('default', 'Database')
     else:
         print('Asset not found!')
         print(a.get('name')) """
-
-# TODO check assets in collibra and compare to okera to see whether a new assets needs to be added - relations also need to be added!!
-# update functions: PATCH endpoints of assets and attributes - if change has occured, patch assets
-# unclear: what if name of dataset or column is changed?
