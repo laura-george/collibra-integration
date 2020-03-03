@@ -10,6 +10,14 @@ db = client.collibra_ids
 
 community = configs.get('community')
 community_id = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/communities", params = {'name': community}, auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
+data_dict_domain = configs.get('data_dict_domain')
+domain_id = json.loads(requests.get(
+    configs.get('collibra dgc') + "/rest/2.0/domains", 
+    params = {'name': data_dict_domain.get('name'), 'communityId': community_id}, 
+    auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
+
+ctx = context()
+ctx.enable_token_auth(token_str=configs.get('token'))
 
 # makes /tags/asset/{asset id} REST call
 def get_tags(asset_id):
@@ -38,33 +46,49 @@ def create_tags(attribute_values):
             attributes.append(name)
         return attributes
 
+elements = []
 # pyokera calls
-ctx = context()
-ctx.enable_token_auth(token_str=configs.get('token'))
-with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-    databases = conn.list_databases()
-    elements = []
-    #conn.execute_ddl("CREATE EXTERNAL TABLE okera_sample.users_test (uid STRING COMMENT 'Unique user id', dob STRING COMMENT 'Formatted as DD-month-YY', gender STRING, ccn STRING COMMENT 'Sensitive data, should not be accessible without masking.') COMMENT 'Okera sample dataset.' STORED AS PARQUET LOCATION 'file:/opt/data/users'")
-    for database in databases:
-        tables = conn.list_datasets(database)
-        if tables:
-            element = {'database': database, 'tables': tables}
+def pyokera_calls(asset_name=None):
+    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+        databases = conn.list_databases()
+        if asset_name:
+            tables = conn.list_datasets(asset_name)
+            if tables:
+                element = {'database': asset_name, 'tables': tables}
+            else:
+                element = {'database': asset_name}
+            elements.append(element)
         else:
-            element = {'database': database}
-        elements.append(element)
+            for database in databases:
+                tables = conn.list_datasets(database)
+                if tables:
+                    element = {'database': database, 'tables': tables}
+                else:
+                    element = {'database': database}
+                elements.append(element) 
+
 update_elements = []
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
-
 # gets assets and their tags from collibra
-params = {
-    'name': "marketing",
-    'nameMatchMode': "ANYWHERE",
-    'simulation': False,
-    'communityId': community_id
-    }
-data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
-for d in data.get('results'):
-    update_elements.append({'name': d.get('name'), 'display name': d.get('displayName'), 'description': get_attributes(d.get('id')), 'type': d.get('type').get('name'), 'domain': d.get('domain').get('name'), 'status': d.get('status').get('name'), 'tags': get_tags(d.get('id'))})
+def collibra_calls(asset_name=None):
+    if asset_name:
+        params = {
+            'name': asset_name,
+            'nameMatchMode': "ANYWHERE",
+            'simulation': False,
+            'domainId': domain_id,
+            'communityId': community_id
+            }
+    else:
+        params = {
+            'simulation': False,
+            'domainId': domain_id,
+            'communityId': community_id
+            }   
+    data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    for d in data.get('results'):
+        update_elements.append({'name': d.get('name'), 'display name': d.get('displayName'), 'description': get_attributes(d.get('id')), 'type': d.get('type').get('name'), 'domain': d.get('domain').get('name'), 'status': d.get('status').get('name'), 'tags': get_tags(d.get('id'))})
+
 def find_info(name, info):
     for ue in update_elements:
         if ue.get('name') == name:
@@ -102,43 +126,61 @@ def desc_actions(name, type, col_type, description):
         elif type == "View":
             conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
 
-for element in elements:
-    if element.get('database') == "marketing":
-        # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
-        # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
-        for t in element.get('tables'):
-            tab_name = t.db[0] + "." + t.name
-            collibra_tab_tags = find_info(tab_name, "tags")
-            okera_tab_tags = create_tags(t.attribute_values)
-            if okera_tab_tags and collibra_tab_tags:
-                if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
-                    tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+def export(asset_name=None, asset_type=None):
+    pyokera_calls(asset_name)
+    collibra_calls(asset_name)
+    for element in elements:
+        if element.get('database') == asset_name:
+            # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
+            # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
+            for t in element.get('tables'):
+                tab_name = t.db[0] + "." + t.name
+                collibra_tab_tags = find_info(tab_name, "tags")
+                okera_tab_tags = create_tags(t.attribute_values)
+                if okera_tab_tags and collibra_tab_tags:
+                    if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
+                        tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+                        tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
+                elif collibra_tab_tags and not okera_tab_tags:
                     tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
-            elif collibra_tab_tags and not okera_tab_tags:
-                tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
-            elif okera_tab_tags and not collibra_tab_tags:
-                tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
-            collibra_tab_desc = find_info(tab_name, "description")
-            okera_tab_desc = t.description
-            type = "View" if t.primary_storage == "VIEW" else "Table"
-            if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
-                desc_actions(tab_name, type, None, collibra_tab_desc)        
-            # begin of column loop: same functionality as table loop
-            for col in t.schema.cols:
-                col_name = tab_name + "." + col.name
-                collibra_col_tags = find_info(col_name, "tags")
-                okera_col_tags = create_tags(col.attribute_values)
-                if okera_col_tags and collibra_col_tags:
-                    if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
-                        tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+                elif okera_tab_tags and not collibra_tab_tags:
+                    tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+                collibra_tab_desc = find_info(tab_name, "description")
+                okera_tab_desc = t.description
+                type = "View" if t.primary_storage == "VIEW" else "Table"
+                if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
+                    desc_actions(tab_name, type, None, collibra_tab_desc)        
+                # begin of column loop: same functionality as table loop
+                for col in t.schema.cols:
+                    col_name = tab_name + "." + col.name
+                    collibra_col_tags = find_info(col_name, "tags")
+                    okera_col_tags = create_tags(col.attribute_values)
+                    if okera_col_tags and collibra_col_tags:
+                        if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
+                            tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+                            tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
+                    elif collibra_col_tags and not okera_col_tags:
                         tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
-                elif collibra_col_tags and not okera_col_tags:
-                    tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
-                elif okera_col_tags and not collibra_col_tags:
-                    tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
-                collibra_col_desc = find_info(col_name, "description")
-                okera_col_desc = col.comment
-                if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
-                    desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc)
+                    elif okera_col_tags and not collibra_col_tags:
+                        tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+                    collibra_col_desc = find_info(col_name, "description")
+                    okera_col_desc = col.comment
+                    if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
+                        desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc)
 
 # TODO get attributes in bulk and match them up to their asset using ID
+
+which_asset = input("Please enter the full name the asset you wish to update: ")
+which_type = input("Is this asset of the type Database or Table? ")
+
+if which_asset and which_type:
+    export(which_asset, which_type)
+    print("Export complete!")
+elif which_asset and not which_type:
+    while not which_type:
+        which_type = input("The asset type is required: ")
+    export(which_asset, which_type)
+    print("Export complete!")
+elif not which_asset and not which_type:
+    export()
+    print("Export complete!")

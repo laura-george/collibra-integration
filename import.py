@@ -82,46 +82,59 @@ def find_asset_type_id(asset_type):
     for x in db.asset_ids.find({'name': asset_type}):
         return x.get('id')    
 
+
+assets = []
 # pyokera calls
-ctx = context()
-ctx.enable_token_auth(token_str=configs.get('token'))
-with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-    # creates an Asset object for each database, table and column in Okera and adds it to the list assets[]
-    databases = conn.list_databases()
-    assets = []
-    for d in databases:
-        tables = conn.list_datasets(d)
-        assets.append(Asset(d, "Database"))
-        if tables:
-            for t in tables:
-                assets.append(Asset(
-                    escape(t.db[0] + "." + t.name),
-                    "Table",
-                    None,
-                    None, 
-                    escape(t.name), 
-                    {'Name': escape(t.db[0]), 'Type': "Database"},
-                    {'Description': escape(t.description) if t.description else None, 
-                    'Location': escape(t.location) if t.location else None},
-                    None, 
-                    create_tags(t.attribute_values)
-                    ))
-                for col in t.schema.cols:
+def pyokera_calls(asset_name=None, asset_type=None):
+    ctx = context()
+    ctx.enable_token_auth(token_str=configs.get('token'))
+    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+        # creates an Asset object for each database, table and column in Okera and adds it to the list assets[]
+        databases = conn.list_databases()
+        def set_tables():
+            if tables:
+                for t in tables:
                     assets.append(Asset(
-                        escape(t.db[0] + "." + t.name + "." + col.name),
-                        "Column",
+                        escape(t.db[0] + "." + t.name),
+                        "Table",
                         None,
-                        None,
-                        escape(col.name),
-                        {'Name': escape(t.db[0] + "." + t.name), 'Type': "Table"},
-                        {'Description': escape(col.comment) if col.comment else None},
-                        None,
-                        create_tags(col.attribute_values)
-                    ))
+                        None, 
+                        escape(t.name), 
+                        {'Name': escape(t.db[0]), 'Type': "Database"},
+                        {'Description': escape(t.description) if t.description else None, 
+                        'Location': escape(t.location) if t.location else None},
+                        None, 
+                        create_tags(t.attribute_values)
+                        ))
+                    for col in t.schema.cols:
+                        assets.append(Asset(
+                            escape(t.db[0] + "." + t.name + "." + col.name),
+                            "Column",
+                            None,
+                            None,
+                            escape(col.name),
+                            {'Name': escape(t.db[0] + "." + t.name), 'Type': "Table"},
+                            {'Description': escape(col.comment) if col.comment else None},
+                            None,
+                            create_tags(col.attribute_values)
+                        ))
+        if asset_name and asset_type == "Database":
+            tables = conn.list_datasets(asset_name)
+            assets.append(Asset(asset_name, "Database"))
+            set_tables()
+        elif asset_name and asset_type == "Table":
+            tables = conn.list_datasets(asset_name.rsplit('.', 1)[0])
+            assets.append(Asset(asset_name.rsplit('.', 1)[0], "Database"))
+            set_tables()
+        elif not asset_name and not asset_type:
+            for d in databases:
+                tables = conn.list_datasets(d)
+                assets.append(Asset(d, "Database"))
+                set_tables()
 
 # finds Asset objects from Okera in assets[], adds asset type id to object
 # used to find assets and their relations, e.g. get_okera_assets("default", "Database") returns the Asset objects for default and all it's tables (default.okera_sample, default. ...)
-def get_okera_assets(name, asset_type):
+def get_okera_assets(name=None, asset_type=None):
     okera_assets = []
     for a in assets:
         if name:
@@ -132,10 +145,6 @@ def get_okera_assets(name, asset_type):
             a.asset_type_id = find_asset_type_id(a.asset_type)
             okera_assets.append(a)
     return okera_assets
-
-asset_params = []
-attribute_params = []
-relation_params = []
 
 # gets assets and their children from Collibra
 def get_assets(asset_name=None, asset_type=None, with_children=True):
@@ -209,14 +218,19 @@ def set_relations(asset):
         }
 
 def update(asset_name=None, asset_type=None):
+    pyokera_calls(asset_name, asset_type)
+
     collibra_assets = []
     update_attr = []
+    deleted_attr = []
+    import_attr = []
     import_params = []
     import_assets = []
     deleted_assets = []
     deleted_params = []
     relation_params = []
     attr_params = []
+    # TODO add tags here, import & update
     for ua in get_assets(asset_name, asset_type):
         asset = Asset(
             ua.get('name'),
@@ -238,8 +252,16 @@ def update(asset_name=None, asset_type=None):
 
         if asset.attributes and matched_attr:
             for key in asset.attributes:
-                if asset.attributes[key] != matched_attr[key]:
+                if matched_attr[key] != None and asset.attributes[key] != matched_attr[key]:
                     update_attr.append({'id': asset.attribute_ids[key], 'value': matched_attr[key]})
+                elif matched_attr[key] == None:
+                    deleted_attr.append(asset.attribute_ids[key])
+        elif matched_attr and not asset.attributes:
+            for key in matched_attr:
+                if matched_attr[key] != None:
+                    for a in get_okera_assets(asset.name, asset.asset_type):
+                        a.asset_id = asset.asset_id
+                        import_attr.append(set_attributes(a)[0])
 
     for new_asset in [obj for obj in get_okera_assets(asset_name, asset_type) if obj not in collibra_assets]:
         import_assets.append(new_asset)
@@ -257,26 +279,29 @@ def update(asset_name=None, asset_type=None):
             for i in import_response:
                 if i.get('name') == a.name:
                     a.asset_id = i.get('id')
-            relation_params.append(set_relations(a))
+            if set_relations(a): relation_params.append(set_relations(a))
             if set_attributes(a):
                 for attr in set_attributes(a):
                     attr_params.append(attr)
         collibra_get(attr_params, "attributes/bulk", "post")
         collibra_get(relation_params, "relations/bulk", "post")
 
-    if update_attr:
-       collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
+    if update_attr: collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
+    if deleted_attr: collibra_get(deleted_attr, "attributes/bulk", "delete")
+    if import_attr: collibra_get(import_attr, "attributes/bulk", "post")
 
 # TODO add try except block
-#which_asset = input("Please enter the name the asset you wish to update: ")
-#which_type = input("Is this asset of the type Database or Table? ")
-update()
+which_asset = input("Please enter the full name the asset you wish to update: ")
+which_type = input("Is this asset of the type Database or Table? ")
 
-
-""" for a in get_assets():
-    if which_asset == a.get('name'):
-        print("ASSET FOUND")
-        break
-    else:
-        print('Asset not found!')
-        print(a.get('name')) """
+if which_asset and which_type:
+    update(which_asset, which_type)
+    print("Update complete!")
+elif which_asset and not which_type:
+    while not which_type:
+        which_type = input("The asset type is required: ")
+    update(which_asset, which_type)
+    print("Update complete!")
+elif not which_asset and not which_type:
+    update()
+    print("Update complete!")
