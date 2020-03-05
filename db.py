@@ -9,6 +9,7 @@ relation_ids= collibra_ids["relation_ids"]
 asset_ids = collibra_ids["asset_ids"]
 domain_ids = collibra_ids["domain_ids"]
 attribute_ids = collibra_ids["attribute_ids"]
+status_ids = collibra_ids["status_ids"]
 
 domains = [
   { "name": "Business Asset Domain", "id": "00000000-0000-0000-0000-000000030002"},
@@ -187,12 +188,38 @@ attributes = [
     {"name": "Location", "id": "00000000-0000-0000-0000-000000000203"}
 ]
 
+statuses = [
+    {"name": "Accepted", "id": "00000000-0000-0000-0000-000000005009"},
+    {"name": "Access Granted", "id": "00000000-0000-0000-0000-000000005024"},
+    {"name": "Approval Pending", "id": "00000000-0000-0000-0000-000000005023"},
+    {"name": "Approved", "id": "00000000-0000-0000-0000-000000005025"},
+    {"name": "Candidate", "id": "00000000-0000-0000-0000-000000005008"},
+    {"name": "Deployed", "id": "00000000-0000-0000-0000-000000005053"},
+    {"name": "Disabled", "id": "00000000-0000-0000-0000-000000005052"},
+    {"name": "Enabled", "id": "00000000-0000-0000-0000-000000005051"},
+    {"name": "Implemented", "id": "00000000-0000-0000-0000-000000005055"},
+    {"name": "In Progress", "id": "00000000-0000-0000-0000-000000005019"},
+    {"name": "Invalid", "id": "00000000-0000-0000-0000-000000005022"},
+    {"name": "Monitored", "id": "00000000-0000-0000-0000-000000005054"},
+    {"name": "New", "id": "00000000-0000-0000-0000-000000005058"},
+    {"name": "Obsolete", "id": "00000000-0000-0000-0000-000000005011"},
+    {"name": "Pending", "id": "00000000-0000-0000-0000-000000005059"},
+    {"name": "Rejected", "id": "00000000-0000-0000-0000-000000005010"},
+    {"name": "Resolution Pending", "id": "00000000-0000-0000-0000-000000005056"},
+    {"name": "Resolved", "id": "00000000-0000-0000-0000-000000005057"},
+    {"name": "Reviewed", "id": "00000000-0000-0000-0000-000000005021"},
+    {"name": "Submitted for Approval", "id": "00000000-0000-0000-0000-000000005060"},
+    {"name": "Under Review", "id": "00000000-0000-0000-0000-000000005020"}
+]
+
 domain_ids.drop()
 asset_ids.drop()
 relation_ids.drop()
 attribute_ids.drop()
+status_ids.drop()
 
 domain_ids.insert_many(domains)
 asset_ids.insert_many(assets)
 relation_ids.insert_many(relations)
 attribute_ids.insert_many(attributes)
+status_ids.insert_many(statuses)

@@ -170,7 +170,7 @@ def export(asset_name=None, asset_type=None):
 
 # TODO get attributes in bulk and match them up to their asset using ID
 
-which_asset = input("Please enter the full name the asset you wish to update: ")
+which_asset = input("Please enter the full name the asset you wish to export: ")
 which_type = input("Is this asset of the type Database or Table? ")
 
 if which_asset and which_type:
