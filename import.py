@@ -23,6 +23,7 @@ domain_id = json.loads(requests.get(
     auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('results')[0].get('id')
 tech_asset_domain = configs.get('tech_asset_domain')
 domain_info = [data_dict_domain, tech_asset_domain]
+type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
 class Asset:
     def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, attributes=None, attribute_ids=None, tags=None):
@@ -61,16 +62,30 @@ def find_okera_info(name, info):
 # builds collibra request
 def collibra_get(param_obj, call, method, header=None):
     if method == 'get':
-        return getattr(requests, method)(
+        try: 
+            data = getattr(requests, method)(
             configs.get('collibra dgc') + "/rest/2.0/" + call, 
             params=param_obj, 
-            auth=(configs.get('collibra username'), configs.get('collibra password'))).content
+            auth=(configs.get('collibra username'), configs.get('collibra password')))
+            data.raise_for_status()
+        except requests.exceptions.HTTPError as e: 
+            print("Failed request: " + str(param_obj))
+            print("Error: ", e)
+            print("Response: " + str(data.content))
+        return data.content
     else:
-        return getattr(requests, method)(
+        try: 
+            data = getattr(requests, method)(
             configs.get('collibra dgc') + "/rest/2.0/" + call,
             headers=header, 
             json=param_obj, 
-            auth=(configs.get('collibra username'), configs.get('collibra password'))).content
+            auth=(configs.get('collibra username'), configs.get('collibra password')))    
+            data.raise_for_status()
+        except requests.exceptions.RequestException as e:
+            print("Failed request: " + str(param_obj))
+            print("Error: ", e)
+            print("Response: " + str(data.content))
+        return data.content
 
 # MongoDB find functions
 def find_relation_id(asset1, asset2):
@@ -103,7 +118,7 @@ def pyokera_calls(asset_name=None, asset_type=None):
                         escape(t.db[0] + "." + t.name),
                         "Table",
                         None,
-                        None, 
+                        t.metadata.get('collibra_asset_id') if t.metadata.get('collibra_asset_id') else None, 
                         escape(t.name), 
                         {'Name': escape(t.db[0]), 'Type': "Database"},
                         {'Description': escape(t.description) if t.description else None, 
@@ -118,14 +133,13 @@ def pyokera_calls(asset_name=None, asset_type=None):
                             None,
                             None,
                             escape(col.name),
-                            {'Name': escape(t.db[0] + "." + t.name), 'Type': "Table"},
-                            {'Description': escape(col.comment) if col.comment else None},
+                            {'Name': escape(t.db[0] + "." + t.name), 'id': t.metadata.get('collibra_asset_id'), 'Type': "Table"},
+                            {'Description': escape(col.comment) if col.comment else None}, # 'Technical Data Type': type_ids[col.type.type_id]},
                             None,
                             create_tags(col.attribute_values)
                         ))
         if asset_name and asset_type == "Database":
             tables = conn.list_datasets(asset_name)
-            print(tables)
             assets.append(Asset(asset_name, "Database"))
             set_tables()
         elif asset_name and asset_type == "Table":
@@ -162,7 +176,10 @@ def set_sync_time(name, asset_type):
 
 
 # gets assets and their children from Collibra
-def get_assets(asset_name=None, asset_type=None, with_children=True):
+def get_assets(asset_id=None, asset_name=None, asset_type=None, with_children=True):
+    if asset_id:
+        collibra_get(None, "assets/" + asset_id, "get")
+        asset_name = collibra_get(None, "assets/" + asset_id, "get").get('name')
     parent_param = {
         'name': asset_name,
         'nameMatchMode': "EXACT",
@@ -221,6 +238,7 @@ def set_attributes(asset):
 
         if asset.attributes.get('Description'): group_attributes('Description')
         if asset.attributes.get('Location'): group_attributes('Location')
+        #if asset.attributes.get('Technical Data Type'): group_attributes('Technical Data Type')
         return attribute_params
 
 # sets the parameters for /relations Collibra call
@@ -228,8 +246,8 @@ def set_relations(asset):
     if asset.relation:
         relation_info = find_relation_id(asset.asset_type, asset.relation.get('Type'))
         return {
-            'sourceId': asset.asset_id if asset.asset_type == relation_info.get('head') else get_assets(asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
-            'targetId': asset.asset_id if asset.asset_type == relation_info.get('tail') else get_assets(asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
+            'sourceId': asset.asset_id if asset.asset_type == relation_info.get('head') else get_assets(None, asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
+            'targetId': asset.asset_id if asset.asset_type == relation_info.get('tail') else get_assets(None, asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
             'typeId': relation_info.get('id')
         }
 
@@ -248,7 +266,7 @@ def update(asset_name=None, asset_type=None):
     mapping_params = []
     attr_params = []
     # TODO add tags here, import & update
-    for ua in get_assets(asset_name, asset_type):
+    for ua in get_assets(None, asset_name, asset_type):
         asset = Asset(
             ua.get('name'),
             ua.get('type').get('name'),
@@ -271,26 +289,71 @@ def update(asset_name=None, asset_type=None):
             for key in asset.attributes:
                 if key in matched_attr:
                     if matched_attr[key] != None and asset.attributes[key] != matched_attr[key]:
-                        update_attr.append({'id': asset.attribute_ids[key], 'value': matched_attr[key]})
+                        collibra_get({'id': asset.attribute_ids[key], 'value': matched_attr[key]}, "attributes", "post", {'X-HTTP-Method-Override': "PATCH"})
+                        set_sync_time(asset.name, asset.asset_type)
+                        #update_attr.append({'id': asset.attribute_ids[key], 'value': matched_attr[key]})
                     elif matched_attr[key] == None:
-                        deleted_attr.append(asset.attribute_ids[key])
+                        collibra_get(asset.attribute_ids[key], "attributes", "delete")
+                        set_sync_time(asset.name, asset.asset_type)
+                        #deleted_attr.append(asset.attribute_ids[key])
                 else:
                     #TODO create function here
                     for key in matched_attr:
                         if matched_attr[key] != None:
                             for a in get_okera_assets(asset.name, asset.asset_type):
                                 a.asset_id = asset.asset_id
-                                import_attr.append(set_attributes(a)[0])
+                                collibra_get(set_attributes(a)[0], "attributes", "post")
+                                set_sync_time(asset.name, asset.asset_type)
+                                #import_attr.append(set_attributes(a)[0])
         elif matched_attr and not asset.attributes:
             for key in matched_attr:
                 if matched_attr[key] != None:
                     for a in get_okera_assets(asset.name, asset.asset_type):
                         a.asset_id = asset.asset_id
-                        import_attr.append(set_attributes(a)[0])
+                        collibra_get(set_attributes(a)[0], "attributes", "post")
+                        set_sync_time(asset.name, asset.asset_type)
+                        #import_attr.append(set_attributes(a)[0])
 
+    """ for new_asset in [obj for obj in get_okera_assets(asset_name, asset_type) if obj not in collibra_assets]:
+        import_assets.append(new_asset)
+        import_params.append(set_assets(new_asset)) """
+
+    for deleted_asset in [obj for obj in collibra_assets if obj not in get_okera_assets(asset_name, asset_type)]:
+        collibra_get(deleted_asset.asset_id, "assets", "delete")        
+        
+    for new_asset in [obj for obj in get_okera_assets(asset_name, asset_type) if obj not in collibra_assets]:
+        import_param = set_assets(new_asset)
+        import_response = json.loads(collibra_get(import_param, "assets", "post"))
+        print("Importing " + new_asset.name + "...")
+        set_sync_time(new_asset.name, new_asset.asset_type)
+        if import_response.get('name') == new_asset.name:
+            new_asset.asset_id = import_response.get('id')
+        if set_relations(new_asset):
+            collibra_get(set_relations(new_asset), "relations", "post")
+        if set_attributes(new_asset):
+            for attr in set_attributes(new_asset):
+                collibra_get(attr, "attributes", "post")
+                attr_params.append(attr)
+        set_sync_time(new_asset.name, new_asset.asset_type)
+        mapping_param = {
+            "id": new_asset.asset_id,
+            "externalSystemId": "okera",
+            "externalEntityId": new_asset.name,
+            "mappedResourceId": new_asset.asset_id,
+            "lastSyncDate": 0,
+            "syncAction": "ADD"
+        }
+        if new_asset.tags:
+            tag_params = {'tagNames': new_asset.tags}
+            collibra_get(tag_params, "assets/" + new_asset.asset_id + "/tags", "post")
+        set_tblproperties(new_asset.name, new_asset.asset_type, "collibra_asset_id", new_asset.asset_id)
+
+    # updates tags for assets that exist
+    for asset in collibra_assets:
         collibra_tags = []
         for tag in json.loads(collibra_get(None, "assets/" + asset.asset_id + "/tags", "get")):
             collibra_tags.append(tag.get('name'))
+            find_okera_info(asset.name, "tags")
         tag_params = {'tagNames': find_okera_info(asset.name, "tags")}
         if find_okera_info(asset.name, "tags") and not collibra_tags:
             collibra_get(tag_params, "assets/" + asset.asset_id + "/tags", "post")
@@ -303,44 +366,8 @@ def update(asset_name=None, asset_type=None):
             collibra_get(tag_params, "assets/" + asset.asset_id + "/tags", "delete")
             set_sync_time(asset.name, asset.asset_type)
 
-    for new_asset in [obj for obj in get_okera_assets(asset_name, asset_type) if obj not in collibra_assets]:
-        import_assets.append(new_asset)
-        import_params.append(set_assets(new_asset))
-
-    for deleted_asset in [obj for obj in collibra_assets if obj not in get_okera_assets(asset_name, asset_type)]:
-        deleted_assets.append(deleted_asset.asset_id)
-    
-    if deleted_assets:
-        collibra_get(deleted_assets, "assets/bulk", "delete")
-        
-    if import_assets:
-        import_response = json.loads(collibra_get(import_params, "assets/bulk", "post"))
-        for a in import_assets:
-            set_sync_time(a.name, a.asset_type)
-            for i in import_response:
-                if i.get('name') == a.name:
-                    a.asset_id = i.get('id')
-            if set_relations(a): relation_params.append(set_relations(a))
-            if set_attributes(a):
-                for attr in set_attributes(a):
-                    attr_params.append(attr)
-            mapping_param = {
-                "id": a.asset_id,
-                "externalSystemId": "okera",
-                "externalEntityId": a.name,
-                "mappedResourceId": a.asset_id,
-                "lastSyncDate": 0,
-                "syncAction": "ADD"
-            }
-            set_tblproperties(a.name, a.asset_type, "collibra_asset_id", a.asset_id)
-
-        collibra_get(attr_params, "attributes/bulk", "post")
-        collibra_get(relation_params, "relations/bulk", "post")
-        set_sync_time(asset.name, asset.asset_type)
-        #create MAPPINGS here
-
     # TODO use mappings to find correct asset id
-    if update_attr: 
+    """ if update_attr: 
         collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
         set_sync_time(asset.name, asset.asset_type)
     if deleted_attr: 
@@ -348,7 +375,7 @@ def update(asset_name=None, asset_type=None):
         set_sync_time(asset.name, asset.asset_type)
     if import_attr: 
         collibra_get(import_attr, "attributes/bulk", "post")
-        set_sync_time(asset.name, asset.asset_type)
+        set_sync_time(asset.name, asset.asset_type) """
 
 # TODO add try except block
 which_asset = input("Please enter the full name the asset you wish to update: ")
