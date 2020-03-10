@@ -326,7 +326,6 @@ def update(asset_name=None, asset_type=None, asset_id=None):
             attribute_ids.update({attr.get('type').get('name'): attr.get('id')})
         asset.attributes = attributes
         asset.attribute_ids = attribute_ids
-        print(matched_attr)
         update_attr = []
         import_attr = []
         delete_attr = []
