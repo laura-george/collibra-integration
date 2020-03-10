@@ -1,6 +1,8 @@
 import json
 import requests
+import thriftpy
 import datetime
+import sys
 from okera import context
 from pymongo import MongoClient
 from config import configs
@@ -26,13 +28,14 @@ domain_info = [data_dict_domain, tech_asset_domain]
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
 class Asset:
-    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, attributes=None, attribute_ids=None, tags=None):
+    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, children=None, attributes=None, attribute_ids=None, tags=None):
         self.name = name
         self.asset_type = asset_type
         self.asset_type_id = asset_type_id
         self.asset_id = asset_id
         self.displayName = displayName
         self.relation = relation
+        self.children = children
         self.attributes = attributes
         self.attribute_ids = attribute_ids
         self.tags = tags
@@ -47,11 +50,14 @@ def escape(string): return(json.dumps(string)[1:-1])
 # creates list of tags of one asset as namespace.key
 def create_tags(attribute_values):
     attributes = []
+    no_duplicates = []
     if attribute_values:
         for attribute in attribute_values:
             name = attribute.attribute.attribute_namespace + "." + attribute.attribute.key 
             attributes.append(name)
-        return attributes
+        for attr in list(dict.fromkeys(attributes)):
+            no_duplicates.append(attr)
+        return no_duplicates
 
 # finds assetID in list of assets from Okera (for finding assetID of relations)
 def find_okera_info(name, info):
@@ -106,42 +112,61 @@ def find_status_id(name):
 
 
 assets = []
+okera_tables = []
 # pyokera calls
 def pyokera_calls(asset_name=None, asset_type=None):
-    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-        # creates an Asset object for each database, table and column in Okera and adds it to the list assets[]
+    try:
+        conn = ctx.connect(host = configs.get('host'), port = configs.get('port'))
+    except thriftpy.transport.TTransportException as e:
+        print("Could not connect to Okera!")
+        print("Error: ", e)
+        sys.exit(1)
+    # creates an Asset object for each database, table and column in Okera and adds it to the list assets[]
+    with conn:
         databases = conn.list_databases()
         def set_tables():
             if tables:
                 for t in tables:
-                    assets.append(Asset(
+                    okera_columns = []
+                    table = Asset(
                         escape(t.db[0] + "." + t.name),
                         "Table",
                         None,
                         t.metadata.get('collibra_asset_id') if t.metadata.get('collibra_asset_id') else None, 
                         escape(t.name), 
                         {'Name': escape(t.db[0]), 'Type': "Database"},
+                        None,
                         {'Description': escape(t.description) if t.description else None, 
                         'Location': escape(t.location) if t.location else None},
                         None, 
                         create_tags(t.attribute_values)
-                        ))
+                        )
                     for col in t.schema.cols:
-                        assets.append(Asset(
+                        column = Asset(
                             escape(t.db[0] + "." + t.name + "." + col.name),
                             "Column",
                             None,
                             None,
                             escape(col.name),
                             {'Name': escape(t.db[0] + "." + t.name), 'id': t.metadata.get('collibra_asset_id'), 'Type': "Table"},
+                            None,
                             {'Description': escape(col.comment) if col.comment else None}, # 'Technical Data Type': type_ids[col.type.type_id]},
                             None,
                             create_tags(col.attribute_values)
-                        ))
+                        )
+                        assets.append(column)
+                        okera_columns.append(column)
+                    table.children = okera_columns
+                    assets.append(table)
+                    table.children = okera_columns
+                    okera_tables.append(table)
+                #db.children = tab_children
+
         if asset_name and asset_type == "Database":
             tables = conn.list_datasets(asset_name)
-            assets.append(Asset(asset_name, "Database"))
+            db = Asset(name=asset_name, asset_type="Database")
             set_tables()
+            assets.append(db)
         elif asset_name and asset_type == "Table":
             tables = conn.list_datasets(asset_name.rsplit('.', 1)[0])
             assets.append(Asset(asset_name.rsplit('.', 1)[0], "Database"))
@@ -152,13 +177,21 @@ def pyokera_calls(asset_name=None, asset_type=None):
                 assets.append(Asset(d, "Database"))
                 set_tables()
 
+# ENTERING TABLE HERE DOESNT RETURN RIGHT TABLES??
+#pyokera_calls("default", "Database")
+
 # finds Asset objects from Okera in assets[], adds asset type id to object
 # used to find assets and their relations, e.g. get_okera_assets("default", "Database") returns the Asset objects for default and all it's tables (default.okera_sample, default. ...)
-def get_okera_assets(name=None, asset_type=None):
+def get_okera_assets(name=None, asset_type=None, asset_id=None):
+    # if name, then column or database, if id then table
     okera_assets = []
     for a in assets:
         if name:
             if a.name == name and a.asset_type == asset_type or a.name.startswith(name + ".") :
+                a.asset_type_id = find_asset_type_id(a.asset_type)
+                okera_assets.append(a)
+        elif asset_id:
+            if a.asset_id == asset_id and a.asset_type == asset_type:
                 a.asset_type_id = find_asset_type_id(a.asset_type)
                 okera_assets.append(a)
         else:
@@ -176,19 +209,10 @@ def set_sync_time(name, asset_type):
 
 
 # gets assets and their children from Collibra
-def get_assets(asset_id=None, asset_name=None, asset_type=None, with_children=True):
-    if asset_id:
-        collibra_get(None, "assets/" + asset_id, "get")
-        asset_name = collibra_get(None, "assets/" + asset_id, "get").get('name')
-    parent_param = {
-        'name': asset_name,
-        'nameMatchMode': "EXACT",
-        'domainId': domain_id,
-        'communityId': community_id,
-        'typeId': find_asset_type_id(asset_type)
-        }
-    parent = json.loads(collibra_get(parent_param, "assets", "get")).get('results')
 
+#
+# USE ASSET ID INSTEAD OF NAME HERE!!! differentiate between Tables and columns ///// done but untested
+def get_assets(asset_id=None, asset_name=None, asset_type=None, with_children=True):
     def find_children(name, child_type):
         child_param = {
             'name': name + ".",
@@ -199,12 +223,32 @@ def get_assets(asset_id=None, asset_name=None, asset_type=None, with_children=Tr
             }
         return json.loads(collibra_get(child_param, "assets", "get")).get('results')
 
-    if asset_name:
-        if with_children:
-            if asset_type == 'Table':
-                return parent + find_children(asset_name, 'Column')
-            elif asset_type == 'Database':
-                return parent + find_children(asset_name, 'Table') + find_children(asset_name, 'Column')
+    if asset_id and asset_type == "Table":
+        #finds name of asset from asset id
+        asset_name = collibra_get(None, "assets/" + asset_id, "get").get('name')
+        parent_param = {
+            'name': asset_name,
+            'nameMatchMode': "EXACT",
+            'domainId': domain_id,
+            'communityId': community_id,
+            'typeId': find_asset_type_id(asset_type)
+            }
+        parent = json.loads(collibra_get(parent_param, "assets", "get")).get('results')
+
+        if with_children: return parent + find_children(asset_name, 'Column')
+        else: return parent
+
+    elif asset_name and asset_type == "Column" or asset_type == "Database":
+        parent_param = {
+            'name': asset_name,
+            'nameMatchMode': "EXACT",
+            'domainId': domain_id,
+            'communityId': community_id,
+            'typeId': find_asset_type_id(asset_type)
+            }
+        parent = json.loads(collibra_get(parent_param, "assets", "get")).get('results')
+        
+        if with_children: return parent + find_children(asset_name, 'Table') + find_children(asset_name, 'Column')
         else: return parent
 
     else:
@@ -251,22 +295,18 @@ def set_relations(asset):
             'typeId': relation_info.get('id')
         }
 
-def update(asset_name=None, asset_type=None):
+#group together tables and their columns and iterate over list and call update()
+def update(asset_name=None, asset_type=None, asset_id=None):
     pyokera_calls(asset_name, asset_type)
-
     collibra_assets = []
-    update_attr = []
-    deleted_attr = []
-    import_attr = []
     import_params = []
-    import_assets = []
     deleted_assets = []
     deleted_params = []
     relation_params = []
     mapping_params = []
     attr_params = []
-    # TODO add tags here, import & update
-    for ua in get_assets(None, asset_name, asset_type):
+    # TODO switch out name for id
+    for ua in get_assets(asset_id, asset_name, asset_type):
         asset = Asset(
             ua.get('name'),
             ua.get('type').get('name'),
@@ -275,48 +315,52 @@ def update(asset_name=None, asset_type=None):
             ua.get('displayName')
         )
         collibra_assets.append(asset)
+        print("Updating " + asset.name + "...")
         attributes = {}
         attribute_ids = {}
         attribute = json.loads(collibra_get({'assetId': asset.asset_id}, "attributes", "get")).get('results')
+        # TODO change to asset id not asset name !!
         matched_attr = find_okera_info(asset.name, "attributes")
         for attr in attribute:
             attributes.update({attr.get('type').get('name'): attr.get('value')})
             attribute_ids.update({attr.get('type').get('name'): attr.get('id')})
         asset.attributes = attributes
         asset.attribute_ids = attribute_ids
-
+        print(matched_attr)
+        update_attr = []
+        import_attr = []
+        delete_attr = []
         if asset.attributes and matched_attr:
             for key in asset.attributes:
                 if key in matched_attr:
                     if matched_attr[key] != None and asset.attributes[key] != matched_attr[key]:
-                        collibra_get({'id': asset.attribute_ids[key], 'value': matched_attr[key]}, "attributes", "post", {'X-HTTP-Method-Override': "PATCH"})
-                        set_sync_time(asset.name, asset.asset_type)
-                        #update_attr.append({'id': asset.attribute_ids[key], 'value': matched_attr[key]})
+                        print("mismatch")
+                        update_attr.append({'id': asset.attribute_ids[key], 'value': matched_attr[key]})
                     elif matched_attr[key] == None:
-                        collibra_get(asset.attribute_ids[key], "attributes", "delete")
-                        set_sync_time(asset.name, asset.asset_type)
-                        #deleted_attr.append(asset.attribute_ids[key])
+                        delete_attr.append(asset.attribute_ids[key])
                 else:
                     #TODO create function here
                     for key in matched_attr:
                         if matched_attr[key] != None:
                             for a in get_okera_assets(asset.name, asset.asset_type):
                                 a.asset_id = asset.asset_id
-                                collibra_get(set_attributes(a)[0], "attributes", "post")
-                                set_sync_time(asset.name, asset.asset_type)
-                                #import_attr.append(set_attributes(a)[0])
+                                import_attr.append(set_attributes(a)[0])
         elif matched_attr and not asset.attributes:
             for key in matched_attr:
                 if matched_attr[key] != None:
                     for a in get_okera_assets(asset.name, asset.asset_type):
                         a.asset_id = asset.asset_id
-                        collibra_get(set_attributes(a)[0], "attributes", "post")
-                        set_sync_time(asset.name, asset.asset_type)
-                        #import_attr.append(set_attributes(a)[0])
+                        import_attr.append(set_attributes(a)[0])
 
-    """ for new_asset in [obj for obj in get_okera_assets(asset_name, asset_type) if obj not in collibra_assets]:
-        import_assets.append(new_asset)
-        import_params.append(set_assets(new_asset)) """
+        if update_attr:
+            collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
+            set_sync_time(asset.name, asset.asset_type)
+        if delete_attr:
+            collibra_get(delete_attr, "attributes/bulk", "delete")
+            set_sync_time(asset.name, asset.asset_type)
+        if import_attr:
+            collibra_get(import_attr, "attributes/bulk", "post")
+            set_sync_time(asset.name, asset.asset_type)
 
     for deleted_asset in [obj for obj in collibra_assets if obj not in get_okera_assets(asset_name, asset_type)]:
         collibra_get(deleted_asset.asset_id, "assets", "delete")        
@@ -367,18 +411,20 @@ def update(asset_name=None, asset_type=None):
             set_sync_time(asset.name, asset.asset_type)
 
     # TODO use mappings to find correct asset id
-    """ if update_attr: 
-        collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
-        set_sync_time(asset.name, asset.asset_type)
-    if deleted_attr: 
-        collibra_get(deleted_attr, "attributes/bulk", "delete")
-        set_sync_time(asset.name, asset.asset_type)
-    if import_attr: 
-        collibra_get(import_attr, "attributes/bulk", "post")
-        set_sync_time(asset.name, asset.asset_type) """
+# what happens if i change display name in collibra? will full name stay the same??
+def update_all():
+    pyokera_calls()
+    for t in okera_tables:
+        if t.asset_id:
+            update(None, "Table", t.asset_id)
+            for c in t.children:
+                update(c.name, "Column")
+        else:
+            update(t.name, "Table")
+update_all()
 
 # TODO add try except block
-which_asset = input("Please enter the full name the asset you wish to update: ")
+""" which_asset = input("Please enter the full name the asset you wish to update: ")
 which_type = input("Is this asset of the type Database or Table? ")
 if which_asset and which_type:
     update(which_asset, which_type)
@@ -390,4 +436,8 @@ elif which_asset and not which_type:
     print("Update complete!")
 elif not which_asset and not which_type:
     update()
-    print("Update complete!")
+    print("Update complete!") """
+
+
+    #Databases don't need relations
+    # Update by iterating over tables and updating columns as well
