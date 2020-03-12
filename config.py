@@ -4,7 +4,7 @@ configs = {
  'collibra dgc': "https://okera.collibra.com:443",
  'collibra username': "Admin", 
  'collibra password': "Gac2Quencotdilo", 
- 'token': "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXDJJTyJigFw7THAiRhY.w6wsnxGs5F0ZJFlov8u7L_Q2oqg$", 
+ 'token': "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXDOU7k5igFw8mA9ORla.SWYOyadw0CDhqqRXYPMY0xB08z8$", 
  'host': "sandbox.demo.okera.com", 
  'port': 12050, 
  'community': "Okera3.0", 
