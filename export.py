@@ -87,7 +87,18 @@ def collibra_calls(asset_name=None):
             }   
     data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
     for d in data.get('results'):
-        update_elements.append({'name': d.get('name'), 'display name': d.get('displayName'), 'description': get_attributes(d.get('id')), 'type': d.get('type').get('name'), 'domain': d.get('domain').get('name'), 'status': d.get('status').get('name'), 'tags': get_tags(d.get('id'))})
+        update_elements.append({
+            'name': d.get('name'), 
+            'display name': d.get('displayName'),
+            'asset id': d.get('id'), 
+            'description': get_attributes(d.get('id')), 
+            'type': d.get('type').get('name'), 
+            'domain': d.get('domain').get('name'), 
+            'status': d.get('status').get('name'), 
+            'tags': get_tags(d.get('id'))
+            })
+        print(update_elements)
+        print(requests.get(configs.get('collibra dgc') + "/rest/2.0//mappings/externalSystem/okera/mappedResource/" + d.get('id'), auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
 
 def find_info(name, info):
     for ue in update_elements:
@@ -133,6 +144,7 @@ def export(asset_name=None, asset_type=None):
         if element.get('database') == asset_name:
             # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
             # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
+            # TODO take this loop out and make another function that loops
             for t in element.get('tables'):
                 tab_name = t.db[0] + "." + t.name
                 collibra_tab_tags = find_info(tab_name, "tags")
@@ -151,6 +163,7 @@ def export(asset_name=None, asset_type=None):
                 if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
                     desc_actions(tab_name, type, None, collibra_tab_desc)        
                 # begin of column loop: same functionality as table loop
+                # take this loop out too
                 for col in t.schema.cols:
                     col_name = tab_name + "." + col.name
                     collibra_col_tags = find_info(col_name, "tags")
@@ -170,7 +183,7 @@ def export(asset_name=None, asset_type=None):
 
 # TODO get attributes in bulk and match them up to their asset using ID
 
-which_asset = input("Please enter the full name the asset you wish to export: ")
+""" which_asset = input("Please enter the full name the asset you wish to export: ")
 which_type = input("Is this asset of the type Database or Table? ")
 
 if which_asset and which_type:
@@ -183,4 +196,4 @@ elif which_asset and not which_type:
     print("Export complete!")
 elif not which_asset and not which_type:
     export()
-    print("Export complete!")
+    print("Export complete!") """

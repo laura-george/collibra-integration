@@ -28,7 +28,7 @@ domain_info = [data_dict_domain, tech_asset_domain]
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
 class Asset:
-    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, children=None, attributes=None, attribute_ids=None, tags=None):
+    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, children=None, attributes=None, attribute_ids=None, tags=None, last_collibra_sync_time=None):
         self.name = name
         self.asset_type = asset_type
         self.asset_type_id = asset_type_id
@@ -39,6 +39,7 @@ class Asset:
         self.attributes = attributes
         self.attribute_ids = attribute_ids
         self.tags = tags
+        self.last_collibra_sync_time = last_collibra_sync_time
     def __eq__(self, other):
         return self.name == other.name
     def __str__(self):
@@ -137,6 +138,7 @@ def pyokera_calls(asset_name=None, asset_type=None):
             if tables:
                 for t in tables:
                     okera_columns = []
+                    print(t)
                     table = Asset(
                         escape(t.db[0] + "." + t.name),
                         "Table",
@@ -148,7 +150,8 @@ def pyokera_calls(asset_name=None, asset_type=None):
                         {'Description': escape(t.description) if t.description else None, 
                         'Location': escape(t.location) if t.location else None},
                         None, 
-                        create_tags(t.attribute_values)
+                        create_tags(t.attribute_values),
+                        t.metadata.get('last_collibra_sync_time')
                         )
                     for col in t.schema.cols:
                         column = Asset(
@@ -246,7 +249,7 @@ def set_sync_time(asset_id, asset_type):
 
 #
 # USE ASSET ID INSTEAD OF NAME HERE!!! differentiate between Tables and columns ///// done but untested
-def get_assets(asset_id=None, asset_name=None, asset_type=None, with_children=True):
+def get_assets(asset_id=None, asset_name=None, asset_type=None, with_children=False):
     def find_children(name, child_type):
         child_param = {
             'name': name + ".",
@@ -325,8 +328,8 @@ def set_relations(asset):
     if asset.relation:
         relation_info = find_relation_id(asset.asset_type, asset.relation.get('Type'))
         return {
-            'sourceId': asset.asset_id if asset.asset_type == relation_info.get('head') else get_assets(None, asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
-            'targetId': asset.asset_id if asset.asset_type == relation_info.get('tail') else get_assets(None, asset.relation.get('Name'), asset.relation.get('Type'), False)[0].get('id'),
+            'sourceId': asset.asset_id if asset.asset_type == relation_info.get('head') else get_assets(None, asset.relation.get('Name'), asset.relation.get('Type'))[0].get('id'),
+            'targetId': asset.asset_id if asset.asset_type == relation_info.get('tail') else get_assets(None, asset.relation.get('Name'), asset.relation.get('Type'))[0].get('id'),
             'typeId': relation_info.get('id')
         }
 
@@ -341,7 +344,7 @@ def update(asset_name=None, asset_type=None, asset_id=None):
     mapping_params = []
     attr_params = []
     # TODO switch out name for id
-    for a in get_assets(asset_name=asset_name, asset_type=asset_type, with_children=False):
+    for a in get_assets(asset_name=asset_name, asset_type=asset_type):
         asset = Asset(
             a.get('name'),
             a.get('type').get('name'),
@@ -369,18 +372,23 @@ def update(asset_name=None, asset_type=None, asset_id=None):
                 attr_params.append(attr)
         set_sync_time(new_asset.asset_id, new_asset.asset_type)
         mapping_param = {
-            "id": new_asset.asset_id,
             "externalSystemId": "okera",
             "externalEntityId": new_asset.name,
             "mappedResourceId": new_asset.asset_id,
             "lastSyncDate": 0,
             "syncAction": "ADD"
         }
+        collibra_get(mapping_param, "mappings", "post")
         if new_asset.tags:
             tag_params = {'tagNames': new_asset.tags}
             collibra_get(tag_params, "assets/" + new_asset.asset_id + "/tags", "post")
         print("set_sync_time end of import assets")
         set_tblproperties(name=new_asset.name, asset_type=new_asset.asset_type, key="collibra_asset_id", value=new_asset.asset_id)
+
+
+    #figure this out
+    for deleted_asset in [obj for obj in collibra_assets if obj not in assets]:
+        print(collibra_get(None, "assets/" + deleted_asset.asset_id, "delete"))
 
     # UPDATES TODO instead of iterating of all, just find the one of matches the asset id or name of the okera asset!!
     for c in collibra_assets:
@@ -388,78 +396,79 @@ def update(asset_name=None, asset_type=None, asset_id=None):
         attributes = {}
         attribute_ids = {}
         okera_tags = None
-        for tag in json.loads(collibra_get(None, "assets/" + c.asset_id + "/tags", "get")):
-            collibra_tags.append(tag.get('name'))
-        if asset_type == "Table":
-            print(c)
-            print(c.asset_id)
-            okera_tags = find_okera_info(c.asset_id, None, "tags")
-        else: okera_tags = find_okera_info(None, c.name, "tags")
-        tag_params = {'tagNames': okera_tags}
-        if okera_tags and not collibra_tags:
-            collibra_get(tag_params, "assets/" + c.asset_id + "/tags", "post")
-            print("set_sync_time tags1")
-            set_sync_time(c.asset_id, c.asset_type)
-        elif collibra_tags and okera_tags and collections.Counter(collibra_tags) != collections.Counter(okera_tags):
-            collibra_get(tag_params, "assets/" + asset.asset_id + "/tags", "put")
-            print("set_sync_time tags2")
-            set_sync_time(c.asset_id, c.asset_type)
-        elif collibra_tags and not okera_tags:
-            tag_params = {'tagNames': collibra_tags}
-            collibra_get(tag_params, "assets/" + c.asset_id + "/tags", "delete")
-            print("set_sync_time tags3")
-            set_sync_time(c.asset_id, c.asset_type)
+        if c.name and c.name == asset_name or c.asset_id and c.asset_id == asset_id:
+            print("c.name:", c.name)
+            print("asset_name: ", asset_name)
+            print("c.asset_id:", c.asset_id)
+            print("asset_id: ", asset_id)
+            for tag in json.loads(collibra_get(None, "assets/" + c.asset_id + "/tags", "get")):
+                collibra_tags.append(tag.get('name'))
+            if asset_type == "Table":
+                print(c)
+                print(c.asset_id)
+                okera_tags = find_okera_info(c.asset_id, None, "tags")
+            else: okera_tags = find_okera_info(None, c.name, "tags")
+            tag_params = {'tagNames': okera_tags}
+            if okera_tags and not collibra_tags:
+                collibra_get(tag_params, "assets/" + c.asset_id + "/tags", "post")
+                print("set_sync_time tags1")
+                set_sync_time(c.asset_id, c.asset_type)
+            elif collibra_tags and okera_tags and collections.Counter(collibra_tags) != collections.Counter(okera_tags):
+                collibra_get(tag_params, "assets/" + asset.asset_id + "/tags", "put")
+                print("set_sync_time tags2")
+                set_sync_time(c.asset_id, c.asset_type)
+            elif collibra_tags and not okera_tags:
+                tag_params = {'tagNames': collibra_tags}
+                collibra_get(tag_params, "assets/" + c.asset_id + "/tags", "delete")
+                print("set_sync_time tags3")
+                set_sync_time(c.asset_id, c.asset_type)
 
-        print("get attributes")
-        attribute = json.loads(collibra_get({'assetId': c.asset_id}, "attributes", "get")).get('results')
-        # TODO change to asset id not asset name !!
-        matched_attr = find_okera_info(asset_id=c.asset_id, info="attributes") if asset_type == "Table" else find_okera_info(name=c.name, info="attributes")
-        for attr in attribute:
-            attributes.update({attr.get('type').get('name'): attr.get('value')})
-            attribute_ids.update({attr.get('type').get('name'): attr.get('id')})
-        c.attributes = attributes
-        c.attribute_ids = attribute_ids
-        update_attr = []
-        import_attr = []
-        delete_attr = []
-        if c.attributes and matched_attr:
-            for key in c.attributes:
-                if key in matched_attr:
-                    if matched_attr[key] != None and c.attributes[key] != matched_attr[key]:
-                        print("mismatch")
-                        update_attr.append({'id': c.attribute_ids[key], 'value': matched_attr[key]})
-                    elif matched_attr[key] == None:
-                        delete_attr.append(c.attribute_ids[key])
-                else:
-                    #TODO create function here
-                    for key in matched_attr:
-                        if matched_attr[key] != None:
+            print("get attributes")
+            attribute = json.loads(collibra_get({'assetId': c.asset_id}, "attributes", "get")).get('results')
+            # TODO change to asset id not asset name !!
+            matched_attr = find_okera_info(asset_id=c.asset_id, info="attributes") if asset_type == "Table" else find_okera_info(name=c.name, info="attributes")
+            for attr in attribute:
+                attributes.update({attr.get('type').get('name'): attr.get('value')})
+                attribute_ids.update({attr.get('type').get('name'): attr.get('id')})
+            c.attributes = attributes
+            c.attribute_ids = attribute_ids
+            update_attr = []
+            import_attr = []
+            delete_attr = []
+            if c.attributes and matched_attr:
+                for key in c.attributes:
+                    if key in matched_attr:
+                        if matched_attr[key] != None and c.attributes[key] != matched_attr[key]:
+                            print("mismatch")
+                            update_attr.append({'id': c.attribute_ids[key], 'value': matched_attr[key]})
+                        elif matched_attr[key] == None:
+                            delete_attr.append(c.attribute_ids[key])
+                    else:
+                        #TODO create function here
+                        for key in matched_attr:
+                            if matched_attr[key] != None:
+                                a = get_okera_assets(name=c.name, asset_type=c.asset_type)
+                                a.asset_id = c.asset_id
+                                import_attr.append(set_attributes(a)[0])
+            elif matched_attr and not c.attributes:
+                for key in matched_attr:
+                    if matched_attr[key] != None:
                             a = get_okera_assets(name=c.name, asset_type=c.asset_type)
                             a.asset_id = c.asset_id
                             import_attr.append(set_attributes(a)[0])
-        elif matched_attr and not c.attributes:
-            for key in matched_attr:
-                if matched_attr[key] != None:
-                    for a in get_okera_assets(name=c.name, asset_type=c.asset_type):
-                        a.asset_id = c.asset_id
-                        import_attr.append(set_attributes(a)[0])
 
-        if update_attr:
-            collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
-            print("set_sync_time update attr")
-            set_sync_time(c.asset_id, c.asset_type)
-        if delete_attr:
-            print("set_sync_time delete attr")
-            collibra_get(delete_attr, "attributes/bulk", "delete")
-            set_sync_time(c.asset_id, c.asset_type)
-        if import_attr:
-            print("set_sync_time import attr")
-            collibra_get(import_attr, "attributes/bulk", "post")
-            set_sync_time(c.asset_id, c.asset_type)
-
-    #figure this out
-    #for deleted_asset in [obj for obj in collibra_assets if obj not in get_okera_assets(None, asset_type, asset_id)]:
-        #collibra_get(None, "assets/" + deleted_asset.asset_id, "delete")        
+            if update_attr:
+                collibra_get(update_attr, "attributes/bulk", "post", {'X-HTTP-Method-Override': "PATCH"})
+                print("set_sync_time update attr")
+                set_sync_time(c.asset_id, c.asset_type)
+            if delete_attr:
+                print("set_sync_time delete attr")
+                collibra_get(delete_attr, "attributes/bulk", "delete")
+                set_sync_time(c.asset_id, c.asset_type)
+            if import_attr:
+                print("set_sync_time import attr")
+                collibra_get(import_attr, "attributes/bulk", "post")
+                set_sync_time(c.asset_id, c.asset_type)
 
     # TODO use mappings to find correct asset id
 # what happens if i change display name in collibra? will full name stay the same??
@@ -467,13 +476,13 @@ def update_all():
     pyokera_calls()
     for d in okera_dbs:
         print(d.name)
-        update(d.name, "Database")
+        #update(d.name, "Database")
     for t in okera_tables:
         print("----!!!!----!!!!----!!!!", t.name)
         if t.asset_id:
             print("--------t.asset_id--------:", t.asset_id)
             print(t)
-            # BUG looping over all assets instead of just t ?
+            # TODO if last_collibra_sync_time older than __ update, else don't
             #update(None, "Table", t.asset_id)
             for c in t.children:
                 print(c.name)
@@ -500,7 +509,3 @@ elif which_asset and not which_type:
 elif not which_asset and not which_type:
     update()
     print("Update complete!") """
-
-
-    #Databases don't need relations
-    # Update by iterating over tables and updating columns as well
