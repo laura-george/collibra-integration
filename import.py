@@ -46,6 +46,7 @@ class Asset:
         return str(self.__class__) + ": " + str(self.__dict__)
 
 # escapes special characters
+# TODO add remove whitspace option
 def escape(string): return(json.dumps(string)[1:-1])
 
 # creates list of tags of one asset as namespace.key
@@ -476,23 +477,23 @@ def update_all():
     pyokera_calls()
     for d in okera_dbs:
         print(d.name)
-        #update(d.name, "Database")
+        update(d.name, "Database")
     for t in okera_tables:
         print("----!!!!----!!!!----!!!!", t.name)
         if t.asset_id:
             print("--------t.asset_id--------:", t.asset_id)
             print(t)
             # TODO if last_collibra_sync_time older than __ update, else don't
-            #update(None, "Table", t.asset_id)
+            update(None, "Table", t.asset_id)
             for c in t.children:
                 print(c.name)
-                #update(c.name, "Column")
+                update(c.name, "Column")
         else:
             print("t.name:", t.name)
-            #update(t.name, "Table")
+            update(t.name, "Table")
             for c in t.children:
                 print(c.name)
-                #update(c.name, "Column")
+                update(c.name, "Column")
 update_all()
 
 # TODO add try except block

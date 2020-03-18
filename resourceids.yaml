@@ -1,0 +1,16 @@
+# ADD CUSTOM ATTRIBUTE IDS HERE
+attributes:
+  - {name: "Description", id: "00000000-0000-0000-0000-000000003114"}
+  - {name: "Location", id: "00000000-0000-0000-0000-000000000203"}
+  - {name: "Technical Data Type", id: "00000000-0000-0000-0000-000000000219"}
+  - {name: "Data Type", id: "00000000-0000-0000-0001-000500000005"}
+  - {name: "Information Classification", id: "15b63951-66eb-4d36-a442-433d24260edf"}
+
+assets:
+  - {name: "Column", id: "00000000-0000-0000-0000-000000031008"}
+  - {name: "Database", id: "00000000-0000-0000-0000-000000031006"}
+  - {name: "Table", id: "00000000-0000-0000-0000-000000031007"}
+
+relations:
+  - {head: "Table", role: "is part of", tail: "Database", id: "00000000-0000-0000-0000-000000007045"}
+  - {head: "Column", role: "is part of", tail: "Table", id: "00000000-0000-0000-0000-000000007042"}

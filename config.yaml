@@ -1,0 +1,12 @@
+configs:
+  collibra_dgc: "https://okera.collibra.com:443"
+  collibra_username: "Admin"
+  collibra_password: "Gac2Quencotdilo"
+  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXDs9-c7igFxEQRrOwFo.zG0jQHCcqiHi_UCkT4rzU2AaC80$"
+  host: "sandbox.demo.okera.com"
+  port: 12050
+  community: "Okera3.0"
+  domain: 
+      name: "Data Domain"
+      type: "Data Asset Domain" 
+  info_classif_namespace: "information_classification"
