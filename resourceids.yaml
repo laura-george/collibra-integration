@@ -4,7 +4,7 @@ attributes:
   - {name: "Location", id: "00000000-0000-0000-0000-000000000203"}
   - {name: "Technical Data Type", id: "00000000-0000-0000-0000-000000000219"}
   - {name: "Data Type", id: "00000000-0000-0000-0001-000500000005"}
-  - {name: "Information Classification", id: "15b63951-66eb-4d36-a442-433d24260edf"}
+  - {name: "Information Classification", id: "39481cfd-bace-4634-9277-ceacb9b71e87"}
 
 assets:
   - {name: "Column", id: "00000000-0000-0000-0000-000000031008"}

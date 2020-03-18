@@ -15,10 +15,11 @@ with open('resourceids.yaml') as f:
 
 # escapes special characters
 def escape(string, remove_whitespace=False):
-    if remove_whitespace:
-        string.replace(" ", "_")
-        return(json.dumps(string)[1:-1])
-    else: return(json.dumps(string)[1:-1])
+    if string:
+        if remove_whitespace:
+            string.replace(" ", "_")
+            return json.dumps(string)[1:-1]
+        else: return json.dumps(string)[1:-1]
 
 # builds collibra request
 def collibra_get(param_obj, call, method, header=None):
@@ -125,11 +126,11 @@ type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE"
 # asset_name is always name of a database
 def collibra_calls(asset_name=None):
     def set_elements(asset_id, asset_name, asset_type):
-        info_classif = get_attributes(asset_id, "Information Classification")
+        info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
         update_elements.append({
             'name': asset_name, 
             'asset_id': asset_id, 
-            'description': get_attributes(asset_id, "Description"),
+            'description': escape(get_attributes(asset_id, "Description")),
             'info_classif': configs['info_classif_namespace'] + "." + info_classif if info_classif else None, 
             'type': asset_type, 
             #'tags': get_tags(d.get('id')),
@@ -160,7 +161,6 @@ def collibra_calls(asset_name=None):
         set_elements(t['source']['id'], t['source']['name'], 'Table')
         column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': t['source']['id']}
         for c in json.loads(collibra_get(column_params, 'relations', 'get'))['results']:
-            print(c)
             set_elements(c['source']['id'], c['source']['name'], 'Column')
 
 def find_info(name, info):
@@ -175,42 +175,105 @@ def find_info(name, info):
 # makes assign_attribute() or unassign_attribute() call for either table or column
 def tag_actions(action, db, name, type, tags):
     def define_tags(tag):
-        with ctx.connect(host = configs['host'], port = configs['port']) as conn:
-            #for tag in tags:
+        try:
+            conn = ctx.connect(host = configs['host'], port = configs['port'])
+        except thriftpy.transport.TException as e:
+            print("Could not connect to Okera!")
+            print("Error: ", e)
+            sys.exit(1)
+        with conn:
             nmspc_key = tag.split(".")
-            print('nsmpc_key: ', nmspc_key)
-            if nmspc_key[0] not in conn.list_attribute_namespaces() or nmspc_key[1] not in conn.list_attributes(nmspc_key[0]):
-                conn.create_attribute(nmspc_key[0], nmspc_key[1], True)
+            try:
+                list_namespaces = conn.list_attribute_namespaces()
+            except thriftpy.thrift.TException as e:
+                print("Could not list attribute namespaces!")
+                print("Error: ", e)
+                sys.exit(1)
+            try:
+                list_attributes = conn.list_attributes(nmspc_key[0])
+            except thriftpy.thrift.TException as e:
+                print("Could not list attributes for namespace " + nmspc_key[0] + "!")
+                print("Error: ", e)
+                sys.exit(1)
+            if nmspc_key[0] not in list_namespaces or nmspc_key[1] not in list_attributes:
+                try:
+                    conn.create_attribute(nmspc_key[0], nmspc_key[1], True)
+                except thriftpy.thrift.TException as e:
+                    print("Could not create tag " + tag + "!")
+                    print("Error: ", e)
+                    sys.exit(1)
             if action == "assign":
                 if type == "Column":
                     tab_col = name.split(".")
-                    conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    try:
+                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("Could assign tag " + tag + " to column " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
                 elif type == "Table":
-                    conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    try:
+                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("Could assign tag " + tag + " to table " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
             elif action == "unassign":
                 if type == "Column":
                     tab_col = name.split(".")
-                    conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    try:
+                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("Could unassign tag " + tag + " from column " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
                 elif type == "Table":
-                    conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    try:
+                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("Could unassign tag " + tag + " from table " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
     if isinstance(tags, list):
-        print('tags list: ', tags)
         for tag in tags:
             define_tags(tag)
     else: 
-        print('one tag: ', tags)
         define_tags(tags)
         
 # alters description for either table, view or column
-def desc_actions(name, type, col_type, description):
-    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-        if type == "Column":
+def desc_actions(name, type, col_type, description, tab_type=None):
+    description = '' if not description else description
+    try:
+        conn = ctx.connect(host = configs['host'], port = configs['port'])
+    except thriftpy.transport.TException as e:
+        print("Could not connect to Okera!")
+        print("Error: ", e)
+        sys.exit(1)
+    with conn:
+        if type == "Column" and tab_type == "Table":
             tab_col = name.rsplit('.', 1)
-            conn.execute_ddl("ALTER TABLE " + tab_col[0] + " CHANGE " + tab_col[1] + " " + tab_col[1] + " " + col_type + " COMMENT '" + description + "'")
+            try:
+                conn.execute_ddl("ALTER TABLE " + tab_col[0] + " CHANGE " + tab_col[1] + " " + tab_col[1] + " " + col_type + " COMMENT '" + description + "'")
+            except thriftpy.thrift.TException as e:
+                print("Could not change description for column " + name + "!")
+                print("Error: ", e)
+                sys.exit(1)
+        elif type == "Column" and tab_type == "View":
+            print("Could not change description for column in view " + name + "!")
         elif type == "Table":
-            conn.execute_ddl("ALTER TABLE " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            try:
+                conn.execute_ddl("ALTER TABLE " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            except thriftpy.thrift.TException as e:
+                print("Could not change description for table " + name + "!")
+                print("Error: ", e)
+                sys.exit(1)
         elif type == "View":
-            conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            try:
+                conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            except thriftpy.thrift.TException as e:
+                print("Could not change description for view " + name + "!")
+                print("Error: ", e)
+                sys.exit(1)
 
 # diffs attributes from Collibra with attributes from Okera and makes necessary changes in Okera
 def export(asset_name=None):
@@ -234,9 +297,9 @@ def export(asset_name=None):
                     tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
                 collibra_tab_desc = find_info(tab_name, "description")
                 okera_tab_desc = t.description
-                type = "View" if t.primary_storage == "VIEW" else "Table"
+                tab_type = "View" if t.primary_storage == "View" else "Table"
                 if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
-                    desc_actions(tab_name, type, None, collibra_tab_desc)        
+                    desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
                 # begin of column loop: same functionality as table loop
                 for col in t.schema.cols:
                     col_name = tab_name + "." + col.name
@@ -253,7 +316,7 @@ def export(asset_name=None):
                     collibra_col_desc = find_info(col_name, "description")
                     okera_col_desc = col.comment
                     if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
-                        desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc)
+                        desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)
 
 which_asset = input("Please enter the full name of the database you wish to export: ")
 if which_asset:

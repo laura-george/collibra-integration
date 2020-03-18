@@ -47,7 +47,7 @@ class Asset:
 
 # escapes special characters
 # TODO add remove whitspace option
-def escape(string): return(json.dumps(string)[1:-1])
+def escape(string): return json.dumps(string)[1:-1]
 
 # creates list of tags of one asset as namespace.key
 def create_tags(attribute_values):
