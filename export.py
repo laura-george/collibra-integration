@@ -1,27 +1,50 @@
 import json
 import requests
-import resourceids
 import yaml
+import thriftpy
+import sys
 from okera import context
-from config import configs
 import collections
 
-with open('config.yaml') as f:
-    configs = yaml.load(f, Loader=yaml.FullLoader)
+# Okera planner port
+planner_port = 12050
+# list of elements retrieved from Collibra
+update_elements = []
+# list of elements retrieved from Okera
+elements = []
+# Okera column type IDs
+type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
-# builds collibra request
+# opens config.yaml
+with open('config.yaml') as f:
+    configs = yaml.load(f, Loader=yaml.FullLoader)['configs']
+
+# opens resourceids.yaml
+with open('resourceids.yaml') as f:
+    resource_ids = yaml.load(f, Loader=yaml.FullLoader)
+
+# escapes special characters
+def escape(string, remove_whitespace=False):
+    if string:
+        if remove_whitespace:
+            return json.dumps(string.replace(" ", "_"))[1:-1]
+        else: return json.dumps(string)[1:-1]
+
+# builds and makes collibra request
 def collibra_get(param_obj, call, method, header=None):
     if method == 'get':
         try: 
             data = getattr(requests, method)(
-            configs.get['collibra_dgc'] + "/rest/2.0/" + call, 
+            configs['collibra_dgc'] + "/rest/2.0/" + call, 
             params=param_obj, 
             auth=(configs['collibra_username'], configs['collibra_password']))
             data.raise_for_status()
-        except requests.exceptions.HTTPError as e: 
-            print("Failed request: " + str(param_obj))
-            print("Error: ", e)
-            print("Response: " + str(data.content))
+        except requests.exceptions.HTTPError as e:
+            if json.loads(data.content).get('errorCode') != "mappingNotFound":
+                print("COLLIBRA CORE API ERROR") 
+                print("Failed request: " + str(param_obj))
+                print("Error: ", e)
+                print("Response: " + str(data.content))
         return data.content
     else:
         try: 
@@ -32,41 +55,53 @@ def collibra_get(param_obj, call, method, header=None):
             auth=(configs['collibra username'], configs['collibra password']))    
             data.raise_for_status()
         except requests.exceptions.RequestException as e:
+            print("COLLIBRA CORE API ERROR")
             print("Failed request: " + str(param_obj))
             print("Error: ", e)
             print("Response: " + str(data.content))
         return data.content
 
+# names and IDs of Collibra community and domain
 community = configs['community']
 community_id = json.loads(collibra_get({'name': community}, "communities", 'get')).get('results')[0].get('id')
-#community_id = json.loads(requests.get(configs['collibra_dgc'] + "/rest/2.0/communities", params = {'name': community}, auth = (configs['collibra_username'], configs['collibra_password'])).content).get('results')[0].get('id')
 domain = configs['domain']
 domain_id = json.loads(collibra_get({'name': domain['name'], 'communityId': community_id}, "domains", 'get')).get('results')[0].get('id')
-#domain_id = json.loads(requests.get(configs['collibra_dgc'] + "/rest/2.0/domains", params = {'name': domain['name'], 'communityId': community_id}, auth = (configs['collibra_username'], configs['collibra_password'])).content).get('results')[0].get('id')
-ctx = context()
-ctx.enable_token_auth(token_str=configs.get('token'))
 
-# makes /tags/asset/{asset id} REST call
+# PyOkera context
+ctx = context()
+ctx.enable_token_auth(token_str=configs['token'])
+
+# returns resource ID in resourceids.yaml
+def get_resource_ids(search_in, name):
+    for r in resource_ids[search_in]:
+        if search_in == 'relations':
+            if r['head'] == name:
+                return r['id']
+        else:
+            if r['name'] == name:
+                return r['id']
+
+# makes /tags/asset/{asset id} REST call and returns tags in list
 def get_tags(asset_id):
     data = collibra_get(None, "tags/asset/" + asset_id, 'get')
-    #data = json.loads(requests.get(configs['collibra_dgc'] + "/rest/2.0/tags/asset/" + asset_id, auth = (configs['collibra_username'], configs['collibra_password'])).content)
     if data:
         tags = []
         for t in data:
             tags.append(t.get('name'))
         return tags
 
-def get_attributes(asset_id):
+# makes /attributes REST call and returns attribute
+def get_attributes(asset_id, attr_type):
+    type_id = get_resource_ids('attributes', attr_type)
     params = {
-        'typeId': "00000000-0000-0000-0000-000000003114",
+        'typeIds': [type_id],
         'assetId': asset_id
         }
-    data = json.loads(collibra_get(params, "attributes", 'get'))
-    #data = json.loads(requests.get(configs.get('collibra_dgc') + "/rest/2.0/attributes/", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
+    data = json.loads(collibra_get(params, "attributes", 'get', None))
     if data.get('results'):
         return data.get('results')[0].get('value')
 
-# creates tags as namespace.key, adds them to list
+# creates tags as namespace.key and returns as list
 def create_tags(attribute_values):
     attributes = []
     if attribute_values:
@@ -75,10 +110,16 @@ def create_tags(attribute_values):
             attributes.append(name)
         return attributes
 
-elements = []
 # pyokera calls
 def pyokera_calls(asset_name=None):
-    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
+    try:
+        conn = ctx.connect(host = configs['host'], port = planner_port)
+    except thriftpy.transport.TException as e:
+        print("PYOKERA ERROR")
+        print("Could not connect to Okera!")
+        print("Error: ", e)
+        sys.exit(1)
+    with conn:
         databases = conn.list_databases()
         if asset_name:
             tables = conn.list_datasets(asset_name)
@@ -96,80 +137,179 @@ def pyokera_calls(asset_name=None):
                     element = {'database': database}
                 elements.append(element) 
 
-update_elements = []
-type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
-# gets assets and their tags from collibra
+# gets assets and their tags and attributes from Collibra
+# asset_name is always the name of a database
 def collibra_calls(asset_name=None):
+    def set_elements(asset_id, asset_name, asset_type):
+        info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
+        update_elements.append({
+            'name': asset_name, 
+            'asset_id': asset_id, 
+            'description': escape(get_attributes(asset_id, "Description")),
+            'info_classif': configs['mapped_attribute_okera_namespace'] + "." + info_classif if info_classif else None, 
+            'type': asset_type, 
+            #'tags': get_tags(d.get('id')),
+            'mapped_okera_resource': json.loads(collibra_get(None, "mappings/externalSystem/okera/mappedResource/" + asset_id, 'get')).get('externalEntityId')
+            })
+
     if asset_name:
         params = {
             'name': asset_name,
-            'nameMatchMode': "ANYWHERE",
+            'nameMatchMode': "EXACT",
             'simulation': False,
             'domainId': domain_id,
-            'communityId': community_id
+            'communityId': community_id,
+            'typeId': get_resource_ids('assets', 'Database')
             }
     else:
         params = {
             'simulation': False,
             'domainId': domain_id,
             'communityId': community_id
-            }  
-    data = json.loads(collibra_get(params, "assets", 'get')) 
-    #data = json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/assets", params = params, auth = (configs.get('collibra username'), configs.get('collibra password'))).content)
-    for d in data.get('results'):
-        update_elements.append({
-            'name': d.get('name'), 
-            'display name': d.get('displayName'),
-            'asset id': d.get('id'), 
-            'description': get_attributes(d.get('id')), 
-            'type': d.get('type').get('name'), 
-            'domain': d.get('domain').get('name'), 
-            'status': d.get('status').get('name'), 
-            'tags': get_tags(d.get('id')),
-            'mapped okera resource': json.loads(collibra_get(None, "mappings/externalSystem/okera/mappedResource/" + d.get('id'), 'get')).get('externalEntityId')
-            })
-        print(update_elements)
-        #json.loads(requests.get(configs.get('collibra dgc') + "/rest/2.0/mappings/externalSystem/okera/mappedResource/" + d.get('id'), auth = (configs.get('collibra username'), configs.get('collibra password'))).content).get('externalEntityId')
+            }
+    database = json.loads(collibra_get(params, "assets", 'get'))['results'][0]
+    set_elements(database['id'], database['name'], 'Database')
+    table_params = {'relationTypeId': get_resource_ids('relations', 'Table'), 'targetId': database['id']}
+    tables = json.loads(collibra_get(table_params, "relations", 'get'))['results']
+    columns = []
+    for t in tables:
+        set_elements(t['source']['id'], t['source']['name'], 'Table')
+        column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': t['source']['id']}
+        for c in json.loads(collibra_get(column_params, 'relations', 'get'))['results']:
+            set_elements(c['source']['id'], c['source']['name'], 'Column')
 
-collibra_calls()
-
-def find_info(name, info):
+# returns Collibra asset information based on the mapped Okera resource name
+def find_info(name=None, info=None, asset_id=None):
     for ue in update_elements:
-        if ue.get('mapped okera resource') == name:
-            return ue.get(info)
-            break
+        if name:
+            if ue['mapped_okera_resource'] and ue['mapped_okera_resource'] == name:
+                return ue.get(info)
+                break
+            elif ue['name'] and ue['name'] == name:
+                return ue.get(info)
+                break
+        elif asset_id:
+            if ue['asset_id'] == asset_id:
+                return ue.get(info)
+                break
 
 # makes assign_attribute() or unassign_attribute() call for either table or column
 def tag_actions(action, db, name, type, tags):
-    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-        for tag in tags:
+    def define_tags(tag):
+        try:
+            conn = ctx.connect(host = configs['host'], port = planner_port)
+        except thriftpy.transport.TException as e:
+            print("PYOKERA ERROR")
+            print("Could not connect to Okera!")
+            print("Error: ", e)
+            sys.exit(1)
+        with conn:
             nmspc_key = tag.split(".")
-            if nmspc_key[0] not in conn.list_attribute_namespaces() or nmspc_key[1] not in conn.list_attributes(nmspc_key[0]):
-                conn.create_attribute(nmspc_key[0], nmspc_key[1], True)
+            try:
+                list_namespaces = conn.list_attribute_namespaces()
+            except thriftpy.thrift.TException as e:
+                print("PYOKERA ERROR")
+                print("Could not list attribute namespaces!")
+                print("Error: ", e)
+                sys.exit(1)
+            try:
+                list_attributes = conn.list_attributes(nmspc_key[0])
+            except thriftpy.thrift.TException as e:
+                print("PYOKERA ERROR")
+                print("Could not list attributes for namespace " + nmspc_key[0] + "!")
+                print("Error: ", e)
+                sys.exit(1)
+            if nmspc_key[0] not in list_namespaces or nmspc_key[1] not in list_attributes:
+                try:
+                    conn.create_attribute(nmspc_key[0], nmspc_key[1], True)
+                except thriftpy.thrift.TException as e:
+                    print("PYOKERA ERROR")
+                    print("Could not create tag " + tag + "!")
+                    print("Error: ", e)
+                    sys.exit(1)
             if action == "assign":
                 if type == "Column":
                     tab_col = name.split(".")
-                    conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    try:
+                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("PYOKERA ERROR")
+                        print("Could not assign tag " + tag + " to column " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
                 elif type == "Table":
-                    conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    try:
+                        conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("PYOKERA ERROR")
+                        print("Could not assign tag " + tag + " to table " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
             elif action == "unassign":
                 if type == "Column":
                     tab_col = name.split(".")
-                    conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    try:
+                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=tab_col[1], column=tab_col[2], if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("PYOKERA ERROR")
+                        print("Could not unassign tag " + tag + " from column " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
                 elif type == "Table":
-                    conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
-
+                    try:
+                        conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
+                    except thriftpy.thrift.TException as e:
+                        print("PYOKERA ERROR")
+                        print("Could not unassign tag " + tag + " from table " + name + "!")
+                        print("Error: ", e)
+                        sys.exit(1)
+    if isinstance(tags, list):
+        for tag in tags:
+            define_tags(tag)
+    else: 
+        define_tags(tags)
+        
 # alters description for either table, view or column
-def desc_actions(name, type, col_type, description):
-    with ctx.connect(host = configs.get('host'), port = configs.get('port')) as conn:
-        if type == "Column":
+def desc_actions(name, type, col_type, description, tab_type=None):
+    description = '' if not description else description
+    try:
+        conn = ctx.connect(host = configs['host'], port = planner_port)
+    except thriftpy.transport.TException as e:
+        print("PYOKERA ERROR")
+        print("Could not connect to Okera!")
+        print("Error: ", e)
+        sys.exit(1)
+    with conn:
+        if type == "Column" and tab_type == "Table":
             tab_col = name.rsplit('.', 1)
-            conn.execute_ddl("ALTER TABLE " + tab_col[0] + " CHANGE " + tab_col[1] + " " + tab_col[1] + " " + col_type + " COMMENT '" + description + "'")
+            try:
+                conn.execute_ddl("ALTER TABLE " + tab_col[0] + " CHANGE " + tab_col[1] + " " + tab_col[1] + " " + col_type + " COMMENT '" + description + "'")
+            except thriftpy.thrift.TException as e:
+                print("PYOKERA ERROR")
+                print("Could not change description for column " + name + "!")
+                print("Error: ", e)
+                sys.exit(1)
+        elif type == "Column" and tab_type == "View":
+            print("PYOKERA ERROR")
+            print("Could not change description for column in view " + name + "!")
         elif type == "Table":
-            conn.execute_ddl("ALTER TABLE " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            try:
+                conn.execute_ddl("ALTER TABLE " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            except thriftpy.thrift.TException as e:
+                print("PYOKERA ERROR")
+                print("Could not change description for table " + name + "!")
+                print("Error: ", e)
+                sys.exit(1)
         elif type == "View":
-            conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            try:
+                conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
+            except thriftpy.thrift.TException as e:
+                print("PYOKERA ERROR")
+                print("Could not change description for view " + name + "!")
+                print("Error: ", e)
+                sys.exit(1)
 
+# diffs attributes from Collibra with attributes from Okera and makes necessary changes in Okera
 def export(asset_name=None):
     pyokera_calls(asset_name)
     collibra_calls(asset_name)
@@ -178,8 +318,9 @@ def export(asset_name=None):
             # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
             # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
             for t in element.get('tables'):
+                asset_id = t.metadata.get('collibra_asset_id')
                 tab_name = t.db[0] + "." + t.name
-                collibra_tab_tags = find_info(tab_name, "tags")
+                collibra_tab_tags = find_info(info="info_classif", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="info_classif")
                 okera_tab_tags = create_tags(t.attribute_values)
                 if okera_tab_tags and collibra_tab_tags:
                     if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
@@ -189,15 +330,15 @@ def export(asset_name=None):
                     tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
                 elif okera_tab_tags and not collibra_tab_tags:
                     tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
-                collibra_tab_desc = find_info(tab_name, "description")
+                collibra_tab_desc = find_info(info="description", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="description")
                 okera_tab_desc = t.description
-                type = "View" if t.primary_storage == "VIEW" else "Table"
+                tab_type = "View" if t.primary_storage == "View" else "Table"
                 if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
-                    desc_actions(tab_name, type, None, collibra_tab_desc)        
+                    desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
                 # begin of column loop: same functionality as table loop
                 for col in t.schema.cols:
                     col_name = tab_name + "." + col.name
-                    collibra_col_tags = find_info(col_name, "tags")
+                    collibra_col_tags = find_info(col_name, "info_classif")
                     okera_col_tags = create_tags(col.attribute_values)
                     if okera_col_tags and collibra_col_tags:
                         if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
@@ -210,14 +351,10 @@ def export(asset_name=None):
                     collibra_col_desc = find_info(col_name, "description")
                     okera_col_desc = col.comment
                     if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
-                        desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc)
+                        desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)
 
 which_asset = input("Please enter the full name of the database you wish to export: ")
 if which_asset:
     print("Exporting " + which_asset + "...")
     export(which_asset)
-    print("Export complete!")
-elif not which_asset:
-    print("All databases will now be exported...")
-    export()
     print("Export complete!")

@@ -1,4 +1,7 @@
-# ADD CUSTOM ATTRIBUTE IDS HERE
+# This file contains all Collibra resource IDs required for the export Collibra --> Okera
+# 
+# The resource ID for the custom attribute "Information Classification" must be entered here,
+# please DO NOT change the other resource IDs
 attributes:
   - {name: "Description", id: "00000000-0000-0000-0000-000000003114"}
   - {name: "Location", id: "00000000-0000-0000-0000-000000000203"}
