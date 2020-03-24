@@ -1,3 +1,5 @@
+# RESOURCE IDS FOR IMPORT ONLY
+
 domains:
   - {name: "Business Asset Domain", id: "00000000-0000-0000-0000-000000030002"}
   - {name: "Business Dimensions", id: "00000000-0000-0000-0000-000000030012"}
@@ -17,7 +19,6 @@ domains:
   - {name: "Tableau Catalog", id: "00000000-0000-0000-0000-000000015000"}
   - {name: "Technology Asset Domain", id: "00000000-0000-0000-0000-000000030004"}
   - {name: "Validation Rule Domain", id: "00000000-0000-0000-0000-000000030008"}
-
 
 assets:
     - {name: "Business Asset", id: "00000000-0000-0000-0000-000000031101"}
@@ -83,7 +84,6 @@ assets:
     - {name: "System", id: "00000000-0000-0000-0000-000000031302"}
     - {name: "S3 File System", id: "00000000-0000-0000-0001-002400000000"}
     - {name: "Tableau Data Source", id: "00000000-0000-0000-0000-110000000006"}
-]
 
 #if asset is head -> target, if asset is tail -> source
 relations:
@@ -168,14 +168,12 @@ relations:
     - {head: "Directory", role: "contains", tail: "Directory", id: "00000000-0000-0000-0001-002600000003"}
     - {head: "Directory", role: "contains", tail: "File Group", id: "00000000-0000-0000-0001-002600000004"}
     - {head: "File Group", role: "contains", tail: "Table", id: "00000000-0000-0000-0001-002600000005"}
-]
 
 attributes:
     - {name: "Description", id: "00000000-0000-0000-0000-000000003114"}
     - {name: "Location", id: "00000000-0000-0000-0000-000000000203"}
     - {name: "Technical Data Type", id: "00000000-0000-0000-0000-000000000219"}
     - {name: "Data Type", id: "00000000-0000-0000-0001-000500000005"}
-]
 
 statuses:
     - {name: "Accepted", id: "00000000-0000-0000-0000-000000005009"}
@@ -199,4 +197,3 @@ statuses:
     - {name: "Reviewed", id: "00000000-0000-0000-0000-000000005021"}
     - {name: "Submitted for Approval", id: "00000000-0000-0000-0000-000000005060"}
     - {name: "Under Review", id: "00000000-0000-0000-0000-000000005020"}
-]

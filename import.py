@@ -1,6 +1,6 @@
 # TODO
 # switch out config file and db for yamls
-# get assets by relations instead of name match mode
+# get assets by relations instead of name match mode - done
 # BUGS: mapped assets get deleted and replaced by Okera asset -> check for ID here, NOT NAME
 #   happened with: users_name_change and mapping_table
 
@@ -10,17 +10,18 @@ import thriftpy
 import datetime
 import yaml
 import sys
+import hashlib
 from okera import context
 from pymongo import MongoClient
 import collections
 
-client = MongoClient(port=27017)
-db = client.collibra_ids
-
 # Okera planner port
 planner_port = 12050
+# list of all Okera dbs, datasets and columns (not nested)
 assets = []
+# list of all Okera tables with columns nested
 okera_tables = []
+# list of all Okera databases
 okera_dbs = []
 # Okera column type IDs
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
@@ -28,13 +29,12 @@ type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE"
 with open('config.yaml') as f:
     configs = yaml.load(f, Loader=yaml.FullLoader)['configs']
 
-with open('resourceids.yaml') as f:
+with open('resource_ids.yaml') as f:
     resource_ids = yaml.load(f, Loader=yaml.FullLoader)
 
 ctx = context()
 ctx.enable_token_auth(token_str=configs['token'])
 
-# builds collibra request
 # builds and makes collibra request
 def collibra_get(param_obj, call, method, header=None):
     if method == 'get':
@@ -72,7 +72,7 @@ domain = configs['domain']
 domain_id = json.loads(collibra_get({'name': domain['name'], 'communityId': community_id}, "domains", 'get')).get('results')[0].get('id')
 
 class Asset:
-    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, children=None, attributes=None, attribute_ids=None, tags=None, last_collibra_sync_time=None):
+    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, children=None, attributes=None, attribute_ids=None, tags=None, last_collibra_sync_time=None, table_hash=None):
         self.name = name
         self.asset_type = asset_type
         self.asset_type_id = asset_type_id
@@ -84,8 +84,11 @@ class Asset:
         self.attribute_ids = attribute_ids
         self.tags = tags
         self.last_collibra_sync_time = last_collibra_sync_time
+        self.table_hash = table_hash
     def __eq__(self, other):
-        return self.name == other.name
+        if self.asset_id and other.asset_id:
+            return self.asset_id == other.asset_id
+        else : return self.name == other.name
     def __str__(self):
         return str(self.__class__) + ": " + str(self.__dict__)
 
@@ -115,26 +118,29 @@ def find_okera_info(asset_id=None, name=None, info=None):
 
 # MongoDB find functions --> replace with yaml
 def find_relation_id(asset1, asset2):
-    for x in db.relation_ids.find({'$and': [{'$or': [{'head': asset1}, {'head': asset2}]}, {'$or': [{'tail': asset1}, {'tail': asset2}]}]}):
-        return x
+    for r in resource_ids['relations']:
+        if r['head'] == asset1 or r['head'] == asset2 and r['tail'] == asset1 or r['tail'] == asset2:
+            print("find relation id", r)
+            return r
 
 def find_attribute_id(name):
-    for x in db.attribute_ids.find({'name': name}):
-        return x.get('id')
+    for r in resource_ids['attributes']:
+        if r['name'] == name: return r['id']
 
 def find_asset_type_id(asset_type):
-    for x in db.asset_ids.find({'name': asset_type}):
-        return x.get('id')
+    for r in resource_ids['assets']:
+        if r['name'] == asset_type: return r['id']
 
 def find_status_id(name):
-    for x in db.status_ids.find({'name': name}):
-        return x.get('id')
+    for r in resource_ids['statuses']:
+        if r['name'] == name: return r['id']
 
 # pyokera calls
 def pyokera_calls(asset_name=None, asset_type=None):
     try:
         conn = ctx.connect(host = configs['host'], port = planner_port)
     except thriftpy.transport.TTransportException as e:
+        print("PYOKERA ERROR")
         print("Could not connect to Okera!")
         print("Error: ", e)
         sys.exit(1)
@@ -146,31 +152,25 @@ def pyokera_calls(asset_name=None, asset_type=None):
                 for t in tables:
                     okera_columns = []
                     table = Asset(
-                        escape(t.db[0] + "." + t.name),
-                        "Table",
-                        None,
-                        t.metadata.get('collibra_asset_id') if t.metadata.get('collibra_asset_id') else None, 
-                        escape(t.name), 
-                        {'Name': escape(t.db[0]), 'Type': "Database"},
-                        None,
-                        {'Description': escape(t.description) if t.description else None, 
+                        name=escape(t.db[0] + "." + t.name),
+                        asset_type="Table",
+                        asset_id=t.metadata.get('collibra_asset_id') if t.metadata.get('collibra_asset_id') else None, 
+                        displayName=escape(t.name), 
+                        relation={'Name': escape(t.db[0]), 'Type': "Database"},
+                        attributes={'Description': escape(t.description) if t.description else None, 
                         'Location': escape(t.location) if t.location else None},
-                        None, 
-                        create_tags(t.attribute_values),
-                        t.metadata.get('last_collibra_sync_time')
+                        tags=create_tags(t.attribute_values),
+                        last_collibra_sync_time=t.metadata.get('last_collibra_sync_time'),
+                        table_hash=t.metadata.get('table_hash') if t.metadata.get('table_hash') else None
                         )
                     for col in t.schema.cols:
                         column = Asset(
-                            escape(t.db[0] + "." + t.name + "." + col.name),
-                            "Column",
-                            None,
-                            None,
-                            escape(col.name),
-                            {'Name': escape(t.db[0] + "." + t.name), 'id': t.metadata.get('collibra_asset_id'), 'Type': "Table"},
-                            None,
-                            {'Description': escape(col.comment) if col.comment else None}, # 'Technical Data Type': type_ids[col.type.type_id]},
-                            None,
-                            create_tags(col.attribute_values)
+                            name=escape(t.db[0] + "." + t.name + "." + col.name),
+                            asset_type="Column",
+                            displayName=escape(col.name),
+                            relation={'Name': escape(t.db[0] + "." + t.name), 'id': t.metadata.get('collibra_asset_id'), 'Type': "Table"},
+                            attributes={'Description': escape(col.comment) if col.comment else None}, # 'Technical Data Type': type_ids[col.type.type_id]},
+                            tags=create_tags(col.attribute_values)
                         )
                         assets.append(column)
                         okera_columns.append(column)
@@ -178,8 +178,6 @@ def pyokera_calls(asset_name=None, asset_type=None):
                     assets.append(table)
                     table.children = okera_columns
                     okera_tables.append(table)
-                #db.children = tab_children
-
         if asset_name and asset_type == "Database":
             okera_dbs.append(Asset(name=asset_name, asset_type="Database"))
             tables = conn.list_datasets(asset_name)
@@ -234,9 +232,21 @@ def set_tblproperties(name=None, asset_id=None, asset_type=None, key=None, value
         # why is this being calles 2 times..?
         print("set_tblproperties: ", asset_id)
         asset = get_okera_assets(asset_id=asset_id, asset_type="Table")
-    with ctx.connect(host = configs['host'], port = planner_port) as conn:
+    try:
+        conn = ctx.connect(host = configs['host'], port = planner_port)
+    except thriftpy.transport.TTransportException as e:
+        print("PYOKERA ERROR")
+        print("Could not connect to Okera!")
+        print("Error: ", e)
+        sys.exit(1)
+    with conn:
         if asset_type == "Table":
-            conn.execute_ddl("ALTER TABLE " + asset.name + " SET TBLPROPERTIES ('" + key + "' = '" + str(value) + "')")
+            try:
+                conn.execute_ddl("ALTER TABLE " + asset.name + " SET TBLPROPERTIES ('" + key + "' = '" + str(value) + "')")
+            except thriftpy.thrift.TException as e:
+                print("PYOKERA ERROR")
+                print("Could not set table property " + key + " = " + str(value) + " for table " + asset.name + "!")
+                print("Error: ", e)
 
 def set_sync_time(asset_id, asset_type):
     set_tblproperties(asset_id=asset_id, asset_type=asset_type, key="last_collibra_sync_time", value=int(datetime.datetime.utcnow().timestamp()))
@@ -327,6 +337,7 @@ def update(asset_name=None, asset_type=None, asset_id=None):
     # IMPORTS
     new_asset = get_okera_assets(name=asset_name, asset_type=asset_type, asset_id=asset_id)
     #print("next: ", next((x for x in collibra_assets if x.asset_id == new_asset.asset_id), None))
+    print(new_asset)
     if new_asset not in collibra_assets:
         set_tblproperties(name=new_asset.name, asset_type=new_asset.asset_type, key="collibra_asset_id", value="")
         import_param = set_assets(new_asset)
@@ -343,7 +354,7 @@ def update(asset_name=None, asset_type=None, asset_id=None):
                 collibra_get(attr, "attributes", "post")
         set_sync_time(new_asset.asset_id, new_asset.asset_type)
         mapping_param = {
-            "externalSystemId": "okera_export2",
+            "externalSystemId": "okera_import",
             "externalEntityId": new_asset.name,
             "mappedResourceId": new_asset.asset_id,
             "lastSyncDate": 0,
@@ -435,27 +446,42 @@ def update(asset_name=None, asset_type=None, asset_id=None):
 
     # TODO use mappings to find correct asset id
 # what happens if i change display name in collibra? will full name stay the same??
+def create_table_hash(table):
+    column_values = []
+    for c in table.children:
+        column_values.append(c.name + c.asset_type + json.dumps(c.relation) + json.dumps(c.attributes) + json.dumps(c.tags))
+    table_hash_values = table.name + table.asset_type + table.asset_id + json.dumps(table.relation) + json.dumps(column_values) + json.dumps(table.attributes) + json.dumps(table.tags)
+    return hashlib.md5(table_hash_values.encode()).hexdigest()
+
 def update_all():
     pyokera_calls()
-    for d in okera_dbs:
-        print(d.name)
-        update(d.name, "Database")
+    #for d in okera_dbs:
+        #print(d.name)
+        #update(d.name, "Database")
     for t in okera_tables:
-        print("----!!!!----!!!!----!!!!", t.name)
-        if t.asset_id:
-            print("--------t.asset_id--------:", t.asset_id)
-            print(t)
-            # TODO if last_collibra_sync_time older than __ update, else don't
-            update(asset_type="Table", asset_id=t.asset_id)
-            for c in t.children:
-                print(c.name)
-                update(c.name, "Column")
-        else:
-            print("t.name:", t.name)
-            update(t.name, "Table")
-            for c in t.children:
-                print(c.name)
-                update(c.name, "Column")
+        print("----TABLE----\n", t.name)
+        new_table_hash = create_table_hash(t)
+        if (t.table_hash == None or (t.table_hash and t.table_hash != new_table_hash)):
+            set_tblproperties(t.name, t.asset_id, asset_type="Table", key="table_hash", value=new_table_hash)
+            #set table properties
+            if t.asset_id:
+                print('-asset_id-')
+                print("t.asset_id:", t.asset_id)
+                print(t)
+                #compare table hashes here?
+                update(asset_type="Table", asset_id=t.asset_id)
+                for c in t.children:
+                    print("----COLUMN----\n", c.name)
+                    print(c)
+                    update(c.name, "Column")
+            else:
+                print("-name only-")
+                print("t.name:", t.name)
+                update(t.name, "Table")
+                for c in t.children:
+                    print("----COLUMN----\n", c.name)
+                    print(c)
+                    update(c.name, "Column")
 update_all()
 
 # TODO add try except block

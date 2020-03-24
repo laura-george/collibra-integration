@@ -202,7 +202,6 @@ def tag_actions(action, db, name, type, tags):
             print("PYOKERA ERROR")
             print("Could not connect to Okera!")
             print("Error: ", e)
-            sys.exit(1)
         with conn:
             nmspc_key = tag.split(".")
             try:
@@ -211,14 +210,12 @@ def tag_actions(action, db, name, type, tags):
                 print("PYOKERA ERROR")
                 print("Could not list attribute namespaces!")
                 print("Error: ", e)
-                sys.exit(1)
             try:
                 list_attributes = conn.list_attributes(nmspc_key[0])
             except thriftpy.thrift.TException as e:
                 print("PYOKERA ERROR")
                 print("Could not list attributes for namespace " + nmspc_key[0] + "!")
                 print("Error: ", e)
-                sys.exit(1)
             if nmspc_key[0] not in list_namespaces or nmspc_key[1] not in list_attributes:
                 try:
                     conn.create_attribute(nmspc_key[0], nmspc_key[1], True)
@@ -226,7 +223,6 @@ def tag_actions(action, db, name, type, tags):
                     print("PYOKERA ERROR")
                     print("Could not create tag " + tag + "!")
                     print("Error: ", e)
-                    sys.exit(1)
             if action == "assign":
                 if type == "Column":
                     tab_col = name.split(".")
@@ -236,7 +232,6 @@ def tag_actions(action, db, name, type, tags):
                         print("PYOKERA ERROR")
                         print("Could not assign tag " + tag + " to column " + name + "!")
                         print("Error: ", e)
-                        sys.exit(1)
                 elif type == "Table":
                     try:
                         conn.assign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
@@ -244,7 +239,6 @@ def tag_actions(action, db, name, type, tags):
                         print("PYOKERA ERROR")
                         print("Could not assign tag " + tag + " to table " + name + "!")
                         print("Error: ", e)
-                        sys.exit(1)
             elif action == "unassign":
                 if type == "Column":
                     tab_col = name.split(".")
@@ -254,7 +248,6 @@ def tag_actions(action, db, name, type, tags):
                         print("PYOKERA ERROR")
                         print("Could not unassign tag " + tag + " from column " + name + "!")
                         print("Error: ", e)
-                        sys.exit(1)
                 elif type == "Table":
                     try:
                         conn.unassign_attribute(nmspc_key[0], nmspc_key[1], db, dataset=name, if_not_exists=True)
@@ -262,7 +255,6 @@ def tag_actions(action, db, name, type, tags):
                         print("PYOKERA ERROR")
                         print("Could not unassign tag " + tag + " from table " + name + "!")
                         print("Error: ", e)
-                        sys.exit(1)
     if isinstance(tags, list):
         for tag in tags:
             define_tags(tag)
@@ -288,7 +280,6 @@ def desc_actions(name, type, col_type, description, tab_type=None):
                 print("PYOKERA ERROR")
                 print("Could not change description for column " + name + "!")
                 print("Error: ", e)
-                sys.exit(1)
         elif type == "Column" and tab_type == "View":
             print("PYOKERA ERROR")
             print("Could not change description for column in view " + name + "!")
@@ -299,7 +290,6 @@ def desc_actions(name, type, col_type, description, tab_type=None):
                 print("PYOKERA ERROR")
                 print("Could not change description for table " + name + "!")
                 print("Error: ", e)
-                sys.exit(1)
         elif type == "View":
             try:
                 conn.execute_ddl("ALTER VIEW " + name + " SET TBLPROPERTIES ('comment' = '" + description + "')")
@@ -307,7 +297,6 @@ def desc_actions(name, type, col_type, description, tab_type=None):
                 print("PYOKERA ERROR")
                 print("Could not change description for view " + name + "!")
                 print("Error: ", e)
-                sys.exit(1)
 
 # diffs attributes from Collibra with attributes from Okera and makes necessary changes in Okera
 def export(asset_name=None):
