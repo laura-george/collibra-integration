@@ -13,13 +13,13 @@
 
 configs:
   host: "sandbox.demo.okera.com"
-  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXD3nUK5igFxG6nGuQNt.j0872F-4cCnmFZ6De6btq7OYpvw$"
+  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXEG7LCRigFxKvk0kQZz.p84wqzXFUCqYi44s-w23Ybaryik$"
   collibra_dgc: "https://okera.collibra.com:443"
   collibra_username: "Admin"
   collibra_password: "Gac2Quencotdilo"
   community: "Okera3.0"
   domain: 
-      name: "Data Domain"
+      name: "export_only"
       type: "Physical Data Dictionary" 
   #
   # Collibra custom attribute mapping information. 

@@ -1,0 +1,34 @@
+# This file contains all user-specific information
+#
+# Example:
+#  host: "example.okera.com"
+#  token: "okera acces token"
+#  collibra_dgc: "https://example.collibra.com:443"
+#  collibra_username: "username"
+#  collibra_password: "password"
+#  community: "Example Community"
+#  domain: 
+#      name: "Example Domain"
+#      type: "Data Asset Domain" 
+#  mapped_attribute_okera_namespace: "information_classification"
+
+configs:
+  # Okera related information
+  host: ""
+  token: ""
+  # Collibra information
+  collibra_dgc: ""
+  collibra_username: ""
+  collibra_password: ""
+  community: ""
+  domain:
+    name: ""
+    type: ""
+  #
+  # Collibra custom attribute mapping information.
+  # Specify what Okera namespace you would like to map the Collibra custom attribute to.
+  # If the Okera namespace already exists, the values of that Collibra attribute
+  # will be added there as Okera tags. If it doesn't, a new namespace will be created
+  # in Okera with the name provided.
+  #
+  mapped_attribute_okera_namespace: ""
