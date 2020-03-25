@@ -19,7 +19,7 @@ configs:
   collibra_password: "Gac2Quencotdilo"
   community: "Okera3.0"
   domain: 
-      name: "import"
+      name: "export_only"
       type: "Physical Data Dictionary" 
   #
   # Collibra custom attribute mapping information. 

@@ -158,7 +158,7 @@ def pyokera_calls(asset_name=None, asset_type=None):
                         displayName=escape(t.name), 
                         relation={'Name': escape(t.db[0]), 'Type': "Database"},
                         attributes={'Description': escape(t.description) if t.description else None, 
-                        'Location': escape(t.location) if t.location else None},
+                        'Location': escape(t.location) if t.location else ""},
                         tags=create_tags(t.attribute_values),
                         last_collibra_sync_time=t.metadata.get('last_collibra_sync_time'),
                         table_hash=t.metadata.get('table_hash') if t.metadata.get('table_hash') else None
@@ -205,7 +205,7 @@ def get_okera_assets(name=None, asset_type=None, asset_id=None):
     okera_assets = []
     asset = None
     for a in assets:
-        if name:
+        if name and not asset_id:
             if a.name == name and a.asset_type == asset_type:
                 a.asset_type_id = find_asset_type_id(a.asset_type)
                 asset = a
@@ -323,7 +323,6 @@ def update(asset_name=None, asset_type=None, asset_id=None):
     deleted_params = []
     relation_params = []
     mapping_params = []
-    # TODO switch out name for id
     for a in collibra_calls(None, asset_name, asset_type):
         asset = Asset(
             a.get('name'),
@@ -350,6 +349,7 @@ def update(asset_name=None, asset_type=None, asset_id=None):
             collibra_get(set_relations(new_asset), "relations", "post")
         new_attributes = set_attributes(new_asset)
         if new_attributes:
+            print("new attributes: ", new_attributes)
             for attr in new_attributes:
                 collibra_get(attr, "attributes", "post")
         set_sync_time(new_asset.asset_id, new_asset.asset_type)
@@ -396,9 +396,9 @@ def update(asset_name=None, asset_type=None, asset_id=None):
                 set_sync_time(c.asset_id, c.asset_type)
 
             attribute = json.loads(collibra_get({'assetId': c.asset_id}, "attributes", "get")).get('results')
-            # TODO change to asset id not asset name !!
             matched_attr = find_okera_info(asset_id=c.asset_id, info="attributes") if asset_type == "Table" else find_okera_info(name=c.name, info="attributes")
             for attr in attribute:
+                print("attr  in attribute: ", attr)
                 attributes.update({attr.get('type').get('name'): attr.get('value')})
                 attribute_ids.update({attr.get('type').get('name'): attr.get('id')})
             c.attributes = attributes
@@ -407,29 +407,23 @@ def update(asset_name=None, asset_type=None, asset_id=None):
             import_attr = []
             delete_attr = []
             if c.attributes and matched_attr:
-                print(c.attributes)
-                print(matched_attr)
-                for key in c.attributes:
-                    if key in matched_attr:
-                        if matched_attr[key] != None and c.attributes[key] != matched_attr[key]:                            
+                for key in matched_attr:
+                    if key in c.attributes:
+                        if matched_attr[key] != None and c.attributes[key] != matched_attr[key]:  
                             update_attr.append({'id': c.attribute_ids[key], 'value': matched_attr[key]})
                         elif matched_attr[key] == None:
                             delete_attr.append(c.attribute_ids[key])
                     else:
-                        if c.attributes[key] != None and key != "Information Classification":
-                            print("key: ", key)
-                            print('matched_attr: ', matched_attr)
-                            a = get_okera_assets(name=c.name, asset_type=c.asset_type)
+                        if matched_attr[key] != None:
+                            a = get_okera_assets(name=c.name, asset_type=c.asset_type, asset_id=c.asset_id)
+                            print(a)
+                            print(c)
                             a.asset_id = c.asset_id
-                            print('import_attr before: ', import_attr)
                             import_attr.append(set_attributes(a)[0])
-                            print('import_attr after: ', import_attr)
 
             elif matched_attr and not c.attributes:
-                print(c.attributes)
-                print(matched_attr)
                 for key in matched_attr:
-                    if matched_attr[key] != None:
+                    if matched_attr[key] != None and matched_attr[key] != '':
                             a = get_okera_assets(name=c.name, asset_type=c.asset_type)
                             a.asset_id = c.asset_id
                             import_attr.append(set_attributes(a)[0])
@@ -444,13 +438,15 @@ def update(asset_name=None, asset_type=None, asset_id=None):
                 collibra_get(import_attr, "attributes/bulk", "post")
                 set_sync_time(c.asset_id, c.asset_type)
 
-    # TODO use mappings to find correct asset id
-# what happens if i change display name in collibra? will full name stay the same??
+def replace_none(s):
+    return '' if s is None else str(s)
+
 def create_table_hash(table):
     column_values = []
-    for c in table.children:
-        column_values.append(c.name + c.asset_type + json.dumps(c.relation) + json.dumps(c.attributes) + json.dumps(c.tags))
-    table_hash_values = table.name + table.asset_type + table.asset_id + json.dumps(table.relation) + json.dumps(column_values) + json.dumps(table.attributes) + json.dumps(table.tags)
+    if table.children:
+        for c in table.children:
+            column_values.append(c.name + c.asset_type + replace_none(json.dumps(c.relation)) + replace_none(json.dumps(c.attributes)) + replace_none(json.dumps(c.tags)))
+    table_hash_values = table.name + table.asset_type + replace_none(table.asset_id) + replace_none(json.dumps(table.relation)) + replace_none(json.dumps(column_values)) + replace_none(json.dumps(table.attributes)) + replace_none(json.dumps(table.tags))
     return hashlib.md5(table_hash_values.encode()).hexdigest()
 
 def update_all():
@@ -462,14 +458,13 @@ def update_all():
         print("----TABLE----\n", t.name)
         new_table_hash = create_table_hash(t)
         if (t.table_hash == None or (t.table_hash and t.table_hash != new_table_hash)):
-            set_tblproperties(t.name, t.asset_id, asset_type="Table", key="table_hash", value=new_table_hash)
             #set table properties
             if t.asset_id:
                 print('-asset_id-')
                 print("t.asset_id:", t.asset_id)
                 print(t)
-                #compare table hashes here?
                 update(asset_type="Table", asset_id=t.asset_id)
+                set_tblproperties(t.name, t.asset_id, asset_type="Table", key="table_hash", value=new_table_hash)
                 for c in t.children:
                     print("----COLUMN----\n", c.name)
                     print(c)
@@ -478,6 +473,7 @@ def update_all():
                 print("-name only-")
                 print("t.name:", t.name)
                 update(t.name, "Table")
+                set_tblproperties(t.name, t.asset_id, asset_type="Table", key="table_hash", value=new_table_hash)
                 for c in t.children:
                     print("----COLUMN----\n", c.name)
                     print(c)

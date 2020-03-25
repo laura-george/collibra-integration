@@ -1,3 +1,5 @@
+# TODO name entered in script should be for collibra table not okera table!!!
+
 import json
 import requests
 import yaml
@@ -16,7 +18,7 @@ elements = []
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
 
 # opens config.yaml
-with open('config.yaml') as f:
+with open('config_export.yaml') as f:
     configs = yaml.load(f, Loader=yaml.FullLoader)['configs']
 
 # opens resourceids.yaml
@@ -111,7 +113,7 @@ def create_tags(attribute_values):
         return attributes
 
 # pyokera calls
-def pyokera_calls(asset_name=None):
+def pyokera_calls(asset_name=None, asset_type=None):
     try:
         conn = ctx.connect(host = configs['host'], port = planner_port)
     except thriftpy.transport.TException as e:
@@ -122,12 +124,21 @@ def pyokera_calls(asset_name=None):
     with conn:
         databases = conn.list_databases()
         if asset_name:
-            tables = conn.list_datasets(asset_name)
-            if tables:
-                element = {'database': asset_name, 'tables': tables}
-            else:
-                element = {'database': asset_name}
-            elements.append(element)
+            if asset_type == "Database":
+                tables = conn.list_datasets(asset_name)
+                if tables:
+                    element = {'database': asset_name, 'tables': tables}
+                else:
+                    element = {'database': asset_name}
+                elements.append(element)
+            elif asset_type == "Table":
+                db_name = asset_name.split(".")[0]
+                tables = conn.list_datasets(db_name)
+                for t in tables:
+                    # build in asset id
+                    if t.name == asset_name:
+                        element = {'database': db_name, 'tables': tables}
+                        break
         else:
             for database in databases:
                 tables = conn.list_datasets(database)
@@ -138,8 +149,7 @@ def pyokera_calls(asset_name=None):
                 elements.append(element) 
 
 # gets assets and their tags and attributes from Collibra
-# asset_name is always the name of a database
-def collibra_calls(asset_name=None):
+def collibra_calls(asset_name=None, asset_type=None):
     def set_elements(asset_id, asset_name, asset_type):
         info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
         update_elements.append({
@@ -159,7 +169,7 @@ def collibra_calls(asset_name=None):
             'simulation': False,
             'domainId': domain_id,
             'communityId': community_id,
-            'typeId': get_resource_ids('assets', 'Database')
+            'typeId': get_resource_ids('assets', asset_type)
             }
     else:
         params = {
@@ -167,14 +177,23 @@ def collibra_calls(asset_name=None):
             'domainId': domain_id,
             'communityId': community_id
             }
-    database = json.loads(collibra_get(params, "assets", 'get'))['results'][0]
-    set_elements(database['id'], database['name'], 'Database')
-    table_params = {'relationTypeId': get_resource_ids('relations', 'Table'), 'targetId': database['id']}
-    tables = json.loads(collibra_get(table_params, "relations", 'get'))['results']
-    columns = []
-    for t in tables:
-        set_elements(t['source']['id'], t['source']['name'], 'Table')
-        column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': t['source']['id']}
+    
+    if asset_type == "Database":
+        database = json.loads(collibra_get(params, "assets", 'get'))['results'][0]
+        set_elements(database['id'], database['name'], asset_type)
+        table_params = {'relationTypeId': get_resource_ids('relations', 'Table'), 'targetId': database['id']}
+        tables = json.loads(collibra_get(table_params, "relations", 'get'))['results']
+        columns = []
+        for t in tables:
+            set_elements(t['source']['id'], t['source']['name'], 'Table')
+            column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': t['source']['id']}
+            for c in json.loads(collibra_get(column_params, 'relations', 'get'))['results']:
+                set_elements(c['source']['id'], c['source']['name'], 'Column')
+    elif asset_type == "Table":
+        print("table: ", json.loads(collibra_get(params, "assets", "get"))['results'])
+        table = json.loads(collibra_get(params, "assets", "get"))['results'][0]
+        set_elements(table['id'], table['name'], asset_type)
+        column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': table['id']}
         for c in json.loads(collibra_get(column_params, 'relations', 'get'))['results']:
             set_elements(c['source']['id'], c['source']['name'], 'Column')
 
@@ -299,51 +318,67 @@ def desc_actions(name, type, col_type, description, tab_type=None):
                 print("Error: ", e)
 
 # diffs attributes from Collibra with attributes from Okera and makes necessary changes in Okera
-def export(asset_name=None):
-    pyokera_calls(asset_name)
-    collibra_calls(asset_name)
-    for element in elements:
-        if element.get('database') == asset_name:
-            # begin of table loop: iterates over tables compares tags and descriptions from collibra and okera
-            # tags: if only okera tags exist -> unassign tags in okera, if only collibra tags exist -> assign tags in okera, if collibra and okera tags exist -> compare tags and change (unassign and assign) if the collibra tags are different to the okera tags
-            for t in element.get('tables'):
-                asset_id = t.metadata.get('collibra_asset_id')
-                tab_name = t.db[0] + "." + t.name
-                collibra_tab_tags = find_info(info="info_classif", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="info_classif")
-                okera_tab_tags = create_tags(t.attribute_values)
-                if okera_tab_tags and collibra_tab_tags:
-                    if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
-                        tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
-                        tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
-                elif collibra_tab_tags and not okera_tab_tags:
-                    tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
-                elif okera_tab_tags and not collibra_tab_tags:
-                    tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
-                collibra_tab_desc = find_info(info="description", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="description")
-                okera_tab_desc = t.description
-                tab_type = "View" if t.primary_storage == "View" else "Table"
-                if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
-                    desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
-                # begin of column loop: same functionality as table loop
-                for col in t.schema.cols:
-                    col_name = tab_name + "." + col.name
-                    collibra_col_tags = find_info(col_name, "info_classif")
-                    okera_col_tags = create_tags(col.attribute_values)
-                    if okera_col_tags and collibra_col_tags:
-                        if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
-                            tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
-                            tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
-                    elif collibra_col_tags and not okera_col_tags:
-                        tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
-                    elif okera_col_tags and not collibra_col_tags:
-                        tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
-                    collibra_col_desc = find_info(col_name, "description")
-                    okera_col_desc = col.comment
-                    if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
-                        desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)
+def export(asset_name=None, asset_type=None):
+    #collibra calls first to get name of collibra table or database
+    collibra_calls(asset_name, asset_type)
+    pyokera_calls(asset_name, asset_type)
+    def diff(t):
+        asset_id = t.metadata.get('collibra_asset_id')
+        tab_name = t.db[0] + "." + t.name
+        collibra_tab_tags = find_info(info="info_classif", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="info_classif")
+        okera_tab_tags = create_tags(t.attribute_values)
+        if okera_tab_tags and collibra_tab_tags:
+            if collections.Counter(okera_tab_tags) != collections.Counter(collibra_tab_tags):
+                tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+                tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
+        elif collibra_tab_tags and not okera_tab_tags:
+            tag_actions("assign", t.db[0], t.name, "Table", collibra_tab_tags)
+        elif okera_tab_tags and not collibra_tab_tags:
+            tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
+        collibra_tab_desc = find_info(info="description", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="description")
+        okera_tab_desc = t.description
+        tab_type = "View" if t.primary_storage == "View" else "Table"
+        if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
+            desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
+        # begin of column loop: same functionality as table loop
+        for col in t.schema.cols:
+            col_name = tab_name + "." + col.name
+            # switch out for okera
+            print("collibra col name: ", find_info(asset_id=asset_id, info="name"))
+            print("okera col name: ", col_name)
+            collibra_col_name = find_info(asset_id=asset_id, info="name") + "." + col.name if find_info(asset_id=asset_id, info="name") else col_name
+            collibra_col_tags = find_info(collibra_col_name, "info_classif")
+            okera_col_tags = create_tags(col.attribute_values)
+            if okera_col_tags and collibra_col_tags:
+                if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
+                    tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+                    tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
+            elif collibra_col_tags and not okera_col_tags:
+                tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
+            elif okera_col_tags and not collibra_col_tags:
+                tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
+            collibra_col_desc = find_info(collibra_col_name, "description")
+            okera_col_desc = col.comment
+            if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
+                desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)
 
-which_asset = input("Please enter the full name of the database you wish to export: ")
-if which_asset:
+    for element in elements:
+        if asset_type == "Database" and element.get('database') == asset_name:
+            for t in element.get('tables'):
+                diff(t)
+        elif asset_type == "Table":
+            for t in element.get('tables'):
+                if t.name == asset_name: diff(t)
+
+which_asset = input("Please enter the full name the asset you wish to update: ")
+which_type = input("Is this asset of the type Database or Table? ")
+if which_asset and which_type:
     print("Exporting " + which_asset + "...")
-    export(which_asset)
+    export(which_asset, which_type)
+    print("Export complete!")
+elif which_asset and not which_type:
+    while not which_type:
+        which_type = input("The asset type is required: ")
+    export(which_asset, which_type)
+    print("Exporting " + which_asset + "...")
     print("Export complete!")
