@@ -6,8 +6,6 @@ import sys
 import logging
 from okera import context
 import collections
-from pprint import pformat
-#pp = pprint.PrettyPrinter(indent=4)
 
 logging.basicConfig(format='%(levelname)s %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', filename='export.log',level=logging.DEBUG)
 # Okera planner port
@@ -21,7 +19,7 @@ type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE"
 
 try:
     logging.info("Opening config.yaml")
-    with open('config_export.yaml') as f:
+    with open('config.yaml') as f:
         configs = yaml.load(f, Loader=yaml.FullLoader)['configs']
 except yaml.YAMLError as e:
     logging.error("Error in config.yaml: " + str(e))
@@ -75,17 +73,6 @@ def collibra_get(param_obj, call, method, header=None):
             logging.warning("Response: " + str(data.content))
         logging.info("Request successful")
         return data.content
-
-class Logger:
-    def __init__(self, log_type, asset_name=None, asset_type=None, asset_id=None, location=None, attributes=None):
-        self.log_type = log_type
-        self.asset_name = asset_name
-        self.asset_type = asset_type
-        self.asset_id = asset_id
-        self.location = location
-        self.attributes = attributes
-    def __str__(self):
-        return "##### " + str(self.log_type) + " #####\n" + str(pformat(self.__dict__)) + "\n----------"
 
 # names and IDs of Collibra community and domain
 community = configs['community']
@@ -411,12 +398,12 @@ def export(asset_name=None, asset_type=None):
     logging.info("Starting export operations")
     collibra_calls(asset_name, asset_type)
     pyokera_calls(asset_name, asset_type)
-    def diff(t, collibra_logger=None):
+    def diff(t):
         asset_id = t.metadata.get('collibra_asset_id')
         tab_name = t.db[0] + "." + t.name
         collibra_tab_tags = find_info(info="info_classif", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="info_classif")
         okera_tab_tags = create_tags(t.attribute_values)
-        logging.debug("Comparing Collibra attributes of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera tags of table '" + tab_name + "'")
+        logging.debug("Comparing Collibra attributes of table (name: '" + tab_name + "', asset ID: '" + asset_id + "') to Okera tags of table '" + tab_name + "'")
         logging.debug("Collibra attributes: " + str(collibra_tab_tags))
         logging.debug("Okera tags: " + str(okera_tab_tags))
         if okera_tab_tags and collibra_tab_tags:
@@ -438,9 +425,9 @@ def export(asset_name=None, asset_type=None):
         # begin of column loop: same functionality as table loop
         for col in t.schema.cols:
             col_name = tab_name + "." + col.name
-            okera_col_tags = create_tags(col.attribute_values)
             collibra_col_name = find_info(asset_id=asset_id, info="name") if find_info(asset_id=asset_id, info="name") else col_name
             collibra_col_tags = find_info(collibra_col_name, "info_classif")
+            okera_col_tags = create_tags(col.attribute_values)
             logging.debug("Comparing Collibra attributes of column '" + collibra_col_name + "' to Okera tags of column '" + col_name + "'")
             logging.debug("Collibra attributes: '" + str(collibra_col_tags) + "'")
             logging.debug("Okera tags: " + str(okera_col_tags))
@@ -454,21 +441,6 @@ def export(asset_name=None, asset_type=None):
                 tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
             collibra_col_desc = find_info(collibra_col_name, "description")
             okera_col_desc = col.comment
-            logging.debug(str(Logger(
-                "FETCHED OKERA COLUMN INFO",
-                col_name, 
-                "Column", 
-                "not available for columns in Okera", 
-                {'system': "Okera", 'table': tab_name},
-                {'description': str(okera_col_desc), 'tags': str(okera_col_tags)})))
-            logging.debug(str(Logger(
-                "FETCHED COLLIBRA COLUMN INFO",
-                collibra_col_name,
-                "Column",
-                find_info(collibra_col_name, 'asset_id'),
-                {'system': "Collibra", 'community': community, 'domain': domain, 'table': {'name': str(tab_name), 'asset_id': str(asset_id) if asset_id else str(find_info(tab_name, "asset_id"))}},
-                {'description': str(okera_col_desc), 'info_classif': str(okera_col_tags)}
-            )))
             logging.debug("Comparing Collibra description of column '" + collibra_col_name + "' to Okera description of column '" + col_name + "'")
             logging.debug("Collibra description: " + str(collibra_col_desc))
             logging.debug("Okera description: " + str(okera_col_desc))
@@ -477,24 +449,10 @@ def export(asset_name=None, asset_type=None):
     for element in elements:
         if asset_type == "Database" and element.get('database') == asset_name:
             for t in element.get('tables'):
-                okera_logger = Logger(
-                    "none",
-                    table.db[0] + "." + table.name, 
-                    "Table", 
-                    str(table.metadata.get('collibra_asset_id')), 
-                    {'system': "okera", 'database': table.db[0]},
-                    {'description': str(table.description), 'tags': create_tags(table.attribute_values)})
                 diff(t)
         elif asset_type == "Table":
             table = element.get('tables')
             if table.db[0] + "." + table.name == asset_name:
-                logging.debug(str(Logger(
-                    "FETCHED OKERA TABLE INFO",
-                    table.db[0] + "." + table.name, 
-                    "Table", 
-                    str(table.metadata.get('collibra_asset_id')), 
-                    {'system': "okera", 'database': table.db[0]},
-                    {'description': str(table.description), 'tags': create_tags(table.attribute_values)})))
                 diff(table)
 
 which_asset = input("Please enter the full name the asset you wish to update: ")

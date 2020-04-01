@@ -63,9 +63,19 @@ def collibra_get(param_obj, call, method, header=None):
 
 # names and IDs of Collibra community and domain
 community = configs['community']
-community_id = json.loads(collibra_get({'name': community}, "communities", 'get')).get('results')[0].get('id')
+try:
+    community_id = json.loads(collibra_get({'name': community}, "communities", 'get')).get('results')[0].get('id')
+except IndexError:
+    print("Could not find Collibra community " + community + "!")
+    print("Collibra response: ", json.loads(collibra_get({'name': community}, "communities", 'get')).get('results'))
+    sys.exit(1)
 domain = configs['domain']
-domain_id = json.loads(collibra_get({'name': domain['name'], 'communityId': community_id}, "domains", 'get')).get('results')[0].get('id')
+try:
+    domain_id = json.loads(collibra_get({'name': domain['name'], 'communityId': community_id}, "domains", 'get')).get('results')[0].get('id')
+except IndexError:
+    print("Could not find Collibra domain " + domain['name'] + " in community " + community + "!")
+    print("Collibra response: ", json.loads(collibra_get({'name': domain['name'], 'communityId': community_id}, "domains", 'get')).get('results'))
+    sys.exit(1)
 
 # PyOkera context
 ctx = context()
@@ -167,7 +177,13 @@ def collibra_calls(asset_name=None):
             'domainId': domain_id,
             'communityId': community_id
             }
-    database = json.loads(collibra_get(params, "assets", 'get'))['results'][0]
+    try:
+        database = json.loads(collibra_get(params, "assets", 'get'))['results'][0]
+    except IndexError:
+        print("Could not find Collibra asset " + asset_name + "!")
+        print("Failed request: ", json.dumps(params))
+        print("Collibra response: ", json.loads(collibra_get(params, "assets", 'get'))['results'])
+        sys.exit(1)
     set_elements(database['id'], database['name'], 'Database')
     table_params = {'relationTypeId': get_resource_ids('relations', 'Table'), 'targetId': database['id']}
     tables = json.loads(collibra_get(table_params, "relations", 'get'))['results']
@@ -338,7 +354,8 @@ def export(asset_name=None):
                 # begin of column loop: same functionality as table loop
                 for col in t.schema.cols:
                     col_name = tab_name + "." + col.name
-                    collibra_col_tags = find_info(col_name, "info_classif")
+                    collibra_col_name = find_info(asset_id=asset_id, info="name") + "." + col.name if find_info(asset_id=asset_id, info="name") else col_name
+                    collibra_col_tags = find_info(collibra_col_name, "info_classif")
                     okera_col_tags = create_tags(col.attribute_values)
                     if okera_col_tags and collibra_col_tags:
                         if collections.Counter(okera_col_tags) != collections.Counter(collibra_col_tags):
@@ -348,7 +365,7 @@ def export(asset_name=None):
                         tag_actions("assign", t.db[0], col_name, "Column", collibra_col_tags)
                     elif okera_col_tags and not collibra_col_tags:
                         tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
-                    collibra_col_desc = find_info(col_name, "description")
+                    collibra_col_desc = find_info(collibra_col_name, "description")
                     okera_col_desc = col.comment
                     if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
                         desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)

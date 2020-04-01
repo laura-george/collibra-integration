@@ -1,9 +1,3 @@
-# TODO
-# switch out config file and db for yamls
-# get assets by relations instead of name match mode - done
-# BUGS: mapped assets get deleted and replaced by Okera asset -> check for ID here, NOT NAME
-#   happened with: users_name_change and mapping_table
-
 import json
 import requests
 import thriftpy
@@ -195,11 +189,7 @@ def pyokera_calls(asset_name=None, asset_type=None):
                 assets.append(Asset(d, "Database"))
                 set_tables()
 
-# ENTERING TABLE HERE DOESNT RETURN RIGHT TABLES??
-#pyokera_calls("default", "Database")
-
 # finds Asset objects from Okera in assets[], adds asset type id to object
-# used to find assets and their relations, e.g. get_okera_assets("default", "Database") returns the Asset objects for default and all it's tables (default.okera_sample, default. ...)
 def get_okera_assets(name=None, asset_type=None, asset_id=None):
     # if name, then column or database, if id then table
     okera_assets = []
@@ -219,7 +209,6 @@ def get_okera_assets(name=None, asset_type=None, asset_id=None):
             a.asset_type_id = find_asset_type_id(a.asset_type)
             asset = a
             okera_assets.append(a)
-
     if len(okera_assets) > 1:
         return okera_assets
     else:
@@ -335,8 +324,6 @@ def update(asset_name=None, asset_type=None, asset_id=None):
 
     # IMPORTS
     new_asset = get_okera_assets(name=asset_name, asset_type=asset_type, asset_id=asset_id)
-    #print("next: ", next((x for x in collibra_assets if x.asset_id == new_asset.asset_id), None))
-    print(new_asset)
     if new_asset not in collibra_assets:
         set_tblproperties(name=new_asset.name, asset_type=new_asset.asset_type, key="collibra_asset_id", value="")
         import_param = set_assets(new_asset)
@@ -366,12 +353,10 @@ def update(asset_name=None, asset_type=None, asset_id=None):
             collibra_get(tag_params, "assets/" + new_asset.asset_id + "/tags", "post")
         set_tblproperties(name=new_asset.name, asset_type=new_asset.asset_type, key="collibra_asset_id", value=new_asset.asset_id)
 
-    #figure this out
     for deleted_asset in [obj for obj in collibra_assets if obj not in assets]:
         print("deleted asset found: ", deleted_asset.name)
-        #collibra_get(None, "assets/" + deleted_asset.asset_id, "delete")
+        collibra_get(None, "assets/" + deleted_asset.asset_id, "delete")
 
-    # UPDATES TODO instead of iterating of all, just find the one of matches the asset id or name of the okera asset!!
     for c in collibra_assets:
         collibra_tags = []
         attributes = {}
@@ -451,11 +436,12 @@ def create_table_hash(table):
 
 def update_all():
     pyokera_calls()
-    #for d in okera_dbs:
-        #print(d.name)
-        #update(d.name, "Database")
+    for d in okera_dbs:
+        print(d.name)
+        update(d.name, "Database")
     for t in okera_tables:
         print("----TABLE----\n", t.name)
+        # check for last sync time will happen here
         new_table_hash = create_table_hash(t)
         if (t.table_hash == None or (t.table_hash and t.table_hash != new_table_hash)):
             #set table properties
@@ -478,7 +464,7 @@ def update_all():
                     print("----COLUMN----\n", c.name)
                     print(c)
                     update(c.name, "Column")
-update_all()
+#update_all()
 
 # TODO add try except block
 """ which_asset = input("Please enter the full name the asset you wish to update: ")

@@ -1,0 +1,144 @@
+INFO 04/01/2020 05:37:32 PM Opening config.yaml
+INFO 04/01/2020 05:37:32 PM Opening resourceids.yaml
+INFO 04/01/2020 05:37:32 PM Making Collibra request
+DEBUG 04/01/2020 05:37:32 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:37:33 PM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
+INFO 04/01/2020 05:37:33 PM Request successful
+INFO 04/01/2020 05:37:33 PM Making Collibra request
+DEBUG 04/01/2020 05:37:33 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:37:34 PM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
+INFO 04/01/2020 05:37:34 PM Request successful
+DEBUG 04/01/2020 05:37:34 PM Creating Okera context
+DEBUG 04/01/2020 05:37:34 PM Enabled token auth
+INFO 04/01/2020 05:37:49 PM Opening config.yaml
+INFO 04/01/2020 05:37:49 PM Opening resourceids.yaml
+INFO 04/01/2020 05:37:49 PM Making Collibra request
+DEBUG 04/01/2020 05:37:49 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:37:50 PM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
+INFO 04/01/2020 05:37:50 PM Request successful
+INFO 04/01/2020 05:37:50 PM Making Collibra request
+DEBUG 04/01/2020 05:37:50 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:37:51 PM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
+INFO 04/01/2020 05:37:51 PM Request successful
+DEBUG 04/01/2020 05:37:51 PM Creating Okera context
+DEBUG 04/01/2020 05:37:51 PM Enabled token auth
+INFO 04/01/2020 05:37:58 PM Starting export operations
+INFO 04/01/2020 05:37:58 PM Fetching resource ID for 'Table' in 'assets' from resourceids.yaml
+INFO 04/01/2020 05:37:58 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table' from resourceids.yaml
+INFO 04/01/2020 05:37:58 PM Fetching Collibra asset 'okera_sample.whoami'
+INFO 04/01/2020 05:37:58 PM Making Collibra request
+DEBUG 04/01/2020 05:37:58 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:37:59 PM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=okera_sample.whoami&nameMatchMode=EXACT&simulation=False&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031007 HTTP/1.1" 200 390
+INFO 04/01/2020 05:37:59 PM Request successful
+INFO 04/01/2020 05:37:59 PM Successfully fetched table 'okera_sample.whoami'
+INFO 04/01/2020 05:37:59 PM Fetching attribute 'Information Classification' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc' from Collibra
+INFO 04/01/2020 05:37:59 PM Fetching resource ID for 'Information Classification' in 'attributes' from resourceids.yaml
+INFO 04/01/2020 05:37:59 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification' from resourceids.yaml
+INFO 04/01/2020 05:37:59 PM Making Collibra request
+DEBUG 04/01/2020 05:37:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:37:59 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 200 328
+INFO 04/01/2020 05:37:59 PM Request successful
+INFO 04/01/2020 05:37:59 PM Successfully fetched 'Information Classification' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc': 'public'
+INFO 04/01/2020 05:37:59 PM Fetching attributes for 'okera_sample.whoami' from Collibra
+INFO 04/01/2020 05:37:59 PM Fetching attribute 'Description' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc' from Collibra
+INFO 04/01/2020 05:37:59 PM Fetching resource ID for 'Description' in 'attributes' from resourceids.yaml
+INFO 04/01/2020 05:37:59 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description' from resourceids.yaml
+INFO 04/01/2020 05:37:59 PM Making Collibra request
+DEBUG 04/01/2020 05:37:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:38:00 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 200 437
+INFO 04/01/2020 05:38:00 PM Request successful
+INFO 04/01/2020 05:38:00 PM Successfully fetched 'Description' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc': 'This is a virtual diagnostic view that will always return who the current authenticated user is. This view is accessible from all the tools reading from ODAS, for example Hive or Spark. This can be used to verify authentication is working properly.'
+INFO 04/01/2020 05:38:00 PM Making Collibra request
+DEBUG 04/01/2020 05:38:00 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:38:01 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 404 135
+INFO 04/01/2020 05:38:01 PM Request successful
+INFO 04/01/2020 05:38:01 PM Fetching resource ID for 'Column' in 'relations' from resourceids.yaml
+INFO 04/01/2020 05:38:01 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column' from resourceids.yaml
+DEBUG 04/01/2020 05:38:01 PM Fetching columns for table 'okera_sample.whoami'
+INFO 04/01/2020 05:38:01 PM Making Collibra request
+DEBUG 04/01/2020 05:38:01 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:38:02 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 200 307
+INFO 04/01/2020 05:38:02 PM Request successful
+DEBUG 04/01/2020 05:38:02 PM Fetching column 'okera_sample.whoami.user'
+INFO 04/01/2020 05:38:02 PM Fetching attribute 'Information Classification' for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6' from Collibra
+INFO 04/01/2020 05:38:02 PM Fetching resource ID for 'Information Classification' in 'attributes' from resourceids.yaml
+INFO 04/01/2020 05:38:02 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification' from resourceids.yaml
+INFO 04/01/2020 05:38:02 PM Making Collibra request
+DEBUG 04/01/2020 05:38:02 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:38:03 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=8ae63886-0289-42fa-b700-94fe7c6ebef6 HTTP/1.1" 200 62
+INFO 04/01/2020 05:38:03 PM Request successful
+DEBUG 04/01/2020 05:38:03 PM No attribute 'Information Classification' returned for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6'
+INFO 04/01/2020 05:38:03 PM Fetching attributes for 'okera_sample.whoami.user' from Collibra
+INFO 04/01/2020 05:38:03 PM Fetching attribute 'Description' for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6' from Collibra
+INFO 04/01/2020 05:38:03 PM Fetching resource ID for 'Description' in 'attributes' from resourceids.yaml
+INFO 04/01/2020 05:38:03 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description' from resourceids.yaml
+INFO 04/01/2020 05:38:03 PM Making Collibra request
+DEBUG 04/01/2020 05:38:03 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:38:04 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=8ae63886-0289-42fa-b700-94fe7c6ebef6 HTTP/1.1" 200 62
+INFO 04/01/2020 05:38:04 PM Request successful
+DEBUG 04/01/2020 05:38:04 PM No attribute 'Description' returned for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6'
+INFO 04/01/2020 05:38:04 PM Making Collibra request
+DEBUG 04/01/2020 05:38:04 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/01/2020 05:38:04 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/8ae63886-0289-42fa-b700-94fe7c6ebef6 HTTP/1.1" 404 135
+INFO 04/01/2020 05:38:04 PM Request successful
+DEBUG 04/01/2020 05:38:04 PM Successfully fetched columns for table 'okera_sample.whoami'
+INFO 04/01/2020 05:38:04 PM Making PyOkera calls
+DEBUG 04/01/2020 05:38:04 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/01/2020 05:38:04 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/01/2020 05:38:04 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x11bbf56d0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/01/2020 05:38:08 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x11c29ff90>)
+INFO 04/01/2020 05:38:09 PM Fetching table okera_sample.whoami
+DEBUG 04/01/2020 05:38:09 PM Closing Planner connection
+DEBUG 04/01/2020 05:38:09 PM close_service: client=<thriftpy.thrift.TClient object at 0x11c1a4c50>
+INFO 04/01/2020 05:38:09 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/01/2020 05:38:09 PM Formatted tags: ['information_classification.public']
+INFO 04/01/2020 05:38:09 PM ##### FETCHED OKERA TABLE INFO #####
+{'asset_id': '',
+ 'asset_name': 'okera_sample.whoami',
+ 'asset_type': 'Table',
+ 'attributes': {'description': 'This is a virtual diagnostic view that will '
+                               'always return who the current authenticated '
+                               'user is. This view is accessible from all the '
+                               'tools reading from ODAS, for example Hive or '
+                               'Spark. This can be used to verify '
+                               'authentication is working properly.',
+                'tags': ['information_classification.public']},
+ 'location': {'database': 'okera_sample', 'system': 'okera'},
+ 'log_type': 'FETCHED OKERA TABLE INFO'}
+----------
+INFO 04/01/2020 05:38:09 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/01/2020 05:38:09 PM Formatted tags: ['information_classification.public']
+DEBUG 04/01/2020 05:38:09 PM Comparing Collibra attributes of table (name: 'okera_sample.whoami', asset ID: '') to Okera tags of table 'okera_sample.whoami'
+DEBUG 04/01/2020 05:38:09 PM Collibra attributes: information_classification.public
+DEBUG 04/01/2020 05:38:09 PM Okera tags: ['information_classification.public']
+DEBUG 04/01/2020 05:38:09 PM Comparing Collibra description of table (name: 'okera_sample.whoami', asset ID: '') to Okera description of table 'okera_sample.whoami'
+DEBUG 04/01/2020 05:38:09 PM Collibra description: This is a virtual diagnostic view that will always return who the current authenticated user is. This view is accessible from all the tools reading from ODAS, for example Hive or Spark. This can be used to verify authentication is working properly.
+DEBUG 04/01/2020 05:38:09 PM Okera description: This is a virtual diagnostic view that will always return who the current authenticated user is. This view is accessible from all the tools reading from ODAS, for example Hive or Spark. This can be used to verify authentication is working properly.
+DEBUG 04/01/2020 05:38:09 PM Comparing Collibra attributes of column 'okera_sample.whoami.user' to Okera tags of column 'okera_sample.whoami.user'
+DEBUG 04/01/2020 05:38:09 PM Collibra attributes: 'None'
+DEBUG 04/01/2020 05:38:09 PM Okera tags: None
+INFO 04/01/2020 05:38:09 PM ##### FETCHED OKERA COLUMN INFO #####
+{'asset_id': 'not available for columns in Okera',
+ 'asset_name': 'okera_sample.whoami.user',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'okera_sample.whoami'},
+ 'log_type': 'FETCHED OKERA COLUMN INFO'}
+----------
+INFO 04/01/2020 05:38:09 PM ##### FETCHED COLLIBRA COLUMN INFO #####
+{'asset_id': '8ae63886-0289-42fa-b700-94fe7c6ebef6',
+ 'asset_name': 'okera_sample.whoami.user',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'info_classif': 'None'},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '7f774ba4-cb98-43b4-bee3-208ab61700fc',
+                        'name': 'okera_sample.whoami'}},
+ 'log_type': 'FETCHED COLLIBRA COLUMN INFO'}
+----------
+DEBUG 04/01/2020 05:38:09 PM Comparing Collibra description of column 'okera_sample.whoami.user' to Okera description of column 'okera_sample.whoami.user'
+DEBUG 04/01/2020 05:38:09 PM Collibra description: None
+DEBUG 04/01/2020 05:38:09 PM Okera description: None
+INFO 04/01/2020 05:38:09 PM Export complete!
