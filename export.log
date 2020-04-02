@@ -1,144 +1,1158 @@
-INFO 04/01/2020 05:37:32 PM Opening config.yaml
-INFO 04/01/2020 05:37:32 PM Opening resourceids.yaml
-INFO 04/01/2020 05:37:32 PM Making Collibra request
-DEBUG 04/01/2020 05:37:32 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:37:33 PM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
-INFO 04/01/2020 05:37:33 PM Request successful
-INFO 04/01/2020 05:37:33 PM Making Collibra request
-DEBUG 04/01/2020 05:37:33 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:37:34 PM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
-INFO 04/01/2020 05:37:34 PM Request successful
-DEBUG 04/01/2020 05:37:34 PM Creating Okera context
-DEBUG 04/01/2020 05:37:34 PM Enabled token auth
-INFO 04/01/2020 05:37:49 PM Opening config.yaml
-INFO 04/01/2020 05:37:49 PM Opening resourceids.yaml
-INFO 04/01/2020 05:37:49 PM Making Collibra request
-DEBUG 04/01/2020 05:37:49 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:37:50 PM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
-INFO 04/01/2020 05:37:50 PM Request successful
-INFO 04/01/2020 05:37:50 PM Making Collibra request
-DEBUG 04/01/2020 05:37:50 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:37:51 PM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
-INFO 04/01/2020 05:37:51 PM Request successful
-DEBUG 04/01/2020 05:37:51 PM Creating Okera context
-DEBUG 04/01/2020 05:37:51 PM Enabled token auth
-INFO 04/01/2020 05:37:58 PM Starting export operations
-INFO 04/01/2020 05:37:58 PM Fetching resource ID for 'Table' in 'assets' from resourceids.yaml
-INFO 04/01/2020 05:37:58 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table' from resourceids.yaml
-INFO 04/01/2020 05:37:58 PM Fetching Collibra asset 'okera_sample.whoami'
-INFO 04/01/2020 05:37:58 PM Making Collibra request
-DEBUG 04/01/2020 05:37:58 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:37:59 PM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=okera_sample.whoami&nameMatchMode=EXACT&simulation=False&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031007 HTTP/1.1" 200 390
-INFO 04/01/2020 05:37:59 PM Request successful
-INFO 04/01/2020 05:37:59 PM Successfully fetched table 'okera_sample.whoami'
-INFO 04/01/2020 05:37:59 PM Fetching attribute 'Information Classification' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc' from Collibra
-INFO 04/01/2020 05:37:59 PM Fetching resource ID for 'Information Classification' in 'attributes' from resourceids.yaml
-INFO 04/01/2020 05:37:59 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification' from resourceids.yaml
-INFO 04/01/2020 05:37:59 PM Making Collibra request
-DEBUG 04/01/2020 05:37:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:37:59 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 200 328
-INFO 04/01/2020 05:37:59 PM Request successful
-INFO 04/01/2020 05:37:59 PM Successfully fetched 'Information Classification' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc': 'public'
-INFO 04/01/2020 05:37:59 PM Fetching attributes for 'okera_sample.whoami' from Collibra
-INFO 04/01/2020 05:37:59 PM Fetching attribute 'Description' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc' from Collibra
-INFO 04/01/2020 05:37:59 PM Fetching resource ID for 'Description' in 'attributes' from resourceids.yaml
-INFO 04/01/2020 05:37:59 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description' from resourceids.yaml
-INFO 04/01/2020 05:37:59 PM Making Collibra request
-DEBUG 04/01/2020 05:37:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:38:00 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 200 437
-INFO 04/01/2020 05:38:00 PM Request successful
-INFO 04/01/2020 05:38:00 PM Successfully fetched 'Description' for asset '7f774ba4-cb98-43b4-bee3-208ab61700fc': 'This is a virtual diagnostic view that will always return who the current authenticated user is. This view is accessible from all the tools reading from ODAS, for example Hive or Spark. This can be used to verify authentication is working properly.'
-INFO 04/01/2020 05:38:00 PM Making Collibra request
-DEBUG 04/01/2020 05:38:00 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:38:01 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 404 135
-INFO 04/01/2020 05:38:01 PM Request successful
-INFO 04/01/2020 05:38:01 PM Fetching resource ID for 'Column' in 'relations' from resourceids.yaml
-INFO 04/01/2020 05:38:01 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column' from resourceids.yaml
-DEBUG 04/01/2020 05:38:01 PM Fetching columns for table 'okera_sample.whoami'
-INFO 04/01/2020 05:38:01 PM Making Collibra request
-DEBUG 04/01/2020 05:38:01 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:38:02 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=7f774ba4-cb98-43b4-bee3-208ab61700fc HTTP/1.1" 200 307
-INFO 04/01/2020 05:38:02 PM Request successful
-DEBUG 04/01/2020 05:38:02 PM Fetching column 'okera_sample.whoami.user'
-INFO 04/01/2020 05:38:02 PM Fetching attribute 'Information Classification' for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6' from Collibra
-INFO 04/01/2020 05:38:02 PM Fetching resource ID for 'Information Classification' in 'attributes' from resourceids.yaml
-INFO 04/01/2020 05:38:02 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification' from resourceids.yaml
-INFO 04/01/2020 05:38:02 PM Making Collibra request
-DEBUG 04/01/2020 05:38:02 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:38:03 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=8ae63886-0289-42fa-b700-94fe7c6ebef6 HTTP/1.1" 200 62
-INFO 04/01/2020 05:38:03 PM Request successful
-DEBUG 04/01/2020 05:38:03 PM No attribute 'Information Classification' returned for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6'
-INFO 04/01/2020 05:38:03 PM Fetching attributes for 'okera_sample.whoami.user' from Collibra
-INFO 04/01/2020 05:38:03 PM Fetching attribute 'Description' for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6' from Collibra
-INFO 04/01/2020 05:38:03 PM Fetching resource ID for 'Description' in 'attributes' from resourceids.yaml
-INFO 04/01/2020 05:38:03 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description' from resourceids.yaml
-INFO 04/01/2020 05:38:03 PM Making Collibra request
-DEBUG 04/01/2020 05:38:03 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:38:04 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=8ae63886-0289-42fa-b700-94fe7c6ebef6 HTTP/1.1" 200 62
-INFO 04/01/2020 05:38:04 PM Request successful
-DEBUG 04/01/2020 05:38:04 PM No attribute 'Description' returned for asset '8ae63886-0289-42fa-b700-94fe7c6ebef6'
-INFO 04/01/2020 05:38:04 PM Making Collibra request
-DEBUG 04/01/2020 05:38:04 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/01/2020 05:38:04 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/8ae63886-0289-42fa-b700-94fe7c6ebef6 HTTP/1.1" 404 135
-INFO 04/01/2020 05:38:04 PM Request successful
-DEBUG 04/01/2020 05:38:04 PM Successfully fetched columns for table 'okera_sample.whoami'
-INFO 04/01/2020 05:38:04 PM Making PyOkera calls
-DEBUG 04/01/2020 05:38:04 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
-DEBUG 04/01/2020 05:38:04 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
-DEBUG 04/01/2020 05:38:04 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x11bbf56d0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
-DEBUG 04/01/2020 05:38:08 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x11c29ff90>)
-INFO 04/01/2020 05:38:09 PM Fetching table okera_sample.whoami
-DEBUG 04/01/2020 05:38:09 PM Closing Planner connection
-DEBUG 04/01/2020 05:38:09 PM close_service: client=<thriftpy.thrift.TClient object at 0x11c1a4c50>
-INFO 04/01/2020 05:38:09 PM Formatting tags for Okera as 'namespace.key'
-INFO 04/01/2020 05:38:09 PM Formatted tags: ['information_classification.public']
-INFO 04/01/2020 05:38:09 PM ##### FETCHED OKERA TABLE INFO #####
-{'asset_id': '',
- 'asset_name': 'okera_sample.whoami',
+INFO 04/02/2020 05:34:02 PM Opening config.yaml
+INFO 04/02/2020 05:34:02 PM Opening resourceids.yaml
+INFO 04/02/2020 05:34:02 PM Making Collibra request
+DEBUG 04/02/2020 05:34:02 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:03 PM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
+INFO 04/02/2020 05:34:03 PM Request successful
+INFO 04/02/2020 05:34:03 PM Making Collibra request
+DEBUG 04/02/2020 05:34:03 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:03 PM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
+INFO 04/02/2020 05:34:03 PM Request successful
+DEBUG 04/02/2020 05:34:03 PM Creating Okera context
+DEBUG 04/02/2020 05:34:03 PM Enabled token auth
+INFO 04/02/2020 05:34:09 PM ###### Collibra calls ######
+INFO 04/02/2020 05:34:09 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:09 PM Fetching resource ID for 'Database' in 'assets'
+INFO 04/02/2020 05:34:09 PM Successfully fetched 00000000-0000-0000-0000-000000031006 for 'Database'
+INFO 04/02/2020 05:34:09 PM ###
+INFO 04/02/2020 05:34:09 PM Fetching Collibra asset 'marketing'
+INFO 04/02/2020 05:34:09 PM Making Collibra request
+DEBUG 04/02/2020 05:34:09 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:09 PM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=marketing&nameMatchMode=EXACT&simulation=False&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031006 HTTP/1.1" 200 361
+INFO 04/02/2020 05:34:09 PM Request successful
+INFO 04/02/2020 05:34:09 PM Successfully fetched database 'marketing'
+INFO 04/02/2020 05:34:09 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:09 PM Fetching attribute 'Information Classification' for asset '6930db78-b248-4a96-9fc5-257d294b679b' from Collibra
+INFO 04/02/2020 05:34:09 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:09 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:09 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:09 PM ###
+INFO 04/02/2020 05:34:09 PM Making Collibra request
+DEBUG 04/02/2020 05:34:09 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:10 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=6930db78-b248-4a96-9fc5-257d294b679b HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:10 PM Request successful
+DEBUG 04/02/2020 05:34:10 PM No attribute 'Information Classification' returned for asset '6930db78-b248-4a96-9fc5-257d294b679b'
+INFO 04/02/2020 05:34:10 PM ###
+INFO 04/02/2020 05:34:10 PM Fetching attributes for 'marketing' from Collibra
+INFO 04/02/2020 05:34:10 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:10 PM Fetching attribute 'Description' for asset '6930db78-b248-4a96-9fc5-257d294b679b' from Collibra
+INFO 04/02/2020 05:34:10 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:10 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:10 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:10 PM ###
+INFO 04/02/2020 05:34:10 PM Making Collibra request
+DEBUG 04/02/2020 05:34:10 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:11 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6930db78-b248-4a96-9fc5-257d294b679b HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:11 PM Request successful
+DEBUG 04/02/2020 05:34:11 PM No attribute 'Description' returned for asset '6930db78-b248-4a96-9fc5-257d294b679b'
+INFO 04/02/2020 05:34:11 PM ###
+INFO 04/02/2020 05:34:11 PM Making Collibra request
+DEBUG 04/02/2020 05:34:11 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:11 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6930db78-b248-4a96-9fc5-257d294b679b HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:11 PM Request successful
+INFO 04/02/2020 05:34:11 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:11 PM Fetching resource ID for 'Table' in 'relations'
+INFO 04/02/2020 05:34:11 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007045 for 'Table'
+INFO 04/02/2020 05:34:11 PM ###
+INFO 04/02/2020 05:34:11 PM Fetching tables for database 'marketing'
+INFO 04/02/2020 05:34:11 PM Making Collibra request
+DEBUG 04/02/2020 05:34:11 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:12 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007045&targetId=6930db78-b248-4a96-9fc5-257d294b679b HTTP/1.1" 200 389
+INFO 04/02/2020 05:34:12 PM Request successful
+INFO 04/02/2020 05:34:12 PM Successfully fetched tables for database 'marketing'
+DEBUG 04/02/2020 05:34:12 PM Fetching table 'marketing.user_account_data'
+INFO 04/02/2020 05:34:12 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:12 PM Fetching attribute 'Information Classification' for asset '9241e78a-0f2d-42ae-80ca-d28c3866abad' from Collibra
+INFO 04/02/2020 05:34:12 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:12 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:12 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:12 PM ###
+INFO 04/02/2020 05:34:12 PM Making Collibra request
+DEBUG 04/02/2020 05:34:12 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:13 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=9241e78a-0f2d-42ae-80ca-d28c3866abad HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:13 PM Request successful
+DEBUG 04/02/2020 05:34:13 PM No attribute 'Information Classification' returned for asset '9241e78a-0f2d-42ae-80ca-d28c3866abad'
+INFO 04/02/2020 05:34:13 PM ###
+INFO 04/02/2020 05:34:13 PM Fetching attributes for 'marketing.user_account_data' from Collibra
+INFO 04/02/2020 05:34:13 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:13 PM Fetching attribute 'Description' for asset '9241e78a-0f2d-42ae-80ca-d28c3866abad' from Collibra
+INFO 04/02/2020 05:34:13 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:13 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:13 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:13 PM ###
+INFO 04/02/2020 05:34:13 PM Making Collibra request
+DEBUG 04/02/2020 05:34:13 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:14 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=9241e78a-0f2d-42ae-80ca-d28c3866abad HTTP/1.1" 200 309
+INFO 04/02/2020 05:34:14 PM Request successful
+INFO 04/02/2020 05:34:14 PM Successfully fetched 'Description' for asset '9241e78a-0f2d-42ae-80ca-d28c3866abad': 's3://okera-demo/user_account_data'
+INFO 04/02/2020 05:34:14 PM ###
+INFO 04/02/2020 05:34:14 PM Making Collibra request
+DEBUG 04/02/2020 05:34:14 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:14 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/9241e78a-0f2d-42ae-80ca-d28c3866abad HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:14 PM Request successful
+INFO 04/02/2020 05:34:14 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:14 PM Fetching resource ID for 'Column' in 'relations'
+INFO 04/02/2020 05:34:14 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/02/2020 05:34:14 PM ###
+INFO 04/02/2020 05:34:14 PM Fetching columns for table 'marketing.user_account_data'
+INFO 04/02/2020 05:34:14 PM Making Collibra request
+DEBUG 04/02/2020 05:34:14 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:15 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=9241e78a-0f2d-42ae-80ca-d28c3866abad HTTP/1.1" 200 872
+INFO 04/02/2020 05:34:15 PM Request successful
+DEBUG 04/02/2020 05:34:15 PM Fetching column 'marketing.user_account_data.creditcardnumber'
+INFO 04/02/2020 05:34:15 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:15 PM Fetching attribute 'Information Classification' for asset '6a171214-f4dd-48bf-9b75-c67819ca8815' from Collibra
+INFO 04/02/2020 05:34:15 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:15 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:15 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:15 PM ###
+INFO 04/02/2020 05:34:15 PM Making Collibra request
+DEBUG 04/02/2020 05:34:15 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:16 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=6a171214-f4dd-48bf-9b75-c67819ca8815 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:16 PM Request successful
+DEBUG 04/02/2020 05:34:16 PM No attribute 'Information Classification' returned for asset '6a171214-f4dd-48bf-9b75-c67819ca8815'
+INFO 04/02/2020 05:34:16 PM ###
+INFO 04/02/2020 05:34:16 PM Fetching attributes for 'marketing.user_account_data.creditcardnumber' from Collibra
+INFO 04/02/2020 05:34:16 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:16 PM Fetching attribute 'Description' for asset '6a171214-f4dd-48bf-9b75-c67819ca8815' from Collibra
+INFO 04/02/2020 05:34:16 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:16 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:16 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:16 PM ###
+INFO 04/02/2020 05:34:16 PM Making Collibra request
+DEBUG 04/02/2020 05:34:16 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:17 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6a171214-f4dd-48bf-9b75-c67819ca8815 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:17 PM Request successful
+DEBUG 04/02/2020 05:34:17 PM No attribute 'Description' returned for asset '6a171214-f4dd-48bf-9b75-c67819ca8815'
+INFO 04/02/2020 05:34:17 PM ###
+INFO 04/02/2020 05:34:17 PM Making Collibra request
+DEBUG 04/02/2020 05:34:17 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:17 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6a171214-f4dd-48bf-9b75-c67819ca8815 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:17 PM Request successful
+DEBUG 04/02/2020 05:34:17 PM Fetching column 'marketing.user_account_data.location'
+INFO 04/02/2020 05:34:17 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:17 PM Fetching attribute 'Information Classification' for asset '98edcd0e-0e5f-41bc-b507-32907508eb3c' from Collibra
+INFO 04/02/2020 05:34:17 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:17 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:17 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:17 PM ###
+INFO 04/02/2020 05:34:17 PM Making Collibra request
+DEBUG 04/02/2020 05:34:17 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:18 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=98edcd0e-0e5f-41bc-b507-32907508eb3c HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:18 PM Request successful
+DEBUG 04/02/2020 05:34:18 PM No attribute 'Information Classification' returned for asset '98edcd0e-0e5f-41bc-b507-32907508eb3c'
+INFO 04/02/2020 05:34:18 PM ###
+INFO 04/02/2020 05:34:18 PM Fetching attributes for 'marketing.user_account_data.location' from Collibra
+INFO 04/02/2020 05:34:18 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:18 PM Fetching attribute 'Description' for asset '98edcd0e-0e5f-41bc-b507-32907508eb3c' from Collibra
+INFO 04/02/2020 05:34:18 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:18 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:18 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:18 PM ###
+INFO 04/02/2020 05:34:18 PM Making Collibra request
+DEBUG 04/02/2020 05:34:18 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:19 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=98edcd0e-0e5f-41bc-b507-32907508eb3c HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:19 PM Request successful
+DEBUG 04/02/2020 05:34:19 PM No attribute 'Description' returned for asset '98edcd0e-0e5f-41bc-b507-32907508eb3c'
+INFO 04/02/2020 05:34:19 PM ###
+INFO 04/02/2020 05:34:19 PM Making Collibra request
+DEBUG 04/02/2020 05:34:19 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:20 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/98edcd0e-0e5f-41bc-b507-32907508eb3c HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:20 PM Request successful
+DEBUG 04/02/2020 05:34:20 PM Fetching column 'marketing.user_account_data.lastlogin'
+INFO 04/02/2020 05:34:20 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:20 PM Fetching attribute 'Information Classification' for asset '482ebc67-541a-41f4-ad46-cd33b7655c1e' from Collibra
+INFO 04/02/2020 05:34:20 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:20 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:20 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:20 PM ###
+INFO 04/02/2020 05:34:20 PM Making Collibra request
+DEBUG 04/02/2020 05:34:20 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:20 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=482ebc67-541a-41f4-ad46-cd33b7655c1e HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:20 PM Request successful
+DEBUG 04/02/2020 05:34:20 PM No attribute 'Information Classification' returned for asset '482ebc67-541a-41f4-ad46-cd33b7655c1e'
+INFO 04/02/2020 05:34:20 PM ###
+INFO 04/02/2020 05:34:20 PM Fetching attributes for 'marketing.user_account_data.lastlogin' from Collibra
+INFO 04/02/2020 05:34:20 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:20 PM Fetching attribute 'Description' for asset '482ebc67-541a-41f4-ad46-cd33b7655c1e' from Collibra
+INFO 04/02/2020 05:34:20 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:20 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:20 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:20 PM ###
+INFO 04/02/2020 05:34:20 PM Making Collibra request
+DEBUG 04/02/2020 05:34:20 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:21 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=482ebc67-541a-41f4-ad46-cd33b7655c1e HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:21 PM Request successful
+DEBUG 04/02/2020 05:34:21 PM No attribute 'Description' returned for asset '482ebc67-541a-41f4-ad46-cd33b7655c1e'
+INFO 04/02/2020 05:34:21 PM ###
+INFO 04/02/2020 05:34:21 PM Making Collibra request
+DEBUG 04/02/2020 05:34:21 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:22 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/482ebc67-541a-41f4-ad46-cd33b7655c1e HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:22 PM Request successful
+DEBUG 04/02/2020 05:34:22 PM Fetching column 'marketing.user_account_data.userid'
+INFO 04/02/2020 05:34:22 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:22 PM Fetching attribute 'Information Classification' for asset '5d77199f-2b02-4f38-8fc9-9737e1ccd338' from Collibra
+INFO 04/02/2020 05:34:22 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:22 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:22 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:22 PM ###
+INFO 04/02/2020 05:34:22 PM Making Collibra request
+DEBUG 04/02/2020 05:34:22 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:22 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=5d77199f-2b02-4f38-8fc9-9737e1ccd338 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:22 PM Request successful
+DEBUG 04/02/2020 05:34:22 PM No attribute 'Information Classification' returned for asset '5d77199f-2b02-4f38-8fc9-9737e1ccd338'
+INFO 04/02/2020 05:34:22 PM ###
+INFO 04/02/2020 05:34:22 PM Fetching attributes for 'marketing.user_account_data.userid' from Collibra
+INFO 04/02/2020 05:34:22 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:22 PM Fetching attribute 'Description' for asset '5d77199f-2b02-4f38-8fc9-9737e1ccd338' from Collibra
+INFO 04/02/2020 05:34:22 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:22 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:22 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:22 PM ###
+INFO 04/02/2020 05:34:22 PM Making Collibra request
+DEBUG 04/02/2020 05:34:22 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:23 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=5d77199f-2b02-4f38-8fc9-9737e1ccd338 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:23 PM Request successful
+DEBUG 04/02/2020 05:34:23 PM No attribute 'Description' returned for asset '5d77199f-2b02-4f38-8fc9-9737e1ccd338'
+INFO 04/02/2020 05:34:23 PM ###
+INFO 04/02/2020 05:34:23 PM Making Collibra request
+DEBUG 04/02/2020 05:34:23 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:24 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/5d77199f-2b02-4f38-8fc9-9737e1ccd338 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:24 PM Request successful
+DEBUG 04/02/2020 05:34:24 PM Fetching column 'marketing.user_account_data.ipv6_address'
+INFO 04/02/2020 05:34:24 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:24 PM Fetching attribute 'Information Classification' for asset '4702f0e9-ae1c-491e-aa04-7c5c0b0018d0' from Collibra
+INFO 04/02/2020 05:34:24 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:24 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:24 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:24 PM ###
+INFO 04/02/2020 05:34:24 PM Making Collibra request
+DEBUG 04/02/2020 05:34:24 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:25 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=4702f0e9-ae1c-491e-aa04-7c5c0b0018d0 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:25 PM Request successful
+DEBUG 04/02/2020 05:34:25 PM No attribute 'Information Classification' returned for asset '4702f0e9-ae1c-491e-aa04-7c5c0b0018d0'
+INFO 04/02/2020 05:34:25 PM ###
+INFO 04/02/2020 05:34:25 PM Fetching attributes for 'marketing.user_account_data.ipv6_address' from Collibra
+INFO 04/02/2020 05:34:25 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:25 PM Fetching attribute 'Description' for asset '4702f0e9-ae1c-491e-aa04-7c5c0b0018d0' from Collibra
+INFO 04/02/2020 05:34:25 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:25 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:25 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:25 PM ###
+INFO 04/02/2020 05:34:25 PM Making Collibra request
+DEBUG 04/02/2020 05:34:25 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:25 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4702f0e9-ae1c-491e-aa04-7c5c0b0018d0 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:25 PM Request successful
+DEBUG 04/02/2020 05:34:25 PM No attribute 'Description' returned for asset '4702f0e9-ae1c-491e-aa04-7c5c0b0018d0'
+INFO 04/02/2020 05:34:25 PM ###
+INFO 04/02/2020 05:34:25 PM Making Collibra request
+DEBUG 04/02/2020 05:34:25 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:26 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4702f0e9-ae1c-491e-aa04-7c5c0b0018d0 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:26 PM Request successful
+DEBUG 04/02/2020 05:34:26 PM Fetching column 'marketing.user_account_data.phone'
+INFO 04/02/2020 05:34:26 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:26 PM Fetching attribute 'Information Classification' for asset '00a53ea2-7e98-47bd-b36e-8c64d12e191a' from Collibra
+INFO 04/02/2020 05:34:26 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:26 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:26 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:26 PM ###
+INFO 04/02/2020 05:34:26 PM Making Collibra request
+DEBUG 04/02/2020 05:34:26 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:27 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=00a53ea2-7e98-47bd-b36e-8c64d12e191a HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:27 PM Request successful
+DEBUG 04/02/2020 05:34:27 PM No attribute 'Information Classification' returned for asset '00a53ea2-7e98-47bd-b36e-8c64d12e191a'
+INFO 04/02/2020 05:34:27 PM ###
+INFO 04/02/2020 05:34:27 PM Fetching attributes for 'marketing.user_account_data.phone' from Collibra
+INFO 04/02/2020 05:34:27 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:27 PM Fetching attribute 'Description' for asset '00a53ea2-7e98-47bd-b36e-8c64d12e191a' from Collibra
+INFO 04/02/2020 05:34:27 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:27 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:27 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:27 PM ###
+INFO 04/02/2020 05:34:27 PM Making Collibra request
+DEBUG 04/02/2020 05:34:27 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:28 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=00a53ea2-7e98-47bd-b36e-8c64d12e191a HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:28 PM Request successful
+DEBUG 04/02/2020 05:34:28 PM No attribute 'Description' returned for asset '00a53ea2-7e98-47bd-b36e-8c64d12e191a'
+INFO 04/02/2020 05:34:28 PM ###
+INFO 04/02/2020 05:34:28 PM Making Collibra request
+DEBUG 04/02/2020 05:34:28 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:28 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/00a53ea2-7e98-47bd-b36e-8c64d12e191a HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:28 PM Request successful
+DEBUG 04/02/2020 05:34:28 PM Fetching column 'marketing.user_account_data.ipv4_address'
+INFO 04/02/2020 05:34:28 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:28 PM Fetching attribute 'Information Classification' for asset '042ff6c8-81eb-4113-bd5a-225b88554635' from Collibra
+INFO 04/02/2020 05:34:28 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:28 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:28 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:28 PM ###
+INFO 04/02/2020 05:34:28 PM Making Collibra request
+DEBUG 04/02/2020 05:34:28 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:29 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=042ff6c8-81eb-4113-bd5a-225b88554635 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:29 PM Request successful
+DEBUG 04/02/2020 05:34:29 PM No attribute 'Information Classification' returned for asset '042ff6c8-81eb-4113-bd5a-225b88554635'
+INFO 04/02/2020 05:34:29 PM ###
+INFO 04/02/2020 05:34:29 PM Fetching attributes for 'marketing.user_account_data.ipv4_address' from Collibra
+INFO 04/02/2020 05:34:29 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:29 PM Fetching attribute 'Description' for asset '042ff6c8-81eb-4113-bd5a-225b88554635' from Collibra
+INFO 04/02/2020 05:34:29 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:29 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:29 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:29 PM ###
+INFO 04/02/2020 05:34:29 PM Making Collibra request
+DEBUG 04/02/2020 05:34:29 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:30 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=042ff6c8-81eb-4113-bd5a-225b88554635 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:30 PM Request successful
+DEBUG 04/02/2020 05:34:30 PM No attribute 'Description' returned for asset '042ff6c8-81eb-4113-bd5a-225b88554635'
+INFO 04/02/2020 05:34:30 PM ###
+INFO 04/02/2020 05:34:30 PM Making Collibra request
+DEBUG 04/02/2020 05:34:30 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:30 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/042ff6c8-81eb-4113-bd5a-225b88554635 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:30 PM Request successful
+DEBUG 04/02/2020 05:34:30 PM Fetching column 'marketing.user_account_data.email'
+INFO 04/02/2020 05:34:30 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:30 PM Fetching attribute 'Information Classification' for asset 'a481d766-0d9d-4352-9fbb-531647ed0a2f' from Collibra
+INFO 04/02/2020 05:34:30 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:30 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:30 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:30 PM ###
+INFO 04/02/2020 05:34:30 PM Making Collibra request
+DEBUG 04/02/2020 05:34:30 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:31 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=a481d766-0d9d-4352-9fbb-531647ed0a2f HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:31 PM Request successful
+DEBUG 04/02/2020 05:34:31 PM No attribute 'Information Classification' returned for asset 'a481d766-0d9d-4352-9fbb-531647ed0a2f'
+INFO 04/02/2020 05:34:31 PM ###
+INFO 04/02/2020 05:34:31 PM Fetching attributes for 'marketing.user_account_data.email' from Collibra
+INFO 04/02/2020 05:34:31 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:31 PM Fetching attribute 'Description' for asset 'a481d766-0d9d-4352-9fbb-531647ed0a2f' from Collibra
+INFO 04/02/2020 05:34:31 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:31 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:31 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:31 PM ###
+INFO 04/02/2020 05:34:31 PM Making Collibra request
+DEBUG 04/02/2020 05:34:31 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:32 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=a481d766-0d9d-4352-9fbb-531647ed0a2f HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:32 PM Request successful
+DEBUG 04/02/2020 05:34:32 PM No attribute 'Description' returned for asset 'a481d766-0d9d-4352-9fbb-531647ed0a2f'
+INFO 04/02/2020 05:34:32 PM ###
+INFO 04/02/2020 05:34:32 PM Making Collibra request
+DEBUG 04/02/2020 05:34:32 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:33 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/a481d766-0d9d-4352-9fbb-531647ed0a2f HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:33 PM Request successful
+DEBUG 04/02/2020 05:34:33 PM Fetching column 'marketing.user_account_data.name'
+INFO 04/02/2020 05:34:33 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:33 PM Fetching attribute 'Information Classification' for asset 'f68dbb1a-f58c-40c1-b07f-36599c7bcb56' from Collibra
+INFO 04/02/2020 05:34:33 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:33 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:33 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:33 PM ###
+INFO 04/02/2020 05:34:33 PM Making Collibra request
+DEBUG 04/02/2020 05:34:33 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:33 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=f68dbb1a-f58c-40c1-b07f-36599c7bcb56 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:33 PM Request successful
+DEBUG 04/02/2020 05:34:33 PM No attribute 'Information Classification' returned for asset 'f68dbb1a-f58c-40c1-b07f-36599c7bcb56'
+INFO 04/02/2020 05:34:33 PM ###
+INFO 04/02/2020 05:34:33 PM Fetching attributes for 'marketing.user_account_data.name' from Collibra
+INFO 04/02/2020 05:34:33 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:33 PM Fetching attribute 'Description' for asset 'f68dbb1a-f58c-40c1-b07f-36599c7bcb56' from Collibra
+INFO 04/02/2020 05:34:33 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:33 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:33 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:33 PM ###
+INFO 04/02/2020 05:34:33 PM Making Collibra request
+DEBUG 04/02/2020 05:34:33 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:34 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=f68dbb1a-f58c-40c1-b07f-36599c7bcb56 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:34 PM Request successful
+DEBUG 04/02/2020 05:34:34 PM No attribute 'Description' returned for asset 'f68dbb1a-f58c-40c1-b07f-36599c7bcb56'
+INFO 04/02/2020 05:34:34 PM ###
+INFO 04/02/2020 05:34:34 PM Making Collibra request
+DEBUG 04/02/2020 05:34:34 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:35 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/f68dbb1a-f58c-40c1-b07f-36599c7bcb56 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:35 PM Request successful
+DEBUG 04/02/2020 05:34:35 PM Successfully fetched columns for table 'marketing.user_account_data'
+DEBUG 04/02/2020 05:34:35 PM Fetching table 'marketing.whitelist'
+INFO 04/02/2020 05:34:35 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:35 PM Fetching attribute 'Information Classification' for asset '1c0501c4-770d-4202-93d8-eeec50dab743' from Collibra
+INFO 04/02/2020 05:34:35 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:35 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:35 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:35 PM ###
+INFO 04/02/2020 05:34:35 PM Making Collibra request
+DEBUG 04/02/2020 05:34:35 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:36 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=1c0501c4-770d-4202-93d8-eeec50dab743 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:36 PM Request successful
+DEBUG 04/02/2020 05:34:36 PM No attribute 'Information Classification' returned for asset '1c0501c4-770d-4202-93d8-eeec50dab743'
+INFO 04/02/2020 05:34:36 PM ###
+INFO 04/02/2020 05:34:36 PM Fetching attributes for 'marketing.whitelist' from Collibra
+INFO 04/02/2020 05:34:36 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:36 PM Fetching attribute 'Description' for asset '1c0501c4-770d-4202-93d8-eeec50dab743' from Collibra
+INFO 04/02/2020 05:34:36 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:36 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:36 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:36 PM ###
+INFO 04/02/2020 05:34:36 PM Making Collibra request
+DEBUG 04/02/2020 05:34:36 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:36 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1c0501c4-770d-4202-93d8-eeec50dab743 HTTP/1.1" 200 314
+INFO 04/02/2020 05:34:36 PM Request successful
+INFO 04/02/2020 05:34:36 PM Successfully fetched 'Description' for asset '1c0501c4-770d-4202-93d8-eeec50dab743': 's3://okera-demo/consent-management/whitelist'
+INFO 04/02/2020 05:34:36 PM ###
+INFO 04/02/2020 05:34:36 PM Making Collibra request
+DEBUG 04/02/2020 05:34:36 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:37 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1c0501c4-770d-4202-93d8-eeec50dab743 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:37 PM Request successful
+INFO 04/02/2020 05:34:37 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:37 PM Fetching resource ID for 'Column' in 'relations'
+INFO 04/02/2020 05:34:37 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/02/2020 05:34:37 PM ###
+INFO 04/02/2020 05:34:37 PM Fetching columns for table 'marketing.whitelist'
+INFO 04/02/2020 05:34:37 PM Making Collibra request
+DEBUG 04/02/2020 05:34:37 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:38 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=1c0501c4-770d-4202-93d8-eeec50dab743 HTTP/1.1" 200 461
+INFO 04/02/2020 05:34:38 PM Request successful
+DEBUG 04/02/2020 05:34:38 PM Fetching column 'marketing.whitelist.email_opt_in'
+INFO 04/02/2020 05:34:38 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:38 PM Fetching attribute 'Information Classification' for asset 'd1f9a026-24a5-444e-8eaf-4da8a471fedd' from Collibra
+INFO 04/02/2020 05:34:38 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:38 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:38 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:38 PM ###
+INFO 04/02/2020 05:34:38 PM Making Collibra request
+DEBUG 04/02/2020 05:34:38 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:38 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=d1f9a026-24a5-444e-8eaf-4da8a471fedd HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:38 PM Request successful
+DEBUG 04/02/2020 05:34:38 PM No attribute 'Information Classification' returned for asset 'd1f9a026-24a5-444e-8eaf-4da8a471fedd'
+INFO 04/02/2020 05:34:38 PM ###
+INFO 04/02/2020 05:34:38 PM Fetching attributes for 'marketing.whitelist.email_opt_in' from Collibra
+INFO 04/02/2020 05:34:38 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:38 PM Fetching attribute 'Description' for asset 'd1f9a026-24a5-444e-8eaf-4da8a471fedd' from Collibra
+INFO 04/02/2020 05:34:38 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:38 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:38 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:38 PM ###
+INFO 04/02/2020 05:34:38 PM Making Collibra request
+DEBUG 04/02/2020 05:34:38 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:39 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=d1f9a026-24a5-444e-8eaf-4da8a471fedd HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:39 PM Request successful
+DEBUG 04/02/2020 05:34:39 PM No attribute 'Description' returned for asset 'd1f9a026-24a5-444e-8eaf-4da8a471fedd'
+INFO 04/02/2020 05:34:39 PM ###
+INFO 04/02/2020 05:34:39 PM Making Collibra request
+DEBUG 04/02/2020 05:34:39 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:40 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/d1f9a026-24a5-444e-8eaf-4da8a471fedd HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:40 PM Request successful
+DEBUG 04/02/2020 05:34:40 PM Fetching column 'marketing.whitelist.analytics_opt_in'
+INFO 04/02/2020 05:34:40 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:40 PM Fetching attribute 'Information Classification' for asset '71bb862d-3c00-48ff-b4da-f1cb718efa95' from Collibra
+INFO 04/02/2020 05:34:40 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:40 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:40 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:40 PM ###
+INFO 04/02/2020 05:34:40 PM Making Collibra request
+DEBUG 04/02/2020 05:34:40 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:41 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=71bb862d-3c00-48ff-b4da-f1cb718efa95 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:41 PM Request successful
+DEBUG 04/02/2020 05:34:41 PM No attribute 'Information Classification' returned for asset '71bb862d-3c00-48ff-b4da-f1cb718efa95'
+INFO 04/02/2020 05:34:41 PM ###
+INFO 04/02/2020 05:34:41 PM Fetching attributes for 'marketing.whitelist.analytics_opt_in' from Collibra
+INFO 04/02/2020 05:34:41 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:41 PM Fetching attribute 'Description' for asset '71bb862d-3c00-48ff-b4da-f1cb718efa95' from Collibra
+INFO 04/02/2020 05:34:41 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:41 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:41 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:41 PM ###
+INFO 04/02/2020 05:34:41 PM Making Collibra request
+DEBUG 04/02/2020 05:34:41 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:41 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=71bb862d-3c00-48ff-b4da-f1cb718efa95 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:41 PM Request successful
+DEBUG 04/02/2020 05:34:41 PM No attribute 'Description' returned for asset '71bb862d-3c00-48ff-b4da-f1cb718efa95'
+INFO 04/02/2020 05:34:41 PM ###
+INFO 04/02/2020 05:34:41 PM Making Collibra request
+DEBUG 04/02/2020 05:34:41 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:42 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/71bb862d-3c00-48ff-b4da-f1cb718efa95 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:42 PM Request successful
+DEBUG 04/02/2020 05:34:42 PM Fetching column 'marketing.whitelist.userid'
+INFO 04/02/2020 05:34:42 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:42 PM Fetching attribute 'Information Classification' for asset 'dca1559c-9ceb-456b-9b74-501523b63948' from Collibra
+INFO 04/02/2020 05:34:42 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:42 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:42 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:42 PM ###
+INFO 04/02/2020 05:34:42 PM Making Collibra request
+DEBUG 04/02/2020 05:34:42 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:43 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=dca1559c-9ceb-456b-9b74-501523b63948 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:43 PM Request successful
+DEBUG 04/02/2020 05:34:43 PM No attribute 'Information Classification' returned for asset 'dca1559c-9ceb-456b-9b74-501523b63948'
+INFO 04/02/2020 05:34:43 PM ###
+INFO 04/02/2020 05:34:43 PM Fetching attributes for 'marketing.whitelist.userid' from Collibra
+INFO 04/02/2020 05:34:43 PM ### Get attributes from Collibra ###
+INFO 04/02/2020 05:34:43 PM Fetching attribute 'Description' for asset 'dca1559c-9ceb-456b-9b74-501523b63948' from Collibra
+INFO 04/02/2020 05:34:43 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:43 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:43 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:43 PM ###
+INFO 04/02/2020 05:34:43 PM Making Collibra request
+DEBUG 04/02/2020 05:34:43 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:43 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=dca1559c-9ceb-456b-9b74-501523b63948 HTTP/1.1" 200 62
+INFO 04/02/2020 05:34:43 PM Request successful
+DEBUG 04/02/2020 05:34:43 PM No attribute 'Description' returned for asset 'dca1559c-9ceb-456b-9b74-501523b63948'
+INFO 04/02/2020 05:34:43 PM ###
+INFO 04/02/2020 05:34:43 PM Making Collibra request
+DEBUG 04/02/2020 05:34:43 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/02/2020 05:34:44 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/dca1559c-9ceb-456b-9b74-501523b63948 HTTP/1.1" 404 135
+INFO 04/02/2020 05:34:44 PM Request successful
+DEBUG 04/02/2020 05:34:44 PM Successfully fetched columns for table 'marketing.whitelist'
+INFO 04/02/2020 05:34:44 PM ###### Collibra calls completed ######
+INFO 04/02/2020 05:34:44 PM ###### PyOkera calls ######
+DEBUG 04/02/2020 05:34:44 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:34:44 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:34:44 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x120170790> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:34:46 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x120370d90>)
+INFO 04/02/2020 05:34:46 PM Fetching tables for database marketing
+DEBUG 04/02/2020 05:34:46 PM Closing Planner connection
+DEBUG 04/02/2020 05:34:46 PM close_service: client=<thriftpy.thrift.TClient object at 0x120370810>
+INFO 04/02/2020 05:34:46 PM ###### PyOkera calls completed ######
+INFO 04/02/2020 05:34:46 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:46 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:46 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:46 PM ###
+INFO 04/02/2020 05:34:46 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:46 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:46 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:46 PM ###
+DEBUG 04/02/2020 05:34:46 PM Comparing Collibra attributes of table (name: 'marketing.whitelist', asset ID: 'befb68c1-2b41-49f0-90bf-d596409458a7') to Okera tags of table 'marketing.whitelist'
+DEBUG 04/02/2020 05:34:46 PM Collibra attributes: None
+DEBUG 04/02/2020 05:34:46 PM Okera tags: None
+DEBUG 04/02/2020 05:34:46 PM Comparing Collibra description of table (name: 'marketing.whitelist', asset ID: 'befb68c1-2b41-49f0-90bf-d596409458a7') to Okera description of table 'marketing.whitelist'
+DEBUG 04/02/2020 05:34:46 PM Collibra description: None
+DEBUG 04/02/2020 05:34:46 PM Okera description: s3://okera-demo/consent-management/whitelist
+INFO 04/02/2020 05:34:46 PM ### Okera description operations ###
+DEBUG 04/02/2020 05:34:46 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:34:46 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:34:46 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x120375b90> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+WARNING 04/02/2020 05:34:49 PM Attempt failed. Sleeping 722ms and then trying again.
+DEBUG 04/02/2020 05:34:50 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:34:50 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:34:50 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x12014b910> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:34:51 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x1203700d0>)
+INFO 04/02/2020 05:34:52 PM Changing description of table 'marketing.whitelist' to ''
+INFO 04/02/2020 05:34:53 PM Successfully changed description of table 'marketing.whitelist' to ''
+DEBUG 04/02/2020 05:34:53 PM Closing Planner connection
+DEBUG 04/02/2020 05:34:53 PM close_service: client=<thriftpy.thrift.TClient object at 0x120370cd0>
+INFO 04/02/2020 05:34:53 PM ### Okera description operations completed ###
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Table' in 'assets'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/02/2020 05:34:53 PM ###
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra attributes of column 'marketing.whitelist.userid' to Okera tags of column 'marketing.whitelist.userid':
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra description of column 'marketing.whitelist.userid' to Okera description of column 'marketing.whitelist.userid'
+DEBUG 04/02/2020 05:34:53 PM Collibra description: None
+DEBUG 04/02/2020 05:34:53 PM Okera description: None
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:34:53 PM ###
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra attributes of column 'marketing.whitelist.analytics_opt_in' to Okera tags of column 'marketing.whitelist.analytics_opt_in':
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra description of column 'marketing.whitelist.analytics_opt_in' to Okera description of column 'marketing.whitelist.analytics_opt_in'
+DEBUG 04/02/2020 05:34:53 PM Collibra description: None
+DEBUG 04/02/2020 05:34:53 PM Okera description: None
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:34:53 PM ###
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra attributes of column 'marketing.whitelist.email_opt_in' to Okera tags of column 'marketing.whitelist.email_opt_in':
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra description of column 'marketing.whitelist.email_opt_in' to Okera description of column 'marketing.whitelist.email_opt_in'
+DEBUG 04/02/2020 05:34:53 PM Collibra description: None
+DEBUG 04/02/2020 05:34:53 PM Okera description: None
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:34:53 PM ###
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Description' in 'attributes'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/02/2020 05:34:53 PM ###
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/02/2020 05:34:53 PM ###
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra attributes of table (name: 'marketing.user_account_data', asset ID: '') to Okera tags of table 'marketing.user_account_data'
+DEBUG 04/02/2020 05:34:53 PM Collibra attributes: None
+DEBUG 04/02/2020 05:34:53 PM Okera tags: None
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra description of table (name: 'marketing.user_account_data', asset ID: '') to Okera description of table 'marketing.user_account_data'
+DEBUG 04/02/2020 05:34:53 PM Collibra description: s3://okera-demo/user_account_data
+DEBUG 04/02/2020 05:34:53 PM Okera description: s3://okera-demo/user_account_data
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Table' in 'assets'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/02/2020 05:34:53 PM ###
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra attributes of column 'marketing.user_account_data.name' to Okera tags of column 'marketing.user_account_data.name':
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra description of column 'marketing.user_account_data.name' to Okera description of column 'marketing.user_account_data.name'
+DEBUG 04/02/2020 05:34:53 PM Collibra description: None
+DEBUG 04/02/2020 05:34:53 PM Okera description: None
+INFO 04/02/2020 05:34:53 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:53 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:34:53 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:34:53 PM ###
+INFO 04/02/2020 05:34:53 PM ### Format tags ###
+INFO 04/02/2020 05:34:53 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:34:53 PM Formatted tags: ['pii.phone_number']
+INFO 04/02/2020 05:34:53 PM ###
+DEBUG 04/02/2020 05:34:53 PM Comparing Collibra attributes of column 'marketing.user_account_data.phone' to Okera tags of column 'marketing.user_account_data.phone':
+Collibra attributes: 'None'
+Okera tags: ['pii.phone_number']
+INFO 04/02/2020 05:34:53 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:34:53 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:34:53 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:34:53 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0d3d0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:34:54 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0d6d0>)
+INFO 04/02/2020 05:34:56 PM Removing tag 'pii.phone_number' from column 'marketing.user_account_data.phone'
+INFO 04/02/2020 05:34:56 PM Successfully removed tag 'pii.phone_number' from column 'marketing.user_account_data.phone'
+DEBUG 04/02/2020 05:34:56 PM Closing Planner connection
+DEBUG 04/02/2020 05:34:56 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0d610>
+INFO 04/02/2020 05:34:56 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:34:56 PM Comparing Collibra description of column 'marketing.user_account_data.phone' to Okera description of column 'marketing.user_account_data.phone'
+DEBUG 04/02/2020 05:34:56 PM Collibra description: None
+DEBUG 04/02/2020 05:34:56 PM Okera description: None
+INFO 04/02/2020 05:34:56 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:56 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:34:56 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:34:56 PM ###
+INFO 04/02/2020 05:34:56 PM ### Format tags ###
+INFO 04/02/2020 05:34:56 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:34:56 PM Formatted tags: ['pii.email_address']
+INFO 04/02/2020 05:34:56 PM ###
+DEBUG 04/02/2020 05:34:56 PM Comparing Collibra attributes of column 'marketing.user_account_data.email' to Okera tags of column 'marketing.user_account_data.email':
+Collibra attributes: 'None'
+Okera tags: ['pii.email_address']
+INFO 04/02/2020 05:34:56 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:34:56 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:34:56 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:34:56 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0df50> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:34:57 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0d7d0>)
+INFO 04/02/2020 05:34:57 PM Removing tag 'pii.email_address' from column 'marketing.user_account_data.email'
+INFO 04/02/2020 05:34:58 PM Successfully removed tag 'pii.email_address' from column 'marketing.user_account_data.email'
+DEBUG 04/02/2020 05:34:58 PM Closing Planner connection
+DEBUG 04/02/2020 05:34:58 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0df90>
+INFO 04/02/2020 05:34:58 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:34:58 PM Comparing Collibra description of column 'marketing.user_account_data.email' to Okera description of column 'marketing.user_account_data.email'
+DEBUG 04/02/2020 05:34:58 PM Collibra description: None
+DEBUG 04/02/2020 05:34:58 PM Okera description: None
+INFO 04/02/2020 05:34:58 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:34:58 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:34:58 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:34:58 PM ###
+INFO 04/02/2020 05:34:58 PM ### Format tags ###
+INFO 04/02/2020 05:34:58 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:34:58 PM Formatted tags: ['misc.guid']
+INFO 04/02/2020 05:34:58 PM ###
+DEBUG 04/02/2020 05:34:58 PM Comparing Collibra attributes of column 'marketing.user_account_data.userid' to Okera tags of column 'marketing.user_account_data.userid':
+Collibra attributes: 'None'
+Okera tags: ['misc.guid']
+INFO 04/02/2020 05:34:58 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:34:58 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:34:58 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:34:58 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0d490> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:34:59 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0dd90>)
+INFO 04/02/2020 05:35:00 PM Removing tag 'misc.guid' from column 'marketing.user_account_data.userid'
+INFO 04/02/2020 05:35:01 PM Successfully removed tag 'misc.guid' from column 'marketing.user_account_data.userid'
+DEBUG 04/02/2020 05:35:01 PM Closing Planner connection
+DEBUG 04/02/2020 05:35:01 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0ded0>
+INFO 04/02/2020 05:35:01 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:35:01 PM Comparing Collibra description of column 'marketing.user_account_data.userid' to Okera description of column 'marketing.user_account_data.userid'
+DEBUG 04/02/2020 05:35:01 PM Collibra description: None
+DEBUG 04/02/2020 05:35:01 PM Okera description: None
+INFO 04/02/2020 05:35:01 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:35:01 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:35:01 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:35:01 PM ###
+DEBUG 04/02/2020 05:35:01 PM Comparing Collibra attributes of column 'marketing.user_account_data.lastlogin' to Okera tags of column 'marketing.user_account_data.lastlogin':
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/02/2020 05:35:01 PM Comparing Collibra description of column 'marketing.user_account_data.lastlogin' to Okera description of column 'marketing.user_account_data.lastlogin'
+DEBUG 04/02/2020 05:35:01 PM Collibra description: None
+DEBUG 04/02/2020 05:35:01 PM Okera description: None
+INFO 04/02/2020 05:35:01 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:35:01 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:35:01 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:35:01 PM ###
+INFO 04/02/2020 05:35:01 PM ### Format tags ###
+INFO 04/02/2020 05:35:01 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:35:01 PM Formatted tags: ['pii.credit_card']
+INFO 04/02/2020 05:35:01 PM ###
+DEBUG 04/02/2020 05:35:01 PM Comparing Collibra attributes of column 'marketing.user_account_data.creditcardnumber' to Okera tags of column 'marketing.user_account_data.creditcardnumber':
+Collibra attributes: 'None'
+Okera tags: ['pii.credit_card']
+INFO 04/02/2020 05:35:01 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:35:01 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:35:01 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:35:01 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0d490> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:35:02 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0f150>)
+INFO 04/02/2020 05:35:03 PM Removing tag 'pii.credit_card' from column 'marketing.user_account_data.creditcardnumber'
+INFO 04/02/2020 05:35:03 PM Successfully removed tag 'pii.credit_card' from column 'marketing.user_account_data.creditcardnumber'
+DEBUG 04/02/2020 05:35:03 PM Closing Planner connection
+DEBUG 04/02/2020 05:35:03 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0fd10>
+INFO 04/02/2020 05:35:03 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:35:03 PM Comparing Collibra description of column 'marketing.user_account_data.creditcardnumber' to Okera description of column 'marketing.user_account_data.creditcardnumber'
+DEBUG 04/02/2020 05:35:03 PM Collibra description: None
+DEBUG 04/02/2020 05:35:03 PM Okera description: None
+INFO 04/02/2020 05:35:03 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:35:03 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:35:03 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:35:03 PM ###
+INFO 04/02/2020 05:35:03 PM ### Format tags ###
+INFO 04/02/2020 05:35:03 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:35:03 PM Formatted tags: ['pii.gps']
+INFO 04/02/2020 05:35:03 PM ###
+DEBUG 04/02/2020 05:35:03 PM Comparing Collibra attributes of column 'marketing.user_account_data.location' to Okera tags of column 'marketing.user_account_data.location':
+Collibra attributes: 'None'
+Okera tags: ['pii.gps']
+INFO 04/02/2020 05:35:03 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:35:03 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:35:03 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:35:03 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0f710> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:35:06 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0f750>)
+INFO 04/02/2020 05:35:07 PM Removing tag 'pii.gps' from column 'marketing.user_account_data.location'
+INFO 04/02/2020 05:35:07 PM Successfully removed tag 'pii.gps' from column 'marketing.user_account_data.location'
+DEBUG 04/02/2020 05:35:07 PM Closing Planner connection
+DEBUG 04/02/2020 05:35:07 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0f250>
+INFO 04/02/2020 05:35:07 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:35:07 PM Comparing Collibra description of column 'marketing.user_account_data.location' to Okera description of column 'marketing.user_account_data.location'
+DEBUG 04/02/2020 05:35:07 PM Collibra description: None
+DEBUG 04/02/2020 05:35:07 PM Okera description: None
+INFO 04/02/2020 05:35:07 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:35:07 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:35:07 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:35:07 PM ###
+INFO 04/02/2020 05:35:07 PM ### Format tags ###
+INFO 04/02/2020 05:35:07 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:35:07 PM Formatted tags: ['pii.ip_address']
+INFO 04/02/2020 05:35:07 PM ###
+DEBUG 04/02/2020 05:35:07 PM Comparing Collibra attributes of column 'marketing.user_account_data.ipv4_address' to Okera tags of column 'marketing.user_account_data.ipv4_address':
+Collibra attributes: 'None'
+Okera tags: ['pii.ip_address']
+INFO 04/02/2020 05:35:07 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:35:07 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:35:07 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:35:07 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0f110> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:35:08 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0f650>)
+INFO 04/02/2020 05:35:09 PM Removing tag 'pii.ip_address' from column 'marketing.user_account_data.ipv4_address'
+INFO 04/02/2020 05:35:09 PM Successfully removed tag 'pii.ip_address' from column 'marketing.user_account_data.ipv4_address'
+DEBUG 04/02/2020 05:35:09 PM Closing Planner connection
+DEBUG 04/02/2020 05:35:09 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0f490>
+INFO 04/02/2020 05:35:09 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:35:09 PM Comparing Collibra description of column 'marketing.user_account_data.ipv4_address' to Okera description of column 'marketing.user_account_data.ipv4_address'
+DEBUG 04/02/2020 05:35:09 PM Collibra description: None
+DEBUG 04/02/2020 05:35:09 PM Okera description: None
+INFO 04/02/2020 05:35:09 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:35:09 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:35:09 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:35:09 PM ###
+INFO 04/02/2020 05:35:09 PM ### Format tags ###
+INFO 04/02/2020 05:35:09 PM Formatting tags for Okera as 'namespace.key'
+INFO 04/02/2020 05:35:09 PM Formatted tags: ['pii.ip_address']
+INFO 04/02/2020 05:35:09 PM ###
+DEBUG 04/02/2020 05:35:09 PM Comparing Collibra attributes of column 'marketing.user_account_data.ipv6_address' to Okera tags of column 'marketing.user_account_data.ipv6_address':
+Collibra attributes: 'None'
+Okera tags: ['pii.ip_address']
+INFO 04/02/2020 05:35:09 PM ### Okera tag operations ###
+DEBUG 04/02/2020 05:35:09 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/02/2020 05:35:09 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/02/2020 05:35:09 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x121c0fbd0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/02/2020 05:35:10 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x121c0f650>)
+INFO 04/02/2020 05:35:14 PM Removing tag 'pii.ip_address' from column 'marketing.user_account_data.ipv6_address'
+INFO 04/02/2020 05:35:14 PM Successfully removed tag 'pii.ip_address' from column 'marketing.user_account_data.ipv6_address'
+DEBUG 04/02/2020 05:35:14 PM Closing Planner connection
+DEBUG 04/02/2020 05:35:14 PM close_service: client=<thriftpy.thrift.TClient object at 0x121c0fdd0>
+INFO 04/02/2020 05:35:14 PM ### Okera tag operations completed ###
+DEBUG 04/02/2020 05:35:14 PM Comparing Collibra description of column 'marketing.user_account_data.ipv6_address' to Okera description of column 'marketing.user_account_data.ipv6_address'
+DEBUG 04/02/2020 05:35:14 PM Collibra description: None
+DEBUG 04/02/2020 05:35:14 PM Okera description: None
+INFO 04/02/2020 05:35:14 PM ### Get resource IDs from resourceids.yaml ###
+INFO 04/02/2020 05:35:14 PM Fetching resource ID for 'Column' in 'assets'
+INFO 04/02/2020 05:35:14 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/02/2020 05:35:14 PM ###
+INFO 04/02/2020 05:35:14 PM ############ ASSETS FETCHED AND COMPARED ############
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for table 'marketing.whitelist' ###
+{'asset_id': 'befb68c1-2b41-49f0-90bf-d596409458a7',
+ 'asset_name': 'marketing.whitelist',
  'asset_type': 'Table',
- 'attributes': {'description': 'This is a virtual diagnostic view that will '
-                               'always return who the current authenticated '
-                               'user is. This view is accessible from all the '
-                               'tools reading from ODAS, for example Hive or '
-                               'Spark. This can be used to verify '
-                               'authentication is working properly.',
-                'tags': ['information_classification.public']},
- 'location': {'database': 'okera_sample', 'system': 'okera'},
- 'log_type': 'FETCHED OKERA TABLE INFO'}
+ 'attributes': {'description': 's3://okera-demo/consent-management/whitelist',
+                'tags': None},
+ 'location': {'database': 'marketing', 'system': 'Okera'},
+ 'log_type': "Fetched Okera information for table 'marketing.whitelist'"}
 ----------
-INFO 04/01/2020 05:38:09 PM Formatting tags for Okera as 'namespace.key'
-INFO 04/01/2020 05:38:09 PM Formatted tags: ['information_classification.public']
-DEBUG 04/01/2020 05:38:09 PM Comparing Collibra attributes of table (name: 'okera_sample.whoami', asset ID: '') to Okera tags of table 'okera_sample.whoami'
-DEBUG 04/01/2020 05:38:09 PM Collibra attributes: information_classification.public
-DEBUG 04/01/2020 05:38:09 PM Okera tags: ['information_classification.public']
-DEBUG 04/01/2020 05:38:09 PM Comparing Collibra description of table (name: 'okera_sample.whoami', asset ID: '') to Okera description of table 'okera_sample.whoami'
-DEBUG 04/01/2020 05:38:09 PM Collibra description: This is a virtual diagnostic view that will always return who the current authenticated user is. This view is accessible from all the tools reading from ODAS, for example Hive or Spark. This can be used to verify authentication is working properly.
-DEBUG 04/01/2020 05:38:09 PM Okera description: This is a virtual diagnostic view that will always return who the current authenticated user is. This view is accessible from all the tools reading from ODAS, for example Hive or Spark. This can be used to verify authentication is working properly.
-DEBUG 04/01/2020 05:38:09 PM Comparing Collibra attributes of column 'okera_sample.whoami.user' to Okera tags of column 'okera_sample.whoami.user'
-DEBUG 04/01/2020 05:38:09 PM Collibra attributes: 'None'
-DEBUG 04/01/2020 05:38:09 PM Okera tags: None
-INFO 04/01/2020 05:38:09 PM ##### FETCHED OKERA COLUMN INFO #####
-{'asset_id': 'not available for columns in Okera',
- 'asset_name': 'okera_sample.whoami.user',
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for table 'None' ###
+{'asset_id': 'befb68c1-2b41-49f0-90bf-d596409458a7',
+ 'asset_name': None,
+ 'asset_type': {'name': 'Table',
+                'type_id': '00000000-0000-0000-0000-000000031007'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'database': 'marketing',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra'},
+ 'log_type': "Fetched Collibra information for table 'None'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.whitelist.userid' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.whitelist.userid',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
- 'location': {'system': 'Okera', 'table': 'okera_sample.whoami'},
- 'log_type': 'FETCHED OKERA COLUMN INFO'}
+ 'location': {'system': 'Okera', 'table': 'marketing.whitelist'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.whitelist.userid'"}
 ----------
-INFO 04/01/2020 05:38:09 PM ##### FETCHED COLLIBRA COLUMN INFO #####
-{'asset_id': '8ae63886-0289-42fa-b700-94fe7c6ebef6',
- 'asset_name': 'okera_sample.whoami.user',
- 'asset_type': 'Column',
- 'attributes': {'description': 'None', 'info_classif': 'None'},
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.whitelist.userid' ###
+{'asset_id': 'dca1559c-9ceb-456b-9b74-501523b63948',
+ 'asset_name': 'marketing.whitelist.userid',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
  'location': {'community': 'Okera3.0',
               'domain': {'name': 'export_only',
                          'type': 'Physical Data Dictionary'},
               'system': 'Collibra',
-              'table': {'asset_id': '7f774ba4-cb98-43b4-bee3-208ab61700fc',
-                        'name': 'okera_sample.whoami'}},
- 'log_type': 'FETCHED COLLIBRA COLUMN INFO'}
+              'table': {'asset_id': 'befb68c1-2b41-49f0-90bf-d596409458a7',
+                        'name': 'marketing.whitelist'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.whitelist.userid'"}
 ----------
-DEBUG 04/01/2020 05:38:09 PM Comparing Collibra description of column 'okera_sample.whoami.user' to Okera description of column 'okera_sample.whoami.user'
-DEBUG 04/01/2020 05:38:09 PM Collibra description: None
-DEBUG 04/01/2020 05:38:09 PM Okera description: None
-INFO 04/01/2020 05:38:09 PM Export complete!
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.whitelist.analytics_opt_in' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.whitelist.analytics_opt_in',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'marketing.whitelist'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.whitelist.analytics_opt_in'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.whitelist.analytics_opt_in' ###
+{'asset_id': '71bb862d-3c00-48ff-b4da-f1cb718efa95',
+ 'asset_name': 'marketing.whitelist.analytics_opt_in',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'befb68c1-2b41-49f0-90bf-d596409458a7',
+                        'name': 'marketing.whitelist'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.whitelist.analytics_opt_in'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.whitelist.email_opt_in' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.whitelist.email_opt_in',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'marketing.whitelist'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.whitelist.email_opt_in'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.whitelist.email_opt_in' ###
+{'asset_id': 'd1f9a026-24a5-444e-8eaf-4da8a471fedd',
+ 'asset_name': 'marketing.whitelist.email_opt_in',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'befb68c1-2b41-49f0-90bf-d596409458a7',
+                        'name': 'marketing.whitelist'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.whitelist.email_opt_in'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for table 'marketing.user_account_data' ###
+{'asset_id': '',
+ 'asset_name': 'marketing.user_account_data',
+ 'asset_type': 'Table',
+ 'attributes': {'description': 's3://okera-demo/user_account_data',
+                'tags': None},
+ 'location': {'database': 'marketing', 'system': 'Okera'},
+ 'log_type': 'Fetched Okera information for table '
+             "'marketing.user_account_data'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for table 'marketing.user_account_data' ###
+{'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+ 'asset_name': 'marketing.user_account_data',
+ 'asset_type': {'name': 'Table',
+                'type_id': '00000000-0000-0000-0000-000000031007'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 's3://okera-demo/user_account_data'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'database': 'marketing',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra'},
+ 'log_type': 'Fetched Collibra information for table '
+             "'marketing.user_account_data'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.name' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.name',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.name'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.name' ###
+{'asset_id': 'f68dbb1a-f58c-40c1-b07f-36599c7bcb56',
+ 'asset_name': 'marketing.user_account_data.name',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.name'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.phone' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.phone',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['pii.phone_number']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.phone'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.phone' ###
+{'asset_id': '00a53ea2-7e98-47bd-b36e-8c64d12e191a',
+ 'asset_name': 'marketing.user_account_data.phone',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['pii.phone_number']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.phone'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.email' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.email',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['pii.email_address']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.email'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.email' ###
+{'asset_id': 'a481d766-0d9d-4352-9fbb-531647ed0a2f',
+ 'asset_name': 'marketing.user_account_data.email',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['pii.email_address']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.email'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.userid' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.userid',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['misc.guid']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.userid'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.userid' ###
+{'asset_id': '5d77199f-2b02-4f38-8fc9-9737e1ccd338',
+ 'asset_name': 'marketing.user_account_data.userid',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['misc.guid']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.userid'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.lastlogin' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.lastlogin',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.lastlogin'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.lastlogin' ###
+{'asset_id': '482ebc67-541a-41f4-ad46-cd33b7655c1e',
+ 'asset_name': 'marketing.user_account_data.lastlogin',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.lastlogin'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.creditcardnumber' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.creditcardnumber',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['pii.credit_card']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.creditcardnumber'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.creditcardnumber' ###
+{'asset_id': '6a171214-f4dd-48bf-9b75-c67819ca8815',
+ 'asset_name': 'marketing.user_account_data.creditcardnumber',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['pii.credit_card']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.creditcardnumber'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.location' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.location',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['pii.gps']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.location'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.location' ###
+{'asset_id': '98edcd0e-0e5f-41bc-b507-32907508eb3c',
+ 'asset_name': 'marketing.user_account_data.location',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['pii.gps']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.location'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.ipv4_address' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.ipv4_address',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['pii.ip_address']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.ipv4_address'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.ipv4_address' ###
+{'asset_id': '042ff6c8-81eb-4113-bd5a-225b88554635',
+ 'asset_name': 'marketing.user_account_data.ipv4_address',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['pii.ip_address']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.ipv4_address'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Okera information for column 'marketing.user_account_data.ipv6_address' ###
+{'asset_id': 'None',
+ 'asset_name': 'marketing.user_account_data.ipv6_address',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': "['pii.ip_address']"},
+ 'location': {'system': 'Okera', 'table': 'marketing.user_account_data'},
+ 'log_type': 'Fetched Okera information for column '
+             "'marketing.user_account_data.ipv6_address'"}
+----------
+DEBUG 04/02/2020 05:35:14 PM ### Fetched Collibra information for column 'marketing.user_account_data.ipv6_address' ###
+{'asset_id': '4702f0e9-ae1c-491e-aa04-7c5c0b0018d0',
+ 'asset_name': 'marketing.user_account_data.ipv6_address',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': "['pii.ip_address']"}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '9241e78a-0f2d-42ae-80ca-d28c3866abad',
+                        'name': 'marketing.user_account_data'}},
+ 'log_type': 'Fetched Collibra information for column '
+             "'marketing.user_account_data.ipv6_address'"}
+----------
+INFO 04/02/2020 05:35:14 PM Export complete!

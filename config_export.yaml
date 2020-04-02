@@ -13,7 +13,7 @@
 
 configs:
   host: "sandbox.demo.okera.com"
-  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXE2MPpiigFxWj1-YgIJ.6omH3luo-EhbsRkkyPbalN6lAYY$"
+  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXE7bEOJigFxX3jHiQML.-u4D8MH40q--0lYSsjnDckTT8DU$"
   collibra_dgc: "https://okera.collibra.com:443"
   collibra_username: "Admin"
   collibra_password: "Gac2Quencotdilo"
