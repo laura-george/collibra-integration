@@ -105,7 +105,7 @@ class Logger:
         self.location = location
         self.attributes = attributes
     def __str__(self):
-        return "### " + str(self.log_type) + " ###\n" + str(pformat(self.__dict__)) + "\n----------"
+        return "### " + str(self.log_type) + " ###\n" + str(pformat(self.__dict__))
 
 # names and IDs of Collibra community and domain
 community = configs['community']
@@ -131,7 +131,7 @@ ctx.enable_token_auth(token_str=configs['token'])
 
 # returns resource ID in resourceids.yaml
 def get_resource_ids(search_in, name):
-    logging.info("### Get resource IDs from resourceids.yaml ###")
+    logging.info("### START: Get resource IDs from resourceids.yaml ###")
     logging.info("Fetching resource ID for '" + name + "' in '" + search_in + "'")
     for r in resource_ids[search_in]:
         if search_in == 'relations':
@@ -142,13 +142,13 @@ def get_resource_ids(search_in, name):
         else:
             if r['name'] == name:
                 logging.info("Successfully fetched " + r['id'] + " for '" + name + "'")
-                logging.info("###")
+                logging.info("### END: Get resource IDs from resourceids.yaml ###")
                 return r['id']
 
 # makes /attributes REST call and returns attribute
 def get_attributes(asset_id, attr_type):
-    logging.info("### Get attributes from Collibra ###")
-    logging.info("Fetching attribute '" + attr_type + "' for asset '" + str(asset_id) + "' from Collibra")
+    logging.info("### START: Get attributes from Collibra ###")
+    logging.debug("Fetching attribute '" + attr_type + "' for asset '" + str(asset_id) + "' from Collibra")
     type_id = get_resource_ids('attributes', attr_type)
     params = {
         'typeIds': [type_id],
@@ -157,29 +157,29 @@ def get_attributes(asset_id, attr_type):
     data = json.loads(collibra_get(params, "attributes", 'get', None))
     if data.get('results'):
         value = data.get('results')[0].get('value')
-        logging.info("Successfully fetched '" + attr_type + "' for asset '" + str(asset_id) + "': '" + str(value) + "'")
-        logging.info("###")
+        logging.debug("Successfully fetched '" + attr_type + "' for asset '" + str(asset_id) + "': '" + str(value) + "'")
+        logging.info("### END: Get attributes from Collibra ###")
         return value
     else: 
         logging.debug("No attribute '" + attr_type + "' returned for asset '" + str(asset_id) + "'")
-        logging.info("###")
+        logging.info("### END: Get attributes from Collibra ###")
 
 # creates tags as namespace.key and returns as list
 def create_tags(attribute_values):
     attributes = []
     if attribute_values:
-        logging.info("### Format tags ###")
+        logging.info("### START: Format tags ###")
         logging.info("Formatting tags for Okera as 'namespace.key'")
         for attribute in attribute_values:
             name = attribute.attribute.attribute_namespace + "." + attribute.attribute.key 
             attributes.append(name)
-        logging.info("Formatted tags: " + str(attributes))
-        logging.info("###")
+        logging.debug("Formatted tags: " + str(attributes))
+        logging.info("### END: Format tags ###")
         return attributes
 
 # pyokera calls
 def pyokera_calls(asset_name=None, asset_type=None):
-    logging.info("###### PyOkera calls ######")
+    logging.info("###### START: PyOkera calls ######")
     try:
         conn = ctx.connect(host = configs['host'], port = planner_port)
     except thriftpy.transport.TException as e:
@@ -217,11 +217,11 @@ def pyokera_calls(asset_name=None, asset_type=None):
                 else:
                     element = {'database': database}
                 elements.append(element)
-    logging.info("###### PyOkera calls completed ######") 
+    logging.info("###### END: PyOkera calls ######") 
 
 # gets assets and their tags and attributes from Collibra
 def collibra_calls(asset_name=None, asset_type=None):
-    logging.info("###### Collibra calls ######")
+    logging.info("###### START: Collibra calls ######")
     def set_elements(asset_id, asset_name, asset_type):
         info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
         logging.info("Fetching attributes for '" + str(asset_name) + "' from Collibra")
@@ -295,7 +295,7 @@ def collibra_calls(asset_name=None, asset_type=None):
             logging.debug("Fetching column '" + c['source']['name'] + "'")
             set_elements(c['source']['id'], c['source']['name'], 'Column')
         logging.debug("Successfully fetched columns for table '" + table['name'] + "'")
-    logging.info("###### Collibra calls completed ######")
+    logging.info("###### END: Collibra calls ######")
         
 # returns Collibra asset information based on the mapped Okera resource name
 def find_info(name=None, info=None, asset_id=None):
@@ -314,7 +314,7 @@ def find_info(name=None, info=None, asset_id=None):
 
 # makes assign_attribute() or unassign_attribute() call for either table or column
 def tag_actions(action, db, name, type, tags):
-    logging.info("### Okera tag operations ###")
+    logging.info("### START: Okera tag operations ###")
     def define_tags(tag):
         try:
             conn = ctx.connect(host = configs['host'], port = planner_port)
@@ -393,11 +393,11 @@ def tag_actions(action, db, name, type, tags):
             define_tags(tag)
     else: 
         define_tags(tags)
-    logging.info("### Okera tag operations completed ###")
+    logging.info("### END: Okera tag operations ###")
         
 # alters description for either table, view or column
 def desc_actions(name, type, col_type, description, tab_type=None):
-    logging.info("### Okera description operations ###")
+    logging.info("### START: Okera description operations ###")
     description = '' if not description else description
     try:
         conn = ctx.connect(host = configs['host'], port = planner_port)
@@ -440,7 +440,7 @@ def desc_actions(name, type, col_type, description, tab_type=None):
                 logging.warning("PYOKERA ERROR")
                 logging.warning("Could not change description for view '" + name + "'!")
                 logging.warning("Error: " + str(e))
-    logging.info("### Okera description operations completed ###")
+    logging.info("### END: Okera description operations ###")
 
 # diffs attributes from Collibra with attributes from Okera and makes necessary changes in Okera
 loggers = []
@@ -458,9 +458,7 @@ def export(asset_name=None, asset_type=None):
         tab_name = t.db[0] + "." + t.name
         collibra_tab_tags = find_info(info="info_classif", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="info_classif")
         okera_tab_tags = create_tags(t.attribute_values)
-        logging.debug("Comparing Collibra attributes of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera tags of table '" + tab_name + "'")
-        logging.debug("Collibra attributes: " + str(collibra_tab_tags))
-        logging.debug("Okera tags: " + str(okera_tab_tags))
+        logging.debug("Comparing Collibra attributes of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera tags of table '" + tab_name + "':\nCollibra attributes: " + str(collibra_tab_tags) + "\nOkera tags: " + str(okera_tab_tags))
         if okera_tab_tags and collibra_tab_tags:
             if collections.Counter(okera_tab_tags) != collections.Counter([collibra_tab_tags]):
                 tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
@@ -472,16 +470,14 @@ def export(asset_name=None, asset_type=None):
         collibra_tab_desc = find_info(info="description", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="description")
         okera_tab_desc = t.description
         tab_type = "View" if t.primary_storage == "View" else "Table"
-        logging.debug("Comparing Collibra description of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera description of table '" + tab_name + "'")
-        logging.debug("Collibra description: " + str(collibra_tab_desc))
-        logging.debug("Okera description: " + str(okera_tab_desc))
+        logging.debug("Comparing Collibra description of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera description of table '" + tab_name + "':\nCollibra description: " + str(collibra_tab_desc) + "\nOkera description: " + str(okera_tab_desc))
         if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
             desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
         # begin of column loop: same functionality as table loop
         find_name_by_id = find_info(info="name", asset_id=asset_id)
         collibra_tab_name = str(find_info(info="name", asset_id=asset_id)) if asset_id else tab_name
         collibra_tab_logger = Logger(
-            "Fetched Collibra information for table '" + collibra_tab_name + "'",
+            "COLLIBRA TABLE '" + collibra_tab_name + "'",
             find_info(info="name", asset_id=asset_id) if asset_id else tab_name,
             {'name': "Table", 'type_id': get_resource_ids('assets', "Table")},
             str(asset_id) if asset_id else find_info(name=tab_name, info="asset_id"),
@@ -495,8 +491,6 @@ def export(asset_name=None, asset_type=None):
             collibra_col_name = find_info(asset_id=asset_id, info="name") + "." + col.name if find_info(asset_id=asset_id, info="name") else col_name
             collibra_col_tags = find_info(collibra_col_name, "info_classif")
             logging.debug("Comparing Collibra attributes of column '" + collibra_col_name + "' to Okera tags of column '" + col_name + "':\nCollibra attributes: '" + str(collibra_col_tags) + "'\nOkera tags: " + str(okera_col_tags))
-            #logging.debug("Collibra attributes: '" + str(collibra_col_tags) + "'")
-            #logging.debug("Okera tags: " + str(okera_col_tags))
             if okera_col_tags and collibra_col_tags:
                 if collections.Counter(okera_col_tags) != collections.Counter([collibra_col_tags]):
                     tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
@@ -507,13 +501,11 @@ def export(asset_name=None, asset_type=None):
                 tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
             collibra_col_desc = find_info(collibra_col_name, "description")
             okera_col_desc = col.comment
-            logging.debug("Comparing Collibra description of column '" + collibra_col_name + "' to Okera description of column '" + col_name + "'")
-            logging.debug("Collibra description: " + str(collibra_col_desc))
-            logging.debug("Okera description: " + str(okera_col_desc))
+            logging.debug("Comparing Collibra description of column '" + collibra_col_name + "' to Okera description of column '" + col_name + "':\nCollibra description: '" + str(collibra_col_desc) + "'\nOkera description: '" + str(okera_col_desc) + "'")
             if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
                 desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)
             okera_col_logger = Logger(
-                "Fetched Okera information for column '" + col_name + "'",
+                "OKERA COLUMN '" + col_name + "'",
                 col_name, 
                 "Column", 
                 "None", 
@@ -522,12 +514,12 @@ def export(asset_name=None, asset_type=None):
             )
             collibra_tab_name = collibra_col_name.rsplit('.',1)[0]
             collibra_col_logger = Logger(
-                "Fetched Collibra information for column '" + collibra_col_name + "'",
+                "COLLIBRA COLUMN '" + collibra_col_name + "'",
                 collibra_col_name,
                 {'name': "Column", 'type_id': get_resource_ids('assets', "Column")},
                 find_info(collibra_col_name, 'asset_id'),
                 {'system': "Collibra", 'community': community, 'domain': domain, 'table': {'name': str(collibra_tab_name), 'asset_id': str(asset_id) if asset_id else str(find_info(str(collibra_tab_name), "asset_id"))}},
-                {'description': {'value': str(okera_col_desc), 'resource_id': str(desc_id)}, 'info_classif': {'value': str(okera_col_tags), 'resource_id': str(info_classif_id)}}
+                {'description': {'value': str(collibra_col_desc), 'resource_id': str(desc_id)}, 'info_classif': {'value': str(collibra_col_tags), 'resource_id': str(info_classif_id)}}
             )
             loggers.append(okera_col_logger)
             loggers.append(collibra_col_logger)
@@ -536,7 +528,7 @@ def export(asset_name=None, asset_type=None):
         if asset_type == "Database" and element.get('database') == asset_name:
             for table in element.get('tables'):
                 okera_tab_logger = Logger(
-                    "Fetched Okera information for table '" + table.db[0] + "." + table.name + "'",
+                    "OKERA TABLE '" + table.db[0] + "." + table.name + "'",
                     table.db[0] + "." + table.name, 
                     "Table", 
                     str(table.metadata.get('collibra_asset_id')), 
@@ -549,7 +541,7 @@ def export(asset_name=None, asset_type=None):
             table = element.get('tables')
             if table.db[0] + "." + table.name == asset_name:
                 okera_tab_logger = Logger(
-                    "Fetched Okera information for table '" + table.db[0] + "." + table.name + "'",
+                    "OKERA TABLE '" + table.db[0] + "." + table.name + "'",
                     table.db[0] + "." + table.name, 
                     "Table", 
                     str(table.metadata.get('collibra_asset_id')), 
