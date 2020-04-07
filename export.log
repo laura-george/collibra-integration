@@ -1,844 +1,1116 @@
-INFO 04/03/2020 05:01:42 PM Opening config.yaml
-INFO 04/03/2020 05:01:42 PM Opening resourceids.yaml
-INFO 04/03/2020 05:01:42 PM Making Collibra request
-DEBUG 04/03/2020 05:01:42 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:43 PM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
-INFO 04/03/2020 05:01:43 PM Request successful
-INFO 04/03/2020 05:01:43 PM Making Collibra request
-DEBUG 04/03/2020 05:01:43 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:43 PM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
-INFO 04/03/2020 05:01:43 PM Request successful
-DEBUG 04/03/2020 05:01:43 PM Creating Okera context
-DEBUG 04/03/2020 05:01:43 PM Enabled token auth
-INFO 04/03/2020 05:01:48 PM ###### START: Collibra calls ######
-INFO 04/03/2020 05:01:48 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:48 PM Fetching resource ID for 'Database' in 'assets'
-INFO 04/03/2020 05:01:48 PM Successfully fetched 00000000-0000-0000-0000-000000031006 for 'Database'
-INFO 04/03/2020 05:01:48 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:48 PM Fetching Collibra asset 'collibra'
-INFO 04/03/2020 05:01:48 PM Making Collibra request
-DEBUG 04/03/2020 05:01:48 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:49 PM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra&nameMatchMode=EXACT&simulation=False&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031006 HTTP/1.1" 200 360
-INFO 04/03/2020 05:01:49 PM Request successful
-INFO 04/03/2020 05:01:49 PM Successfully fetched database 'collibra'
-INFO 04/03/2020 05:01:49 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:49 PM Fetching attribute 'Information Classification' for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635' from Collibra
-INFO 04/03/2020 05:01:49 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:49 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:01:49 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:01:49 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:49 PM Making Collibra request
-DEBUG 04/03/2020 05:01:49 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:50 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:50 PM Request successful
-DEBUG 04/03/2020 05:01:50 PM No attribute 'Information Classification' returned for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635'
-INFO 04/03/2020 05:01:50 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:50 PM Fetching attributes for 'collibra' from Collibra
-INFO 04/03/2020 05:01:50 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:50 PM Fetching attribute 'Description' for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635' from Collibra
-INFO 04/03/2020 05:01:50 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:50 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:01:50 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:01:50 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:50 PM Making Collibra request
-DEBUG 04/03/2020 05:01:50 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:50 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:50 PM Request successful
-DEBUG 04/03/2020 05:01:50 PM No attribute 'Description' returned for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635'
-INFO 04/03/2020 05:01:50 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:50 PM Making Collibra request
-DEBUG 04/03/2020 05:01:50 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:51 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 404 135
-INFO 04/03/2020 05:01:51 PM Request successful
-INFO 04/03/2020 05:01:51 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:51 PM Fetching resource ID for 'Table' in 'relations'
-INFO 04/03/2020 05:01:51 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007045 for 'Table'
-INFO 04/03/2020 05:01:51 PM ###
-INFO 04/03/2020 05:01:51 PM Fetching tables for database 'collibra'
-INFO 04/03/2020 05:01:51 PM Making Collibra request
-DEBUG 04/03/2020 05:01:51 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:52 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007045&targetId=783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 200 432
-INFO 04/03/2020 05:01:52 PM Request successful
-INFO 04/03/2020 05:01:52 PM Successfully fetched tables for database 'collibra'
-DEBUG 04/03/2020 05:01:52 PM Fetching table 'collibra.mapping_table'
-INFO 04/03/2020 05:01:52 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:52 PM Fetching attribute 'Information Classification' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b' from Collibra
-INFO 04/03/2020 05:01:52 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:52 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:01:52 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:01:52 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:52 PM Making Collibra request
-DEBUG 04/03/2020 05:01:52 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:52 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:52 PM Request successful
-DEBUG 04/03/2020 05:01:52 PM No attribute 'Information Classification' returned for asset '740efc9c-8500-4dce-af61-a66a33f1f71b'
-INFO 04/03/2020 05:01:52 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:52 PM Fetching attributes for 'collibra.mapping_table' from Collibra
-INFO 04/03/2020 05:01:52 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:52 PM Fetching attribute 'Description' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b' from Collibra
-INFO 04/03/2020 05:01:52 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:52 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:01:52 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:01:52 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:52 PM Making Collibra request
-DEBUG 04/03/2020 05:01:52 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:53 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 200 315
-INFO 04/03/2020 05:01:53 PM Request successful
-DEBUG 04/03/2020 05:01:53 PM Successfully fetched 'Description' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b': 'Dataset to test Collibra mapping capabilities.'
-INFO 04/03/2020 05:01:53 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:53 PM Making Collibra request
-DEBUG 04/03/2020 05:01:53 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:54 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 404 135
-INFO 04/03/2020 05:01:54 PM Request successful
-INFO 04/03/2020 05:01:54 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:54 PM Fetching resource ID for 'Column' in 'relations'
-INFO 04/03/2020 05:01:54 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
-INFO 04/03/2020 05:01:54 PM ###
-INFO 04/03/2020 05:01:54 PM Fetching columns for table 'collibra.mapping_table'
-INFO 04/03/2020 05:01:54 PM Making Collibra request
-DEBUG 04/03/2020 05:01:54 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:54 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 200 427
-INFO 04/03/2020 05:01:54 PM Request successful
-DEBUG 04/03/2020 05:01:54 PM Fetching column 'collibra.mapping_table.mapping_column2'
-INFO 04/03/2020 05:01:54 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:54 PM Fetching attribute 'Information Classification' for asset '73eea979-8d08-4344-8e68-65aefaf61aaf' from Collibra
-INFO 04/03/2020 05:01:54 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:54 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:01:54 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:01:54 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:54 PM Making Collibra request
-DEBUG 04/03/2020 05:01:54 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:55 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=73eea979-8d08-4344-8e68-65aefaf61aaf HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:55 PM Request successful
-DEBUG 04/03/2020 05:01:55 PM No attribute 'Information Classification' returned for asset '73eea979-8d08-4344-8e68-65aefaf61aaf'
-INFO 04/03/2020 05:01:55 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:55 PM Fetching attributes for 'collibra.mapping_table.mapping_column2' from Collibra
-INFO 04/03/2020 05:01:55 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:55 PM Fetching attribute 'Description' for asset '73eea979-8d08-4344-8e68-65aefaf61aaf' from Collibra
-INFO 04/03/2020 05:01:55 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:55 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:01:55 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:01:55 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:55 PM Making Collibra request
-DEBUG 04/03/2020 05:01:55 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:56 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=73eea979-8d08-4344-8e68-65aefaf61aaf HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:56 PM Request successful
-DEBUG 04/03/2020 05:01:56 PM No attribute 'Description' returned for asset '73eea979-8d08-4344-8e68-65aefaf61aaf'
-INFO 04/03/2020 05:01:56 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:56 PM Making Collibra request
-DEBUG 04/03/2020 05:01:56 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:57 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/73eea979-8d08-4344-8e68-65aefaf61aaf HTTP/1.1" 404 135
-INFO 04/03/2020 05:01:57 PM Request successful
-DEBUG 04/03/2020 05:01:57 PM Fetching column 'collibra.mapping_table.mapping_column'
-INFO 04/03/2020 05:01:57 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:57 PM Fetching attribute 'Information Classification' for asset '48a129bd-1552-487e-b133-cb9069705768' from Collibra
-INFO 04/03/2020 05:01:57 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:57 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:01:57 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:01:57 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:57 PM Making Collibra request
-DEBUG 04/03/2020 05:01:57 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:57 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=48a129bd-1552-487e-b133-cb9069705768 HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:57 PM Request successful
-DEBUG 04/03/2020 05:01:57 PM No attribute 'Information Classification' returned for asset '48a129bd-1552-487e-b133-cb9069705768'
-INFO 04/03/2020 05:01:57 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:57 PM Fetching attributes for 'collibra.mapping_table.mapping_column' from Collibra
-INFO 04/03/2020 05:01:57 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:57 PM Fetching attribute 'Description' for asset '48a129bd-1552-487e-b133-cb9069705768' from Collibra
-INFO 04/03/2020 05:01:57 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:57 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:01:57 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:01:57 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:57 PM Making Collibra request
-DEBUG 04/03/2020 05:01:57 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:58 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=48a129bd-1552-487e-b133-cb9069705768 HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:58 PM Request successful
-DEBUG 04/03/2020 05:01:58 PM No attribute 'Description' returned for asset '48a129bd-1552-487e-b133-cb9069705768'
-INFO 04/03/2020 05:01:58 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:58 PM Making Collibra request
-DEBUG 04/03/2020 05:01:58 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:59 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/48a129bd-1552-487e-b133-cb9069705768 HTTP/1.1" 404 135
-INFO 04/03/2020 05:01:59 PM Request successful
-DEBUG 04/03/2020 05:01:59 PM Fetching column 'collibra.mapping_table.mapping_column3'
-INFO 04/03/2020 05:01:59 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:59 PM Fetching attribute 'Information Classification' for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d' from Collibra
-INFO 04/03/2020 05:01:59 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:59 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:01:59 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:01:59 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:59 PM Making Collibra request
-DEBUG 04/03/2020 05:01:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:01:59 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=9bd34d34-9063-4b8f-9415-3d1eb54c6c4d HTTP/1.1" 200 62
-INFO 04/03/2020 05:01:59 PM Request successful
-DEBUG 04/03/2020 05:01:59 PM No attribute 'Information Classification' returned for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d'
-INFO 04/03/2020 05:01:59 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:01:59 PM Fetching attributes for 'collibra.mapping_table.mapping_column3' from Collibra
-INFO 04/03/2020 05:01:59 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:01:59 PM Fetching attribute 'Description' for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d' from Collibra
-INFO 04/03/2020 05:01:59 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:59 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:01:59 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:01:59 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:01:59 PM Making Collibra request
-DEBUG 04/03/2020 05:01:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:00 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=9bd34d34-9063-4b8f-9415-3d1eb54c6c4d HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:00 PM Request successful
-DEBUG 04/03/2020 05:02:00 PM No attribute 'Description' returned for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d'
-INFO 04/03/2020 05:02:00 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:00 PM Making Collibra request
-DEBUG 04/03/2020 05:02:00 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:01 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/9bd34d34-9063-4b8f-9415-3d1eb54c6c4d HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:01 PM Request successful
-DEBUG 04/03/2020 05:02:01 PM Successfully fetched columns for table 'collibra.mapping_table'
-DEBUG 04/03/2020 05:02:01 PM Fetching table 'collibra.regular_ole_table'
-INFO 04/03/2020 05:02:01 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:01 PM Fetching attribute 'Information Classification' for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d' from Collibra
-INFO 04/03/2020 05:02:01 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:01 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:01 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:01 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:01 PM Making Collibra request
-DEBUG 04/03/2020 05:02:01 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:02 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:02 PM Request successful
-DEBUG 04/03/2020 05:02:02 PM No attribute 'Information Classification' returned for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d'
-INFO 04/03/2020 05:02:02 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:02 PM Fetching attributes for 'collibra.regular_ole_table' from Collibra
-INFO 04/03/2020 05:02:02 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:02 PM Fetching attribute 'Description' for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d' from Collibra
-INFO 04/03/2020 05:02:02 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:02 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:02 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:02 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:02 PM Making Collibra request
-DEBUG 04/03/2020 05:02:02 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:02 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 346
-INFO 04/03/2020 05:02:02 PM Request successful
-DEBUG 04/03/2020 05:02:02 PM Successfully fetched 'Description' for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d': '<div>Dataset that exists in Collibra with the same name as in Okera.</div>'
-INFO 04/03/2020 05:02:02 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:02 PM Making Collibra request
-DEBUG 04/03/2020 05:02:02 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:03 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:03 PM Request successful
-INFO 04/03/2020 05:02:03 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:03 PM Fetching resource ID for 'Column' in 'relations'
-INFO 04/03/2020 05:02:03 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
-INFO 04/03/2020 05:02:03 PM ###
-INFO 04/03/2020 05:02:03 PM Fetching columns for table 'collibra.regular_ole_table'
-INFO 04/03/2020 05:02:03 PM Making Collibra request
-DEBUG 04/03/2020 05:02:03 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:04 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 314
-INFO 04/03/2020 05:02:04 PM Request successful
-DEBUG 04/03/2020 05:02:04 PM Fetching column 'collibra.regular_ole_table.regular_ole_column'
-INFO 04/03/2020 05:02:04 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:04 PM Fetching attribute 'Information Classification' for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186' from Collibra
-INFO 04/03/2020 05:02:04 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:04 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:04 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:04 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:04 PM Making Collibra request
-DEBUG 04/03/2020 05:02:04 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:04 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=46f2120b-4b6d-4f6a-9e4a-d7644ed5c186 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:04 PM Request successful
-DEBUG 04/03/2020 05:02:04 PM No attribute 'Information Classification' returned for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186'
-INFO 04/03/2020 05:02:04 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:04 PM Fetching attributes for 'collibra.regular_ole_table.regular_ole_column' from Collibra
-INFO 04/03/2020 05:02:04 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:04 PM Fetching attribute 'Description' for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186' from Collibra
-INFO 04/03/2020 05:02:04 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:04 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:04 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:04 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:04 PM Making Collibra request
-DEBUG 04/03/2020 05:02:04 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:05 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=46f2120b-4b6d-4f6a-9e4a-d7644ed5c186 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:05 PM Request successful
-DEBUG 04/03/2020 05:02:05 PM No attribute 'Description' returned for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186'
-INFO 04/03/2020 05:02:05 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:05 PM Making Collibra request
-DEBUG 04/03/2020 05:02:05 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:06 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/46f2120b-4b6d-4f6a-9e4a-d7644ed5c186 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:06 PM Request successful
-DEBUG 04/03/2020 05:02:06 PM Successfully fetched columns for table 'collibra.regular_ole_table'
-DEBUG 04/03/2020 05:02:06 PM Fetching table 'collibra.hades'
-INFO 04/03/2020 05:02:06 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:06 PM Fetching attribute 'Information Classification' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
-INFO 04/03/2020 05:02:06 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:06 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:06 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:06 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:06 PM Making Collibra request
-DEBUG 04/03/2020 05:02:06 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:06 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:06 PM Request successful
-DEBUG 04/03/2020 05:02:06 PM No attribute 'Information Classification' returned for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0'
-INFO 04/03/2020 05:02:06 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:06 PM Fetching attributes for 'collibra.hades' from Collibra
-INFO 04/03/2020 05:02:06 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:06 PM Fetching attribute 'Description' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
-INFO 04/03/2020 05:02:06 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:06 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:06 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:06 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:06 PM Making Collibra request
-DEBUG 04/03/2020 05:02:06 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:07 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 306
-INFO 04/03/2020 05:02:07 PM Request successful
-DEBUG 04/03/2020 05:02:07 PM Successfully fetched 'Description' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0': 'Dataset with more columns.'
-INFO 04/03/2020 05:02:07 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:07 PM Making Collibra request
-DEBUG 04/03/2020 05:02:07 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:08 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:08 PM Request successful
-INFO 04/03/2020 05:02:08 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:08 PM Fetching resource ID for 'Column' in 'relations'
-INFO 04/03/2020 05:02:08 PM Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
-INFO 04/03/2020 05:02:08 PM ###
-INFO 04/03/2020 05:02:08 PM Fetching columns for table 'collibra.hades'
-INFO 04/03/2020 05:02:08 PM Making Collibra request
-DEBUG 04/03/2020 05:02:08 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:09 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 818
-INFO 04/03/2020 05:02:09 PM Request successful
-DEBUG 04/03/2020 05:02:09 PM Fetching column 'collibra.hades.charon'
-INFO 04/03/2020 05:02:09 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:09 PM Fetching attribute 'Information Classification' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
-INFO 04/03/2020 05:02:09 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:09 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:09 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:09 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:09 PM Making Collibra request
-DEBUG 04/03/2020 05:02:09 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:10 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:10 PM Request successful
-DEBUG 04/03/2020 05:02:10 PM No attribute 'Information Classification' returned for asset '98c79d25-c388-4025-a651-3f6c607257a4'
-INFO 04/03/2020 05:02:10 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:10 PM Fetching attributes for 'collibra.hades.charon' from Collibra
-INFO 04/03/2020 05:02:10 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:10 PM Fetching attribute 'Description' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
-INFO 04/03/2020 05:02:10 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:10 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:10 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:10 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:10 PM Making Collibra request
-DEBUG 04/03/2020 05:02:10 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:11 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:11 PM Request successful
-DEBUG 04/03/2020 05:02:11 PM No attribute 'Description' returned for asset '98c79d25-c388-4025-a651-3f6c607257a4'
-INFO 04/03/2020 05:02:11 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:11 PM Making Collibra request
-DEBUG 04/03/2020 05:02:11 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:11 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:11 PM Request successful
-DEBUG 04/03/2020 05:02:11 PM Fetching column 'collibra.hades.cerberus'
-INFO 04/03/2020 05:02:11 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:11 PM Fetching attribute 'Information Classification' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
-INFO 04/03/2020 05:02:11 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:11 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:11 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:11 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:11 PM Making Collibra request
-DEBUG 04/03/2020 05:02:11 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:12 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:12 PM Request successful
-DEBUG 04/03/2020 05:02:12 PM No attribute 'Information Classification' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
-INFO 04/03/2020 05:02:12 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:12 PM Fetching attributes for 'collibra.hades.cerberus' from Collibra
-INFO 04/03/2020 05:02:12 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:12 PM Fetching attribute 'Description' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
-INFO 04/03/2020 05:02:12 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:12 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:12 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:12 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:12 PM Making Collibra request
-DEBUG 04/03/2020 05:02:12 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:13 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:13 PM Request successful
-DEBUG 04/03/2020 05:02:13 PM No attribute 'Description' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
-INFO 04/03/2020 05:02:13 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:13 PM Making Collibra request
-DEBUG 04/03/2020 05:02:13 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:13 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:13 PM Request successful
-DEBUG 04/03/2020 05:02:13 PM Fetching column 'collibra.hades.nyx'
-INFO 04/03/2020 05:02:13 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:13 PM Fetching attribute 'Information Classification' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
-INFO 04/03/2020 05:02:13 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:13 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:13 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:13 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:13 PM Making Collibra request
-DEBUG 04/03/2020 05:02:13 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:14 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 332
-INFO 04/03/2020 05:02:14 PM Request successful
-DEBUG 04/03/2020 05:02:14 PM Successfully fetched 'Information Classification' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad': 'confidential'
-INFO 04/03/2020 05:02:14 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:14 PM Fetching attributes for 'collibra.hades.nyx' from Collibra
-INFO 04/03/2020 05:02:14 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:14 PM Fetching attribute 'Description' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
-INFO 04/03/2020 05:02:14 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:14 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:14 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:14 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:14 PM Making Collibra request
-DEBUG 04/03/2020 05:02:14 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:15 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:15 PM Request successful
-DEBUG 04/03/2020 05:02:15 PM No attribute 'Description' returned for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad'
-INFO 04/03/2020 05:02:15 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:15 PM Making Collibra request
-DEBUG 04/03/2020 05:02:15 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:15 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:15 PM Request successful
-DEBUG 04/03/2020 05:02:15 PM Fetching column 'collibra.hades.thanatos'
-INFO 04/03/2020 05:02:15 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:15 PM Fetching attribute 'Information Classification' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
-INFO 04/03/2020 05:02:15 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:15 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:15 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:15 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:15 PM Making Collibra request
-DEBUG 04/03/2020 05:02:15 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:16 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 335
-INFO 04/03/2020 05:02:16 PM Request successful
-DEBUG 04/03/2020 05:02:16 PM Successfully fetched 'Information Classification' for asset '157269f7-f8f0-4243-9def-b460c1d58402': 'nonpublic'
-INFO 04/03/2020 05:02:16 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:16 PM Fetching attributes for 'collibra.hades.thanatos' from Collibra
-INFO 04/03/2020 05:02:16 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:16 PM Fetching attribute 'Description' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
-INFO 04/03/2020 05:02:16 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:16 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:16 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:16 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:16 PM Making Collibra request
-DEBUG 04/03/2020 05:02:16 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:17 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:17 PM Request successful
-DEBUG 04/03/2020 05:02:17 PM No attribute 'Description' returned for asset '157269f7-f8f0-4243-9def-b460c1d58402'
-INFO 04/03/2020 05:02:17 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:17 PM Making Collibra request
-DEBUG 04/03/2020 05:02:17 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:17 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:17 PM Request successful
-DEBUG 04/03/2020 05:02:17 PM Fetching column 'collibra.hades.styx'
-INFO 04/03/2020 05:02:17 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:17 PM Fetching attribute 'Information Classification' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
-INFO 04/03/2020 05:02:17 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:17 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:17 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:17 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:17 PM Making Collibra request
-DEBUG 04/03/2020 05:02:17 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:18 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:18 PM Request successful
-DEBUG 04/03/2020 05:02:18 PM No attribute 'Information Classification' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
-INFO 04/03/2020 05:02:18 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:18 PM Fetching attributes for 'collibra.hades.styx' from Collibra
-INFO 04/03/2020 05:02:18 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:18 PM Fetching attribute 'Description' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
-INFO 04/03/2020 05:02:18 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:18 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:18 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:18 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:18 PM Making Collibra request
-DEBUG 04/03/2020 05:02:18 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:19 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:19 PM Request successful
-DEBUG 04/03/2020 05:02:19 PM No attribute 'Description' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
-INFO 04/03/2020 05:02:19 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:19 PM Making Collibra request
-DEBUG 04/03/2020 05:02:19 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:20 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:20 PM Request successful
-DEBUG 04/03/2020 05:02:20 PM Fetching column 'collibra.hades.cronus'
-INFO 04/03/2020 05:02:20 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:20 PM Fetching attribute 'Information Classification' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
-INFO 04/03/2020 05:02:20 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:20 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:20 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:20 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:20 PM Making Collibra request
-DEBUG 04/03/2020 05:02:20 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:20 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:20 PM Request successful
-DEBUG 04/03/2020 05:02:20 PM No attribute 'Information Classification' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
-INFO 04/03/2020 05:02:20 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:20 PM Fetching attributes for 'collibra.hades.cronus' from Collibra
-INFO 04/03/2020 05:02:20 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:20 PM Fetching attribute 'Description' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
-INFO 04/03/2020 05:02:20 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:20 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:20 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:20 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:20 PM Making Collibra request
-DEBUG 04/03/2020 05:02:20 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:21 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:21 PM Request successful
-DEBUG 04/03/2020 05:02:21 PM No attribute 'Description' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
-INFO 04/03/2020 05:02:21 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:21 PM Making Collibra request
-DEBUG 04/03/2020 05:02:21 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:22 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:22 PM Request successful
-DEBUG 04/03/2020 05:02:22 PM Fetching column 'collibra.hades.erebos'
-INFO 04/03/2020 05:02:22 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:22 PM Fetching attribute 'Information Classification' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
-INFO 04/03/2020 05:02:22 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:22 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:22 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:22 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:22 PM Making Collibra request
-DEBUG 04/03/2020 05:02:22 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:22 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 331
-INFO 04/03/2020 05:02:22 PM Request successful
-DEBUG 04/03/2020 05:02:22 PM Successfully fetched 'Information Classification' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4': 'public'
-INFO 04/03/2020 05:02:22 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:22 PM Fetching attributes for 'collibra.hades.erebos' from Collibra
-INFO 04/03/2020 05:02:22 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:22 PM Fetching attribute 'Description' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
-INFO 04/03/2020 05:02:22 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:22 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:22 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:22 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:22 PM Making Collibra request
-DEBUG 04/03/2020 05:02:22 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:23 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:23 PM Request successful
-DEBUG 04/03/2020 05:02:23 PM No attribute 'Description' returned for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4'
-INFO 04/03/2020 05:02:23 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:23 PM Making Collibra request
-DEBUG 04/03/2020 05:02:23 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:24 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:24 PM Request successful
-DEBUG 04/03/2020 05:02:24 PM Fetching column 'collibra.hades.hypnos'
-INFO 04/03/2020 05:02:24 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:24 PM Fetching attribute 'Information Classification' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
-INFO 04/03/2020 05:02:24 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:24 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:24 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:24 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:24 PM Making Collibra request
-DEBUG 04/03/2020 05:02:24 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:25 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:25 PM Request successful
-DEBUG 04/03/2020 05:02:25 PM No attribute 'Information Classification' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
-INFO 04/03/2020 05:02:25 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:25 PM Fetching attributes for 'collibra.hades.hypnos' from Collibra
-INFO 04/03/2020 05:02:25 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:25 PM Fetching attribute 'Description' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
-INFO 04/03/2020 05:02:25 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:25 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:25 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:25 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:25 PM Making Collibra request
-DEBUG 04/03/2020 05:02:25 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:25 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:25 PM Request successful
-DEBUG 04/03/2020 05:02:25 PM No attribute 'Description' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
-INFO 04/03/2020 05:02:25 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:25 PM Making Collibra request
-DEBUG 04/03/2020 05:02:25 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:26 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:26 PM Request successful
-DEBUG 04/03/2020 05:02:26 PM Fetching column 'collibra.hades.hermes'
-INFO 04/03/2020 05:02:26 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:26 PM Fetching attribute 'Information Classification' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
-INFO 04/03/2020 05:02:26 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:26 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:26 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:26 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:26 PM Making Collibra request
-DEBUG 04/03/2020 05:02:26 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:27 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 333
-INFO 04/03/2020 05:02:27 PM Request successful
-DEBUG 04/03/2020 05:02:27 PM Successfully fetched 'Information Classification' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220': 'restricted'
-INFO 04/03/2020 05:02:27 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:27 PM Fetching attributes for 'collibra.hades.hermes' from Collibra
-INFO 04/03/2020 05:02:27 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:27 PM Fetching attribute 'Description' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
-INFO 04/03/2020 05:02:27 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:27 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:27 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:27 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:27 PM Making Collibra request
-DEBUG 04/03/2020 05:02:27 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:27 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:27 PM Request successful
-DEBUG 04/03/2020 05:02:27 PM No attribute 'Description' returned for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220'
-INFO 04/03/2020 05:02:27 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:27 PM Making Collibra request
-DEBUG 04/03/2020 05:02:27 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:28 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:28 PM Request successful
-DEBUG 04/03/2020 05:02:28 PM Fetching column 'collibra.hades.erinyes'
-INFO 04/03/2020 05:02:28 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:28 PM Fetching attribute 'Information Classification' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
-INFO 04/03/2020 05:02:28 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:28 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:28 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:28 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:28 PM Making Collibra request
-DEBUG 04/03/2020 05:02:28 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:29 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:29 PM Request successful
-DEBUG 04/03/2020 05:02:29 PM No attribute 'Information Classification' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
-INFO 04/03/2020 05:02:29 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:29 PM Fetching attributes for 'collibra.hades.erinyes' from Collibra
-INFO 04/03/2020 05:02:29 PM ### START: Get attributes from Collibra ###
-DEBUG 04/03/2020 05:02:29 PM Fetching attribute 'Description' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
-INFO 04/03/2020 05:02:29 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:29 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:29 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:29 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:29 PM Making Collibra request
-DEBUG 04/03/2020 05:02:29 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:29 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
-INFO 04/03/2020 05:02:29 PM Request successful
-DEBUG 04/03/2020 05:02:29 PM No attribute 'Description' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
-INFO 04/03/2020 05:02:29 PM ### END: Get attributes from Collibra ###
-INFO 04/03/2020 05:02:29 PM Making Collibra request
-DEBUG 04/03/2020 05:02:29 PM Starting new HTTPS connection (1): okera.collibra.com:443
-DEBUG 04/03/2020 05:02:30 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 404 135
-INFO 04/03/2020 05:02:30 PM Request successful
-DEBUG 04/03/2020 05:02:30 PM Successfully fetched columns for table 'collibra.hades'
-INFO 04/03/2020 05:02:30 PM ###### END: Collibra calls ######
-INFO 04/03/2020 05:02:30 PM ###### START: PyOkera calls ######
-DEBUG 04/03/2020 05:02:30 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
-DEBUG 04/03/2020 05:02:30 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
-DEBUG 04/03/2020 05:02:30 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x113927cd0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
-DEBUG 04/03/2020 05:02:31 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x1026d3d50>)
-INFO 04/03/2020 05:02:31 PM Fetching tables for database collibra
-DEBUG 04/03/2020 05:02:32 PM Closing Planner connection
-DEBUG 04/03/2020 05:02:32 PM close_service: client=<thriftpy.thrift.TClient object at 0x113c9eb10>
-INFO 04/03/2020 05:02:32 PM ###### END: PyOkera calls ######
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of table (name: 'collibra.regular_ole_table', asset ID: 'None') to Okera tags of table 'collibra.regular_ole_table':
+INFO 04/07/2020 02:14:45 PM ############ START: Collibra calls ############
+INFO 04/07/2020 02:14:45 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:45 PM 		Fetching resource ID for 'Database' in 'assets'
+INFO 04/07/2020 02:14:45 PM 		Successfully fetched 00000000-0000-0000-0000-000000031006 for 'Database'
+INFO 04/07/2020 02:14:45 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:45 PM ###### COLLIBRA DATABASE 'collibra' ######
+INFO 04/07/2020 02:14:45 PM 	Fetching Collibra database 'collibra'
+INFO 04/07/2020 02:14:45 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:45 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:46 PM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra&nameMatchMode=EXACT&simulation=False&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031006 HTTP/1.1" 200 360
+INFO 04/07/2020 02:14:46 PM Request successful
+INFO 04/07/2020 02:14:46 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:46 PM 	Successfully fetched database 'collibra'
+INFO 04/07/2020 02:14:46 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:46 PM 		Fetching attribute 'Information Classification' for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635' from Collibra
+INFO 04/07/2020 02:14:46 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:46 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:14:46 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:14:46 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:46 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:46 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:47 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:47 PM Request successful
+INFO 04/07/2020 02:14:47 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:47 PM 		No attribute 'Information Classification' returned for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635'
+INFO 04/07/2020 02:14:47 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:47 PM Fetching attributes for 'collibra' from Collibra
+INFO 04/07/2020 02:14:47 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:47 PM 		Fetching attribute 'Description' for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635' from Collibra
+INFO 04/07/2020 02:14:47 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:47 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:14:47 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:14:47 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:47 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:47 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:48 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:48 PM Request successful
+INFO 04/07/2020 02:14:48 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:48 PM 		No attribute 'Description' returned for asset '783bef2d-0ed5-41cd-a5e5-4734b2cae635'
+INFO 04/07/2020 02:14:48 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:48 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:48 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:48 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 404 135
+INFO 04/07/2020 02:14:48 PM Request successful
+INFO 04/07/2020 02:14:48 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:48 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:48 PM 		Fetching resource ID for 'Table' in 'relations'
+INFO 04/07/2020 02:14:48 PM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007045 for 'Table'
+INFO 04/07/2020 02:14:48 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:48 PM 	Fetching tables for database 'collibra'
+INFO 04/07/2020 02:14:48 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:48 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:49 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007045&targetId=783bef2d-0ed5-41cd-a5e5-4734b2cae635 HTTP/1.1" 200 510
+INFO 04/07/2020 02:14:49 PM Request successful
+INFO 04/07/2020 02:14:49 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:49 PM 	Successfully fetched tables for database 'collibra'
+INFO 04/07/2020 02:14:49 PM ###### COLLIBRA TABLE 'collibra.mapping_view' ######
+DEBUG 04/07/2020 02:14:49 PM 	Fetching table 'collibra.mapping_view'
+INFO 04/07/2020 02:14:49 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:49 PM 		Fetching attribute 'Information Classification' for asset '5e37d999-398d-42d0-83a0-6c258ddeb6d9' from Collibra
+INFO 04/07/2020 02:14:49 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:49 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:14:49 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:14:49 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:49 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:49 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:50 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=5e37d999-398d-42d0-83a0-6c258ddeb6d9 HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:50 PM Request successful
+INFO 04/07/2020 02:14:50 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:50 PM 		No attribute 'Information Classification' returned for asset '5e37d999-398d-42d0-83a0-6c258ddeb6d9'
+INFO 04/07/2020 02:14:50 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:50 PM Fetching attributes for 'collibra.mapping_view' from Collibra
+INFO 04/07/2020 02:14:50 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:50 PM 		Fetching attribute 'Description' for asset '5e37d999-398d-42d0-83a0-6c258ddeb6d9' from Collibra
+INFO 04/07/2020 02:14:50 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:50 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:14:50 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:14:50 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:50 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:50 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:51 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=5e37d999-398d-42d0-83a0-6c258ddeb6d9 HTTP/1.1" 200 349
+INFO 04/07/2020 02:14:51 PM Request successful
+INFO 04/07/2020 02:14:51 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:51 PM 		Successfully fetched 'Description' for asset '5e37d999-398d-42d0-83a0-6c258ddeb6d9': 'This view has no function in Collibra. This view in Okera is mapped to the Collibra table collibra.mapping_table.'
+INFO 04/07/2020 02:14:51 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:51 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:51 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:51 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/5e37d999-398d-42d0-83a0-6c258ddeb6d9 HTTP/1.1" 404 135
+INFO 04/07/2020 02:14:51 PM Request successful
+INFO 04/07/2020 02:14:51 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:51 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:51 PM 		Fetching resource ID for 'Column' in 'relations'
+INFO 04/07/2020 02:14:51 PM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/07/2020 02:14:51 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:51 PM 	Fetching columns for table 'collibra.mapping_view'
+INFO 04/07/2020 02:14:51 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:51 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:52 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=5e37d999-398d-42d0-83a0-6c258ddeb6d9 HTTP/1.1" 200 426
+INFO 04/07/2020 02:14:52 PM Request successful
+INFO 04/07/2020 02:14:52 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:52 PM ###### COLLIBRA COLUMN 'collibra.mapping_view.mapping_column2' ######
+DEBUG 04/07/2020 02:14:52 PM 	Fetching column 'collibra.mapping_view.mapping_column2'
+INFO 04/07/2020 02:14:52 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:52 PM 		Fetching attribute 'Information Classification' for asset 'e88f4a5b-a029-47ae-814d-d52c128c2c71' from Collibra
+INFO 04/07/2020 02:14:52 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:52 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:14:52 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:14:52 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:52 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:52 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:53 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=e88f4a5b-a029-47ae-814d-d52c128c2c71 HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:53 PM Request successful
+INFO 04/07/2020 02:14:53 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:53 PM 		No attribute 'Information Classification' returned for asset 'e88f4a5b-a029-47ae-814d-d52c128c2c71'
+INFO 04/07/2020 02:14:53 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:53 PM Fetching attributes for 'collibra.mapping_view.mapping_column2' from Collibra
+INFO 04/07/2020 02:14:53 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:53 PM 		Fetching attribute 'Description' for asset 'e88f4a5b-a029-47ae-814d-d52c128c2c71' from Collibra
+INFO 04/07/2020 02:14:53 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:53 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:14:53 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:14:53 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:53 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:53 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:54 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e88f4a5b-a029-47ae-814d-d52c128c2c71 HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:54 PM Request successful
+INFO 04/07/2020 02:14:54 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:54 PM 		No attribute 'Description' returned for asset 'e88f4a5b-a029-47ae-814d-d52c128c2c71'
+INFO 04/07/2020 02:14:54 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:54 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:54 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:55 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e88f4a5b-a029-47ae-814d-d52c128c2c71 HTTP/1.1" 404 135
+INFO 04/07/2020 02:14:55 PM Request successful
+INFO 04/07/2020 02:14:55 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:55 PM ###### COLLIBRA COLUMN 'collibra.mapping_view.mapping_column' ######
+DEBUG 04/07/2020 02:14:55 PM 	Fetching column 'collibra.mapping_view.mapping_column'
+INFO 04/07/2020 02:14:55 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:55 PM 		Fetching attribute 'Information Classification' for asset '46bc82d0-f026-48d3-86c2-40b2ae29a04c' from Collibra
+INFO 04/07/2020 02:14:55 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:55 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:14:55 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:14:55 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:55 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:55 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:55 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=46bc82d0-f026-48d3-86c2-40b2ae29a04c HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:55 PM Request successful
+INFO 04/07/2020 02:14:55 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:55 PM 		No attribute 'Information Classification' returned for asset '46bc82d0-f026-48d3-86c2-40b2ae29a04c'
+INFO 04/07/2020 02:14:55 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:55 PM Fetching attributes for 'collibra.mapping_view.mapping_column' from Collibra
+INFO 04/07/2020 02:14:55 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:55 PM 		Fetching attribute 'Description' for asset '46bc82d0-f026-48d3-86c2-40b2ae29a04c' from Collibra
+INFO 04/07/2020 02:14:55 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:55 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:14:55 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:14:55 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:55 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:55 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:56 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=46bc82d0-f026-48d3-86c2-40b2ae29a04c HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:56 PM Request successful
+INFO 04/07/2020 02:14:56 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:56 PM 		No attribute 'Description' returned for asset '46bc82d0-f026-48d3-86c2-40b2ae29a04c'
+INFO 04/07/2020 02:14:56 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:56 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:56 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:57 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/46bc82d0-f026-48d3-86c2-40b2ae29a04c HTTP/1.1" 404 135
+INFO 04/07/2020 02:14:57 PM Request successful
+INFO 04/07/2020 02:14:57 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:14:57 PM ###### COLLIBRA COLUMN 'collibra.mapping_view.mapping_column3' ######
+DEBUG 04/07/2020 02:14:57 PM 	Fetching column 'collibra.mapping_view.mapping_column3'
+INFO 04/07/2020 02:14:57 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:57 PM 		Fetching attribute 'Information Classification' for asset 'e57dfe94-6e37-40d9-8036-54f9aa8eef9d' from Collibra
+INFO 04/07/2020 02:14:57 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:57 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:14:57 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:14:57 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:57 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:57 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:58 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=e57dfe94-6e37-40d9-8036-54f9aa8eef9d HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:58 PM Request successful
+INFO 04/07/2020 02:14:58 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:58 PM 		No attribute 'Information Classification' returned for asset 'e57dfe94-6e37-40d9-8036-54f9aa8eef9d'
+INFO 04/07/2020 02:14:58 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:58 PM Fetching attributes for 'collibra.mapping_view.mapping_column3' from Collibra
+INFO 04/07/2020 02:14:58 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:14:58 PM 		Fetching attribute 'Description' for asset 'e57dfe94-6e37-40d9-8036-54f9aa8eef9d' from Collibra
+INFO 04/07/2020 02:14:58 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:58 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:14:58 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:14:58 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:14:58 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:58 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:14:59 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e57dfe94-6e37-40d9-8036-54f9aa8eef9d HTTP/1.1" 200 62
+INFO 04/07/2020 02:14:59 PM Request successful
+INFO 04/07/2020 02:14:59 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:14:59 PM 		No attribute 'Description' returned for asset 'e57dfe94-6e37-40d9-8036-54f9aa8eef9d'
+INFO 04/07/2020 02:14:59 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:14:59 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:14:59 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:00 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e57dfe94-6e37-40d9-8036-54f9aa8eef9d HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:00 PM Request successful
+INFO 04/07/2020 02:15:00 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:00 PM 	Successfully fetched columns for table 'collibra.mapping_view'
+INFO 04/07/2020 02:15:00 PM ###### COLLIBRA TABLE 'collibra.mapping_table' ######
+DEBUG 04/07/2020 02:15:00 PM 	Fetching table 'collibra.mapping_table'
+INFO 04/07/2020 02:15:00 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:00 PM 		Fetching attribute 'Information Classification' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b' from Collibra
+INFO 04/07/2020 02:15:00 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:00 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:00 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:00 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:00 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:00 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:00 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 200 331
+INFO 04/07/2020 02:15:00 PM Request successful
+INFO 04/07/2020 02:15:00 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:00 PM 		Successfully fetched 'Information Classification' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b': 'restricted'
+INFO 04/07/2020 02:15:00 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:00 PM Fetching attributes for 'collibra.mapping_table' from Collibra
+INFO 04/07/2020 02:15:00 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:00 PM 		Fetching attribute 'Description' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b' from Collibra
+INFO 04/07/2020 02:15:00 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:00 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:00 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:00 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:00 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:00 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:01 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 200 339
+INFO 04/07/2020 02:15:01 PM Request successful
+INFO 04/07/2020 02:15:01 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:01 PM 		Successfully fetched 'Description' for asset '740efc9c-8500-4dce-af61-a66a33f1f71b': 'Dataset to test Collibra mapping capabilities. Collibra mapping_table maps to Okera mapping_view.'
+INFO 04/07/2020 02:15:01 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:01 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:01 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:02 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:02 PM Request successful
+INFO 04/07/2020 02:15:02 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:02 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:02 PM 		Fetching resource ID for 'Column' in 'relations'
+INFO 04/07/2020 02:15:02 PM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/07/2020 02:15:02 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:02 PM 	Fetching columns for table 'collibra.mapping_table'
+INFO 04/07/2020 02:15:02 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:02 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:03 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=740efc9c-8500-4dce-af61-a66a33f1f71b HTTP/1.1" 200 427
+INFO 04/07/2020 02:15:03 PM Request successful
+INFO 04/07/2020 02:15:03 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:03 PM ###### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column2' ######
+DEBUG 04/07/2020 02:15:03 PM 	Fetching column 'collibra.mapping_table.mapping_column2'
+INFO 04/07/2020 02:15:03 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:03 PM 		Fetching attribute 'Information Classification' for asset '73eea979-8d08-4344-8e68-65aefaf61aaf' from Collibra
+INFO 04/07/2020 02:15:03 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:03 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:03 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:03 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:03 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:03 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:04 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=73eea979-8d08-4344-8e68-65aefaf61aaf HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:04 PM Request successful
+INFO 04/07/2020 02:15:04 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:04 PM 		No attribute 'Information Classification' returned for asset '73eea979-8d08-4344-8e68-65aefaf61aaf'
+INFO 04/07/2020 02:15:04 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:04 PM Fetching attributes for 'collibra.mapping_table.mapping_column2' from Collibra
+INFO 04/07/2020 02:15:04 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:04 PM 		Fetching attribute 'Description' for asset '73eea979-8d08-4344-8e68-65aefaf61aaf' from Collibra
+INFO 04/07/2020 02:15:04 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:04 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:04 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:04 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:04 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:04 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:04 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=73eea979-8d08-4344-8e68-65aefaf61aaf HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:04 PM Request successful
+INFO 04/07/2020 02:15:04 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:04 PM 		No attribute 'Description' returned for asset '73eea979-8d08-4344-8e68-65aefaf61aaf'
+INFO 04/07/2020 02:15:04 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:04 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:04 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:05 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/73eea979-8d08-4344-8e68-65aefaf61aaf HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:05 PM Request successful
+INFO 04/07/2020 02:15:05 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:05 PM ###### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column' ######
+DEBUG 04/07/2020 02:15:05 PM 	Fetching column 'collibra.mapping_table.mapping_column'
+INFO 04/07/2020 02:15:05 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:05 PM 		Fetching attribute 'Information Classification' for asset '48a129bd-1552-487e-b133-cb9069705768' from Collibra
+INFO 04/07/2020 02:15:05 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:05 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:05 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:05 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:05 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:05 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:06 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=48a129bd-1552-487e-b133-cb9069705768 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:06 PM Request successful
+INFO 04/07/2020 02:15:06 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:06 PM 		No attribute 'Information Classification' returned for asset '48a129bd-1552-487e-b133-cb9069705768'
+INFO 04/07/2020 02:15:06 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:06 PM Fetching attributes for 'collibra.mapping_table.mapping_column' from Collibra
+INFO 04/07/2020 02:15:06 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:06 PM 		Fetching attribute 'Description' for asset '48a129bd-1552-487e-b133-cb9069705768' from Collibra
+INFO 04/07/2020 02:15:06 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:06 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:06 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:06 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:06 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:06 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:07 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=48a129bd-1552-487e-b133-cb9069705768 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:07 PM Request successful
+INFO 04/07/2020 02:15:07 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:07 PM 		No attribute 'Description' returned for asset '48a129bd-1552-487e-b133-cb9069705768'
+INFO 04/07/2020 02:15:07 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:07 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:07 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:08 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/48a129bd-1552-487e-b133-cb9069705768 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:08 PM Request successful
+INFO 04/07/2020 02:15:08 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:08 PM ###### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column3' ######
+DEBUG 04/07/2020 02:15:08 PM 	Fetching column 'collibra.mapping_table.mapping_column3'
+INFO 04/07/2020 02:15:08 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:08 PM 		Fetching attribute 'Information Classification' for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d' from Collibra
+INFO 04/07/2020 02:15:08 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:08 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:08 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:08 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:08 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:08 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:09 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=9bd34d34-9063-4b8f-9415-3d1eb54c6c4d HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:09 PM Request successful
+INFO 04/07/2020 02:15:09 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:09 PM 		No attribute 'Information Classification' returned for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d'
+INFO 04/07/2020 02:15:09 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:09 PM Fetching attributes for 'collibra.mapping_table.mapping_column3' from Collibra
+INFO 04/07/2020 02:15:09 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:09 PM 		Fetching attribute 'Description' for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d' from Collibra
+INFO 04/07/2020 02:15:09 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:09 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:09 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:09 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:09 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:09 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:09 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=9bd34d34-9063-4b8f-9415-3d1eb54c6c4d HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:09 PM Request successful
+INFO 04/07/2020 02:15:09 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:09 PM 		No attribute 'Description' returned for asset '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d'
+INFO 04/07/2020 02:15:09 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:09 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:09 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:10 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/9bd34d34-9063-4b8f-9415-3d1eb54c6c4d HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:10 PM Request successful
+INFO 04/07/2020 02:15:10 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:10 PM 	Successfully fetched columns for table 'collibra.mapping_table'
+INFO 04/07/2020 02:15:10 PM ###### COLLIBRA TABLE 'collibra.regular_ole_table' ######
+DEBUG 04/07/2020 02:15:10 PM 	Fetching table 'collibra.regular_ole_table'
+INFO 04/07/2020 02:15:10 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:10 PM 		Fetching attribute 'Information Classification' for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d' from Collibra
+INFO 04/07/2020 02:15:10 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:10 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:10 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:10 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:10 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:10 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:11 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:11 PM Request successful
+INFO 04/07/2020 02:15:11 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:11 PM 		No attribute 'Information Classification' returned for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d'
+INFO 04/07/2020 02:15:11 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:11 PM Fetching attributes for 'collibra.regular_ole_table' from Collibra
+INFO 04/07/2020 02:15:11 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:11 PM 		Fetching attribute 'Description' for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d' from Collibra
+INFO 04/07/2020 02:15:11 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:11 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:11 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:11 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:11 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:11 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:12 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 310
+INFO 04/07/2020 02:15:12 PM Request successful
+INFO 04/07/2020 02:15:12 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:12 PM 		Successfully fetched 'Description' for asset 'c2ef09c8-a4ca-4613-bb8a-1762f909289d': 'Regular ole description.'
+INFO 04/07/2020 02:15:12 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:12 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:12 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:13 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:13 PM Request successful
+INFO 04/07/2020 02:15:13 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:13 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:13 PM 		Fetching resource ID for 'Column' in 'relations'
+INFO 04/07/2020 02:15:13 PM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/07/2020 02:15:13 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:13 PM 	Fetching columns for table 'collibra.regular_ole_table'
+INFO 04/07/2020 02:15:13 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:13 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:13 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 314
+INFO 04/07/2020 02:15:13 PM Request successful
+INFO 04/07/2020 02:15:13 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:13 PM ###### COLLIBRA COLUMN 'collibra.regular_ole_table.regular_ole_column' ######
+DEBUG 04/07/2020 02:15:13 PM 	Fetching column 'collibra.regular_ole_table.regular_ole_column'
+INFO 04/07/2020 02:15:13 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:13 PM 		Fetching attribute 'Information Classification' for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186' from Collibra
+INFO 04/07/2020 02:15:13 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:13 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:13 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:13 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:13 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:13 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:14 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=46f2120b-4b6d-4f6a-9e4a-d7644ed5c186 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:14 PM Request successful
+INFO 04/07/2020 02:15:14 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:14 PM 		No attribute 'Information Classification' returned for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186'
+INFO 04/07/2020 02:15:14 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:14 PM Fetching attributes for 'collibra.regular_ole_table.regular_ole_column' from Collibra
+INFO 04/07/2020 02:15:14 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:14 PM 		Fetching attribute 'Description' for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186' from Collibra
+INFO 04/07/2020 02:15:14 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:14 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:14 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:14 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:14 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:14 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:15 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=46f2120b-4b6d-4f6a-9e4a-d7644ed5c186 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:15 PM Request successful
+INFO 04/07/2020 02:15:15 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:15 PM 		No attribute 'Description' returned for asset '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186'
+INFO 04/07/2020 02:15:15 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:15 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:15 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:16 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/46f2120b-4b6d-4f6a-9e4a-d7644ed5c186 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:16 PM Request successful
+INFO 04/07/2020 02:15:16 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:16 PM 	Successfully fetched columns for table 'collibra.regular_ole_table'
+INFO 04/07/2020 02:15:16 PM ###### COLLIBRA TABLE 'collibra.hades' ######
+DEBUG 04/07/2020 02:15:16 PM 	Fetching table 'collibra.hades'
+INFO 04/07/2020 02:15:16 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:16 PM 		Fetching attribute 'Information Classification' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
+INFO 04/07/2020 02:15:16 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:16 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:16 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:16 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:16 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:16 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:17 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:17 PM Request successful
+INFO 04/07/2020 02:15:17 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:17 PM 		No attribute 'Information Classification' returned for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0'
+INFO 04/07/2020 02:15:17 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:17 PM Fetching attributes for 'collibra.hades' from Collibra
+INFO 04/07/2020 02:15:17 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:17 PM 		Fetching attribute 'Description' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
+INFO 04/07/2020 02:15:17 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:17 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:17 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:17 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:17 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:17 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:17 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 306
+INFO 04/07/2020 02:15:17 PM Request successful
+INFO 04/07/2020 02:15:17 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:17 PM 		Successfully fetched 'Description' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0': 'Dataset with more columns.'
+INFO 04/07/2020 02:15:17 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:17 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:17 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:18 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:18 PM Request successful
+INFO 04/07/2020 02:15:18 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:18 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:18 PM 		Fetching resource ID for 'Column' in 'relations'
+INFO 04/07/2020 02:15:18 PM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/07/2020 02:15:18 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:18 PM 	Fetching columns for table 'collibra.hades'
+INFO 04/07/2020 02:15:18 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:18 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:19 PM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 818
+INFO 04/07/2020 02:15:19 PM Request successful
+INFO 04/07/2020 02:15:19 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:19 PM ###### COLLIBRA COLUMN 'collibra.hades.charon' ######
+DEBUG 04/07/2020 02:15:19 PM 	Fetching column 'collibra.hades.charon'
+INFO 04/07/2020 02:15:19 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:19 PM 		Fetching attribute 'Information Classification' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
+INFO 04/07/2020 02:15:19 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:19 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:19 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:19 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:19 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:19 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:20 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:20 PM Request successful
+INFO 04/07/2020 02:15:20 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:20 PM 		No attribute 'Information Classification' returned for asset '98c79d25-c388-4025-a651-3f6c607257a4'
+INFO 04/07/2020 02:15:20 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:20 PM Fetching attributes for 'collibra.hades.charon' from Collibra
+INFO 04/07/2020 02:15:20 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:20 PM 		Fetching attribute 'Description' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
+INFO 04/07/2020 02:15:20 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:20 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:20 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:20 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:20 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:20 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:21 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:21 PM Request successful
+INFO 04/07/2020 02:15:21 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:21 PM 		No attribute 'Description' returned for asset '98c79d25-c388-4025-a651-3f6c607257a4'
+INFO 04/07/2020 02:15:21 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:21 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:21 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:21 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:21 PM Request successful
+INFO 04/07/2020 02:15:21 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:21 PM ###### COLLIBRA COLUMN 'collibra.hades.cerberus' ######
+DEBUG 04/07/2020 02:15:21 PM 	Fetching column 'collibra.hades.cerberus'
+INFO 04/07/2020 02:15:21 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:21 PM 		Fetching attribute 'Information Classification' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
+INFO 04/07/2020 02:15:21 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:21 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:21 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:21 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:21 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:21 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:22 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:22 PM Request successful
+INFO 04/07/2020 02:15:22 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:22 PM 		No attribute 'Information Classification' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
+INFO 04/07/2020 02:15:22 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:22 PM Fetching attributes for 'collibra.hades.cerberus' from Collibra
+INFO 04/07/2020 02:15:22 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:22 PM 		Fetching attribute 'Description' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
+INFO 04/07/2020 02:15:22 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:22 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:22 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:22 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:22 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:22 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:23 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:23 PM Request successful
+INFO 04/07/2020 02:15:23 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:23 PM 		No attribute 'Description' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
+INFO 04/07/2020 02:15:23 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:23 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:23 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:24 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:24 PM Request successful
+INFO 04/07/2020 02:15:24 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:24 PM ###### COLLIBRA COLUMN 'collibra.hades.nyx' ######
+DEBUG 04/07/2020 02:15:24 PM 	Fetching column 'collibra.hades.nyx'
+INFO 04/07/2020 02:15:24 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:24 PM 		Fetching attribute 'Information Classification' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
+INFO 04/07/2020 02:15:24 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:24 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:24 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:24 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:24 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:24 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:24 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 332
+INFO 04/07/2020 02:15:24 PM Request successful
+INFO 04/07/2020 02:15:24 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:24 PM 		Successfully fetched 'Information Classification' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad': 'confidential'
+INFO 04/07/2020 02:15:24 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:24 PM Fetching attributes for 'collibra.hades.nyx' from Collibra
+INFO 04/07/2020 02:15:24 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:24 PM 		Fetching attribute 'Description' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
+INFO 04/07/2020 02:15:24 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:24 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:24 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:24 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:24 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:24 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:25 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:25 PM Request successful
+INFO 04/07/2020 02:15:25 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:25 PM 		No attribute 'Description' returned for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad'
+INFO 04/07/2020 02:15:25 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:25 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:25 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:26 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:26 PM Request successful
+INFO 04/07/2020 02:15:26 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:26 PM ###### COLLIBRA COLUMN 'collibra.hades.thanatos' ######
+DEBUG 04/07/2020 02:15:26 PM 	Fetching column 'collibra.hades.thanatos'
+INFO 04/07/2020 02:15:26 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:26 PM 		Fetching attribute 'Information Classification' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
+INFO 04/07/2020 02:15:26 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:26 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:26 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:26 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:26 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:26 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:27 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 335
+INFO 04/07/2020 02:15:27 PM Request successful
+INFO 04/07/2020 02:15:27 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:27 PM 		Successfully fetched 'Information Classification' for asset '157269f7-f8f0-4243-9def-b460c1d58402': 'nonpublic'
+INFO 04/07/2020 02:15:27 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:27 PM Fetching attributes for 'collibra.hades.thanatos' from Collibra
+INFO 04/07/2020 02:15:27 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:27 PM 		Fetching attribute 'Description' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
+INFO 04/07/2020 02:15:27 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:27 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:27 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:27 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:27 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:27 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:27 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:27 PM Request successful
+INFO 04/07/2020 02:15:27 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:27 PM 		No attribute 'Description' returned for asset '157269f7-f8f0-4243-9def-b460c1d58402'
+INFO 04/07/2020 02:15:27 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:27 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:27 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:28 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:28 PM Request successful
+INFO 04/07/2020 02:15:28 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:28 PM ###### COLLIBRA COLUMN 'collibra.hades.styx' ######
+DEBUG 04/07/2020 02:15:28 PM 	Fetching column 'collibra.hades.styx'
+INFO 04/07/2020 02:15:28 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:28 PM 		Fetching attribute 'Information Classification' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
+INFO 04/07/2020 02:15:28 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:28 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:28 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:28 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:28 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:28 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:29 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:29 PM Request successful
+INFO 04/07/2020 02:15:29 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:29 PM 		No attribute 'Information Classification' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
+INFO 04/07/2020 02:15:29 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:29 PM Fetching attributes for 'collibra.hades.styx' from Collibra
+INFO 04/07/2020 02:15:29 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:29 PM 		Fetching attribute 'Description' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
+INFO 04/07/2020 02:15:29 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:29 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:29 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:29 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:29 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:29 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:30 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:30 PM Request successful
+INFO 04/07/2020 02:15:30 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:30 PM 		No attribute 'Description' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
+INFO 04/07/2020 02:15:30 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:30 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:30 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:31 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:31 PM Request successful
+INFO 04/07/2020 02:15:31 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:31 PM ###### COLLIBRA COLUMN 'collibra.hades.cronus' ######
+DEBUG 04/07/2020 02:15:31 PM 	Fetching column 'collibra.hades.cronus'
+INFO 04/07/2020 02:15:31 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:31 PM 		Fetching attribute 'Information Classification' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
+INFO 04/07/2020 02:15:31 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:31 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:31 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:31 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:31 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:31 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:32 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:32 PM Request successful
+INFO 04/07/2020 02:15:32 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:32 PM 		No attribute 'Information Classification' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
+INFO 04/07/2020 02:15:32 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:32 PM Fetching attributes for 'collibra.hades.cronus' from Collibra
+INFO 04/07/2020 02:15:32 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:32 PM 		Fetching attribute 'Description' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
+INFO 04/07/2020 02:15:32 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:32 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:32 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:32 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:32 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:32 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:32 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:32 PM Request successful
+INFO 04/07/2020 02:15:32 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:32 PM 		No attribute 'Description' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
+INFO 04/07/2020 02:15:32 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:32 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:32 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:33 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:33 PM Request successful
+INFO 04/07/2020 02:15:33 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:33 PM ###### COLLIBRA COLUMN 'collibra.hades.erebos' ######
+DEBUG 04/07/2020 02:15:33 PM 	Fetching column 'collibra.hades.erebos'
+INFO 04/07/2020 02:15:33 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:33 PM 		Fetching attribute 'Information Classification' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
+INFO 04/07/2020 02:15:33 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:33 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:33 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:33 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:33 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:33 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:34 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 331
+INFO 04/07/2020 02:15:34 PM Request successful
+INFO 04/07/2020 02:15:34 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:34 PM 		Successfully fetched 'Information Classification' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4': 'public'
+INFO 04/07/2020 02:15:34 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:34 PM Fetching attributes for 'collibra.hades.erebos' from Collibra
+INFO 04/07/2020 02:15:34 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:34 PM 		Fetching attribute 'Description' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
+INFO 04/07/2020 02:15:34 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:34 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:34 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:34 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:34 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:34 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:35 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:35 PM Request successful
+INFO 04/07/2020 02:15:35 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:35 PM 		No attribute 'Description' returned for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4'
+INFO 04/07/2020 02:15:35 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:35 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:35 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:36 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:36 PM Request successful
+INFO 04/07/2020 02:15:36 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:36 PM ###### COLLIBRA COLUMN 'collibra.hades.hypnos' ######
+DEBUG 04/07/2020 02:15:36 PM 	Fetching column 'collibra.hades.hypnos'
+INFO 04/07/2020 02:15:36 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:36 PM 		Fetching attribute 'Information Classification' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
+INFO 04/07/2020 02:15:36 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:36 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:36 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:36 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:36 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:36 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:36 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:36 PM Request successful
+INFO 04/07/2020 02:15:36 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:36 PM 		No attribute 'Information Classification' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
+INFO 04/07/2020 02:15:36 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:36 PM Fetching attributes for 'collibra.hades.hypnos' from Collibra
+INFO 04/07/2020 02:15:36 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:36 PM 		Fetching attribute 'Description' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
+INFO 04/07/2020 02:15:36 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:36 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:36 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:36 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:36 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:36 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:37 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:37 PM Request successful
+INFO 04/07/2020 02:15:37 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:37 PM 		No attribute 'Description' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
+INFO 04/07/2020 02:15:37 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:37 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:37 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:38 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:38 PM Request successful
+INFO 04/07/2020 02:15:38 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:38 PM ###### COLLIBRA COLUMN 'collibra.hades.hermes' ######
+DEBUG 04/07/2020 02:15:38 PM 	Fetching column 'collibra.hades.hermes'
+INFO 04/07/2020 02:15:38 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:38 PM 		Fetching attribute 'Information Classification' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
+INFO 04/07/2020 02:15:38 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:38 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:38 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:38 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:38 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:38 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:39 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 333
+INFO 04/07/2020 02:15:39 PM Request successful
+INFO 04/07/2020 02:15:39 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:39 PM 		Successfully fetched 'Information Classification' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220': 'restricted'
+INFO 04/07/2020 02:15:39 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:39 PM Fetching attributes for 'collibra.hades.hermes' from Collibra
+INFO 04/07/2020 02:15:39 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:39 PM 		Fetching attribute 'Description' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
+INFO 04/07/2020 02:15:39 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:39 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:39 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:39 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:39 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:39 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:39 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:39 PM Request successful
+INFO 04/07/2020 02:15:39 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:39 PM 		No attribute 'Description' returned for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220'
+INFO 04/07/2020 02:15:39 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:39 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:39 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:40 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:40 PM Request successful
+INFO 04/07/2020 02:15:40 PM ### END: Making Collibra request ###
+INFO 04/07/2020 02:15:40 PM ###### COLLIBRA COLUMN 'collibra.hades.erinyes' ######
+DEBUG 04/07/2020 02:15:40 PM 	Fetching column 'collibra.hades.erinyes'
+INFO 04/07/2020 02:15:40 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:40 PM 		Fetching attribute 'Information Classification' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
+INFO 04/07/2020 02:15:40 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:40 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:40 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:40 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:40 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:40 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:41 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=39481cfd-bace-4634-9277-ceacb9b71e87&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:41 PM Request successful
+INFO 04/07/2020 02:15:41 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:41 PM 		No attribute 'Information Classification' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
+INFO 04/07/2020 02:15:41 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:41 PM Fetching attributes for 'collibra.hades.erinyes' from Collibra
+INFO 04/07/2020 02:15:41 PM 	### START: Get attributes from Collibra ###
+DEBUG 04/07/2020 02:15:41 PM 		Fetching attribute 'Description' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
+INFO 04/07/2020 02:15:41 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:41 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:41 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:41 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:41 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:41 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:42 PM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
+INFO 04/07/2020 02:15:42 PM Request successful
+INFO 04/07/2020 02:15:42 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:42 PM 		No attribute 'Description' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
+INFO 04/07/2020 02:15:42 PM 	### END: Get attributes from Collibra ###
+INFO 04/07/2020 02:15:42 PM ### START: Making Collibra request ###
+DEBUG 04/07/2020 02:15:42 PM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/07/2020 02:15:42 PM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 404 135
+INFO 04/07/2020 02:15:42 PM Request successful
+INFO 04/07/2020 02:15:42 PM ### END: Making Collibra request ###
+DEBUG 04/07/2020 02:15:42 PM 	Successfully fetched columns for table 'collibra.hades'
+INFO 04/07/2020 02:15:42 PM ############ END: Collibra calls ############
+INFO 04/07/2020 02:15:42 PM ############ START: PyOkera calls ############
+DEBUG 04/07/2020 02:15:42 PM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/07/2020 02:15:42 PM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/07/2020 02:15:42 PM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x11e058250> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/07/2020 02:15:43 PM PlannerConnection(service=<okera.odas._ThriftService object at 0x11e2954d0>)
+INFO 04/07/2020 02:15:44 PM Fetching tables for database collibra
+DEBUG 04/07/2020 02:15:44 PM Closing Planner connection
+DEBUG 04/07/2020 02:15:44 PM close_service: client=<thriftpy.thrift.TClient object at 0x11e295a50>
+INFO 04/07/2020 02:15:44 PM ############ END: PyOkera calls ############
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of table (name: 'collibra.regular_ole_table', asset ID: 'None') to Okera tags of table 'collibra.regular_ole_table': ######
 Collibra attributes: None
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of table (name: 'collibra.regular_ole_table', asset ID: 'None') to Okera description of table 'collibra.regular_ole_table':
-Collibra description: <div>Dataset that exists in Collibra with the same name as in Okera.</div>
-Okera description: <div>Dataset that exists in Collibra with the same name as in Okera.</div>
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Table' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.regular_ole_table.regular_ole_column' to Okera tags of column 'collibra.regular_ole_table.regular_ole_column':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of table (name: 'collibra.regular_ole_table', asset ID: 'None') to Okera description of table 'collibra.regular_ole_table': ######
+Collibra description: Regular ole description.
+Okera description: Regular ole description.
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Table' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.regular_ole_table.regular_ole_column' to Okera tags of column 'collibra.regular_ole_table.regular_ole_column':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.regular_ole_table.regular_ole_column' to Okera description of column 'collibra.regular_ole_table.regular_ole_column':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.regular_ole_table.regular_ole_column' to Okera description of column 'collibra.regular_ole_table.regular_ole_column': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of table (name: 'collibra.hades', asset ID: 'None') to Okera tags of table 'collibra.hades':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of table (name: 'collibra.hades', asset ID: 'None') to Okera tags of table 'collibra.hades': ######
 Collibra attributes: None
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of table (name: 'collibra.hades', asset ID: 'None') to Okera description of table 'collibra.hades':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of table (name: 'collibra.hades', asset ID: 'None') to Okera description of table 'collibra.hades': ######
 Collibra description: Dataset with more columns.
 Okera description: Dataset with more columns.
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Table' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.charon' to Okera tags of column 'collibra.hades.charon':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Table' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.charon' to Okera tags of column 'collibra.hades.charon':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.charon' to Okera description of column 'collibra.hades.charon':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.charon' to Okera description of column 'collibra.hades.charon': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.cerberus' to Okera tags of column 'collibra.hades.cerberus':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.cerberus' to Okera tags of column 'collibra.hades.cerberus':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.cerberus' to Okera description of column 'collibra.hades.cerberus':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.cerberus' to Okera description of column 'collibra.hades.cerberus': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.cronus' to Okera tags of column 'collibra.hades.cronus':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.cronus' to Okera tags of column 'collibra.hades.cronus':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.cronus' to Okera description of column 'collibra.hades.cronus':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.cronus' to Okera description of column 'collibra.hades.cronus': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Format tags ###
-INFO 04/03/2020 05:02:32 PM Formatting tags for Okera as 'namespace.key'
-DEBUG 04/03/2020 05:02:32 PM Formatted tags: ['information_classification.confidential']
-INFO 04/03/2020 05:02:32 PM ### END: Format tags ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.nyx' to Okera tags of column 'collibra.hades.nyx':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.confidential']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.nyx' to Okera tags of column 'collibra.hades.nyx':  ######
 Collibra attributes: 'information_classification.confidential'
 Okera tags: ['information_classification.confidential']
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.nyx' to Okera description of column 'collibra.hades.nyx':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.nyx' to Okera description of column 'collibra.hades.nyx': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.erinyes' to Okera tags of column 'collibra.hades.erinyes':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.erinyes' to Okera tags of column 'collibra.hades.erinyes':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.erinyes' to Okera description of column 'collibra.hades.erinyes':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.erinyes' to Okera description of column 'collibra.hades.erinyes': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Format tags ###
-INFO 04/03/2020 05:02:32 PM Formatting tags for Okera as 'namespace.key'
-DEBUG 04/03/2020 05:02:32 PM Formatted tags: ['information_classification.nonpublic']
-INFO 04/03/2020 05:02:32 PM ### END: Format tags ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.thanatos' to Okera tags of column 'collibra.hades.thanatos':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.nonpublic']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.thanatos' to Okera tags of column 'collibra.hades.thanatos':  ######
 Collibra attributes: 'information_classification.nonpublic'
 Okera tags: ['information_classification.nonpublic']
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.thanatos' to Okera description of column 'collibra.hades.thanatos':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.thanatos' to Okera description of column 'collibra.hades.thanatos': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.styx' to Okera tags of column 'collibra.hades.styx':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.styx' to Okera tags of column 'collibra.hades.styx':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.styx' to Okera description of column 'collibra.hades.styx':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.styx' to Okera description of column 'collibra.hades.styx': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Format tags ###
-INFO 04/03/2020 05:02:32 PM Formatting tags for Okera as 'namespace.key'
-DEBUG 04/03/2020 05:02:32 PM Formatted tags: ['information_classification.restricted']
-INFO 04/03/2020 05:02:32 PM ### END: Format tags ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.hermes' to Okera tags of column 'collibra.hades.hermes':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.restricted']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.hermes' to Okera tags of column 'collibra.hades.hermes':  ######
 Collibra attributes: 'information_classification.restricted'
 Okera tags: ['information_classification.restricted']
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.hermes' to Okera description of column 'collibra.hades.hermes':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.hermes' to Okera description of column 'collibra.hades.hermes': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Format tags ###
-INFO 04/03/2020 05:02:32 PM Formatting tags for Okera as 'namespace.key'
-DEBUG 04/03/2020 05:02:32 PM Formatted tags: ['information_classification.public']
-INFO 04/03/2020 05:02:32 PM ### END: Format tags ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.erebos' to Okera tags of column 'collibra.hades.erebos':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.public']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.erebos' to Okera tags of column 'collibra.hades.erebos':  ######
 Collibra attributes: 'information_classification.public'
 Okera tags: ['information_classification.public']
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.erebos' to Okera description of column 'collibra.hades.erebos':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.erebos' to Okera description of column 'collibra.hades.erebos': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.hades.hypnos' to Okera tags of column 'collibra.hades.hypnos':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.hades.hypnos' to Okera tags of column 'collibra.hades.hypnos':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.hades.hypnos' to Okera description of column 'collibra.hades.hypnos':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.hades.hypnos' to Okera description of column 'collibra.hades.hypnos': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Description' in 'attributes'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Information Classification' in 'attributes'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of table (name: 'collibra.mapping_table', asset ID: 'None') to Okera tags of table 'collibra.mapping_table':
-Collibra attributes: None
-Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of table (name: 'collibra.mapping_table', asset ID: 'None') to Okera description of table 'collibra.mapping_table':
-Collibra description: Dataset to test Collibra mapping capabilities.
-Okera description: Dataset to test Collibra mapping capabilities.
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Table' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column' to Okera tags of column 'collibra.mapping_table.mapping_column':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.restricted']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.restricted']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of table (name: 'collibra.mapping_table', asset ID: 'None') to Okera tags of table 'collibra.mapping_table': ######
+Collibra attributes: information_classification.restricted
+Okera tags: ['information_classification.restricted']
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of table (name: 'collibra.mapping_table', asset ID: 'None') to Okera description of table 'collibra.mapping_table': ######
+Collibra description: Dataset to test Collibra mapping capabilities. Collibra mapping_table maps to Okera mapping_view.
+Okera description: Dataset to test Collibra mapping capabilities. Collibra mapping_table maps to Okera mapping_view.
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Table' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column' to Okera tags of column 'collibra.mapping_table.mapping_column':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.mapping_table.mapping_column' to Okera description of column 'collibra.mapping_table.mapping_column':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.mapping_table.mapping_column' to Okera description of column 'collibra.mapping_table.mapping_column': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column2' to Okera tags of column 'collibra.mapping_table.mapping_column2':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column2' to Okera tags of column 'collibra.mapping_table.mapping_column2':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.mapping_table.mapping_column2' to Okera description of column 'collibra.mapping_table.mapping_column2':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.mapping_table.mapping_column2' to Okera description of column 'collibra.mapping_table.mapping_column2': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column3' to Okera tags of column 'collibra.mapping_table.mapping_column3':
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column3' to Okera tags of column 'collibra.mapping_table.mapping_column3':  ######
 Collibra attributes: 'None'
 Okera tags: None
-DEBUG 04/03/2020 05:02:32 PM Comparing Collibra description of column 'collibra.mapping_table.mapping_column3' to Okera description of column 'collibra.mapping_table.mapping_column3':
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.mapping_table.mapping_column3' to Okera description of column 'collibra.mapping_table.mapping_column3': ######
 Collibra description: 'None'
 Okera description: 'None'
-INFO 04/03/2020 05:02:32 PM ### START: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM Fetching resource ID for 'Column' in 'assets'
-INFO 04/03/2020 05:02:32 PM Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
-INFO 04/03/2020 05:02:32 PM ### END: Get resource IDs from resourceids.yaml ###
-INFO 04/03/2020 05:02:32 PM ############ ASSETS FETCHED AND COMPARED ############
-DEBUG 04/03/2020 05:02:32 PM ### OKERA TABLE 'collibra.regular_ole_table' ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.restricted']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Description' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Information Classification' in 'attributes'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 39481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 	### START: Format tags ###
+INFO 04/07/2020 02:15:44 PM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/07/2020 02:15:44 PM 		Formatted tags: ['information_classification.restricted']
+INFO 04/07/2020 02:15:44 PM 	### END: Format tags ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of table (name: 'collibra.mapping_view', asset ID: '740efc9c-8500-4dce-af61-a66a33f1f71b') to Okera tags of table 'collibra.mapping_view': ######
+Collibra attributes: information_classification.restricted
+Okera tags: ['information_classification.restricted']
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of table (name: 'collibra.mapping_view', asset ID: '740efc9c-8500-4dce-af61-a66a33f1f71b') to Okera description of table 'collibra.mapping_view': ######
+Collibra description: Dataset to test Collibra mapping capabilities. Collibra mapping_table maps to Okera mapping_view.
+Okera description: Dataset to test Collibra mapping capabilities. Collibra mapping_table maps to Okera mapping_view.
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Table' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column' to Okera tags of column 'collibra.mapping_view.mapping_column':  ######
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.mapping_table.mapping_column' to Okera description of column 'collibra.mapping_view.mapping_column': ######
+Collibra description: 'None'
+Okera description: 'None'
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column2' to Okera tags of column 'collibra.mapping_view.mapping_column2':  ######
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.mapping_table.mapping_column2' to Okera description of column 'collibra.mapping_view.mapping_column2': ######
+Collibra description: 'None'
+Okera description: 'None'
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra attributes of column 'collibra.mapping_table.mapping_column3' to Okera tags of column 'collibra.mapping_view.mapping_column3':  ######
+Collibra attributes: 'None'
+Okera tags: None
+DEBUG 04/07/2020 02:15:44 PM ###### Comparing Collibra description of column 'collibra.mapping_table.mapping_column3' to Okera description of column 'collibra.mapping_view.mapping_column3': ######
+Collibra description: 'None'
+Okera description: 'None'
+INFO 04/07/2020 02:15:44 PM 	### START: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM 		Fetching resource ID for 'Column' in 'assets'
+INFO 04/07/2020 02:15:44 PM 		Successfully fetched 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/07/2020 02:15:44 PM 	### END: Get resource IDs from resourceids.yaml ###
+INFO 04/07/2020 02:15:44 PM ############ ASSETS FETCHED AND COMPARED ############
+DEBUG 04/07/2020 02:15:44 PM ### OKERA TABLE 'collibra.regular_ole_table' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.regular_ole_table',
  'asset_type': 'Table',
- 'attributes': {'description': '<div>Dataset that exists in Collibra with the '
-                               'same name as in Okera.</div>',
-                'tags': None},
+ 'attributes': {'description': 'Regular ole description.', 'tags': None},
  'location': {'database': 'collibra', 'system': 'Okera'},
  'log_type': "OKERA TABLE 'collibra.regular_ole_table'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA TABLE 'collibra.regular_ole_table' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA TABLE 'collibra.regular_ole_table' ###
 {'asset_id': 'c2ef09c8-a4ca-4613-bb8a-1762f909289d',
  'asset_name': 'collibra.regular_ole_table',
  'asset_type': {'name': 'Table',
                 'type_id': '00000000-0000-0000-0000-000000031007'},
  'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
-                                'value': '<div>Dataset that exists in Collibra '
-                                         'with the same name as in '
-                                         'Okera.</div>'},
+                                'value': 'Regular ole description.'},
                 'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
                                  'value': 'None'}},
  'location': {'community': 'Okera3.0',
@@ -847,14 +1119,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA TABLE 'collibra.regular_ole_table' ###
                          'type': 'Physical Data Dictionary'},
               'system': 'Collibra'},
  'log_type': "COLLIBRA TABLE 'collibra.regular_ole_table'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.regular_ole_table.regular_ole_column' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.regular_ole_table.regular_ole_column' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.regular_ole_table.regular_ole_column',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.regular_ole_table'},
  'log_type': "OKERA COLUMN 'collibra.regular_ole_table.regular_ole_column'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.regular_ole_table.regular_ole_column' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.regular_ole_table.regular_ole_column' ###
 {'asset_id': '46f2120b-4b6d-4f6a-9e4a-d7644ed5c186',
  'asset_name': 'collibra.regular_ole_table.regular_ole_column',
  'asset_type': {'name': 'Column',
@@ -870,14 +1142,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.regular_ole_table.reg
               'table': {'asset_id': 'c2ef09c8-a4ca-4613-bb8a-1762f909289d',
                         'name': 'collibra.regular_ole_table'}},
  'log_type': "COLLIBRA COLUMN 'collibra.regular_ole_table.regular_ole_column'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA TABLE 'collibra.hades' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA TABLE 'collibra.hades' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades',
  'asset_type': 'Table',
  'attributes': {'description': 'Dataset with more columns.', 'tags': None},
  'location': {'database': 'collibra', 'system': 'Okera'},
  'log_type': "OKERA TABLE 'collibra.hades'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA TABLE 'collibra.hades' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA TABLE 'collibra.hades' ###
 {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
  'asset_name': 'collibra.hades',
  'asset_type': {'name': 'Table',
@@ -892,14 +1164,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA TABLE 'collibra.hades' ###
                          'type': 'Physical Data Dictionary'},
               'system': 'Collibra'},
  'log_type': "COLLIBRA TABLE 'collibra.hades'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.charon' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.charon' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.charon',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.charon'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.charon' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.charon' ###
 {'asset_id': '98c79d25-c388-4025-a651-3f6c607257a4',
  'asset_name': 'collibra.hades.charon',
  'asset_type': {'name': 'Column',
@@ -915,14 +1187,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.charon' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.charon'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.cerberus' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.cerberus' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.cerberus',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.cerberus'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.cerberus' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.cerberus' ###
 {'asset_id': '1ae1139f-85d8-455f-be40-87a507b98c1f',
  'asset_name': 'collibra.hades.cerberus',
  'asset_type': {'name': 'Column',
@@ -938,14 +1210,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.cerberus' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.cerberus'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.cronus' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.cronus' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.cronus',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.cronus'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.cronus' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.cronus' ###
 {'asset_id': '6ebe91b0-633a-4c4e-b887-b33e41833b05',
  'asset_name': 'collibra.hades.cronus',
  'asset_type': {'name': 'Column',
@@ -961,7 +1233,7 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.cronus' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.cronus'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.nyx' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.nyx' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.nyx',
  'asset_type': 'Column',
@@ -969,7 +1241,7 @@ DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.nyx' ###
                 'tags': "['information_classification.confidential']"},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.nyx'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.nyx' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.nyx' ###
 {'asset_id': 'e590bef6-03fc-42d2-b830-4088bbcf7dad',
  'asset_name': 'collibra.hades.nyx',
  'asset_type': {'name': 'Column',
@@ -985,14 +1257,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.nyx' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.nyx'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.erinyes' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.erinyes' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.erinyes',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.erinyes'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.erinyes' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.erinyes' ###
 {'asset_id': 'e3d98107-f38e-4235-9a2a-39fc52a2d036',
  'asset_name': 'collibra.hades.erinyes',
  'asset_type': {'name': 'Column',
@@ -1008,7 +1280,7 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.erinyes' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.erinyes'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.thanatos' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.thanatos' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.thanatos',
  'asset_type': 'Column',
@@ -1016,7 +1288,7 @@ DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.thanatos' ###
                 'tags': "['information_classification.nonpublic']"},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.thanatos'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.thanatos' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.thanatos' ###
 {'asset_id': '157269f7-f8f0-4243-9def-b460c1d58402',
  'asset_name': 'collibra.hades.thanatos',
  'asset_type': {'name': 'Column',
@@ -1032,14 +1304,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.thanatos' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.thanatos'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.styx' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.styx' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.styx',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.styx'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.styx' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.styx' ###
 {'asset_id': '28bca607-6154-4d17-8bd2-c4cd381f679d',
  'asset_name': 'collibra.hades.styx',
  'asset_type': {'name': 'Column',
@@ -1055,7 +1327,7 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.styx' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.styx'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.hermes' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.hermes' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.hermes',
  'asset_type': 'Column',
@@ -1063,7 +1335,7 @@ DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.hermes' ###
                 'tags': "['information_classification.restricted']"},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.hermes'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.hermes' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.hermes' ###
 {'asset_id': '4ddaa6b3-f6c7-43f5-9564-cf354525d220',
  'asset_name': 'collibra.hades.hermes',
  'asset_type': {'name': 'Column',
@@ -1079,7 +1351,7 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.hermes' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.hermes'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.erebos' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.erebos' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.erebos',
  'asset_type': 'Column',
@@ -1087,7 +1359,7 @@ DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.erebos' ###
                 'tags': "['information_classification.public']"},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.erebos'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.erebos' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.erebos' ###
 {'asset_id': '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4',
  'asset_name': 'collibra.hades.erebos',
  'asset_type': {'name': 'Column',
@@ -1103,14 +1375,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.erebos' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.erebos'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.hades.hypnos' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.hades.hypnos' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.hades.hypnos',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.hades'},
  'log_type': "OKERA COLUMN 'collibra.hades.hypnos'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.hypnos' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.hades.hypnos' ###
 {'asset_id': 'c390f612-e820-4e19-a721-fcfeaa63e5f3',
  'asset_name': 'collibra.hades.hypnos',
  'asset_type': {'name': 'Column',
@@ -1126,38 +1398,41 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.hades.hypnos' ###
               'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
                         'name': 'collibra.hades'}},
  'log_type': "COLLIBRA COLUMN 'collibra.hades.hypnos'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA TABLE 'collibra.mapping_table' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA TABLE 'collibra.mapping_table' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.mapping_table',
  'asset_type': 'Table',
- 'attributes': {'description': 'Dataset to test Collibra mapping capabilities.',
-                'tags': None},
+ 'attributes': {'description': 'Dataset to test Collibra mapping capabilities. '
+                               'Collibra mapping_table maps to Okera '
+                               'mapping_view.',
+                'tags': ['information_classification.restricted']},
  'location': {'database': 'collibra', 'system': 'Okera'},
  'log_type': "OKERA TABLE 'collibra.mapping_table'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA TABLE 'collibra.mapping_table' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA TABLE 'collibra.mapping_table' ###
 {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
  'asset_name': 'collibra.mapping_table',
  'asset_type': {'name': 'Table',
                 'type_id': '00000000-0000-0000-0000-000000031007'},
  'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
                                 'value': 'Dataset to test Collibra mapping '
-                                         'capabilities.'},
+                                         'capabilities. Collibra mapping_table '
+                                         'maps to Okera mapping_view.'},
                 'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
-                                 'value': 'None'}},
+                                 'value': 'information_classification.restricted'}},
  'location': {'community': 'Okera3.0',
               'database': 'collibra',
               'domain': {'name': 'export_only',
                          'type': 'Physical Data Dictionary'},
               'system': 'Collibra'},
  'log_type': "COLLIBRA TABLE 'collibra.mapping_table'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.mapping_table.mapping_column' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.mapping_table.mapping_column' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.mapping_table.mapping_column',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.mapping_table'},
  'log_type': "OKERA COLUMN 'collibra.mapping_table.mapping_column'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column' ###
 {'asset_id': '48a129bd-1552-487e-b133-cb9069705768',
  'asset_name': 'collibra.mapping_table.mapping_column',
  'asset_type': {'name': 'Column',
@@ -1173,14 +1448,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping
               'table': {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
                         'name': 'collibra.mapping_table'}},
  'log_type': "COLLIBRA COLUMN 'collibra.mapping_table.mapping_column'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.mapping_table.mapping_column2' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.mapping_table.mapping_column2' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.mapping_table.mapping_column2',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.mapping_table'},
  'log_type': "OKERA COLUMN 'collibra.mapping_table.mapping_column2'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column2' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column2' ###
 {'asset_id': '73eea979-8d08-4344-8e68-65aefaf61aaf',
  'asset_name': 'collibra.mapping_table.mapping_column2',
  'asset_type': {'name': 'Column',
@@ -1196,14 +1471,14 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping
               'table': {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
                         'name': 'collibra.mapping_table'}},
  'log_type': "COLLIBRA COLUMN 'collibra.mapping_table.mapping_column2'"}
-DEBUG 04/03/2020 05:02:32 PM ### OKERA COLUMN 'collibra.mapping_table.mapping_column3' ###
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.mapping_table.mapping_column3' ###
 {'asset_id': 'None',
  'asset_name': 'collibra.mapping_table.mapping_column3',
  'asset_type': 'Column',
  'attributes': {'description': 'None', 'tags': 'None'},
  'location': {'system': 'Okera', 'table': 'collibra.mapping_table'},
  'log_type': "OKERA COLUMN 'collibra.mapping_table.mapping_column3'"}
-DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column3' ###
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column3' ###
 {'asset_id': '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d',
  'asset_name': 'collibra.mapping_table.mapping_column3',
  'asset_type': {'name': 'Column',
@@ -1219,4 +1494,100 @@ DEBUG 04/03/2020 05:02:32 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping
               'table': {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
                         'name': 'collibra.mapping_table'}},
  'log_type': "COLLIBRA COLUMN 'collibra.mapping_table.mapping_column3'"}
-INFO 04/03/2020 05:02:32 PM Export complete!
+DEBUG 04/07/2020 02:15:44 PM ### OKERA TABLE 'collibra.mapping_view' ###
+{'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
+ 'asset_name': 'collibra.mapping_view',
+ 'asset_type': 'Table',
+ 'attributes': {'description': 'Dataset to test Collibra mapping capabilities. '
+                               'Collibra mapping_table maps to Okera '
+                               'mapping_view.',
+                'tags': ['information_classification.restricted']},
+ 'location': {'database': 'collibra', 'system': 'Okera'},
+ 'log_type': "OKERA TABLE 'collibra.mapping_view'"}
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA TABLE 'collibra.mapping_table' ###
+{'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
+ 'asset_name': 'collibra.mapping_table',
+ 'asset_type': {'name': 'Table',
+                'type_id': '00000000-0000-0000-0000-000000031007'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'Dataset to test Collibra mapping '
+                                         'capabilities. Collibra mapping_table '
+                                         'maps to Okera mapping_view.'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'information_classification.restricted'}},
+ 'location': {'community': 'Okera3.0',
+              'database': 'collibra',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra'},
+ 'log_type': "COLLIBRA TABLE 'collibra.mapping_table'"}
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.mapping_view.mapping_column' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.mapping_view.mapping_column',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.mapping_view'},
+ 'log_type': "OKERA COLUMN 'collibra.mapping_view.mapping_column'"}
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column' ###
+{'asset_id': '48a129bd-1552-487e-b133-cb9069705768',
+ 'asset_name': 'collibra.mapping_table.mapping_column',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
+                        'name': 'collibra.mapping_table'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.mapping_table.mapping_column'"}
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.mapping_view.mapping_column2' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.mapping_view.mapping_column2',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.mapping_view'},
+ 'log_type': "OKERA COLUMN 'collibra.mapping_view.mapping_column2'"}
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column2' ###
+{'asset_id': '73eea979-8d08-4344-8e68-65aefaf61aaf',
+ 'asset_name': 'collibra.mapping_table.mapping_column2',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
+                        'name': 'collibra.mapping_table'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.mapping_table.mapping_column2'"}
+DEBUG 04/07/2020 02:15:44 PM ### OKERA COLUMN 'collibra.mapping_view.mapping_column3' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.mapping_view.mapping_column3',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.mapping_view'},
+ 'log_type': "OKERA COLUMN 'collibra.mapping_view.mapping_column3'"}
+DEBUG 04/07/2020 02:15:44 PM ### COLLIBRA COLUMN 'collibra.mapping_table.mapping_column3' ###
+{'asset_id': '9bd34d34-9063-4b8f-9415-3d1eb54c6c4d',
+ 'asset_name': 'collibra.mapping_table.mapping_column3',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'info_classif': {'resource_id': '39481cfd-bace-4634-9277-ceacb9b71e87',
+                                 'value': 'None'}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': '740efc9c-8500-4dce-af61-a66a33f1f71b',
+                        'name': 'collibra.mapping_table'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.mapping_table.mapping_column3'"}
+INFO 04/07/2020 02:15:44 PM Export complete!

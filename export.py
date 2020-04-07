@@ -6,7 +6,7 @@ import sys
 import logging
 from okera import context
 import collections
-from pprint import pformat
+import pprint
 #pp = pprint.PrettyPrinter(indent=4)
 
 logging.basicConfig(format='%(levelname)s %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', filename='export.log',level=logging.DEBUG)
@@ -18,6 +18,17 @@ update_elements = []
 elements = []
 # Okera column type IDs
 type_ids = ["BOOLEAN", "TINYINT", "SMALLINT", "INT", "BIGINT", "FLOAT", "DOUBLE", "STRING", "VARCHAR", "CHAR", "BINARY", "TIMESTAMP_NANOS", "DECIMAL", "DATE", "RECORD", "ARRAY", "MAP"]
+
+class Logger:
+    def __init__(self, log_type, asset_name=None, asset_type=None, asset_id=None, location=None, attributes=None):
+        self.log_type = log_type
+        self.asset_name = asset_name
+        self.asset_type = asset_type
+        self.asset_id = asset_id
+        self.location = location
+        self.attributes = attributes
+    def __str__(self):
+        return "### " + str(self.log_type) + " ###\n" + str(pprint.pformat(self.__dict__))
 
 try:
     logging.info("Opening config.yaml")
@@ -65,7 +76,7 @@ def escape(string, remove_whitespace=False):
 def collibra_get(param_obj, call, method, header=None):
     if method == 'get':
         try: 
-            logging.info("Making Collibra request")
+            logging.info("### START: Making Collibra request ###")
             data = getattr(requests, method)(
             configs['collibra_dgc'] + "/rest/2.0/" + call, 
             params=param_obj, 
@@ -78,10 +89,11 @@ def collibra_get(param_obj, call, method, header=None):
                 logging.warning("Error: " + str(e))
                 logging.warning("Response: " + str(data.content))
         logging.info("Request successful")
+        logging.info("### END: Making Collibra request ###")
         return data.content
     else:
         try: 
-            logging.info("Making Collibra request")
+            logging.info("### START: Making Collibra request ###")
             data = getattr(requests, method)(
             configs['collibra_dgc'] + "/rest/2.0/" + call,
             headers=header, 
@@ -94,18 +106,8 @@ def collibra_get(param_obj, call, method, header=None):
             logging.warning("Error: " + str(e))
             logging.warning("Response: " + str(data.content))
         logging.info("Request successful")
+        logging.info("### END: Making Collibra request ###")
         return data.content
-
-class Logger:
-    def __init__(self, log_type, asset_name=None, asset_type=None, asset_id=None, location=None, attributes=None):
-        self.log_type = log_type
-        self.asset_name = asset_name
-        self.asset_type = asset_type
-        self.asset_id = asset_id
-        self.location = location
-        self.attributes = attributes
-    def __str__(self):
-        return "### " + str(self.log_type) + " ###\n" + str(pformat(self.__dict__))
 
 # names and IDs of Collibra community and domain
 community = configs['community']
@@ -131,24 +133,24 @@ ctx.enable_token_auth(token_str=configs['token'])
 
 # returns resource ID in resourceids.yaml
 def get_resource_ids(search_in, name):
-    logging.info("### START: Get resource IDs from resourceids.yaml ###")
-    logging.info("Fetching resource ID for '" + name + "' in '" + search_in + "'")
+    logging.info("\t### START: Get resource IDs from resourceids.yaml ###")
+    logging.info("\t\tFetching resource ID for '" + name + "' in '" + search_in + "'")
     for r in resource_ids[search_in]:
         if search_in == 'relations':
             if r['head'] == name:
-                logging.info("Successfully fetched resource ID " + r['id'] + " for '" + name + "'")
-                logging.info("###")
+                logging.info("\t\tSuccessfully fetched resource ID " + r['id'] + " for '" + name + "'")
+                logging.info("\t### END: Get resource IDs from resourceids.yaml ###")
                 return r['id']
         else:
             if r['name'] == name:
-                logging.info("Successfully fetched " + r['id'] + " for '" + name + "'")
-                logging.info("### END: Get resource IDs from resourceids.yaml ###")
+                logging.info("\t\tSuccessfully fetched " + r['id'] + " for '" + name + "'")
+                logging.info("\t### END: Get resource IDs from resourceids.yaml ###")
                 return r['id']
 
 # makes /attributes REST call and returns attribute
 def get_attributes(asset_id, attr_type):
-    logging.info("### START: Get attributes from Collibra ###")
-    logging.debug("Fetching attribute '" + attr_type + "' for asset '" + str(asset_id) + "' from Collibra")
+    logging.info("\t### START: Get attributes from Collibra ###")
+    logging.debug("\t\tFetching attribute '" + attr_type + "' for asset '" + str(asset_id) + "' from Collibra")
     type_id = get_resource_ids('attributes', attr_type)
     params = {
         'typeIds': [type_id],
@@ -157,29 +159,28 @@ def get_attributes(asset_id, attr_type):
     data = json.loads(collibra_get(params, "attributes", 'get', None))
     if data.get('results'):
         value = data.get('results')[0].get('value')
-        logging.debug("Successfully fetched '" + attr_type + "' for asset '" + str(asset_id) + "': '" + str(value) + "'")
-        logging.info("### END: Get attributes from Collibra ###")
+        logging.debug("\t\tSuccessfully fetched '" + attr_type + "' for asset '" + str(asset_id) + "': '" + str(value) + "'")
+        logging.info("\t### END: Get attributes from Collibra ###")
         return value
     else: 
-        logging.debug("No attribute '" + attr_type + "' returned for asset '" + str(asset_id) + "'")
-        logging.info("### END: Get attributes from Collibra ###")
+        logging.debug("\t\tNo attribute '" + attr_type + "' returned for asset '" + str(asset_id) + "'")
+        logging.info("\t### END: Get attributes from Collibra ###")
 
 # creates tags as namespace.key and returns as list
 def create_tags(attribute_values):
     attributes = []
     if attribute_values:
-        logging.info("### START: Format tags ###")
-        logging.info("Formatting tags for Okera as 'namespace.key'")
+        logging.info("\t### START: Format tags ###")
+        logging.info("\t\tFormatting tags for Okera as 'namespace.key'")
         for attribute in attribute_values:
             name = attribute.attribute.attribute_namespace + "." + attribute.attribute.key 
             attributes.append(name)
-        logging.debug("Formatted tags: " + str(attributes))
-        logging.info("### END: Format tags ###")
+        logging.debug("\t\tFormatted tags: " + str(attributes))
+        logging.info("\t### END: Format tags ###")
         return attributes
 
-# pyokera calls
 def pyokera_calls(asset_name=None, asset_type=None):
-    logging.info("###### START: PyOkera calls ######")
+    logging.info("############ START: PyOkera calls ############")
     try:
         conn = ctx.connect(host = configs['host'], port = planner_port)
     except thriftpy.transport.TException as e:
@@ -217,11 +218,11 @@ def pyokera_calls(asset_name=None, asset_type=None):
                 else:
                     element = {'database': database}
                 elements.append(element)
-    logging.info("###### END: PyOkera calls ######") 
+    logging.info("############ END: PyOkera calls ############") 
 
 # gets assets and their tags and attributes from Collibra
 def collibra_calls(asset_name=None, asset_type=None):
-    logging.info("###### START: Collibra calls ######")
+    logging.info("############ START: Collibra calls ############")
     def set_elements(asset_id, asset_name, asset_type):
         info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
         logging.info("Fetching attributes for '" + str(asset_name) + "' from Collibra")
@@ -249,42 +250,47 @@ def collibra_calls(asset_name=None, asset_type=None):
             'domainId': domain_id,
             'communityId': community_id
             }
-    logging.info("Fetching Collibra asset '" + str(asset_name) + "'")
     if asset_type == "Database":
+        logging.info("###### COLLIBRA DATABASE '" + str(asset_name) + "' ######")
+        logging.info("\tFetching Collibra database '" + str(asset_name) + "'")
         try:
             database = json.loads(collibra_get(params, "assets", 'get'))['results'][0]
-            logging.info("Successfully fetched database '" + asset_name + "'")
+            logging.info("\tSuccessfully fetched database '" + asset_name + "'")
         except IndexError:
-            logging.error("Empty Collibra response: Could not find Collibra database '" + str(asset_name) + "'!")
-            logging.error("Request body: " + str(params))
+            logging.error("\tEmpty Collibra response: Could not find Collibra database '" + str(asset_name) + "'!")
+            logging.error("\tRequest body: " + str(params))
             logging.info("Could not start export, terminating script")
             print("Export failed! For more information check export.log.")
             sys.exit(1)
         set_elements(database['id'], database['name'], asset_type)
         table_params = {'relationTypeId': get_resource_ids('relations', 'Table'), 'targetId': database['id']}
-        logging.info("Fetching tables for database '" + asset_name + "'")
+        logging.info("\tFetching tables for database '" + asset_name + "'")
         tables = json.loads(collibra_get(table_params, "relations", 'get'))['results']
         if tables == None:
-            logging.warning("Empty Collibra response: Could not find tables for Collibra database '" + str(asset_name) + "'")
-            logging.warning("Request body: " + str(table_params))
-        else: logging.info("Successfully fetched tables for database '" + str(asset_name) + "'")
+            logging.warning("\tEmpty Collibra response: Could not find tables for Collibra database '" + str(asset_name) + "'")
+            logging.warning("\tRequest body: " + str(table_params))
+        else: logging.info("\tSuccessfully fetched tables for database '" + str(asset_name) + "'")
         columns = []
         for t in tables:
-            logging.debug("Fetching table '" + str(t['source']['name']) + "'")
+            logging.info("###### COLLIBRA TABLE '" + str(t['source']['name']) + "' ######")
+            logging.debug("\tFetching table '" + str(t['source']['name']) + "'")
             set_elements(t['source']['id'], t['source']['name'], 'Table')
             column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': t['source']['id']}
-            logging.info("Fetching columns for table '" + str(t['source']['name']) + "'")
+            logging.info("\tFetching columns for table '" + str(t['source']['name']) + "'")
             for c in json.loads(collibra_get(column_params, 'relations', 'get'))['results']:
-                logging.debug("Fetching column '" + str(c['source']['name']) + "'")
+                logging.info("###### COLLIBRA COLUMN '" + str(c['source']['name']) + "' ######")
+                logging.debug("\tFetching column '" + str(c['source']['name']) + "'")
                 set_elements(c['source']['id'], c['source']['name'], 'Column')
-            logging.debug("Successfully fetched columns for table '" + str(t['source']['name']) + "'")
+            logging.debug("\tSuccessfully fetched columns for table '" + str(t['source']['name']) + "'")
     elif asset_type == "Table":
+        logging.info("###### COLLIBRA TABLE '" + str(asset_name) + "' ######")
+        logging.info("\tFetching Collibra table '" + str(asset_name) + "'")
         try:
             table = json.loads(collibra_get(params, "assets", "get"))['results'][0]
-            logging.info("Successfully fetched table '" + str(asset_name) + "'")
+            logging.info("\tSuccessfully fetched table '" + str(asset_name) + "'")
         except IndexError:
-            logging.error("Empty Collibra response: Could not find Collibra table '" + str(asset_name) + "'!")
-            logging.error("Request body: " + str(params))
+            logging.error("\tEmpty Collibra response: Could not find Collibra table '" + str(asset_name) + "'!")
+            logging.error("\tRequest body: " + str(params))
             logging.info("Could not start export, terminating script")
             print("Export failed! For more information check export.log.")
             sys.exit(1)
@@ -292,10 +298,11 @@ def collibra_calls(asset_name=None, asset_type=None):
         column_params = {'relationTypeId': get_resource_ids('relations', 'Column'), 'targetId': table['id']}
         logging.debug("Fetching columns for table '" + table['name'] + "'")
         for c in json.loads(collibra_get(column_params, 'relations', 'get'))['results']:
-            logging.debug("Fetching column '" + c['source']['name'] + "'")
+            logging.info("###### COLLIBRA COLUMN '" + str(c['source']['name']) + "' ######")
+            logging.debug("\tFetching column '" + str(c['source']['name']) + "'")
             set_elements(c['source']['id'], c['source']['name'], 'Column')
-        logging.debug("Successfully fetched columns for table '" + table['name'] + "'")
-    logging.info("###### END: Collibra calls ######")
+        logging.debug("\tSuccessfully fetched columns for table '" + table['name'] + "'")
+    logging.info("############ END: Collibra calls ############")
         
 # returns Collibra asset information based on the mapped Okera resource name
 def find_info(name=None, info=None, asset_id=None):
@@ -458,7 +465,7 @@ def export(asset_name=None, asset_type=None):
         tab_name = t.db[0] + "." + t.name
         collibra_tab_tags = find_info(info="info_classif", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="info_classif")
         okera_tab_tags = create_tags(t.attribute_values)
-        logging.debug("Comparing Collibra attributes of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera tags of table '" + tab_name + "':\nCollibra attributes: " + str(collibra_tab_tags) + "\nOkera tags: " + str(okera_tab_tags))
+        logging.debug("###### Comparing Collibra attributes of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera tags of table '" + tab_name + "': ######\nCollibra attributes: " + str(collibra_tab_tags) + "\nOkera tags: " + str(okera_tab_tags))
         if okera_tab_tags and collibra_tab_tags:
             if collections.Counter(okera_tab_tags) != collections.Counter([collibra_tab_tags]):
                 tag_actions("unassign", t.db[0], t.name, "Table", okera_tab_tags)
@@ -470,7 +477,7 @@ def export(asset_name=None, asset_type=None):
         collibra_tab_desc = find_info(info="description", asset_id=asset_id) if asset_id else find_info(name=tab_name, info="description")
         okera_tab_desc = t.description
         tab_type = "View" if t.primary_storage == "View" else "Table"
-        logging.debug("Comparing Collibra description of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera description of table '" + tab_name + "':\nCollibra description: " + str(collibra_tab_desc) + "\nOkera description: " + str(okera_tab_desc))
+        logging.debug("###### Comparing Collibra description of table (name: '" + tab_name + "', asset ID: '" + str(asset_id) + "') to Okera description of table '" + tab_name + "': ######\nCollibra description: " + str(collibra_tab_desc) + "\nOkera description: " + str(okera_tab_desc))
         if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
             desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
         # begin of column loop: same functionality as table loop
@@ -490,7 +497,7 @@ def export(asset_name=None, asset_type=None):
             okera_col_tags = create_tags(col.attribute_values)
             collibra_col_name = find_info(asset_id=asset_id, info="name") + "." + col.name if find_info(asset_id=asset_id, info="name") else col_name
             collibra_col_tags = find_info(collibra_col_name, "info_classif")
-            logging.debug("Comparing Collibra attributes of column '" + collibra_col_name + "' to Okera tags of column '" + col_name + "':\nCollibra attributes: '" + str(collibra_col_tags) + "'\nOkera tags: " + str(okera_col_tags))
+            logging.debug("###### Comparing Collibra attributes of column '" + collibra_col_name + "' to Okera tags of column '" + col_name + "':  ######\nCollibra attributes: '" + str(collibra_col_tags) + "'\nOkera tags: " + str(okera_col_tags))
             if okera_col_tags and collibra_col_tags:
                 if collections.Counter(okera_col_tags) != collections.Counter([collibra_col_tags]):
                     tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
@@ -501,7 +508,7 @@ def export(asset_name=None, asset_type=None):
                 tag_actions("unassign", t.db[0], col_name, "Column", okera_col_tags)
             collibra_col_desc = find_info(collibra_col_name, "description")
             okera_col_desc = col.comment
-            logging.debug("Comparing Collibra description of column '" + collibra_col_name + "' to Okera description of column '" + col_name + "':\nCollibra description: '" + str(collibra_col_desc) + "'\nOkera description: '" + str(okera_col_desc) + "'")
+            logging.debug("###### Comparing Collibra description of column '" + collibra_col_name + "' to Okera description of column '" + col_name + "': ######\nCollibra description: '" + str(collibra_col_desc) + "'\nOkera description: '" + str(okera_col_desc) + "'")
             if okera_col_desc and not collibra_col_desc or collibra_col_desc and not okera_col_desc or (okera_col_desc and collibra_col_desc and okera_col_desc != collibra_col_desc):
                 desc_actions(col_name, "Column", type_ids[col.type.type_id], collibra_col_desc, tab_type)
             okera_col_logger = Logger(
