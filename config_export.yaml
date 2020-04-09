@@ -13,14 +13,14 @@
 
 configs:
   host: "sandbox.demo.okera.com"
-  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXFUfHSVigFxeIj4lQYV.BHlJpMDpmWSizDETN0vfAtPpdrA$"
+  token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXFe0V9-igFxgt3jfggZ.dFtjz244QiYsJCMqD9AEUVAw7dk$"
   collibra_dgc: "https://okera.collibra.com:443"
   collibra_username: "Admin"
   collibra_password: "Gac2Quencotdilo"
   community: "Okera3.0"
   domain: 
-      name: "export_only"
-      type: "Physical Data Dictionary" 
+    name: "export_only"
+    type: "Physical Data Dictionary" 
   #
   # Collibra custom attribute mapping information. 
   # Specify what Collibra custom attribute you would like mapped to an Okera tag namespace.
@@ -28,4 +28,9 @@ configs:
   # will be added there as Okera tags. If it doesn't, a new namespace will be created
   # in Okera with the name provided.
   #
-  mapped_attribute_okera_namespace: "information_classification"
+  mapped_attribute_okera_namespaces:
+    - {attribute_name: "Information Classification", attribute_id: "39481cfd-bace-4634-9277-ceacb9b71e87", okera_namespace: "information_classification"}
+    - {attribute_name: "PII 2", attribute_id: "48007d3a-7843-45e0-a99b-5117fa16576f", okera_namespace: "pii_2"}
+  full_name_prefixes:
+    - "Trusted Zone"
+    - "Raw Zone"

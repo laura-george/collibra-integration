@@ -1,4 +1,6 @@
 # CURRENTLY TESTING WITH COLLIBRA_IMPORT
+# TODO don't override tags
+
 import json
 import requests
 import thriftpy
@@ -6,8 +8,10 @@ import datetime
 import yaml
 import sys
 import hashlib
+import copy
 from okera import context
 from pymongo import MongoClient
+import pprint
 import logging
 import collections
 
@@ -53,7 +57,14 @@ class Asset:
             return self.asset_id == other.asset_id
         else : return self.name == other.name
     def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        child_names = []
+        # TODO REVISE THIS
+        ret = self.__dict__.copy()
+        if self_dict['children'] is not None:
+            for c in self_dict['children']: 
+                child_names.append(c.name)
+            ret['children'] = child_names
+        return str(self.asset_type) + ": " + str(pprint.pformat(ret))
 
 try:
     logging.info("Opening config.yaml")
@@ -65,13 +76,13 @@ for c in configs:
     if configs[c] == "":
         logging.error("Empty value for key '" + c + "' in config.yaml!")
         logging.info("Could not start export, terminating script")
-        print("Export failed! For more information check export.log.")
+        print("Import failed! For more information check import.log.")
         sys.exit(1)
 for d in configs['domain']:
     if configs['domain'][d] == "":
         logging.error("Empty 'domain' value for key '" + d + "' in config.yaml!")
         logging.info("Could not start export, terminating script")
-        print("Export failed! For more information check export.log.")
+        print("Import failed! For more information check import.log.")
         sys.exit(1)
 
 try:
@@ -86,7 +97,7 @@ for r in resource_ids:
             if line[key] == "":
                 logging.error("Empty value in line " + str(line) + " in resourceids.yaml!")
                 logging.info("Could not start export, terminating script")
-                print("Export failed! For more information check export.log.")
+                print("Import failed! For more information check import.log.")
                 sys.exit(1)
 
 # builds and makes collibra request
@@ -132,7 +143,7 @@ try:
 except IndexError:
     logging.error("Empty Collibra response: Could not find Collibra community " + community + "!")
     logging.info("Could not start export, terminating script")
-    print("Export failed! For more information check export.log.")
+    print("Import failed! For more information check import.log.")
     sys.exit(1)
 domain = configs['domain']
 try:
@@ -140,7 +151,7 @@ try:
 except IndexError:
     logging.error("Empty Collibra response: Could not find Collibra domain " + domain['name'] + " in community " + community + "!")
     logging.info("Could not start export, terminating script")
-    print("Export failed! For more information check export.log.")
+    print("Import failed! For more information check import.log.")
     sys.exit(1)
 
 ctx = context()
@@ -208,7 +219,7 @@ def pyokera_calls(asset_name=None, asset_type=None):
         logging.error("Could not connect to Okera!")
         logging.error("Error: " + str(e))
         logging.info("Could not start export, terminating script")
-        print("Export failed! For more information check export.log.")
+        print("Import failed! For more information check import.log.")
         sys.exit(1)
     # creates an Asset object for each database, table and column in Okera and adds it to the list assets[]
     with conn:
@@ -229,6 +240,7 @@ def pyokera_calls(asset_name=None, asset_type=None):
                         last_collibra_sync_time=t.metadata.get('last_collibra_sync_time'),
                         table_hash=t.metadata.get('table_hash') if t.metadata.get('table_hash') else None
                         )
+                    
                     for col in t.schema.cols:
                         column = Asset(
                             name=escape(t.db[0] + "." + t.name + "." + col.name),
@@ -245,16 +257,19 @@ def pyokera_calls(asset_name=None, asset_type=None):
                     table.children = okera_columns
                     okera_tables.append(table)
         if asset_name and asset_type == "Database":
+            logging.info("Fetching tables for database '" + asset_name + "'")
             okera_dbs.append(Asset(name=asset_name, asset_type="Database"))
             tables = conn.list_datasets(asset_name)
             db = Asset(name=asset_name, asset_type="Database")
             set_tables()
             assets.append(db)
         elif asset_name and asset_type == "Table":
+            logging.info("\tFetching table '" + asset_name + "'")
             tables = conn.list_datasets(asset_name.rsplit('.', 1)[0])
             assets.append(Asset(asset_name.rsplit('.', 1)[0], "Database"))
             set_tables()
         elif not asset_name and not asset_type:
+            logging.info("\tFetching all databases")
             for d in databases:
                 okera_dbs.append(Asset(name=d, asset_type="Database"))
                 tables = conn.list_datasets(d)
@@ -288,27 +303,29 @@ def get_okera_assets(name=None, asset_type=None, asset_id=None):
         return asset
 
 def set_tblproperties(name=None, asset_id=None, asset_type=None, key=None, value=None):
+    logging.info("### START: Set Okera table properties ###")
     if name:
         asset = get_okera_assets(name=name, asset_type="Table")
     elif asset_id:
-        # why is this being calles 2 times..?
-        print("set_tblproperties: ", asset_id)
         asset = get_okera_assets(asset_id=asset_id, asset_type="Table")
     try:
         conn = ctx.connect(host = configs['host'], port = planner_port)
     except thriftpy.transport.TTransportException as e:
-        print("PYOKERA ERROR")
-        print("Could not connect to Okera!")
-        print("Error: ", e)
+        logging.error("\tPYOKERA ERROR")
+        logging.error("\tCould not connect to Okera!")
+        logging.error("\tError: ", e)
         sys.exit(1)
     with conn:
         if asset_type == "Table":
+            logging.debug("\tAdding table properties for table '" + asset.name + "'")
             try:
                 conn.execute_ddl("ALTER TABLE " + asset.name + " SET TBLPROPERTIES ('" + key + "' = '" + str(value) + "')")
+                logging.info("\tSuccessfully added table property ('" + str(key) + "' = '" + str(value) + "') to table '" + str(asset.name) + "'")
             except thriftpy.thrift.TException as e:
-                print("PYOKERA ERROR")
-                print("Could not set table property " + key + " = " + str(value) + " for table " + asset.name + "!")
-                print("Error: ", e)
+                logging.error("\tPYOKERA ERROR")
+                logging.error("\tCould not set table property " + str(key) + " = " + str(value) + " for table " + asset.name + "!")
+                logging.error("\tError: ", e)
+    logging.info("### END: Set Okera table properties ###")
 
 def set_sync_time(asset_id, asset_type):
     set_tblproperties(asset_id=asset_id, asset_type=asset_type, key="last_collibra_sync_time", value=int(datetime.datetime.utcnow().timestamp()))
@@ -401,20 +418,29 @@ def update(asset_name=None, asset_type=None, asset_id=None):
     # IMPORTS
     new_asset = get_okera_assets(name=asset_name, asset_type=asset_type, asset_id=asset_id)
     if new_asset not in collibra_assets:
+        logging.info("###### START: Import new asset '" + new_asset.name + "' ######")
         set_tblproperties(name=new_asset.name, asset_type=new_asset.asset_type, key="collibra_asset_id", value="")
         import_param = set_assets(new_asset)
         import_response = json.loads(collibra_get(import_param, "assets", "post"))
-        print("Importing " + new_asset.name + "...")
+        if not import_response:
+            logging.warning("Empty Collibra import response: Asset '" + new_asset.name + "' not imported into Collibra!")
+        else: 
+            logging.info("Successfully imported asset '" + new_asset.name + "', information imported: ")
+            logging.debug(new_asset)
         if import_response.get('name') == new_asset.name:
             new_asset.asset_id = import_response.get('id')
             set_sync_time(new_asset.asset_id, new_asset.asset_type)
-        if set_relations(new_asset):
-            collibra_get(set_relations(new_asset), "relations", "post")
+        new_relations = set_relations(new_asset)
+        if new_relations:
+            logging.info("\tSetting relations for asset '" + new_asset.name + "'")
+            collibra_get(new_relations, "relations", "post")
+            logging.info("\tRelations set for asset '" + new_asset.name + "': " + str(new_relations))
         new_attributes = set_attributes(new_asset)
         if new_attributes:
-            print("new attributes: ", new_attributes)
+            logging.info("\tSetting attributes for asset '" + new_asset.name + "'")
             for attr in new_attributes:
                 collibra_get(attr, "attributes", "post")
+            logging.info("\tAttributes set for asset '" + new_asset.name + "': " + str(new_attributes))
         set_sync_time(new_asset.asset_id, new_asset.asset_type)
         mapping_param = {
             "externalSystemId": "okera_import",
@@ -460,7 +486,6 @@ def update(asset_name=None, asset_type=None, asset_id=None):
             attribute = json.loads(collibra_get({'assetId': c.asset_id}, "attributes", "get")).get('results')
             matched_attr = find_okera_info(asset_id=c.asset_id, info="attributes") if asset_type == "Table" else find_okera_info(name=c.name, info="attributes")
             for attr in attribute:
-                print("attr  in attribute: ", attr)
                 attributes.update({attr.get('type').get('name'): attr.get('value')})
                 attribute_ids.update({attr.get('type').get('name'): attr.get('id')})
             c.attributes = attributes
@@ -504,12 +529,20 @@ def replace_none(s):
     return '' if s is None else str(s)
 
 def create_table_hash(table):
+    logging.info("### START: Create table hash ###")
     column_values = []
     if table.children:
         for c in table.children:
             column_values.append(c.name + c.asset_type + replace_none(json.dumps(c.relation)) + replace_none(json.dumps(c.attributes)) + replace_none(json.dumps(c.tags)))
     table_hash_values = table.name + table.asset_type + replace_none(table.asset_id) + replace_none(json.dumps(table.relation)) + replace_none(json.dumps(column_values)) + replace_none(json.dumps(table.attributes)) + replace_none(json.dumps(table.tags))
-    return hashlib.md5(table_hash_values.encode()).hexdigest()
+    try:
+        table_hash = hashlib.md5(table_hash_values.encode()).hexdigest()
+        logging.info("\tSuccessfully created hash for table '" + str(table.name) + "': " + str(table_hash))
+    except Exception as e:
+        logging.warning("\tCould not create hash for table '" + str(table.name) + "'!")
+        logging.warning("\tError: " + str(e))
+    logging.info("### END: Create table hash ###")
+    return table_hash
 
 #group together tables and their columns and iterate over list and call update()
 def update_all():
@@ -518,30 +551,29 @@ def update_all():
         print(d.name)
         update(d.name, "Database")
     for t in okera_tables:
-        print("----TABLE----\n", t.name)
-        # check for last sync time will happen here
         new_table_hash = create_table_hash(t)
+        # check for last sync time will happen here
         if (t.table_hash == None or (t.table_hash and t.table_hash != new_table_hash)):
-            #set table properties
+            logging.info("###### OKERA TABLE '" + t.name + "' ######")
+            logging.debug(t)
             if t.asset_id:
-                print('-asset_id-')
-                print("t.asset_id:", t.asset_id)
-                print(t)
                 update(asset_type="Table", asset_id=t.asset_id)
                 set_tblproperties(t.name, t.asset_id, asset_type="Table", key="table_hash", value=new_table_hash)
                 for c in t.children:
-                    print("----COLUMN----\n", c.name)
-                    print(c)
+                    logging.info("###### OKERA COLUMN '" + c.name + "' ######")
+                    logging.debug(c)
                     update(c.name, "Column")
             else:
-                print("-name only-")
-                print("t.name:", t.name)
-                update(t.name, "Table")
+                logging.info("###### OKERA TABLE '" + t.name + "' ######")
+                logging.debug(t)
                 set_tblproperties(t.name, t.asset_id, asset_type="Table", key="table_hash", value=new_table_hash)
                 for c in t.children:
-                    print("----COLUMN----\n", c.name)
-                    print(c)
+                    logging.info("###### OKERA COLUMN '" + c.name + "' ######")
+                    logging.debug(c)
                     update(c.name, "Column")
+        else:
+            logging.info("###### OKERA TABLE '" + t.name + "' ######")
+            logging.info("\tNo changes found: Table '" + t.name + "' is up to date!")
 update_all()
 
 # TODO add try except block
