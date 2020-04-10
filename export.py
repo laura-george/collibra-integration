@@ -49,22 +49,6 @@ for d in configs['domain']:
         print("Export failed! For more information check export.log.")
         sys.exit(1)
 
-""" # opens resourceids.yaml
-try:
-    logging.info("Opening resourceids.yaml")
-    with open('resourceids.yaml') as f:
-        resource_ids = yaml.load(f, Loader=yaml.FullLoader)
-except yaml.YAMLError as e:
-    logging.error("Error in resourceids.yaml: " + str(e))
-for r in resource_ids:
-    for line in resource_ids[r]:
-        for key in line:
-            if line[key] == "":
-                logging.error("Empty value in line " + str(line) + " in resourceids.yaml!")
-                logging.info("Could not start export, terminating script")
-                print("Export failed! For more information check export.log.")
-                sys.exit(1) """
-
 # escapes special characters
 def escape(string, remove_whitespace=False):
     if string:
@@ -179,74 +163,30 @@ def create_tags(attribute_values):
         logging.info("\t### END: Format tags ###")
         return attributes
 
-def pyokera_calls(asset_name=None, asset_type=None):
-    logging.info("############ START: PyOkera calls ############")
-    try:
-        conn = ctx.connect(host = configs['host'], port = planner_port)
-    except thriftpy.transport.TException as e:
-        logging.error("\tPYOKERA ERROR")
-        logging.error("\tCould not connect to Okera!")
-        logging.error("\tError: " + str(e))
-        logging.info("Could not start export, terminating script")
-        print("Export failed! For more information check export.log.")
-        sys.exit(1)
-    with conn:
-        databases = conn.list_databases()
-        if asset_name:
-            if asset_type == "Database":
-                logging.info("\tFetching tables for database '" + asset_name + "'")
-                tables = conn.list_datasets(asset_name)
-                if tables:
-                    element = {'database': asset_name, 'tables': tables}
-                else:
-                    element = {'database': asset_name}
-                elements.append(element)
-            elif asset_type == "Table":
-                # look for asset ids here
-                db_name = asset_name.split(".")[0]
-                tables = conn.list_datasets(db_name)
-                logging.info("\tFetching table '" + asset_name + "'")
-                for t in tables:
-                    if t.db[0] + "." + t.name == asset_name:
-                        elements.append({'database': db_name, 'tables': t})
-                        break
-        else:
-            for database in databases:
-                logging.info("\tFetching tables for database '" + asset_name + "'")
-                tables = conn.list_datasets(database)
-                if tables:
-                    element = {'database': database, 'tables': tables}
-                else:
-                    element = {'database': database}
-                elements.append(element)
-    logging.info("############ END: PyOkera calls ############") 
-
 # gets assets and their tags and attributes from Collibra
 def collibra_calls(asset_name=None, asset_type=None):
     logging.info("############ START: Collibra calls ############")
     def set_elements(asset_id, asset_name, asset_type):
-        #info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
         logging.info("Fetching attributes for '" + str(asset_name) + "' from Collibra")
-        if asset_name.split('.', 1)[0] in configs['full_name_prefixes']:
+        if configs['full_name_prefixes'] != None and asset_name.split('.', 1)[0] in configs['full_name_prefixes']:
             asset_name = asset_name.split('.', 1)[1]
         update_element = ({
             'name': asset_name, 
             'asset_id': asset_id, 
             'description': escape(get_attributes(asset_id, "Description")),
-            #'info_classif': configs['mapped_attribute_okera_namespace'] + "." + info_classif if info_classif else None, 
             'type': asset_type, 
             'mapped_okera_resource': json.loads(collibra_get(None, "mappings/externalSystem/okera/mappedResource/" + asset_id, 'get')).get('externalEntityId')
             })
         update_element['tags'] = []
-        for custom_attr in configs['mapped_attribute_okera_namespaces']:
-            custom_attr_values = get_attributes(asset_id, custom_attr['attribute_name'])
-            if custom_attr_values != None: 
-                if isinstance(custom_attr_values, list):
-                    for attr in custom_attr_values:
-                        update_element['tags'].append(custom_attr['okera_namespace'] + "." + escape(attr, True))
-                else:
-                    update_element['tags'].append(custom_attr['okera_namespace'] + "." + escape(custom_attr_values, True))
-            else: update_element['tags'] = []
+        if configs['mapped_attribute_okera_namespaces'] != None:
+            for custom_attr in configs['mapped_attribute_okera_namespaces']:
+                custom_attr_values = get_attributes(asset_id, custom_attr['attribute_name'])
+                if custom_attr_values != None: 
+                    if isinstance(custom_attr_values, list):
+                        for attr in custom_attr_values:
+                            update_element['tags'].append(custom_attr['okera_namespace'] + "." + escape(attr, True))
+                    else:
+                        update_element['tags'].append(custom_attr['okera_namespace'] + "." + escape(custom_attr_values, True))
         update_elements.append(update_element)
     if asset_name:
         params = {
@@ -285,7 +225,6 @@ def collibra_calls(asset_name=None, asset_type=None):
         else: logging.info("\tSuccessfully fetched tables for database '" + str(asset_name) + "'")
         columns = []
         for t in tables:
-            print(t)
             logging.info("###### COLLIBRA TABLE '" + str(t['source']['name']) + "' ######")
             logging.debug("\tFetching table '" + str(t['source']['name']) + "'")
             set_elements(t['source']['id'], t['source']['name'], 'Table')
@@ -317,6 +256,49 @@ def collibra_calls(asset_name=None, asset_type=None):
             set_elements(c['source']['id'], c['source']['name'], 'Column')
         logging.debug("\tSuccessfully fetched columns for table '" + table['name'] + "'")
     logging.info("############ END: Collibra calls ############")
+
+def pyokera_calls(asset_name=None, asset_type=None):
+    logging.info("############ START: PyOkera calls ############")
+    try:
+        conn = ctx.connect(host = configs['host'], port = planner_port)
+    except thriftpy.transport.TException as e:
+        logging.error("\tPYOKERA ERROR")
+        logging.error("\tCould not connect to Okera!")
+        logging.error("\tError: " + str(e))
+        logging.info("Could not start export, terminating script")
+        print("Export failed! For more information check export.log.")
+        sys.exit(1)
+    with conn:
+        databases = conn.list_databases()
+        if asset_name:
+            if asset_type == "Database":
+                logging.info("\tFetching tables for database '" + asset_name + "'")
+                tables = conn.list_datasets(asset_name)
+                if tables:
+                    element = {'database': asset_name, 'tables': tables}
+                else:
+                    element = {'database': asset_name}
+                elements.append(element)
+            elif asset_type == "Table":
+                # look for asset ids here
+                db_name = asset_name.split(".")[0]
+                tables = conn.list_datasets(db_name)
+                logging.info("\tFetching table '" + asset_name + "'")
+                for t in tables:
+                    asset_id = find_info(asset_name, 'asset_id')
+                    name_match = t.db[0] + "." + t.name == asset_name
+                    id_match = asset_id == t.metadata.get('collibra_asset_id')
+                    if name_match or id_match: elements.append({'database': db_name, 'tables': t})
+        else:
+            for database in databases:
+                logging.info("\tFetching tables for database '" + asset_name + "'")
+                tables = conn.list_datasets(database)
+                if tables:
+                    element = {'database': database, 'tables': tables}
+                else:
+                    element = {'database': database}
+                elements.append(element)
+    logging.info("############ END: PyOkera calls ############") 
         
 # returns Collibra asset information based on the mapped Okera resource name
 def find_info(name=None, info=None, asset_id=None):
@@ -466,20 +448,20 @@ def desc_actions(name, type, col_type, description, tab_type=None):
 # diffs attributes from Collibra with attributes from Okera and makes necessary changes in Okera
 loggers = []
 def log_summary():
-    logging.info("############ ASSETS FETCHED AND COMPARED ############")
+    logging.info("############ SUMMARY: ASSETS FETCHED AND COMPARED ############")
     for logger in loggers: logging.debug(logger)
 
 def export(asset_name=None, asset_type=None):
     collibra_calls(asset_name, asset_type)
-    #split here?
-    if asset_name.split('.', 1)[0] in configs['full_name_prefixes']:
+    if configs['full_name_prefixes'] != None and asset_name.split('.', 1)[0] in configs['full_name_prefixes']:
         asset_name = asset_name.split('.', 1)[1]
     pyokera_calls(asset_name, asset_type)
     def diff(t, okera_tab_logger=None, collibra_tab_logger=None):
         desc_id = get_resource_ids(attribute_ids, 'Description')
         custom_attr_ids = []
-        for custom_attr in configs['mapped_attribute_okera_namespaces']:
-            custom_attr_ids.append({'name': custom_attr['attribute_name'], 'id': get_resource_ids(attribute_ids, custom_attr['attribute_name'])})
+        if configs['mapped_attribute_okera_namespaces'] != None:
+            for custom_attr in configs['mapped_attribute_okera_namespaces']:
+                custom_attr_ids.append({'name': custom_attr['attribute_name'], 'id': get_resource_ids(attribute_ids, custom_attr['attribute_name'])})
         asset_id = t.metadata.get('collibra_asset_id')
         tab_name = t.db[0] + "." + t.name
         collibra_tab_tags = find_info(info='tags', asset_id=asset_id) if asset_id else find_info(name=tab_name, info='tags')
@@ -565,17 +547,16 @@ def export(asset_name=None, asset_type=None):
                 diff(table, okera_tab_logger)
         elif asset_type == "Table":
             table = element.get('tables')
-            if table.db[0] + "." + table.name == asset_name:
-                okera_tab_logger = Logger(
-                    "OKERA TABLE '" + table.db[0] + "." + table.name + "'",
-                    table.db[0] + "." + table.name, 
-                    "Table", 
-                    str(table.metadata.get('collibra_asset_id')), 
-                    {'system': "Okera", 'database': table.db[0]},
-                    {'description': str(table.description), 'tags': create_tags(table.attribute_values)}
-                )
-                loggers.append(okera_tab_logger)
-                diff(table, okera_tab_logger)
+            okera_tab_logger = Logger(
+                "OKERA TABLE '" + table.db[0] + "." + table.name + "'",
+                table.db[0] + "." + table.name, 
+                "Table", 
+                str(table.metadata.get('collibra_asset_id')), 
+                {'system': "Okera", 'database': table.db[0]},
+                {'description': str(table.description), 'tags': create_tags(table.attribute_values)}
+            )
+            loggers.append(okera_tab_logger)
+            diff(table, okera_tab_logger)
 
 which_type = input("Would you like to update a database or a table? ")
 valid = ["table", "database"]
@@ -584,10 +565,6 @@ while which_type not in valid:
 which_asset = input("Please enter the full name the " + which_type + ": ")
 if which_asset and which_type:
     if which_type.capitalize() == "Table":
-        print("WARNING: If a table in Collibra in mapped to one or multiple tables in with different names Okera, the entire database must be updated.")
-        for prefix in configs['full_name_prefixes']:
-            if which_asset.split('.')[0] == prefix:
-                which_asset = which_asset.split('.')[1]
         export(which_asset, which_type.capitalize())
         log_summary()
         logging.info("Export complete!")

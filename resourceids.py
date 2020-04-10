@@ -33,8 +33,9 @@ attribute_ids = [
   {'name': "Data Type", 'id': "00000000-0000-0000-0001-000500000005"}
 ]
 
-for attr in configs['mapped_attribute_okera_namespaces']:
-  attribute_ids.append({'name': attr['attribute_name'], 'id': attr['attribute_id']})
+if configs['mapped_attribute_okera_namespaces'] != None:
+  for attr in configs['mapped_attribute_okera_namespaces']:
+    attribute_ids.append({'name': attr['attribute_name'], 'id': attr['attribute_id']})
 
 asset_ids = [
   {'name': "Column", 'id': "00000000-0000-0000-0000-000000031008"},
