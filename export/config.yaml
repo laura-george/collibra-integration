@@ -1,0 +1,69 @@
+# This file contains all user-specific information
+# Example:
+#  log_directory: "logs"
+#  okera_host: "example.okera.com"
+#  okera_token: "okera acces token"
+#  collibra_dgc: "https://example.collibra.com:443"
+#  collibra_username: "username"
+#  collibra_password: "password"
+#  collibra_assets: "assets/assets.yaml"
+#  community: "Example Community"
+#  domain:
+#      name: "Example Domain"
+#      type: "Data Asset Domain"
+#   mapped_collibra_attributes:
+#    - {attribute_name: "Information Classification", attribute_id: "123-abc-123abc-123", okera_namespace: "information_classification"}
+#    - {attribute_name: "Custom Attribute 2", attribute_id: "456-def-456def-456", okera_namespace: "attribute_2"}
+#   mapped_statuses:
+#       statuses:
+#         - "Accepted"
+#         - "Reviewed"
+#       okera_namespace: "collibra_status"
+#  full_name_prefixes:
+#    - "Prefix One"
+#    - "Prefix Two"
+#
+configs:
+  log_directory: "logs"
+  # Okera specific information
+  okera_host: "sandbox.demo.okera.com"
+  okera_token:
+  #Collibra specific information
+  collibra_dgc: "https://okera.collibra.com:443"
+  collibra_username: "Admin"
+  collibra_password: "Gac2Quencotdilo"
+  collibra_assets:
+  # community and domain only need to be defined if collibra_assets is not defined
+  community: "Okera3.0"
+  domain:
+    name: "export_only"
+    type: "Physical Data Dictionary"
+  #
+  # Collibra custom attribute mapping information.
+  # Specify what Collibra custom attribute you would like mapped to an Okera tag namespace.
+  # If the Okera tag namespace already exists, the values of the Collibra attribute
+  # will be added there as Okera tags. If it doesn't, a new namespace will be created
+  # in Okera with the name provided.
+  #
+  mapped_collibra_attributes:
+    - {attribute_name: "Information Classification", attribute_id: "339481cfd-bace-4634-9277-ceacb9b71e87", okera_namespace: "information_classification"}
+    - {attribute_name: "PII 2", attribute_id: "48007d3a-7843-45e0-a99b-5117fa16576f", okera_namespace: "pii_2"}
+  #
+  # Statuses that will be mapped to an Okera tag namespace.
+  # The statuses added to the list `statuses:` will be added as Okera tags
+  # with the namespace defined below
+  #
+  mapped_collibra_statuses:
+    statuses:
+        - "Approved"
+        - "Under Review"
+    okera_namespace: "collibra_status"
+  #
+  # Prefixes that will be split off the full name of the asset in Collibra.
+  # The prefixes must be added as a list (see example above).
+  # The default value (no prefixes) is:
+  # full_name_prefixes:
+  #
+  full_name_prefixes:
+    - "Trusted Zone"
+    - "Raw Zone"

@@ -1,0 +1,20 @@
+communities:
+  - name: "Okera3.0"
+    id: "36fd10bf-f6f3-44a6-807e-915c6a24c521"
+    domains:
+      - name: "export_only"
+        id: "87a5c7ae-46ca-4e3d-8a6a-b15772fc7264"
+        databases:
+        tables:
+          - "collibra.regular_ole_table"
+          - "collibra.hades"
+          - "collibra.mapping_table"
+  - name: "Okera4.0"
+    id: "b37a1237-08b4-4c3a-b102-0352526b3444"
+    domains:
+      - name: "export_only2"
+        id: "d061f4a4-fc91-462d-88c2-abeea86ebe3e"
+        databases:
+          - "collibra_export2"
+        tables:
+          - "collibra_export.nice"

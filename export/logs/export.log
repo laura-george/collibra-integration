@@ -1,0 +1,1309 @@
+INFO 04/28/2020 07:02:09 AM Opening config.yaml
+INFO 04/28/2020 07:02:09 AM Logging to logs/export.log
+DEBUG 04/28/2020 07:02:09 AM Creating Okera context
+INFO 04/28/2020 07:02:09 AM Using Okera token from environment
+DEBUG 04/28/2020 07:02:09 AM Enabled token auth
+INFO 04/28/2020 07:02:09 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:09 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:10 AM https://okera.collibra.com:443 "GET /rest/2.0/communities?name=Okera3.0 HTTP/1.1" 200 202
+INFO 04/28/2020 07:02:10 AM Request successful
+INFO 04/28/2020 07:02:10 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:10 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:10 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:11 AM https://okera.collibra.com:443 "GET /rest/2.0/domains?name=export_only&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521 HTTP/1.1" 200 320
+INFO 04/28/2020 07:02:11 AM Request successful
+INFO 04/28/2020 07:02:11 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:17 AM ############ START: Collibra calls ############
+INFO 04/28/2020 07:02:17 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:17 AM 		Fetching resource ID for 'Table'
+INFO 04/28/2020 07:02:17 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/28/2020 07:02:17 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:17 AM ###### COLLIBRA TABLE 'collibra.hades' ######
+INFO 04/28/2020 07:02:17 AM 	Fetching Collibra table 'collibra.hades'
+INFO 04/28/2020 07:02:17 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:17 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:19 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.hades&nameMatchMode=EXACT&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031007 HTTP/1.1" 200 381
+INFO 04/28/2020 07:02:19 AM Request successful
+INFO 04/28/2020 07:02:19 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:19 AM 	Successfully fetched table 'collibra.hades'
+INFO 04/28/2020 07:02:19 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:19 AM 		Fetching resource ID for 'Table'
+INFO 04/28/2020 07:02:19 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/28/2020 07:02:19 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:19 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:19 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:21 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.hades&nameMatchMode=EXACT&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&typeId=00000000-0000-0000-0000-000000031007 HTTP/1.1" 200 381
+INFO 04/28/2020 07:02:21 AM Request successful
+INFO 04/28/2020 07:02:21 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:21 AM Fetching attributes for 'collibra.hades' from Collibra
+INFO 04/28/2020 07:02:21 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:21 AM 		Fetching attribute 'Description' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
+INFO 04/28/2020 07:02:21 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:21 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:21 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:21 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:21 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:21 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:22 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 306
+INFO 04/28/2020 07:02:22 AM Request successful
+INFO 04/28/2020 07:02:22 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:22 AM 		Successfully fetched 'Description' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0': Dataset with more columns.
+INFO 04/28/2020 07:02:22 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:22 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:22 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:24 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:24 AM Request successful
+INFO 04/28/2020 07:02:24 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:24 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:24 AM 		Fetching attribute 'Information Classification' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
+INFO 04/28/2020 07:02:24 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:24 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:24 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:24 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:24 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:24 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:25 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 325
+INFO 04/28/2020 07:02:25 AM Request successful
+INFO 04/28/2020 07:02:25 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:25 AM 		Successfully fetched 'Information Classification' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0': restricted
+INFO 04/28/2020 07:02:25 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:25 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:25 AM 		Fetching attribute 'PII 2' for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0' from Collibra
+INFO 04/28/2020 07:02:25 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:25 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:25 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:25 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:25 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:25 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:27 AM Request successful
+INFO 04/28/2020 07:02:27 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:27 AM 		No attribute 'PII 2' returned for asset 'de80cb74-87fd-4760-bab1-51e8f4712da0'
+INFO 04/28/2020 07:02:27 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:27 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:27 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:02:27 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 04/28/2020 07:02:27 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 04/28/2020 07:02:27 AM Fetching columns for table 'collibra.hades'
+INFO 04/28/2020 07:02:27 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:28 AM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=de80cb74-87fd-4760-bab1-51e8f4712da0 HTTP/1.1" 200 818
+INFO 04/28/2020 07:02:28 AM Request successful
+INFO 04/28/2020 07:02:28 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:28 AM ###### COLLIBRA COLUMN 'collibra.hades.charon' ######
+DEBUG 04/28/2020 07:02:28 AM 	Fetching column 'collibra.hades.charon'
+INFO 04/28/2020 07:02:28 AM Fetching attributes for 'collibra.hades.charon' from Collibra
+INFO 04/28/2020 07:02:28 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:28 AM 		Fetching attribute 'Description' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
+INFO 04/28/2020 07:02:28 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:28 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:28 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:28 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:28 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:28 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:29 AM Request successful
+INFO 04/28/2020 07:02:29 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:29 AM 		No attribute 'Description' returned for asset '98c79d25-c388-4025-a651-3f6c607257a4'
+INFO 04/28/2020 07:02:29 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:29 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:30 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:30 AM Request successful
+INFO 04/28/2020 07:02:30 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:30 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:30 AM 		Fetching attribute 'Information Classification' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
+INFO 04/28/2020 07:02:30 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:30 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:30 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:30 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:30 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:30 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:32 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:32 AM Request successful
+INFO 04/28/2020 07:02:32 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:32 AM 		No attribute 'Information Classification' returned for asset '98c79d25-c388-4025-a651-3f6c607257a4'
+INFO 04/28/2020 07:02:32 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:32 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:32 AM 		Fetching attribute 'PII 2' for asset '98c79d25-c388-4025-a651-3f6c607257a4' from Collibra
+INFO 04/28/2020 07:02:32 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:32 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:32 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:32 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:32 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:34 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=98c79d25-c388-4025-a651-3f6c607257a4 HTTP/1.1" 200 328
+INFO 04/28/2020 07:02:34 AM Request successful
+INFO 04/28/2020 07:02:34 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:34 AM 		Successfully fetched 'PII 2' for asset '98c79d25-c388-4025-a651-3f6c607257a4': ['userid', 'ip_address']
+INFO 04/28/2020 07:02:34 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:34 AM ###### COLLIBRA COLUMN 'collibra.hades.cerberus' ######
+DEBUG 04/28/2020 07:02:34 AM 	Fetching column 'collibra.hades.cerberus'
+INFO 04/28/2020 07:02:34 AM Fetching attributes for 'collibra.hades.cerberus' from Collibra
+INFO 04/28/2020 07:02:34 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:34 AM 		Fetching attribute 'Description' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
+INFO 04/28/2020 07:02:34 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:34 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:34 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:34 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:34 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:35 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:35 AM Request successful
+INFO 04/28/2020 07:02:35 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:35 AM 		No attribute 'Description' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
+INFO 04/28/2020 07:02:35 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:35 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:35 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:36 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:36 AM Request successful
+INFO 04/28/2020 07:02:36 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:36 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:36 AM 		Fetching attribute 'Information Classification' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
+INFO 04/28/2020 07:02:36 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:36 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:36 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:36 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:36 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:38 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:38 AM Request successful
+INFO 04/28/2020 07:02:38 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:38 AM 		No attribute 'Information Classification' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
+INFO 04/28/2020 07:02:38 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:38 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:38 AM 		Fetching attribute 'PII 2' for asset '1ae1139f-85d8-455f-be40-87a507b98c1f' from Collibra
+INFO 04/28/2020 07:02:38 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:38 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:38 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:38 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:38 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:38 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:39 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1ae1139f-85d8-455f-be40-87a507b98c1f HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:39 AM Request successful
+INFO 04/28/2020 07:02:39 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:39 AM 		No attribute 'PII 2' returned for asset '1ae1139f-85d8-455f-be40-87a507b98c1f'
+INFO 04/28/2020 07:02:39 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:39 AM ###### COLLIBRA COLUMN 'collibra.hades.nyx' ######
+DEBUG 04/28/2020 07:02:39 AM 	Fetching column 'collibra.hades.nyx'
+INFO 04/28/2020 07:02:39 AM Fetching attributes for 'collibra.hades.nyx' from Collibra
+INFO 04/28/2020 07:02:39 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:39 AM 		Fetching attribute 'Description' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
+INFO 04/28/2020 07:02:39 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:39 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:39 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:39 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:39 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:39 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:41 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 297
+INFO 04/28/2020 07:02:41 AM Request successful
+INFO 04/28/2020 07:02:41 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:41 AM 		Successfully fetched 'Description' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad': column description
+INFO 04/28/2020 07:02:41 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:41 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:41 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:42 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:42 AM Request successful
+INFO 04/28/2020 07:02:42 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:42 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:42 AM 		Fetching attribute 'Information Classification' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
+INFO 04/28/2020 07:02:42 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:42 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:42 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:42 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:42 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:42 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:43 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 381
+INFO 04/28/2020 07:02:43 AM Request successful
+INFO 04/28/2020 07:02:43 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:43 AM 		Successfully fetched 'Information Classification' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad': confidential
+INFO 04/28/2020 07:02:43 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:43 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:43 AM 		Fetching attribute 'PII 2' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad' from Collibra
+INFO 04/28/2020 07:02:43 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:43 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:43 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:43 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:43 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:44 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e590bef6-03fc-42d2-b830-4088bbcf7dad HTTP/1.1" 200 320
+INFO 04/28/2020 07:02:44 AM Request successful
+INFO 04/28/2020 07:02:44 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:44 AM 		Successfully fetched 'PII 2' for asset 'e590bef6-03fc-42d2-b830-4088bbcf7dad': ['person']
+INFO 04/28/2020 07:02:44 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:44 AM ###### COLLIBRA COLUMN 'collibra.hades.thanatos' ######
+DEBUG 04/28/2020 07:02:44 AM 	Fetching column 'collibra.hades.thanatos'
+INFO 04/28/2020 07:02:44 AM Fetching attributes for 'collibra.hades.thanatos' from Collibra
+INFO 04/28/2020 07:02:44 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:44 AM 		Fetching attribute 'Description' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
+INFO 04/28/2020 07:02:44 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:44 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:44 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:44 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:44 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:44 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:45 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:45 AM Request successful
+INFO 04/28/2020 07:02:45 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:45 AM 		No attribute 'Description' returned for asset '157269f7-f8f0-4243-9def-b460c1d58402'
+INFO 04/28/2020 07:02:45 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:45 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:45 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:46 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:46 AM Request successful
+INFO 04/28/2020 07:02:46 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:46 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:46 AM 		Fetching attribute 'Information Classification' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
+INFO 04/28/2020 07:02:46 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:46 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:46 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:46 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:46 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:46 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:49 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 335
+INFO 04/28/2020 07:02:49 AM Request successful
+INFO 04/28/2020 07:02:49 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:49 AM 		Successfully fetched 'Information Classification' for asset '157269f7-f8f0-4243-9def-b460c1d58402': nonpublic
+INFO 04/28/2020 07:02:49 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:49 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:49 AM 		Fetching attribute 'PII 2' for asset '157269f7-f8f0-4243-9def-b460c1d58402' from Collibra
+INFO 04/28/2020 07:02:49 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:49 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:49 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:49 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:49 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:49 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:50 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=157269f7-f8f0-4243-9def-b460c1d58402 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:50 AM Request successful
+INFO 04/28/2020 07:02:50 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:50 AM 		No attribute 'PII 2' returned for asset '157269f7-f8f0-4243-9def-b460c1d58402'
+INFO 04/28/2020 07:02:50 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:50 AM ###### COLLIBRA COLUMN 'collibra.hades.styx' ######
+DEBUG 04/28/2020 07:02:50 AM 	Fetching column 'collibra.hades.styx'
+INFO 04/28/2020 07:02:50 AM Fetching attributes for 'collibra.hades.styx' from Collibra
+INFO 04/28/2020 07:02:50 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:50 AM 		Fetching attribute 'Description' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
+INFO 04/28/2020 07:02:50 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:50 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:50 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:50 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:50 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:50 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:51 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:51 AM Request successful
+INFO 04/28/2020 07:02:51 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:51 AM 		No attribute 'Description' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
+INFO 04/28/2020 07:02:51 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:51 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:51 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:52 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:52 AM Request successful
+INFO 04/28/2020 07:02:52 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:52 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:52 AM 		Fetching attribute 'Information Classification' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
+INFO 04/28/2020 07:02:52 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:52 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:52 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:52 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:52 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:52 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:54 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:54 AM Request successful
+INFO 04/28/2020 07:02:54 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:54 AM 		No attribute 'Information Classification' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
+INFO 04/28/2020 07:02:54 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:54 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:54 AM 		Fetching attribute 'PII 2' for asset '28bca607-6154-4d17-8bd2-c4cd381f679d' from Collibra
+INFO 04/28/2020 07:02:54 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:54 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:54 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:54 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:54 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:54 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:55 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=28bca607-6154-4d17-8bd2-c4cd381f679d HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:55 AM Request successful
+INFO 04/28/2020 07:02:55 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:55 AM 		No attribute 'PII 2' returned for asset '28bca607-6154-4d17-8bd2-c4cd381f679d'
+INFO 04/28/2020 07:02:55 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:55 AM ###### COLLIBRA COLUMN 'collibra.hades.cronus' ######
+DEBUG 04/28/2020 07:02:55 AM 	Fetching column 'collibra.hades.cronus'
+INFO 04/28/2020 07:02:55 AM Fetching attributes for 'collibra.hades.cronus' from Collibra
+INFO 04/28/2020 07:02:55 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:55 AM 		Fetching attribute 'Description' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
+INFO 04/28/2020 07:02:55 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:55 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:02:55 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:02:55 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:55 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:55 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:56 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:56 AM Request successful
+INFO 04/28/2020 07:02:56 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:56 AM 		No attribute 'Description' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
+INFO 04/28/2020 07:02:56 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:56 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:56 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:57 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 404 135
+INFO 04/28/2020 07:02:57 AM Request successful
+INFO 04/28/2020 07:02:57 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:02:57 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:57 AM 		Fetching attribute 'Information Classification' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
+INFO 04/28/2020 07:02:57 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:57 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:02:57 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:02:57 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:57 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:57 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:02:58 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
+INFO 04/28/2020 07:02:58 AM Request successful
+INFO 04/28/2020 07:02:58 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:02:58 AM 		No attribute 'Information Classification' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
+INFO 04/28/2020 07:02:58 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:02:58 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:02:58 AM 		Fetching attribute 'PII 2' for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05' from Collibra
+INFO 04/28/2020 07:02:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:58 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:02:58 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:02:58 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:02:58 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:02:58 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:00 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6ebe91b0-633a-4c4e-b887-b33e41833b05 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:00 AM Request successful
+INFO 04/28/2020 07:03:00 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:00 AM 		No attribute 'PII 2' returned for asset '6ebe91b0-633a-4c4e-b887-b33e41833b05'
+INFO 04/28/2020 07:03:00 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:00 AM ###### COLLIBRA COLUMN 'collibra.hades.erebos' ######
+DEBUG 04/28/2020 07:03:00 AM 	Fetching column 'collibra.hades.erebos'
+INFO 04/28/2020 07:03:00 AM Fetching attributes for 'collibra.hades.erebos' from Collibra
+INFO 04/28/2020 07:03:00 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:00 AM 		Fetching attribute 'Description' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
+INFO 04/28/2020 07:03:00 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:00 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:03:00 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:03:00 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:00 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:00 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:01 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:01 AM Request successful
+INFO 04/28/2020 07:03:01 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:01 AM 		No attribute 'Description' returned for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4'
+INFO 04/28/2020 07:03:01 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:01 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:01 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:02 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 404 135
+INFO 04/28/2020 07:03:02 AM Request successful
+INFO 04/28/2020 07:03:02 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:03:02 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:02 AM 		Fetching attribute 'Information Classification' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
+INFO 04/28/2020 07:03:02 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:02 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:03:02 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:03:02 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:02 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:02 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:04 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 331
+INFO 04/28/2020 07:03:04 AM Request successful
+INFO 04/28/2020 07:03:04 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:04 AM 		Successfully fetched 'Information Classification' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4': public
+INFO 04/28/2020 07:03:04 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:04 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:04 AM 		Fetching attribute 'PII 2' for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4' from Collibra
+INFO 04/28/2020 07:03:04 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:04 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:03:04 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:03:04 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:04 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:04 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:05 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1ce7cbbf-e672-42cf-8dc7-721ca4de49e4 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:05 AM Request successful
+INFO 04/28/2020 07:03:05 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:05 AM 		No attribute 'PII 2' returned for asset '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4'
+INFO 04/28/2020 07:03:05 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:05 AM ###### COLLIBRA COLUMN 'collibra.hades.hypnos' ######
+DEBUG 04/28/2020 07:03:05 AM 	Fetching column 'collibra.hades.hypnos'
+INFO 04/28/2020 07:03:05 AM Fetching attributes for 'collibra.hades.hypnos' from Collibra
+INFO 04/28/2020 07:03:05 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:05 AM 		Fetching attribute 'Description' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
+INFO 04/28/2020 07:03:05 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:05 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:03:05 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:03:05 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:05 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:05 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:06 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:06 AM Request successful
+INFO 04/28/2020 07:03:06 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:06 AM 		No attribute 'Description' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
+INFO 04/28/2020 07:03:06 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:06 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:06 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:07 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 404 135
+INFO 04/28/2020 07:03:07 AM Request successful
+INFO 04/28/2020 07:03:07 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:03:07 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:07 AM 		Fetching attribute 'Information Classification' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
+INFO 04/28/2020 07:03:07 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:07 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:03:07 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:03:07 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:07 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:07 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:09 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:09 AM Request successful
+INFO 04/28/2020 07:03:09 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:09 AM 		No attribute 'Information Classification' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
+INFO 04/28/2020 07:03:09 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:09 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:09 AM 		Fetching attribute 'PII 2' for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3' from Collibra
+INFO 04/28/2020 07:03:09 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:09 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:03:09 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:03:09 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:09 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:09 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:10 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c390f612-e820-4e19-a721-fcfeaa63e5f3 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:10 AM Request successful
+INFO 04/28/2020 07:03:10 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:10 AM 		No attribute 'PII 2' returned for asset 'c390f612-e820-4e19-a721-fcfeaa63e5f3'
+INFO 04/28/2020 07:03:10 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:10 AM ###### COLLIBRA COLUMN 'collibra.hades.hermes' ######
+DEBUG 04/28/2020 07:03:10 AM 	Fetching column 'collibra.hades.hermes'
+INFO 04/28/2020 07:03:10 AM Fetching attributes for 'collibra.hades.hermes' from Collibra
+INFO 04/28/2020 07:03:10 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:10 AM 		Fetching attribute 'Description' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
+INFO 04/28/2020 07:03:10 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:10 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:03:10 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:03:10 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:10 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:10 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:11 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:11 AM Request successful
+INFO 04/28/2020 07:03:11 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:11 AM 		No attribute 'Description' returned for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220'
+INFO 04/28/2020 07:03:11 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:11 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:11 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:12 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 404 135
+INFO 04/28/2020 07:03:12 AM Request successful
+INFO 04/28/2020 07:03:12 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:03:12 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:12 AM 		Fetching attribute 'Information Classification' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
+INFO 04/28/2020 07:03:12 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:12 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:03:12 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:03:12 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:12 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:12 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:14 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 333
+INFO 04/28/2020 07:03:14 AM Request successful
+INFO 04/28/2020 07:03:14 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:14 AM 		Successfully fetched 'Information Classification' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220': restricted
+INFO 04/28/2020 07:03:14 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:14 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:14 AM 		Fetching attribute 'PII 2' for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220' from Collibra
+INFO 04/28/2020 07:03:14 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:14 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:03:14 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:03:14 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:14 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:14 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:15 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4ddaa6b3-f6c7-43f5-9564-cf354525d220 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:15 AM Request successful
+INFO 04/28/2020 07:03:15 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:15 AM 		No attribute 'PII 2' returned for asset '4ddaa6b3-f6c7-43f5-9564-cf354525d220'
+INFO 04/28/2020 07:03:15 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:15 AM ###### COLLIBRA COLUMN 'collibra.hades.erinyes' ######
+DEBUG 04/28/2020 07:03:15 AM 	Fetching column 'collibra.hades.erinyes'
+INFO 04/28/2020 07:03:15 AM Fetching attributes for 'collibra.hades.erinyes' from Collibra
+INFO 04/28/2020 07:03:15 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:15 AM 		Fetching attribute 'Description' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
+INFO 04/28/2020 07:03:15 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:15 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:03:15 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:03:15 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:15 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:15 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:17 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:17 AM Request successful
+INFO 04/28/2020 07:03:17 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:17 AM 		No attribute 'Description' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
+INFO 04/28/2020 07:03:17 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:17 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:17 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:18 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 404 135
+INFO 04/28/2020 07:03:18 AM Request successful
+INFO 04/28/2020 07:03:18 AM ### END: Making Collibra request ###
+INFO 04/28/2020 07:03:18 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:18 AM 		Fetching attribute 'Information Classification' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
+INFO 04/28/2020 07:03:18 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:18 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:03:18 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:03:18 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:18 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:19 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:19 AM Request successful
+INFO 04/28/2020 07:03:19 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:19 AM 		No attribute 'Information Classification' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
+INFO 04/28/2020 07:03:19 AM 	### END: Get attributes from Collibra ###
+INFO 04/28/2020 07:03:19 AM 	### START: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:19 AM 		Fetching attribute 'PII 2' for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036' from Collibra
+INFO 04/28/2020 07:03:19 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:19 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:03:19 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:03:19 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:19 AM ### START: Making Collibra request ###
+DEBUG 04/28/2020 07:03:19 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 04/28/2020 07:03:20 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e3d98107-f38e-4235-9a2a-39fc52a2d036 HTTP/1.1" 200 62
+INFO 04/28/2020 07:03:20 AM Request successful
+INFO 04/28/2020 07:03:20 AM ### END: Making Collibra request ###
+DEBUG 04/28/2020 07:03:20 AM 		No attribute 'PII 2' returned for asset 'e3d98107-f38e-4235-9a2a-39fc52a2d036'
+INFO 04/28/2020 07:03:20 AM 	### END: Get attributes from Collibra ###
+DEBUG 04/28/2020 07:03:20 AM 	Successfully fetched columns for table 'collibra.hades'
+INFO 04/28/2020 07:03:20 AM ############ END: Collibra calls ############
+INFO 04/28/2020 07:03:20 AM ############ START: PyOkera calls ############
+DEBUG 04/28/2020 07:03:20 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:20 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:20 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e7a6910> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:21 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e92ef10>)
+INFO 04/28/2020 07:03:22 AM 	Fetching table 'collibra.hades'
+DEBUG 04/28/2020 07:03:22 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:22 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e686b10>
+INFO 04/28/2020 07:03:22 AM ############ END: PyOkera calls ############
+INFO 04/28/2020 07:03:22 AM ############ START: Compare Collibra assets to Okera assets ############
+INFO 04/28/2020 07:03:22 AM 	### START: Format tags ###
+INFO 04/28/2020 07:03:22 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:03:22 AM 		Formatted tags: ['information_classification.restricted', 'pii_2.restricted']
+INFO 04/28/2020 07:03:22 AM 	### END: Format tags ###
+INFO 04/28/2020 07:03:22 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:22 AM 		Fetching resource ID for 'Description'
+INFO 04/28/2020 07:03:22 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 04/28/2020 07:03:22 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:22 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:22 AM 		Fetching resource ID for 'Information Classification'
+INFO 04/28/2020 07:03:22 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 04/28/2020 07:03:22 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:22 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:22 AM 		Fetching resource ID for 'PII 2'
+INFO 04/28/2020 07:03:22 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 04/28/2020 07:03:22 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:22 AM 	### START: Format tags ###
+INFO 04/28/2020 07:03:22 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:03:22 AM 		Formatted tags: ['information_classification.restricted', 'pii_2.restricted']
+INFO 04/28/2020 07:03:22 AM 	### END: Format tags ###
+DEBUG 04/28/2020 07:03:22 AM ###### Comparing Collibra attributes of table (name: 'collibra.hades', asset ID: 'None') to Okera tags of table 'collibra.hades': ######
+Collibra attributes: ['information_classification.restricted']
+Okera tags: ['information_classification.restricted', 'pii_2.restricted']
+DEBUG 04/28/2020 07:03:22 AM 	 Differences found, starting Okera tag operations
+INFO 04/28/2020 07:03:22 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:03:22 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:22 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:22 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9ead10> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:23 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9eadd0>)
+INFO 04/28/2020 07:03:24 AM 	Removing tag 'information_classification.restricted' from table 'hades'
+INFO 04/28/2020 07:03:24 AM 	Successfully removed tag 'information_classification.restricted' from table 'hades'
+DEBUG 04/28/2020 07:03:24 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:24 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9ea1d0>
+DEBUG 04/28/2020 07:03:24 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:24 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:24 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e8132d0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:26 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9ea1d0>)
+INFO 04/28/2020 07:03:26 AM 	Removing tag 'pii_2.restricted' from table 'hades'
+INFO 04/28/2020 07:03:27 AM 	Successfully removed tag 'pii_2.restricted' from table 'hades'
+DEBUG 04/28/2020 07:03:27 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:27 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9ea9d0>
+INFO 04/28/2020 07:03:27 AM ### END: Okera tag operations ###
+INFO 04/28/2020 07:03:27 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:03:27 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:27 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:27 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e686b10> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:28 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e940dd0>)
+INFO 04/28/2020 07:03:29 AM 	Assigning tag 'information_classification.restricted' to table 'hades'
+INFO 04/28/2020 07:03:29 AM 	Successfully assigned tag 'information_classification.restricted' to table 'hades'
+DEBUG 04/28/2020 07:03:29 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:29 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e940d90>
+INFO 04/28/2020 07:03:29 AM ### END: Okera tag operations ###
+DEBUG 04/28/2020 07:03:29 AM ###### Comparing Collibra description of table (name: 'collibra.hades', asset ID: 'None') to Okera description of table 'collibra.hades': ######
+Collibra description: Dataset with more columns.
+Okera description: restricted
+DEBUG 04/28/2020 07:03:29 AM 	Differences found, starting Okera description operations
+INFO 04/28/2020 07:03:29 AM ### START: Okera description operations ###
+DEBUG 04/28/2020 07:03:29 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:29 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:29 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e947290> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:30 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9406d0>)
+INFO 04/28/2020 07:03:31 AM 	Changing description of table 'collibra.hades' to 'Dataset with more columns.'
+INFO 04/28/2020 07:03:31 AM 	Successfully changed description of table 'collibra.hades' to 'Dataset with more columns.'
+DEBUG 04/28/2020 07:03:31 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:31 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e940450>
+INFO 04/28/2020 07:03:31 AM ### END: Okera description operations ###
+INFO 04/28/2020 07:03:31 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:31 AM 		Fetching resource ID for 'Table'
+INFO 04/28/2020 07:03:31 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 04/28/2020 07:03:31 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:31 AM 	### START: Format tags ###
+INFO 04/28/2020 07:03:31 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:03:31 AM 		Formatted tags: ['information_classification.userid', 'information_classification.ip_address', 'pii_2.userid', 'pii_2.ip_address']
+INFO 04/28/2020 07:03:31 AM 	### END: Format tags ###
+DEBUG 04/28/2020 07:03:31 AM ###### Comparing Collibra attributes of column 'collibra.hades.charon' to Okera tags of column 'collibra.hades.charon': ######
+Collibra attributes: ['pii_2.userid', 'pii_2.ip_address']
+Okera tags: ['information_classification.userid', 'information_classification.ip_address', 'pii_2.userid', 'pii_2.ip_address']
+DEBUG 04/28/2020 07:03:31 AM 	 Differences found, starting Okera tag operations
+INFO 04/28/2020 07:03:31 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:03:31 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:31 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:31 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e940110> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:33 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9ea1d0>)
+INFO 04/28/2020 07:03:33 AM 	Removing tag 'information_classification.userid' from column 'collibra.hades.charon'
+INFO 04/28/2020 07:03:34 AM 	Successfully removed tag 'information_classification.userid' from column 'collibra.hades.charon'
+DEBUG 04/28/2020 07:03:34 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:34 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e940d50>
+DEBUG 04/28/2020 07:03:34 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:34 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:34 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e940d50> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:35 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9ea790>)
+INFO 04/28/2020 07:03:37 AM 	Removing tag 'information_classification.ip_address' from column 'collibra.hades.charon'
+INFO 04/28/2020 07:03:37 AM 	Successfully removed tag 'information_classification.ip_address' from column 'collibra.hades.charon'
+DEBUG 04/28/2020 07:03:37 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:37 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9eaf90>
+DEBUG 04/28/2020 07:03:37 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:37 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:37 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9eab90> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:38 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9eadd0>)
+INFO 04/28/2020 07:03:39 AM 	Removing tag 'pii_2.userid' from column 'collibra.hades.charon'
+INFO 04/28/2020 07:03:39 AM 	Successfully removed tag 'pii_2.userid' from column 'collibra.hades.charon'
+DEBUG 04/28/2020 07:03:39 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:39 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9ea790>
+DEBUG 04/28/2020 07:03:39 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:39 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:39 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e940c10> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:40 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9ea210>)
+INFO 04/28/2020 07:03:41 AM 	Removing tag 'pii_2.ip_address' from column 'collibra.hades.charon'
+INFO 04/28/2020 07:03:42 AM 	Successfully removed tag 'pii_2.ip_address' from column 'collibra.hades.charon'
+DEBUG 04/28/2020 07:03:42 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:42 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9eabd0>
+INFO 04/28/2020 07:03:42 AM ### END: Okera tag operations ###
+INFO 04/28/2020 07:03:42 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:03:42 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:42 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:42 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9ea210> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:44 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e953450>)
+INFO 04/28/2020 07:03:45 AM 	Assigning tag 'pii_2.userid' to column 'collibra.hades.charon'
+INFO 04/28/2020 07:03:45 AM 	Successfully assigned tag 'pii_2.userid' to column 'collibra.hades.charon'
+DEBUG 04/28/2020 07:03:45 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:45 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e940c10>
+DEBUG 04/28/2020 07:03:45 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:45 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:45 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e940c10> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:46 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e953f90>)
+INFO 04/28/2020 07:03:47 AM 	Assigning tag 'pii_2.ip_address' to column 'collibra.hades.charon'
+INFO 04/28/2020 07:03:47 AM 	Successfully assigned tag 'pii_2.ip_address' to column 'collibra.hades.charon'
+DEBUG 04/28/2020 07:03:47 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:47 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e953b90>
+INFO 04/28/2020 07:03:47 AM ### END: Okera tag operations ###
+DEBUG 04/28/2020 07:03:47 AM ###### Comparing Collibra description of column 'collibra.hades.charon' to Okera description of column 'collibra.hades.charon': ######
+Collibra description: None
+Okera description: "userid", "ip_address"
+DEBUG 04/28/2020 07:03:47 AM 	Differences found, starting Okera description operations
+INFO 04/28/2020 07:03:47 AM ### START: Okera description operations ###
+DEBUG 04/28/2020 07:03:47 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:47 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:47 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e80cc50> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:48 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e940c10>)
+INFO 04/28/2020 07:03:49 AM 	Changing description of column 'collibra.hades.charon' to ''
+INFO 04/28/2020 07:03:49 AM 	Successfully changed description of column 'collibra.hades.charon' to ''
+DEBUG 04/28/2020 07:03:49 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:49 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e940d90>
+INFO 04/28/2020 07:03:49 AM ### END: Okera description operations ###
+INFO 04/28/2020 07:03:49 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:49 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:03:49 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:03:49 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 04/28/2020 07:03:49 AM ###### Comparing Collibra attributes of column 'collibra.hades.cerberus' to Okera tags of column 'collibra.hades.cerberus': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 04/28/2020 07:03:49 AM 	No differences found
+DEBUG 04/28/2020 07:03:49 AM ###### Comparing Collibra description of column 'collibra.hades.cerberus' to Okera description of column 'collibra.hades.cerberus': ######
+Collibra description: None
+Okera description: None
+DEBUG 04/28/2020 07:03:49 AM 	No differences found
+INFO 04/28/2020 07:03:49 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:49 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:03:49 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:03:49 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 04/28/2020 07:03:49 AM ###### Comparing Collibra attributes of column 'collibra.hades.cronus' to Okera tags of column 'collibra.hades.cronus': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 04/28/2020 07:03:49 AM 	No differences found
+DEBUG 04/28/2020 07:03:49 AM ###### Comparing Collibra description of column 'collibra.hades.cronus' to Okera description of column 'collibra.hades.cronus': ######
+Collibra description: None
+Okera description: None
+DEBUG 04/28/2020 07:03:49 AM 	No differences found
+INFO 04/28/2020 07:03:49 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:49 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:03:49 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:03:49 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:03:49 AM 	### START: Format tags ###
+INFO 04/28/2020 07:03:49 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:03:49 AM 		Formatted tags: ['information_classification.column_description', 'pii_2.column_description']
+INFO 04/28/2020 07:03:49 AM 	### END: Format tags ###
+DEBUG 04/28/2020 07:03:49 AM ###### Comparing Collibra attributes of column 'collibra.hades.nyx' to Okera tags of column 'collibra.hades.nyx': ######
+Collibra attributes: ['information_classification.confidential', 'pii_2.person']
+Okera tags: ['information_classification.column_description', 'pii_2.column_description']
+DEBUG 04/28/2020 07:03:49 AM 	 Differences found, starting Okera tag operations
+INFO 04/28/2020 07:03:49 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:03:49 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:49 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:49 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e953750> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:51 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e953710>)
+INFO 04/28/2020 07:03:52 AM 	Removing tag 'information_classification.column_description' from column 'collibra.hades.nyx'
+INFO 04/28/2020 07:03:52 AM 	Successfully removed tag 'information_classification.column_description' from column 'collibra.hades.nyx'
+DEBUG 04/28/2020 07:03:52 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:52 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e953210>
+DEBUG 04/28/2020 07:03:52 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:52 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:52 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e953f10> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:53 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e953590>)
+INFO 04/28/2020 07:03:54 AM 	Removing tag 'pii_2.column_description' from column 'collibra.hades.nyx'
+INFO 04/28/2020 07:03:55 AM 	Successfully removed tag 'pii_2.column_description' from column 'collibra.hades.nyx'
+DEBUG 04/28/2020 07:03:55 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:55 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e953910>
+INFO 04/28/2020 07:03:55 AM ### END: Okera tag operations ###
+INFO 04/28/2020 07:03:55 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:03:55 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:55 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:55 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e953c50> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:56 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e953f10>)
+INFO 04/28/2020 07:03:57 AM 	Assigning tag 'information_classification.confidential' to column 'collibra.hades.nyx'
+INFO 04/28/2020 07:03:57 AM 	Successfully assigned tag 'information_classification.confidential' to column 'collibra.hades.nyx'
+DEBUG 04/28/2020 07:03:57 AM Closing Planner connection
+DEBUG 04/28/2020 07:03:57 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e953890>
+DEBUG 04/28/2020 07:03:57 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:03:57 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:03:57 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e953f10> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:03:58 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9e1950>)
+INFO 04/28/2020 07:04:00 AM 	Assigning tag 'pii_2.person' to column 'collibra.hades.nyx'
+INFO 04/28/2020 07:04:00 AM 	Successfully assigned tag 'pii_2.person' to column 'collibra.hades.nyx'
+DEBUG 04/28/2020 07:04:00 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:00 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e1510>
+INFO 04/28/2020 07:04:00 AM ### END: Okera tag operations ###
+DEBUG 04/28/2020 07:04:00 AM ###### Comparing Collibra description of column 'collibra.hades.nyx' to Okera description of column 'collibra.hades.nyx': ######
+Collibra description: column description
+Okera description: column description
+DEBUG 04/28/2020 07:04:00 AM 	No differences found
+INFO 04/28/2020 07:04:00 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:00 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:00 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:00 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 04/28/2020 07:04:00 AM ###### Comparing Collibra attributes of column 'collibra.hades.erinyes' to Okera tags of column 'collibra.hades.erinyes': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 04/28/2020 07:04:00 AM 	No differences found
+DEBUG 04/28/2020 07:04:00 AM ###### Comparing Collibra description of column 'collibra.hades.erinyes' to Okera description of column 'collibra.hades.erinyes': ######
+Collibra description: None
+Okera description: None
+DEBUG 04/28/2020 07:04:00 AM 	No differences found
+INFO 04/28/2020 07:04:00 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:00 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:00 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:00 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:00 AM 	### START: Format tags ###
+INFO 04/28/2020 07:04:00 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:04:00 AM 		Formatted tags: ['information_classification.nonpublic', 'pii_2.nonpublic']
+INFO 04/28/2020 07:04:00 AM 	### END: Format tags ###
+DEBUG 04/28/2020 07:04:00 AM ###### Comparing Collibra attributes of column 'collibra.hades.thanatos' to Okera tags of column 'collibra.hades.thanatos': ######
+Collibra attributes: ['information_classification.nonpublic']
+Okera tags: ['information_classification.nonpublic', 'pii_2.nonpublic']
+DEBUG 04/28/2020 07:04:00 AM 	 Differences found, starting Okera tag operations
+INFO 04/28/2020 07:04:00 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:04:00 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:00 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:00 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1410> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:01 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9e1d50>)
+INFO 04/28/2020 07:04:02 AM 	Removing tag 'information_classification.nonpublic' from column 'collibra.hades.thanatos'
+INFO 04/28/2020 07:04:03 AM 	Successfully removed tag 'information_classification.nonpublic' from column 'collibra.hades.thanatos'
+DEBUG 04/28/2020 07:04:03 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:03 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e1850>
+DEBUG 04/28/2020 07:04:03 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:03 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:03 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1190> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:04 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9e1ed0>)
+INFO 04/28/2020 07:04:05 AM 	Removing tag 'pii_2.nonpublic' from column 'collibra.hades.thanatos'
+INFO 04/28/2020 07:04:05 AM 	Successfully removed tag 'pii_2.nonpublic' from column 'collibra.hades.thanatos'
+DEBUG 04/28/2020 07:04:05 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:05 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e1d90>
+INFO 04/28/2020 07:04:05 AM ### END: Okera tag operations ###
+INFO 04/28/2020 07:04:05 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:04:05 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:05 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:05 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1550> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:06 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9e1f90>)
+INFO 04/28/2020 07:04:07 AM 	Assigning tag 'information_classification.nonpublic' to column 'collibra.hades.thanatos'
+INFO 04/28/2020 07:04:07 AM 	Successfully assigned tag 'information_classification.nonpublic' to column 'collibra.hades.thanatos'
+DEBUG 04/28/2020 07:04:07 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:07 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e1290>
+INFO 04/28/2020 07:04:07 AM ### END: Okera tag operations ###
+DEBUG 04/28/2020 07:04:07 AM ###### Comparing Collibra description of column 'collibra.hades.thanatos' to Okera description of column 'collibra.hades.thanatos': ######
+Collibra description: None
+Okera description: nonpublic
+DEBUG 04/28/2020 07:04:07 AM 	Differences found, starting Okera description operations
+INFO 04/28/2020 07:04:07 AM ### START: Okera description operations ###
+DEBUG 04/28/2020 07:04:07 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:07 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:07 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e953290> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:08 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9e1090>)
+INFO 04/28/2020 07:04:09 AM 	Changing description of column 'collibra.hades.thanatos' to ''
+INFO 04/28/2020 07:04:09 AM 	Successfully changed description of column 'collibra.hades.thanatos' to ''
+DEBUG 04/28/2020 07:04:09 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:09 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e10d0>
+INFO 04/28/2020 07:04:09 AM ### END: Okera description operations ###
+INFO 04/28/2020 07:04:09 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:09 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:09 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:09 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 04/28/2020 07:04:09 AM ###### Comparing Collibra attributes of column 'collibra.hades.styx' to Okera tags of column 'collibra.hades.styx': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 04/28/2020 07:04:09 AM 	No differences found
+DEBUG 04/28/2020 07:04:09 AM ###### Comparing Collibra description of column 'collibra.hades.styx' to Okera description of column 'collibra.hades.styx': ######
+Collibra description: None
+Okera description: None
+DEBUG 04/28/2020 07:04:09 AM 	No differences found
+INFO 04/28/2020 07:04:09 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:09 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:09 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:09 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:09 AM 	### START: Format tags ###
+INFO 04/28/2020 07:04:09 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:04:09 AM 		Formatted tags: ['information_classification.restricted', 'pii_2.restricted']
+INFO 04/28/2020 07:04:09 AM 	### END: Format tags ###
+DEBUG 04/28/2020 07:04:09 AM ###### Comparing Collibra attributes of column 'collibra.hades.hermes' to Okera tags of column 'collibra.hades.hermes': ######
+Collibra attributes: ['information_classification.restricted']
+Okera tags: ['information_classification.restricted', 'pii_2.restricted']
+DEBUG 04/28/2020 07:04:09 AM 	 Differences found, starting Okera tag operations
+INFO 04/28/2020 07:04:09 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:04:09 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:09 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:09 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1cd0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:10 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200350>)
+INFO 04/28/2020 07:04:11 AM 	Removing tag 'information_classification.restricted' from column 'collibra.hades.hermes'
+INFO 04/28/2020 07:04:11 AM 	Successfully removed tag 'information_classification.restricted' from column 'collibra.hades.hermes'
+DEBUG 04/28/2020 07:04:11 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:11 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e1690>
+DEBUG 04/28/2020 07:04:11 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:11 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:11 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1690> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:12 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200990>)
+INFO 04/28/2020 07:04:13 AM 	Removing tag 'pii_2.restricted' from column 'collibra.hades.hermes'
+INFO 04/28/2020 07:04:14 AM 	Successfully removed tag 'pii_2.restricted' from column 'collibra.hades.hermes'
+DEBUG 04/28/2020 07:04:14 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:14 AM close_service: client=<thriftpy.thrift.TClient object at 0x110200690>
+INFO 04/28/2020 07:04:14 AM ### END: Okera tag operations ###
+INFO 04/28/2020 07:04:14 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:04:14 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:14 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:14 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1ad0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:15 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200910>)
+INFO 04/28/2020 07:04:16 AM 	Assigning tag 'information_classification.restricted' to column 'collibra.hades.hermes'
+INFO 04/28/2020 07:04:16 AM 	Successfully assigned tag 'information_classification.restricted' to column 'collibra.hades.hermes'
+DEBUG 04/28/2020 07:04:16 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:16 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e1690>
+INFO 04/28/2020 07:04:16 AM ### END: Okera tag operations ###
+DEBUG 04/28/2020 07:04:16 AM ###### Comparing Collibra description of column 'collibra.hades.hermes' to Okera description of column 'collibra.hades.hermes': ######
+Collibra description: None
+Okera description: restricted
+DEBUG 04/28/2020 07:04:16 AM 	Differences found, starting Okera description operations
+INFO 04/28/2020 07:04:16 AM ### START: Okera description operations ###
+DEBUG 04/28/2020 07:04:16 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:16 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:16 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x110211fd0> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:17 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x10e9e1910>)
+INFO 04/28/2020 07:04:17 AM 	Changing description of column 'collibra.hades.hermes' to ''
+INFO 04/28/2020 07:04:18 AM 	Successfully changed description of column 'collibra.hades.hermes' to ''
+DEBUG 04/28/2020 07:04:18 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:18 AM close_service: client=<thriftpy.thrift.TClient object at 0x10e9e10d0>
+INFO 04/28/2020 07:04:18 AM ### END: Okera description operations ###
+INFO 04/28/2020 07:04:18 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:18 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:18 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:18 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:18 AM 	### START: Format tags ###
+INFO 04/28/2020 07:04:18 AM 		Formatting tags for Okera as 'namespace.key'
+DEBUG 04/28/2020 07:04:18 AM 		Formatted tags: ['information_classification.public', 'pii_2.public']
+INFO 04/28/2020 07:04:18 AM 	### END: Format tags ###
+DEBUG 04/28/2020 07:04:18 AM ###### Comparing Collibra attributes of column 'collibra.hades.erebos' to Okera tags of column 'collibra.hades.erebos': ######
+Collibra attributes: ['information_classification.public']
+Okera tags: ['information_classification.public', 'pii_2.public']
+DEBUG 04/28/2020 07:04:18 AM 	 Differences found, starting Okera tag operations
+INFO 04/28/2020 07:04:18 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:04:18 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:18 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:18 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x110200190> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:19 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200150>)
+INFO 04/28/2020 07:04:20 AM 	Removing tag 'information_classification.public' from column 'collibra.hades.erebos'
+INFO 04/28/2020 07:04:20 AM 	Successfully removed tag 'information_classification.public' from column 'collibra.hades.erebos'
+DEBUG 04/28/2020 07:04:20 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:20 AM close_service: client=<thriftpy.thrift.TClient object at 0x110200750>
+DEBUG 04/28/2020 07:04:20 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:20 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:20 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x110200690> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:21 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200c90>)
+INFO 04/28/2020 07:04:22 AM 	Removing tag 'pii_2.public' from column 'collibra.hades.erebos'
+INFO 04/28/2020 07:04:22 AM 	Successfully removed tag 'pii_2.public' from column 'collibra.hades.erebos'
+DEBUG 04/28/2020 07:04:22 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:22 AM close_service: client=<thriftpy.thrift.TClient object at 0x110200ad0>
+INFO 04/28/2020 07:04:22 AM ### END: Okera tag operations ###
+INFO 04/28/2020 07:04:22 AM ### START: Okera tag operations ###
+DEBUG 04/28/2020 07:04:22 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:22 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:22 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x110200810> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:24 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200290>)
+INFO 04/28/2020 07:04:25 AM 	Assigning tag 'information_classification.public' to column 'collibra.hades.erebos'
+INFO 04/28/2020 07:04:29 AM 	Successfully assigned tag 'information_classification.public' to column 'collibra.hades.erebos'
+DEBUG 04/28/2020 07:04:29 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:29 AM close_service: client=<thriftpy.thrift.TClient object at 0x110200b90>
+INFO 04/28/2020 07:04:29 AM ### END: Okera tag operations ###
+DEBUG 04/28/2020 07:04:29 AM ###### Comparing Collibra description of column 'collibra.hades.erebos' to Okera description of column 'collibra.hades.erebos': ######
+Collibra description: None
+Okera description: public
+DEBUG 04/28/2020 07:04:29 AM 	Differences found, starting Okera description operations
+INFO 04/28/2020 07:04:29 AM ### START: Okera description operations ###
+DEBUG 04/28/2020 07:04:29 AM Connecting to planner sandbox.demo.okera.com:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 04/28/2020 07:04:29 AM get_socket: host=sandbox.demo.okera.com port=12050 use_ssl=False ca_cert=None
+DEBUG 04/28/2020 07:04:29 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x10e9e1690> host=sandbox.demo.okera.com service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 04/28/2020 07:04:30 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x110200750>)
+INFO 04/28/2020 07:04:31 AM 	Changing description of column 'collibra.hades.erebos' to ''
+INFO 04/28/2020 07:04:31 AM 	Successfully changed description of column 'collibra.hades.erebos' to ''
+DEBUG 04/28/2020 07:04:31 AM Closing Planner connection
+DEBUG 04/28/2020 07:04:31 AM close_service: client=<thriftpy.thrift.TClient object at 0x110200410>
+INFO 04/28/2020 07:04:31 AM ### END: Okera description operations ###
+INFO 04/28/2020 07:04:31 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:31 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:31 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:31 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 04/28/2020 07:04:31 AM ###### Comparing Collibra attributes of column 'collibra.hades.hypnos' to Okera tags of column 'collibra.hades.hypnos': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 04/28/2020 07:04:31 AM 	No differences found
+DEBUG 04/28/2020 07:04:31 AM ###### Comparing Collibra description of column 'collibra.hades.hypnos' to Okera description of column 'collibra.hades.hypnos': ######
+Collibra description: None
+Okera description: None
+DEBUG 04/28/2020 07:04:31 AM 	No differences found
+INFO 04/28/2020 07:04:31 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:31 AM 		Fetching resource ID for 'Column'
+INFO 04/28/2020 07:04:31 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 04/28/2020 07:04:31 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 04/28/2020 07:04:31 AM ############ END: Compare Collibra assets to Okera assets ############
+INFO 04/28/2020 07:04:31 AM ############ SUMMARY: ASSETS FETCHED AND COMPARED ############
+DEBUG 04/28/2020 07:04:31 AM ### OKERA TABLE 'collibra.hades' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades',
+ 'asset_type': 'Table',
+ 'attributes': {'description': 'restricted',
+                'tags': ['information_classification.restricted',
+                         'pii_2.restricted']},
+ 'location': {'database': 'collibra', 'system': 'Okera'},
+ 'log_type': "OKERA TABLE 'collibra.hades'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA TABLE 'collibra.hades' ###
+{'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+ 'asset_name': 'collibra.hades',
+ 'asset_type': {'name': 'Table',
+                'type_id': '00000000-0000-0000-0000-000000031007'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'Dataset with more columns.'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.restricted']}},
+ 'location': {'community': 'Okera3.0',
+              'database': 'collibra',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra'},
+ 'log_type': "COLLIBRA TABLE 'collibra.hades'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.charon' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.charon',
+ 'asset_type': 'Column',
+ 'attributes': {'description': '"userid", "ip_address"',
+                'tags': "['information_classification.userid', "
+                        "'information_classification.ip_address', "
+                        "'pii_2.userid', 'pii_2.ip_address']"},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.charon'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.charon' ###
+{'asset_id': '98c79d25-c388-4025-a651-3f6c607257a4',
+ 'asset_name': 'collibra.hades.charon',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['pii_2.userid', 'pii_2.ip_address']}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.charon'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.cerberus' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.cerberus',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.cerberus'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.cerberus' ###
+{'asset_id': '1ae1139f-85d8-455f-be40-87a507b98c1f',
+ 'asset_name': 'collibra.hades.cerberus',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.cerberus'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.cronus' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.cronus',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.cronus'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.cronus' ###
+{'asset_id': '6ebe91b0-633a-4c4e-b887-b33e41833b05',
+ 'asset_name': 'collibra.hades.cronus',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.cronus'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.nyx' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.nyx',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'column description',
+                'tags': "['information_classification.column_description', "
+                        "'pii_2.column_description']"},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.nyx'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.nyx' ###
+{'asset_id': 'e590bef6-03fc-42d2-b830-4088bbcf7dad',
+ 'asset_name': 'collibra.hades.nyx',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'column description'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.confidential',
+                                   'pii_2.person']}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.nyx'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.erinyes' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.erinyes',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.erinyes'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.erinyes' ###
+{'asset_id': 'e3d98107-f38e-4235-9a2a-39fc52a2d036',
+ 'asset_name': 'collibra.hades.erinyes',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.erinyes'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.thanatos' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.thanatos',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'nonpublic',
+                'tags': "['information_classification.nonpublic', "
+                        "'pii_2.nonpublic']"},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.thanatos'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.thanatos' ###
+{'asset_id': '157269f7-f8f0-4243-9def-b460c1d58402',
+ 'asset_name': 'collibra.hades.thanatos',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.nonpublic']}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.thanatos'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.styx' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.styx',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.styx'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.styx' ###
+{'asset_id': '28bca607-6154-4d17-8bd2-c4cd381f679d',
+ 'asset_name': 'collibra.hades.styx',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.styx'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.hermes' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.hermes',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'restricted',
+                'tags': "['information_classification.restricted', "
+                        "'pii_2.restricted']"},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.hermes'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.hermes' ###
+{'asset_id': '4ddaa6b3-f6c7-43f5-9564-cf354525d220',
+ 'asset_name': 'collibra.hades.hermes',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.restricted']}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.hermes'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.erebos' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.erebos',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'public',
+                'tags': "['information_classification.public', "
+                        "'pii_2.public']"},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.erebos'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.erebos' ###
+{'asset_id': '1ce7cbbf-e672-42cf-8dc7-721ca4de49e4',
+ 'asset_name': 'collibra.hades.erebos',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.public']}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.erebos'"}
+DEBUG 04/28/2020 07:04:31 AM ### OKERA COLUMN 'collibra.hades.hypnos' ###
+{'asset_id': 'None',
+ 'asset_name': 'collibra.hades.hypnos',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera', 'table': 'collibra.hades'},
+ 'log_type': "OKERA COLUMN 'collibra.hades.hypnos'"}
+DEBUG 04/28/2020 07:04:31 AM ### COLLIBRA COLUMN 'collibra.hades.hypnos' ###
+{'asset_id': 'c390f612-e820-4e19-a721-fcfeaa63e5f3',
+ 'asset_name': 'collibra.hades.hypnos',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera3.0',
+              'domain': {'name': 'export_only',
+                         'type': 'Physical Data Dictionary'},
+              'system': 'Collibra',
+              'table': {'asset_id': 'de80cb74-87fd-4760-bab1-51e8f4712da0',
+                        'name': 'collibra.hades'}},
+ 'log_type': "COLLIBRA COLUMN 'collibra.hades.hypnos'"}
+INFO 04/28/2020 07:04:31 AM Export complete!

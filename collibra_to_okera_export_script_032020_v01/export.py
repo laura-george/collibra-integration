@@ -33,26 +33,26 @@ def escape(string, remove_whitespace=False):
 # builds and makes collibra request
 def collibra_get(param_obj, call, method, header=None):
     if method == 'get':
-        try: 
+        try:
             data = getattr(requests, method)(
-            configs['collibra_dgc'] + "/rest/2.0/" + call, 
-            params=param_obj, 
+            configs['collibra_dgc'] + "/rest/2.0/" + call,
+            params=param_obj,
             auth=(configs['collibra_username'], configs['collibra_password']))
             data.raise_for_status()
         except requests.exceptions.HTTPError as e:
             if json.loads(data.content).get('errorCode') != "mappingNotFound":
-                print("COLLIBRA CORE API ERROR") 
+                print("COLLIBRA CORE API ERROR")
                 print("Failed request: " + str(param_obj))
                 print("Error: ", e)
                 print("Response: " + str(data.content))
         return data.content
     else:
-        try: 
+        try:
             data = getattr(requests, method)(
             configs['collibra_dgc'] + "/rest/2.0/" + call,
-            headers=header, 
-            json=param_obj, 
-            auth=(configs['collibra username'], configs['collibra password']))    
+            headers=header,
+            json=param_obj,
+            auth=(configs['collibra username'], configs['collibra password']))
             data.raise_for_status()
         except requests.exceptions.RequestException as e:
             print("COLLIBRA CORE API ERROR")
@@ -116,7 +116,7 @@ def create_tags(attribute_values):
     attributes = []
     if attribute_values:
         for attribute in attribute_values:
-            name = attribute.attribute.attribute_namespace + "." + attribute.attribute.key 
+            name = attribute.attribute.attribute_namespace + "." + attribute.attribute.key
             attributes.append(name)
         return attributes
 
@@ -145,7 +145,7 @@ def pyokera_calls(asset_name=None):
                     element = {'database': database, 'tables': tables}
                 else:
                     element = {'database': database}
-                elements.append(element) 
+                elements.append(element)
 
 # gets assets and their tags and attributes from Collibra
 # asset_name is always the name of a database
@@ -153,11 +153,11 @@ def collibra_calls(asset_name=None):
     def set_elements(asset_id, asset_name, asset_type):
         info_classif = escape(get_attributes(asset_id, "Information Classification"), True)
         update_elements.append({
-            'name': asset_name, 
-            'asset_id': asset_id, 
+            'name': asset_name,
+            'asset_id': asset_id,
             'description': escape(get_attributes(asset_id, "Description")),
-            'info_classif': configs['mapped_attribute_okera_namespace'] + "." + info_classif if info_classif else None, 
-            'type': asset_type, 
+            'info_classif': configs['mapped_attribute_okera_namespace'] + "." + info_classif if info_classif else None,
+            'type': asset_type,
             #'tags': get_tags(d.get('id')),
             'mapped_okera_resource': json.loads(collibra_get(None, "mappings/externalSystem/okera/mappedResource/" + asset_id, 'get')).get('externalEntityId')
             })
@@ -282,9 +282,9 @@ def tag_actions(action, db, name, type, tags):
     if isinstance(tags, list):
         for tag in tags:
             define_tags(tag)
-    else: 
+    else:
         define_tags(tags)
-        
+
 # alters description for either table, view or column
 def desc_actions(name, type, col_type, description, tab_type=None):
     description = '' if not description else description
@@ -350,7 +350,7 @@ def export(asset_name=None):
                 okera_tab_desc = t.description
                 tab_type = "View" if t.primary_storage == "View" else "Table"
                 if okera_tab_desc and not collibra_tab_desc or collibra_tab_desc and not okera_tab_desc or (okera_tab_desc and collibra_tab_desc and okera_tab_desc != collibra_tab_desc):
-                    desc_actions(tab_name, tab_type, None, collibra_tab_desc)        
+                    desc_actions(tab_name, tab_type, None, collibra_tab_desc)
                 # begin of column loop: same functionality as table loop
                 for col in t.schema.cols:
                     col_name = tab_name + "." + col.name

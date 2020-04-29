@@ -1,0 +1,11 @@
+communities:
+  - name: "Okera3.0"
+    id: "36fd10bf-f6f3-44a6-807e-915c6a24c521"
+    domains:
+      - name: "import"
+        id: "fdd4a0ad-4505-45c8-9d32-bd7c0769ddb0"
+        databases:
+        tables:
+          - "collibra_import.nifty"
+          - "collibra_import2.hades2"
+          - "collibra_import.cool"

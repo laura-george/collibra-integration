@@ -1,0 +1,35 @@
+# Example:
+# communities:
+#   - name: "Community 1"
+#     id: "36fd10bf-f6f3-44a6-807e-915c6a24c521"
+#     domains:
+#       - name: "Domain 1"
+#         id: "87a5c7ae-46ca-4e3d-8a6a-b15772fc7264"
+#         databases:
+#         tables:
+#           - "db_1.table_1"
+#           - "db_2.table_2"
+#       - name: "Domain 2"
+#         id: "53f54ef8-46ca-4e3d-8a6a-b15772fc7264"
+#         databases:
+#           - "db_a"
+#           - "db_b"
+#           - "db_c"
+#         tables:
+#           - db_d.table_a"
+#   - name: "Community 2"
+#     id: "45fd10bf-f6f3-66a6-807e-915c6a25c521"
+#     domains:
+#       - name: "Domain 3"
+#         id: "98f5c7ae-46ca-4e3d-8a6a-b17652fc7264"
+#         databases:
+#           - "db_123abc"
+#         tables:
+communities:
+  - name: ""
+    id: ""
+    domains:
+      - name: ""
+        id: ""
+        databases:
+        tables:

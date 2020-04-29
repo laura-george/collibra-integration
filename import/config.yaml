@@ -1,0 +1,27 @@
+# This file contains all user-specific information
+# Example:
+#  host: "example.okera.com"
+#  token: "okera acces token"
+#  collibra_dgc: "https://example.collibra.com:443"
+#  collibra_username: "username"
+#  collibra_password: "password"
+#  community: "Example Community"
+#  domain:
+#      name: "Example Domain"
+#      type: "Data Asset Domain"
+#  info_classif_namespace: "information_classification"
+configs:
+  log_directory: "logs"
+  okera_host: "sandbox.demo.okera.com"
+  okera_token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXHA_XPqigFx5Qn36hEa.nSz2ZPFpQCe2kVtErqumq5s_sic$"
+  collibra_dgc: "https://okera.collibra.com:443"
+  collibra_username: "Admin"
+  collibra_password: "Gac2Quencotdilo"
+  collibra_assets: "assets.yaml"
+  community: "Okera3.0"
+  domain:
+      name: "import"
+      type: "Physical Data Dictionary"
+  mapped_collibra_attributes:
+    - {attribute_name: "Information Classification", attribute_id: "339481cfd-bace-4634-9277-ceacb9b71e87", okera_namespace: "information_classification"}
+    - {attribute_name: "PII 2", attribute_id: "48007d3a-7843-45e0-a99b-5117fa16576f", okera_namespace: "pii_2"}
