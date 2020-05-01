@@ -27,7 +27,7 @@ configs:
   log_directory: "logs"
   # Okera specific information
   okera_host: "sandbox.demo.okera.com"
-  okera_token:
+  okera_token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXHLQ0IdigFx70_GHRMe.N6VpBroUWyprkkpIVFsvceocbFg$"
   #Collibra specific information
   collibra_dgc: "https://okera.collibra.com:443"
   collibra_username: "Admin"

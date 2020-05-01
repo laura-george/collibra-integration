@@ -6,6 +6,4 @@ communities:
         id: "fdd4a0ad-4505-45c8-9d32-bd7c0769ddb0"
         databases:
         tables:
-          - "collibra_import.nifty"
-          - "collibra_import2.hades2"
-          - "collibra_import.cool"
+          - "collibra_import.neat"

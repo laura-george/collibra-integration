@@ -1,5 +1,3 @@
-# TODO don't override tags
-
 import json
 import requests
 import thriftpy
@@ -42,7 +40,9 @@ def pyokera_error():
     logging.error("\tError: ", repr(e))
 
 class Asset:
-    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None, relation=None, children=None, attributes=None, attribute_ids=None, tags=None, last_collibra_sync_time=None, table_hash=None):
+    def __init__(self, name, asset_type, asset_type_id=None, asset_id=None, displayName=None,
+                relation=None, children=None, attributes=None, attribute_ids=None,
+                tags=None, last_collibra_sync_time=None, table_hash=None):
         self.name = name
         self.asset_type = asset_type
         self.asset_type_id = asset_type_id
@@ -405,6 +405,7 @@ def set_attributes(asset):
 
         if asset.attributes.get('Description'): group_attributes('Description')
         if asset.attributes.get('Location'): group_attributes('Location')
+        # add column order here
         #if asset.attributes.get('Technical Data Type'): group_attributes('Technical Data Type')
         return attribute_params
 
@@ -470,15 +471,18 @@ def update(asset_name=None, asset_id=None, asset_type=None):
             "syncAction": "ADD"
         }
         collibra_get(mapping_param, "mappings", "post") """
+        # set column order here
         if new_asset.tags:
             logging.info("\tSetting tags for asset '" + new_asset.name + "'")
             tag_params = {'tagNames': new_asset.tags}
             collibra_get(tag_params, "assets/" + new_asset.asset_id + "/tags", "post")
         set_tblproperties(name=new_asset.name, asset_type=new_asset.asset_type, key="collibra_asset_id", value=new_asset.asset_id)
 
-    for deleted_asset in [obj for obj in collibra_assets if obj not in assets]:
-        print("deleted asset found: ", deleted_asset.name)
-        #collibra_get(None, "assets/" + deleted_asset.asset_id, "delete")
+    for not_found in [obj for obj in collibra_assets if obj not in assets]:
+        logging.debug("### Asset '{name}' not found in Collibra domain '{domain}' in community '{community}' ###".format(
+            name=not_found.name,
+            domain=domain,
+            community=community))
 
     # UPDATES (asset already exists in Collibra)
     for c in collibra_assets:
@@ -504,18 +508,18 @@ def update(asset_name=None, asset_id=None, asset_type=None):
                     collibra_name=c.name,
                     okera_name=okera_name,
                     collibra_tags=collibra_tags,
-                    okera_tags=okera_tags)
-            )
+                    okera_tags=okera_tags))
             if okera_tags and not collibra_tags:
                 collibra_get(tag_params, "assets/" + c.asset_id + "/tags", "post")
                 set_sync_time(c.name, c.asset_id, c.asset_type)
             elif collibra_tags and okera_tags and collections.Counter(collibra_tags) != collections.Counter(okera_tags):
-                collibra_get(tag_params, "assets/" + asset.asset_id + "/tags", "put")
-                set_sync_time(c.asset_id, c.asset_type)
-            elif collibra_tags and not okera_tags:
-                tag_params = {'tagNames': collibra_tags}
-                collibra_get(tag_params, "assets/" + c.asset_id + "/tags", "delete")
+                new_tags = []
+                for new_tag in [tag for tag in okera_tags if tag not in collibra_tags]:
+                    new_tags.append(new_tag)
+                new_tag_params = {'tagNames': new_tags}
+                collibra_get(new_tag_params, "assets/" + asset.asset_id + "/tags", "post")
                 set_sync_time(c.name, c.asset_id, c.asset_type)
+                # commenting out deletion for now, tags should not overwritten
             else:
                 logging.debug("\tNo differences found")
 
@@ -536,8 +540,7 @@ def update(asset_name=None, asset_id=None, asset_type=None):
                     collibra_name=c.name,
                     okera_name=okera_name,
                     collibra_attr=c.attributes,
-                    okera_attr=matched_attr)
-            )
+                    okera_attr=matched_attr))
             if c.attributes and matched_attr:
                 for key in matched_attr:
                     if key in c.attributes:
@@ -584,7 +587,9 @@ def create_table_hash(table):
     if table.children:
         for c in table.children:
             column_values.append(c.name + c.asset_type + replace_none(json.dumps(c.relation)) + replace_none(json.dumps(c.attributes)) + replace_none(json.dumps(c.tags)))
-    table_hash_values = table.name + table.asset_type + replace_none(table.asset_id) + replace_none(json.dumps(table.relation)) + replace_none(json.dumps(column_values)) + replace_none(json.dumps(table.attributes)) + replace_none(json.dumps(table.tags))
+    table_hash_values = (table.name + table.asset_type + replace_none(table.asset_id) +
+    replace_none(json.dumps(table.relation)) + replace_none(json.dumps(column_values)) +
+    replace_none(json.dumps(table.attributes)) + replace_none(json.dumps(table.tags)))
     try:
         table_hash = hashlib.md5(table_hash_values.encode()).hexdigest()
         logging.info("\tSuccessfully created hash for table '" + str(table.name) + "': " + str(table_hash))

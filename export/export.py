@@ -14,6 +14,9 @@ import pprint
 TOKEN = os.getenv('TOKEN')
 # location of config.yaml
 CONF = os.getenv('CONF')
+# Collibra environment credentials
+env_un = os.getenv('collibra_username')
+env_pw = os.getenv('collibra_password')
 # Okera planner port
 planner_port = 12050
 # list of elements retrieved from Collibra
@@ -37,7 +40,7 @@ try:
         config = 'config.yaml'
     with open(config) as f:
         configs = yaml.load(f, Loader=yaml.FullLoader)['configs']
-    required = ['collibra_dgc', 'collibra_username', 'collibra_password', 'okera_host', 'log_directory']
+    required = ['collibra_dgc', 'okera_host', 'log_directory']
     for c in configs:
         if c in required and configs[c] == "":
             logging.error("Empty value for key '{key}' in {config}!".format(key=c, config=config))
@@ -48,6 +51,17 @@ except yaml.YAMLError as e:
 except FileNotFoundError:
     logging.error("Config file {config} not found! To set the location run $ export CONF=path/to/config.yaml".format(config=config))
     error_out()
+
+def get_credentials(cred_type):
+    if not env_un and not configs['collibra_username']:
+        logging.error("Collibra username is not set! To set username run $ export collibra_username=$username or set in " + str(config))
+        error_out()
+    if not env_pw and not configs['collibra_password']:
+        logging.error("Collibra password is not set! To set username run $ export collibra_password=$password or set in " + str(config))
+        error_out()
+    collibra_username = env_un if env_un else configs['collibra_username']
+    collibra_password = env_pw if env_pw else configs['collibra_password']
+    return collibra_username if cred_type == "username" else collibra_password
 
 # logging configuration
 log_file = os.path.join(configs['log_directory'], 'export.log')
@@ -91,7 +105,7 @@ def collibra_get(param_obj, call, method, header=None):
             data = getattr(requests, method)(
             configs['collibra_dgc'] + "/rest/2.0/" + call,
             params=param_obj,
-            auth=(configs['collibra_username'], configs['collibra_password']))
+            auth=(get_credentials("username"), get_credentials("password")))
             data.raise_for_status()
         except requests.exceptions.HTTPError as e:
             if json.loads(data.content).get('errorCode') != "mappingNotFound":
