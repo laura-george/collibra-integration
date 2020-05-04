@@ -6,6 +6,7 @@ import yaml
 import sys
 import os
 import hashlib
+import traceback
 import copy
 from okera import context
 from pymongo import MongoClient
@@ -252,16 +253,17 @@ def pyokera_calls(asset_name=None, asset_type=None):
                 last_collibra_sync_time=t.metadata.get('last_collibra_sync_time'),
                 table_hash=t.metadata.get('table_hash') if t.metadata.get('table_hash') else None
                 )
-
+            col_position = 0
             for col in t.schema.cols:
                 column = Asset(
                     name=escape(t.db[0] + "." + t.name + "." + col.name),
                     asset_type="Column",
                     displayName=escape(col.name),
                     relation={'Name': escape(t.db[0] + "." + t.name), 'id': t.metadata.get('collibra_asset_id'), 'Type': "Table"},
-                    attributes={'Description': escape(col.comment) if col.comment else None}, # 'Technical Data Type': type_ids[col.type.type_id]},
+                    attributes={'Description': escape(col.comment) if col.comment else None, 'Column Position': float(col_position),  'Technical Data Type': type_ids[col.type.type_id]},
                     tags=create_tags(col.attribute_values)
                 )
+                col_position += 1
                 assets.append(column)
                 okera_columns.append(column)
             assets.append(table)
@@ -298,7 +300,7 @@ def get_okera_assets(name=None, asset_type=None, asset_id=None):
     okera_assets = []
     asset = None
     for a in assets:
-        if name and not asset_id:
+        if name and not asset_id or asset_type=="Column":
             if a.name == name and a.asset_type == asset_type:
                 a.asset_type_id = get_resource_ids('assets', a.asset_type)
                 asset = a
@@ -393,7 +395,7 @@ def set_assets(asset):
     })
 
 # sets the parameters for /attributes Collibra call
-def set_attributes(asset):
+def set_attributes(asset, attr_name=None):
     attribute_params = []
     if asset.attributes:
         def group_attributes(attr):
@@ -402,11 +404,14 @@ def set_attributes(asset):
                     'typeId': get_resource_ids('attributes', attr),
                     'value': asset.attributes.get(attr)
                     })
-
-        if asset.attributes.get('Description'): group_attributes('Description')
-        if asset.attributes.get('Location'): group_attributes('Location')
-        # add column order here
-        #if asset.attributes.get('Technical Data Type'): group_attributes('Technical Data Type')
+        if attr_name:
+            group_attributes(attr_name)
+        else:
+            # fix this
+            if asset.attributes.get('Description'): group_attributes('Description')
+            if asset.attributes.get('Location'): group_attributes('Location')
+            if 'Column Position' in asset.attributes: group_attributes('Column Position')
+            if asset.attributes.get('Technical Data Type'): group_attributes('Technical Data Type')
         return attribute_params
 
 # sets the parameters for /relations Collibra call
@@ -535,7 +540,7 @@ def update(asset_name=None, asset_id=None, asset_type=None):
             delete_attr = []
             logging.info(
                 "###### Comparing Collibra attributes of {asset_type} '{collibra_name}' to Okera attributes of {asset_type} '{okera_name}': ######"
-                "\nCollibra tags: {collibra_attr}\nOkera tags: {okera_attr}".format(
+                "\nCollibra attributes: {collibra_attr}\nOkera attributes: {okera_attr}".format(
                     asset_type=c.asset_type,
                     collibra_name=c.name,
                     okera_name=okera_name,
@@ -548,11 +553,12 @@ def update(asset_name=None, asset_id=None, asset_type=None):
                             update_attr.append({'id': c.attribute_ids[key], 'value': matched_attr[key]})
                         elif matched_attr[key] == None:
                             delete_attr.append(c.attribute_ids[key])
+                    elif matched_attr[key] != None:
+                        a = get_okera_assets(name=c.name, asset_type=c.asset_type, asset_id=c.asset_id)
+                        a.asset_id = c.asset_id
+                        import_attr.append(set_attributes(a, key)[0])
                     else:
-                        if matched_attr[key] != None:
-                            a = get_okera_assets(name=c.name, asset_type=c.asset_type, asset_id=c.asset_id)
-                            a.asset_id = c.asset_id
-                            import_attr.append(set_attributes(a)[0])
+                        logging.debug("\tNo differences found")
             elif matched_attr and not c.attributes:
                 for key in matched_attr:
                     if matched_attr[key] != None and matched_attr[key] != '':
@@ -561,7 +567,7 @@ def update(asset_name=None, asset_id=None, asset_type=None):
                             import_attr.append(set_attributes(a)[0])
             else:
                 logging.debug("\tNo differences found")
-
+            # Not using PATCH for new attribute if one attr already exists
             if update_attr:
                 logging.info("\tUpdating attributes for asset '" + c.name + "'")
                 logging.debug("\tAttributes: " + str(update_attr))
@@ -635,8 +641,12 @@ def update_all(mode, name=None, asset_type=None):
 
 mode = 'force' if 'f' in sys.argv else 'default'
 
+this = False
+if this == True:
+    raise Exception()
 if update_assets:
     logging.info("Using assets in '" + configs['collibra_assets'] + "' to run script...")
+    this = True
     for comm in update_assets['communities']:
         community = comm['name']
         community_id = comm['id']

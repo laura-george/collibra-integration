@@ -12,7 +12,7 @@
 #  info_classif_namespace: "information_classification"
 configs:
   log_directory: "logs"
-  okera_host: "sandbox.demo.okera.com"
+  okera_host: "aws21.demo.okera.com"
   okera_token:
   collibra_dgc: "https://okera.collibra.com:443"
   collibra_username: "Admin"
