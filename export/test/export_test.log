@@ -1,0 +1,1091 @@
+DEBUG 05/14/2020 07:08:44 AM Creating Okera context
+DEBUG 05/14/2020 07:09:21 AM Creating Okera context
+DEBUG 05/14/2020 07:09:42 AM Creating Okera context
+DEBUG 05/14/2020 07:12:26 AM Creating Okera context
+DEBUG 05/14/2020 07:12:26 AM Enabled token auth
+DEBUG 05/14/2020 07:12:54 AM Creating Okera context
+DEBUG 05/14/2020 07:12:54 AM Enabled token auth
+DEBUG 05/14/2020 07:13:15 AM Creating Okera context
+DEBUG 05/14/2020 07:13:15 AM Enabled token auth
+INFO 05/14/2020 07:13:15 AM ### START: Making Collibra request ###
+DEBUG 05/14/2020 07:15:57 AM Creating Okera context
+DEBUG 05/14/2020 07:15:57 AM Enabled token auth
+INFO 05/14/2020 07:15:57 AM ### START: Making Collibra request ###
+DEBUG 05/14/2020 07:15:58 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/14/2020 07:15:58 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/14/2020 07:15:58 AM Request successful
+INFO 05/14/2020 07:15:58 AM ### END: Making Collibra request ###
+DEBUG 05/14/2020 07:20:45 AM Creating Okera context
+DEBUG 05/14/2020 07:20:45 AM Enabled token auth
+INFO 05/14/2020 07:20:45 AM ### START: Making Collibra request ###
+DEBUG 05/14/2020 07:20:45 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/14/2020 07:20:46 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/14/2020 07:20:46 AM Request successful
+INFO 05/14/2020 07:20:46 AM ### END: Making Collibra request ###
+DEBUG 05/14/2020 07:21:14 AM Creating Okera context
+DEBUG 05/14/2020 07:21:14 AM Enabled token auth
+INFO 05/14/2020 07:21:14 AM ### START: Making Collibra request ###
+DEBUG 05/14/2020 07:21:14 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/14/2020 07:21:15 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/14/2020 07:21:15 AM Request successful
+INFO 05/14/2020 07:21:15 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:12:12 AM Creating Okera context
+DEBUG 05/15/2020 07:12:12 AM Enabled token auth
+INFO 05/15/2020 07:12:12 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:13 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:13 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:12:13 AM Request successful
+INFO 05/15/2020 07:12:13 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:12:24 AM Creating Okera context
+DEBUG 05/15/2020 07:12:24 AM Enabled token auth
+INFO 05/15/2020 07:12:24 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:24 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:25 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:12:25 AM Request successful
+INFO 05/15/2020 07:12:25 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:26 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:26 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:26 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:26 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:26 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:12:26 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:12:26 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:26 AM Request successful
+INFO 05/15/2020 07:12:26 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:26 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:26 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:27 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:27 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:12:27 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:12:27 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:27 AM Request successful
+INFO 05/15/2020 07:12:27 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:27 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:28 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:28 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:28 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'e'}
+WARNING 05/15/2020 07:12:28 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e')
+WARNING 05/15/2020 07:12:28 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:28 AM Request successful
+INFO 05/15/2020 07:12:28 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:28 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:28 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:29 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:29 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'f'}
+WARNING 05/15/2020 07:12:29 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f')
+WARNING 05/15/2020 07:12:29 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:29 AM Request successful
+INFO 05/15/2020 07:12:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:29 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:29 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '0'}
+WARNING 05/15/2020 07:12:29 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0')
+WARNING 05/15/2020 07:12:29 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:29 AM Request successful
+INFO 05/15/2020 07:12:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:30 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:30 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:30 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '9'}
+WARNING 05/15/2020 07:12:30 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9')
+WARNING 05/15/2020 07:12:30 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:30 AM Request successful
+INFO 05/15/2020 07:12:30 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:30 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:30 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:31 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:31 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:31 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:12:31 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:12:31 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:31 AM Request successful
+INFO 05/15/2020 07:12:31 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:31 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:31 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:31 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:31 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:31 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '8'}
+WARNING 05/15/2020 07:12:31 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8')
+WARNING 05/15/2020 07:12:31 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:31 AM Request successful
+INFO 05/15/2020 07:12:31 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:31 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:31 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:32 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:32 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:32 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:12:32 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:12:32 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:32 AM Request successful
+INFO 05/15/2020 07:12:32 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:33 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:33 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:33 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:12:33 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:12:33 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:33 AM Request successful
+INFO 05/15/2020 07:12:33 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:33 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:33 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:33 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:12:33 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:12:33 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:33 AM Request successful
+INFO 05/15/2020 07:12:33 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:34 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:34 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:34 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:12:34 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:12:34 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:34 AM Request successful
+INFO 05/15/2020 07:12:34 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:34 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:35 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:35 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:35 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:12:35 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:12:35 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:35 AM Request successful
+INFO 05/15/2020 07:12:35 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:35 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:35 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:36 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:36 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:36 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:12:36 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:12:36 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:36 AM Request successful
+INFO 05/15/2020 07:12:36 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:36 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:36 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:36 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:36 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:12:36 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:12:36 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:36 AM Request successful
+INFO 05/15/2020 07:12:36 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:36 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:37 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:37 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:37 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '6'}
+WARNING 05/15/2020 07:12:37 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6')
+WARNING 05/15/2020 07:12:37 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:37 AM Request successful
+INFO 05/15/2020 07:12:37 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:37 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:37 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:38 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:38 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:38 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '1'}
+WARNING 05/15/2020 07:12:38 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1')
+WARNING 05/15/2020 07:12:38 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:38 AM Request successful
+INFO 05/15/2020 07:12:38 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:38 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:38 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:38 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:38 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:38 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '3'}
+WARNING 05/15/2020 07:12:38 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3')
+WARNING 05/15/2020 07:12:38 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:38 AM Request successful
+INFO 05/15/2020 07:12:38 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:38 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:38 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:39 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:39 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:39 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:12:39 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:12:39 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:39 AM Request successful
+INFO 05/15/2020 07:12:39 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:39 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:39 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:40 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:40 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:40 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'b'}
+WARNING 05/15/2020 07:12:40 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b')
+WARNING 05/15/2020 07:12:40 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:40 AM Request successful
+INFO 05/15/2020 07:12:40 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:40 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:40 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:40 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:40 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:40 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'b'}
+WARNING 05/15/2020 07:12:40 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b')
+WARNING 05/15/2020 07:12:40 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:40 AM Request successful
+INFO 05/15/2020 07:12:40 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:40 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:40 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:41 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:41 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:41 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '8'}
+WARNING 05/15/2020 07:12:41 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8')
+WARNING 05/15/2020 07:12:41 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:41 AM Request successful
+INFO 05/15/2020 07:12:41 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:41 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:41 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:42 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:42 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:42 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:12:42 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:12:42 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:42 AM Request successful
+INFO 05/15/2020 07:12:42 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:42 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:42 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:43 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:43 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:43 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:12:43 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:12:43 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:43 AM Request successful
+INFO 05/15/2020 07:12:43 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:43 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:43 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:43 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '1'}
+WARNING 05/15/2020 07:12:43 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1')
+WARNING 05/15/2020 07:12:43 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:43 AM Request successful
+INFO 05/15/2020 07:12:43 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:12:44 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=7 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:12:44 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:12:44 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '7'}
+WARNING 05/15/2020 07:12:44 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=7')
+WARNING 05/15/2020 07:12:44 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:12:44 AM Request successful
+INFO 05/15/2020 07:12:44 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:12:44 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:12:44 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:11 AM Creating Okera context
+DEBUG 05/15/2020 07:14:11 AM Enabled token auth
+INFO 05/15/2020 07:14:11 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:11 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:12 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:14:12 AM Request successful
+INFO 05/15/2020 07:14:12 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:13 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:13 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:13 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:13 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:13 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:14:13 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:14:13 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:13 AM Request successful
+INFO 05/15/2020 07:14:13 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:13 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:13 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:14 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:14 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:14 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:14:14 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:14:14 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:14 AM Request successful
+INFO 05/15/2020 07:14:14 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:14 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:14 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:15 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:15 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:15 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'e'}
+WARNING 05/15/2020 07:14:15 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e')
+WARNING 05/15/2020 07:14:15 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:15 AM Request successful
+INFO 05/15/2020 07:14:15 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:15 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:15 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:16 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:16 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:16 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'f'}
+WARNING 05/15/2020 07:14:16 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f')
+WARNING 05/15/2020 07:14:16 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:16 AM Request successful
+INFO 05/15/2020 07:14:16 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:16 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:16 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:16 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:16 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:16 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '0'}
+WARNING 05/15/2020 07:14:16 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0')
+WARNING 05/15/2020 07:14:16 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:16 AM Request successful
+INFO 05/15/2020 07:14:16 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:16 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:16 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:17 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:17 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:17 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '9'}
+WARNING 05/15/2020 07:14:17 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9')
+WARNING 05/15/2020 07:14:17 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:17 AM Request successful
+INFO 05/15/2020 07:14:17 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:17 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:17 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:18 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:18 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:18 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:14:18 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:14:18 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:18 AM Request successful
+INFO 05/15/2020 07:14:18 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:18 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:18 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:18 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:18 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '8'}
+WARNING 05/15/2020 07:14:18 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8')
+WARNING 05/15/2020 07:14:18 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:18 AM Request successful
+INFO 05/15/2020 07:14:18 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:18 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:19 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:19 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:19 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:14:19 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:14:19 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:19 AM Request successful
+INFO 05/15/2020 07:14:19 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:19 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:19 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:20 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:20 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:20 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:14:20 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:14:20 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:20 AM Request successful
+INFO 05/15/2020 07:14:20 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:20 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:20 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:20 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:20 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:20 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:14:20 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:14:20 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:20 AM Request successful
+INFO 05/15/2020 07:14:20 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:20 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:20 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:21 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:21 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:21 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:14:21 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:14:21 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:21 AM Request successful
+INFO 05/15/2020 07:14:21 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:21 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:21 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:22 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:22 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:22 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:14:22 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:14:22 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:22 AM Request successful
+INFO 05/15/2020 07:14:22 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:22 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:22 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:22 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:22 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:22 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:14:22 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:14:22 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:22 AM Request successful
+INFO 05/15/2020 07:14:22 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:22 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:22 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:23 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:23 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:23 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:14:23 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:14:23 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:23 AM Request successful
+INFO 05/15/2020 07:14:23 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:23 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:23 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:24 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:24 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:24 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '6'}
+WARNING 05/15/2020 07:14:24 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6')
+WARNING 05/15/2020 07:14:24 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:24 AM Request successful
+INFO 05/15/2020 07:14:24 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:24 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:24 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:25 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:25 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:25 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '1'}
+WARNING 05/15/2020 07:14:25 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1')
+WARNING 05/15/2020 07:14:25 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:25 AM Request successful
+INFO 05/15/2020 07:14:25 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:25 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:25 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:25 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:25 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:25 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '3'}
+WARNING 05/15/2020 07:14:25 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3')
+WARNING 05/15/2020 07:14:25 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:25 AM Request successful
+INFO 05/15/2020 07:14:25 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:25 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:25 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:26 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:26 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:26 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:14:26 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:14:26 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:26 AM Request successful
+INFO 05/15/2020 07:14:26 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:26 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:26 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:27 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:27 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'b'}
+WARNING 05/15/2020 07:14:27 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b')
+WARNING 05/15/2020 07:14:27 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:27 AM Request successful
+INFO 05/15/2020 07:14:27 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:27 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:27 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:27 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'b'}
+WARNING 05/15/2020 07:14:27 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b')
+WARNING 05/15/2020 07:14:27 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:27 AM Request successful
+INFO 05/15/2020 07:14:27 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:27 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:28 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:28 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:28 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '8'}
+WARNING 05/15/2020 07:14:28 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8')
+WARNING 05/15/2020 07:14:28 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:28 AM Request successful
+INFO 05/15/2020 07:14:28 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:28 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:28 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:29 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:29 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:14:29 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:14:29 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:29 AM Request successful
+INFO 05/15/2020 07:14:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:29 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:29 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:14:29 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:14:29 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:29 AM Request successful
+INFO 05/15/2020 07:14:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:30 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:30 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:30 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '1'}
+WARNING 05/15/2020 07:14:30 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1')
+WARNING 05/15/2020 07:14:30 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:30 AM Request successful
+INFO 05/15/2020 07:14:30 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:30 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:30 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:31 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=7 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:31 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:31 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '7'}
+WARNING 05/15/2020 07:14:31 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=7')
+WARNING 05/15/2020 07:14:31 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:31 AM Request successful
+INFO 05/15/2020 07:14:31 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:31 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:31 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:32 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:32 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:32 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '6'}
+WARNING 05/15/2020 07:14:32 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6')
+WARNING 05/15/2020 07:14:32 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:32 AM Request successful
+INFO 05/15/2020 07:14:32 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:32 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:32 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:32 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:14:32 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:14:32 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:32 AM Request successful
+INFO 05/15/2020 07:14:32 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:33 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:33 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:33 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'f'}
+WARNING 05/15/2020 07:14:33 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f')
+WARNING 05/15/2020 07:14:33 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:33 AM Request successful
+INFO 05/15/2020 07:14:33 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:14:34 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:14:34 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:14:34 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '9'}
+WARNING 05/15/2020 07:14:34 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9')
+WARNING 05/15/2020 07:14:34 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:14:34 AM Request successful
+INFO 05/15/2020 07:14:34 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:14:34 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:14:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:48 AM Creating Okera context
+DEBUG 05/15/2020 07:15:48 AM Enabled token auth
+INFO 05/15/2020 07:15:48 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:49 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:50 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:15:50 AM Request successful
+INFO 05/15/2020 07:15:50 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:50 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:50 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:51 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:15:51 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:15:51 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:15:51 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:15:51 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:15:51 AM Request successful
+INFO 05/15/2020 07:15:51 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:51 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:51 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:52 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:15:52 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:15:52 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:15:52 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:15:52 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:15:52 AM Request successful
+INFO 05/15/2020 07:15:52 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:52 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:52 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:52 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e HTTP/1.1" 404 178
+WARNING 05/15/2020 07:15:52 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:15:52 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'e'}
+WARNING 05/15/2020 07:15:52 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e')
+WARNING 05/15/2020 07:15:52 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:15:52 AM Request successful
+INFO 05/15/2020 07:15:52 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:52 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:52 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:53 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f HTTP/1.1" 404 178
+WARNING 05/15/2020 07:15:53 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:15:53 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'f'}
+WARNING 05/15/2020 07:15:53 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f')
+WARNING 05/15/2020 07:15:53 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:15:53 AM Request successful
+INFO 05/15/2020 07:15:53 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:53 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:53 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:54 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:15:54 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:15:54 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '0'}
+WARNING 05/15/2020 07:15:54 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0')
+WARNING 05/15/2020 07:15:54 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:15:54 AM Request successful
+INFO 05/15/2020 07:15:54 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:54 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:54 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:15:54 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:15:54 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:15:54 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '9'}
+WARNING 05/15/2020 07:15:54 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9')
+WARNING 05/15/2020 07:15:54 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:15:54 AM Request successful
+INFO 05/15/2020 07:15:54 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:15:54 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:15:54 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:16:15 AM Creating Okera context
+DEBUG 05/15/2020 07:16:15 AM Enabled token auth
+INFO 05/15/2020 07:16:15 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:16:15 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:16:16 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:16:16 AM Request successful
+INFO 05/15/2020 07:16:16 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:16:16 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:16:16 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:16:17 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:16:17 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:16:17 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:16:17 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:16:17 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:16:17 AM Request successful
+INFO 05/15/2020 07:16:17 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:16:17 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:16:17 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:16:18 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:16:18 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:16:18 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:16:18 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:16:18 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:16:18 AM Request successful
+INFO 05/15/2020 07:16:18 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:16:18 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:16:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:16:18 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e HTTP/1.1" 404 178
+WARNING 05/15/2020 07:16:18 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:16:18 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'e'}
+WARNING 05/15/2020 07:16:18 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e')
+WARNING 05/15/2020 07:16:18 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:16:18 AM Request successful
+INFO 05/15/2020 07:16:18 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:16:18 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:16:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:32 AM Creating Okera context
+DEBUG 05/15/2020 07:17:32 AM Enabled token auth
+INFO 05/15/2020 07:17:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:33 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:17:33 AM Request successful
+INFO 05/15/2020 07:17:33 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:34 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:34 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:34 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:17:34 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:17:34 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:34 AM Request successful
+INFO 05/15/2020 07:17:34 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:34 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:35 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:35 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:35 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:17:35 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:17:35 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:35 AM Request successful
+INFO 05/15/2020 07:17:35 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:35 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:35 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:35 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:36 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:36 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'e'}
+WARNING 05/15/2020 07:17:36 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e')
+WARNING 05/15/2020 07:17:36 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:36 AM Request successful
+INFO 05/15/2020 07:17:36 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:36 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:36 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:36 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:36 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'f'}
+WARNING 05/15/2020 07:17:36 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f')
+WARNING 05/15/2020 07:17:36 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:36 AM Request successful
+INFO 05/15/2020 07:17:36 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:36 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:37 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:37 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:37 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '0'}
+WARNING 05/15/2020 07:17:37 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0')
+WARNING 05/15/2020 07:17:37 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:37 AM Request successful
+INFO 05/15/2020 07:17:37 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:37 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:37 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:38 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:38 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:38 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '9'}
+WARNING 05/15/2020 07:17:38 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9')
+WARNING 05/15/2020 07:17:38 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:38 AM Request successful
+INFO 05/15/2020 07:17:38 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:38 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:38 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:38 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:38 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:38 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:17:38 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:17:38 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:38 AM Request successful
+INFO 05/15/2020 07:17:38 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:38 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:38 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:39 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:39 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:39 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '8'}
+WARNING 05/15/2020 07:17:39 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8')
+WARNING 05/15/2020 07:17:39 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:39 AM Request successful
+INFO 05/15/2020 07:17:39 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:39 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:39 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:40 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:40 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:40 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:17:40 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:17:40 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:40 AM Request successful
+INFO 05/15/2020 07:17:40 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:40 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:40 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:40 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:40 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:40 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:17:40 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:17:40 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:40 AM Request successful
+INFO 05/15/2020 07:17:40 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:40 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:40 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:41 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:41 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:41 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:17:41 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:17:41 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:41 AM Request successful
+INFO 05/15/2020 07:17:41 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:41 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:41 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:42 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:42 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:42 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:17:42 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:17:42 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:42 AM Request successful
+INFO 05/15/2020 07:17:42 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:42 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:42 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:43 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:43 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:43 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:17:43 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:17:43 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:43 AM Request successful
+INFO 05/15/2020 07:17:43 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:43 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:43 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:43 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:17:43 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:17:43 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:43 AM Request successful
+INFO 05/15/2020 07:17:43 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:44 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:44 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:44 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:17:44 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:17:44 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:44 AM Request successful
+INFO 05/15/2020 07:17:44 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:44 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:44 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:45 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:45 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:45 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '6'}
+WARNING 05/15/2020 07:17:45 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6')
+WARNING 05/15/2020 07:17:45 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:45 AM Request successful
+INFO 05/15/2020 07:17:45 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:45 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:45 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:45 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:45 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:45 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '1'}
+WARNING 05/15/2020 07:17:45 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1')
+WARNING 05/15/2020 07:17:45 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:45 AM Request successful
+INFO 05/15/2020 07:17:45 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:45 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:45 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:46 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:46 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:46 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '3'}
+WARNING 05/15/2020 07:17:46 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3')
+WARNING 05/15/2020 07:17:46 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:46 AM Request successful
+INFO 05/15/2020 07:17:46 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:46 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:46 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:47 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:47 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:47 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:17:47 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:17:47 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:47 AM Request successful
+INFO 05/15/2020 07:17:47 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:47 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:47 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:17:47 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b HTTP/1.1" 404 178
+WARNING 05/15/2020 07:17:47 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:17:47 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'b'}
+WARNING 05/15/2020 07:17:47 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b')
+WARNING 05/15/2020 07:17:47 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:17:47 AM Request successful
+INFO 05/15/2020 07:17:47 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:17:47 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:17:47 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:07 AM Creating Okera context
+DEBUG 05/15/2020 07:20:07 AM Enabled token auth
+INFO 05/15/2020 07:20:07 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:08 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:08 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:20:08 AM Request successful
+INFO 05/15/2020 07:20:08 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:21 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:21 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:21 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:21 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:21 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:20:21 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:20:21 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:21 AM Request successful
+INFO 05/15/2020 07:20:21 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:21 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:21 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:22 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:22 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:22 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '2'}
+WARNING 05/15/2020 07:20:22 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2')
+WARNING 05/15/2020 07:20:22 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:22 AM Request successful
+INFO 05/15/2020 07:20:22 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:22 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:22 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:23 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:23 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:23 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'e'}
+WARNING 05/15/2020 07:20:23 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=e')
+WARNING 05/15/2020 07:20:23 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:23 AM Request successful
+INFO 05/15/2020 07:20:23 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:23 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:23 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:23 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:23 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:23 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'f'}
+WARNING 05/15/2020 07:20:23 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f')
+WARNING 05/15/2020 07:20:23 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:23 AM Request successful
+INFO 05/15/2020 07:20:23 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:23 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:24 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:24 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:24 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:24 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '0'}
+WARNING 05/15/2020 07:20:24 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=0')
+WARNING 05/15/2020 07:20:24 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:24 AM Request successful
+INFO 05/15/2020 07:20:24 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:24 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:24 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:25 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:25 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:25 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '9'}
+WARNING 05/15/2020 07:20:25 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=9')
+WARNING 05/15/2020 07:20:25 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:25 AM Request successful
+INFO 05/15/2020 07:20:25 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:25 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:25 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:26 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:26 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:26 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:20:26 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:20:26 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:26 AM Request successful
+INFO 05/15/2020 07:20:26 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:26 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:26 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:26 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:26 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:26 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '8'}
+WARNING 05/15/2020 07:20:26 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8')
+WARNING 05/15/2020 07:20:26 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:26 AM Request successful
+INFO 05/15/2020 07:20:26 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:26 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:26 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:27 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:27 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:20:27 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:20:27 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:27 AM Request successful
+INFO 05/15/2020 07:20:27 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:27 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:28 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:28 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:28 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:20:28 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:20:28 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:28 AM Request successful
+INFO 05/15/2020 07:20:28 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:28 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:28 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:29 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:29 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:20:29 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:20:29 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:29 AM Request successful
+INFO 05/15/2020 07:20:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:29 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:29 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:29 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'c'}
+WARNING 05/15/2020 07:20:29 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c')
+WARNING 05/15/2020 07:20:29 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:29 AM Request successful
+INFO 05/15/2020 07:20:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:30 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:30 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:30 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'a'}
+WARNING 05/15/2020 07:20:30 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a')
+WARNING 05/15/2020 07:20:30 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:30 AM Request successful
+INFO 05/15/2020 07:20:30 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:30 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:30 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:31 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:31 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:31 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:20:31 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:20:31 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:31 AM Request successful
+INFO 05/15/2020 07:20:31 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:31 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:31 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:31 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:31 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:31 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '4'}
+WARNING 05/15/2020 07:20:31 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4')
+WARNING 05/15/2020 07:20:31 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:31 AM Request successful
+INFO 05/15/2020 07:20:31 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:31 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:31 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:32 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:32 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:32 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '6'}
+WARNING 05/15/2020 07:20:32 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6')
+WARNING 05/15/2020 07:20:32 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:32 AM Request successful
+INFO 05/15/2020 07:20:32 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:33 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:33 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:33 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '1'}
+WARNING 05/15/2020 07:20:33 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1')
+WARNING 05/15/2020 07:20:33 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:33 AM Request successful
+INFO 05/15/2020 07:20:33 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:33 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3 HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:33 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:33 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '3'}
+WARNING 05/15/2020 07:20:33 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=3')
+WARNING 05/15/2020 07:20:33 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:33 AM Request successful
+INFO 05/15/2020 07:20:33 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:34 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=- HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:34 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:34 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': '-'}
+WARNING 05/15/2020 07:20:34 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=-')
+WARNING 05/15/2020 07:20:34 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:34 AM Request successful
+INFO 05/15/2020 07:20:34 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:34 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:20:35 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b HTTP/1.1" 404 178
+WARNING 05/15/2020 07:20:35 AM COLLIBRA CORE API ERROR
+WARNING 05/15/2020 07:20:35 AM Request body: {'typeIds': ['00000000-0000-0000-0000-000000003114', '339481cfd-bace-4634-9277-ceacb9b71e87', '48007d3a-7843-45e0-a99b-5117fa16576f'], 'assetId': 'b'}
+WARNING 05/15/2020 07:20:35 AM Error: HTTPError('404 Client Error: 404 for url: https://okera.collibra.com:443/rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=b')
+WARNING 05/15/2020 07:20:35 AM Response: b'{"statusCode":404,"titleMessage":"Not Found","helpMessage":"Correct the parameter: \'assetId\'.","userMessage":"HTTP 404 Not Found. There was a problem with parameter: \'assetId\'."}'
+INFO 05/15/2020 07:20:35 AM Request successful
+INFO 05/15/2020 07:20:35 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:20:35 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:20:35 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:21:01 AM Creating Okera context
+DEBUG 05/15/2020 07:21:01 AM Enabled token auth
+INFO 05/15/2020 07:21:01 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:21:01 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:21:02 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:21:02 AM Request successful
+INFO 05/15/2020 07:21:02 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:21:13 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:21:13 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:21:14 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 432
+INFO 05/15/2020 07:21:14 AM Request successful
+INFO 05/15/2020 07:21:14 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:22:39 AM Creating Okera context
+DEBUG 05/15/2020 07:22:39 AM Enabled token auth
+INFO 05/15/2020 07:22:39 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:22:39 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:22:40 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=collibra.regular_ole_table&nameMatchMode=EXACT&communityId=36fd10bf-f6f3-44a6-807e-915c6a24c521&domainId=87a5c7ae-46ca-4e3d-8a6a-b15772fc7264 HTTP/1.1" 200 398
+INFO 05/15/2020 07:22:40 AM Request successful
+INFO 05/15/2020 07:22:40 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:22:50 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:22:50 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:22:51 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c2ef09c8-a4ca-4613-bb8a-1762f909289d HTTP/1.1" 200 432
+INFO 05/15/2020 07:22:51 AM Request successful
+INFO 05/15/2020 07:22:51 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:40:58 AM Creating Okera context
+DEBUG 05/15/2020 07:40:58 AM Enabled token auth
+DEBUG 05/15/2020 07:41:43 AM Creating Okera context
+DEBUG 05/15/2020 07:41:43 AM Enabled token auth
+DEBUG 05/15/2020 07:42:50 AM Creating Okera context
+DEBUG 05/15/2020 07:42:50 AM Enabled token auth
+DEBUG 05/15/2020 07:44:06 AM Creating Okera context
+DEBUG 05/15/2020 07:44:06 AM Enabled token auth
+INFO 05/15/2020 07:44:06 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:44:06 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:44:07 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=test_collibra_business_md_only.transactions&nameMatchMode=EXACT&communityId=16c061ce-c1a7-4730-86fd-fb5f485452bb&domainId=0d510f55-5a92-4028-ac0b-ed8b680b0157 HTTP/1.1" 200 404
+INFO 05/15/2020 07:44:07 AM Request successful
+INFO 05/15/2020 07:44:07 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:45:19 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:45:19 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:45:19 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 200 327
+INFO 05/15/2020 07:45:19 AM Request successful
+INFO 05/15/2020 07:45:19 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:41 AM Creating Okera context
+DEBUG 05/15/2020 07:50:41 AM Enabled token auth
+INFO 05/15/2020 07:50:41 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:42 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:42 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=test_collibra_business_md_only.transactions&nameMatchMode=EXACT&communityId=16c061ce-c1a7-4730-86fd-fb5f485452bb&domainId=0d510f55-5a92-4028-ac0b-ed8b680b0157 HTTP/1.1" 200 412
+INFO 05/15/2020 07:50:42 AM Request successful
+INFO 05/15/2020 07:50:42 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:52:00 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:52:00 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:52:00 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 200 327
+INFO 05/15/2020 07:52:00 AM Request successful
+INFO 05/15/2020 07:52:00 AM ### END: Making Collibra request ###

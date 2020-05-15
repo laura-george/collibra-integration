@@ -1,0 +1,9 @@
+communities:
+  - name: "Okera Test"
+    id: "16c061ce-c1a7-4730-86fd-fb5f485452bb"
+    domains:
+      - name: "Collibra to Okera"
+        id: "0d510f55-5a92-4028-ac0b-ed8b680b0157"
+        databases:
+        tables:
+          - "test_collibra_business_md_only.transactions"

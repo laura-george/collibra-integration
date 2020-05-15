@@ -1,0 +1,2206 @@
+INFO 05/15/2020 07:50:43 AM Opening config.yaml
+INFO 05/15/2020 07:50:43 AM Logging to logs/export.log
+INFO 05/15/2020 07:50:43 AM Opening assets_test.yaml
+DEBUG 05/15/2020 07:50:43 AM Creating Okera context
+INFO 05/15/2020 07:50:43 AM Using Okera token from config.yaml
+DEBUG 05/15/2020 07:50:43 AM Enabled token auth
+INFO 05/15/2020 07:50:43 AM Using assets in 'assets_test.yaml' to run script...
+INFO 05/15/2020 07:50:43 AM ############ START: Collibra calls ############
+INFO 05/15/2020 07:50:43 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:43 AM 		Fetching resource ID for 'Table'
+INFO 05/15/2020 07:50:43 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 05/15/2020 07:50:43 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:43 AM ###### COLLIBRA TABLE 'test_collibra_business_md_only.transactions' ######
+INFO 05/15/2020 07:50:43 AM 	Fetching Collibra table 'test_collibra_business_md_only.transactions'
+INFO 05/15/2020 07:50:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:44 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=test_collibra_business_md_only.transactions&nameMatchMode=EXACT&domainId=0d510f55-5a92-4028-ac0b-ed8b680b0157&communityId=16c061ce-c1a7-4730-86fd-fb5f485452bb&typeId=00000000-0000-0000-0000-000000031007 HTTP/1.1" 200 412
+INFO 05/15/2020 07:50:44 AM Request successful
+INFO 05/15/2020 07:50:44 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:44 AM 	Successfully fetched table 'test_collibra_business_md_only.transactions'
+INFO 05/15/2020 07:50:44 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:44 AM 		Fetching resource ID for 'Table'
+INFO 05/15/2020 07:50:44 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 05/15/2020 07:50:44 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:44 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:44 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:44 AM https://okera.collibra.com:443 "GET /rest/2.0/assets?name=test_collibra_business_md_only.transactions&nameMatchMode=EXACT&domainId=0d510f55-5a92-4028-ac0b-ed8b680b0157&communityId=16c061ce-c1a7-4730-86fd-fb5f485452bb&typeId=00000000-0000-0000-0000-000000031007 HTTP/1.1" 200 412
+INFO 05/15/2020 07:50:44 AM Request successful
+INFO 05/15/2020 07:50:44 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:44 AM Fetching attributes for 'test_collibra_business_md_only.transactions' from Collibra
+INFO 05/15/2020 07:50:44 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:44 AM 		Fetching attribute 'Description' for asset '4a8db83a-9439-4edc-b29a-7ccfec34ee54' from Collibra
+INFO 05/15/2020 07:50:44 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:44 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:50:44 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:50:44 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:44 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:44 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:45 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 200 327
+INFO 05/15/2020 07:50:45 AM Request successful
+INFO 05/15/2020 07:50:45 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:45 AM 		Successfully fetched 'Description' for asset '4a8db83a-9439-4edc-b29a-7ccfec34ee54': Dataset to test Collibra to Okera sync.
+INFO 05/15/2020 07:50:45 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:45 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:45 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:46 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 404 135
+INFO 05/15/2020 07:50:46 AM Request successful
+INFO 05/15/2020 07:50:46 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:46 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:46 AM 		Fetching attribute 'Information Classification' for asset '4a8db83a-9439-4edc-b29a-7ccfec34ee54' from Collibra
+INFO 05/15/2020 07:50:46 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:46 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:50:46 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:50:46 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:46 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:46 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:46 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:46 AM Request successful
+INFO 05/15/2020 07:50:46 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:46 AM 		No attribute 'Information Classification' returned for asset '4a8db83a-9439-4edc-b29a-7ccfec34ee54'
+INFO 05/15/2020 07:50:46 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:46 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:46 AM 		Fetching attribute 'PII 2' for asset '4a8db83a-9439-4edc-b29a-7ccfec34ee54' from Collibra
+INFO 05/15/2020 07:50:46 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:46 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:50:46 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:50:46 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:46 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:46 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:47 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:47 AM Request successful
+INFO 05/15/2020 07:50:47 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:47 AM 		No attribute 'PII 2' returned for asset '4a8db83a-9439-4edc-b29a-7ccfec34ee54'
+INFO 05/15/2020 07:50:47 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:47 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:47 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:50:47 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000007042 for 'Column'
+INFO 05/15/2020 07:50:47 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:50:47 AM Fetching columns for table 'test_collibra_business_md_only.transactions'
+INFO 05/15/2020 07:50:47 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:47 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:48 AM https://okera.collibra.com:443 "GET /rest/2.0/relations?relationTypeId=00000000-0000-0000-0000-000000007042&targetId=4a8db83a-9439-4edc-b29a-7ccfec34ee54 HTTP/1.1" 200 None
+INFO 05/15/2020 07:50:48 AM Request successful
+INFO 05/15/2020 07:50:48 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:48 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.customername' ######
+DEBUG 05/15/2020 07:50:48 AM 	Fetching column 'test_collibra_business_md_only.transactions.customername'
+INFO 05/15/2020 07:50:48 AM Fetching attributes for 'test_collibra_business_md_only.transactions.customername' from Collibra
+INFO 05/15/2020 07:50:48 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:48 AM 		Fetching attribute 'Description' for asset '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e' from Collibra
+INFO 05/15/2020 07:50:48 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:48 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:50:48 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:50:48 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:48 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:48 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:48 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:48 AM Request successful
+INFO 05/15/2020 07:50:48 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:48 AM 		No attribute 'Description' returned for asset '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e'
+INFO 05/15/2020 07:50:48 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:48 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:48 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:49 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e HTTP/1.1" 404 135
+INFO 05/15/2020 07:50:49 AM Request successful
+INFO 05/15/2020 07:50:49 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:49 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:49 AM 		Fetching attribute 'Information Classification' for asset '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e' from Collibra
+INFO 05/15/2020 07:50:49 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:49 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:50:49 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:50:49 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:49 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:49 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:50 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:50 AM Request successful
+INFO 05/15/2020 07:50:50 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:50 AM 		No attribute 'Information Classification' returned for asset '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e'
+INFO 05/15/2020 07:50:50 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:50 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:50 AM 		Fetching attribute 'PII 2' for asset '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e' from Collibra
+INFO 05/15/2020 07:50:50 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:50 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:50:50 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:50:50 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:50 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:50 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:51 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:51 AM Request successful
+INFO 05/15/2020 07:50:51 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:51 AM 		No attribute 'PII 2' returned for asset '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e'
+INFO 05/15/2020 07:50:51 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:51 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.productline' ######
+DEBUG 05/15/2020 07:50:51 AM 	Fetching column 'test_collibra_business_md_only.transactions.productline'
+INFO 05/15/2020 07:50:51 AM Fetching attributes for 'test_collibra_business_md_only.transactions.productline' from Collibra
+INFO 05/15/2020 07:50:51 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:51 AM 		Fetching attribute 'Description' for asset '2461618f-4fb1-45de-8a54-56dbfb0188ab' from Collibra
+INFO 05/15/2020 07:50:51 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:51 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:50:51 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:50:51 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:51 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:51 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:51 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=2461618f-4fb1-45de-8a54-56dbfb0188ab HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:51 AM Request successful
+INFO 05/15/2020 07:50:51 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:51 AM 		No attribute 'Description' returned for asset '2461618f-4fb1-45de-8a54-56dbfb0188ab'
+INFO 05/15/2020 07:50:51 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:51 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:51 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:52 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/2461618f-4fb1-45de-8a54-56dbfb0188ab HTTP/1.1" 404 135
+INFO 05/15/2020 07:50:52 AM Request successful
+INFO 05/15/2020 07:50:52 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:52 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:52 AM 		Fetching attribute 'Information Classification' for asset '2461618f-4fb1-45de-8a54-56dbfb0188ab' from Collibra
+INFO 05/15/2020 07:50:52 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:52 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:50:52 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:50:52 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:52 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:52 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:53 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=2461618f-4fb1-45de-8a54-56dbfb0188ab HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:53 AM Request successful
+INFO 05/15/2020 07:50:53 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:53 AM 		No attribute 'Information Classification' returned for asset '2461618f-4fb1-45de-8a54-56dbfb0188ab'
+INFO 05/15/2020 07:50:53 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:53 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:53 AM 		Fetching attribute 'PII 2' for asset '2461618f-4fb1-45de-8a54-56dbfb0188ab' from Collibra
+INFO 05/15/2020 07:50:53 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:53 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:50:53 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:50:53 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:53 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:53 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:53 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=2461618f-4fb1-45de-8a54-56dbfb0188ab HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:53 AM Request successful
+INFO 05/15/2020 07:50:53 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:53 AM 		No attribute 'PII 2' returned for asset '2461618f-4fb1-45de-8a54-56dbfb0188ab'
+INFO 05/15/2020 07:50:53 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:53 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.country' ######
+DEBUG 05/15/2020 07:50:53 AM 	Fetching column 'test_collibra_business_md_only.transactions.country'
+INFO 05/15/2020 07:50:53 AM Fetching attributes for 'test_collibra_business_md_only.transactions.country' from Collibra
+INFO 05/15/2020 07:50:53 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:53 AM 		Fetching attribute 'Description' for asset '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d' from Collibra
+INFO 05/15/2020 07:50:53 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:53 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:50:53 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:50:53 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:53 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:53 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:54 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=8b0d69f8-b6e3-48d7-952b-1483b08e8e3d HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:54 AM Request successful
+INFO 05/15/2020 07:50:54 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:54 AM 		No attribute 'Description' returned for asset '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d'
+INFO 05/15/2020 07:50:54 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:54 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:54 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:55 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/8b0d69f8-b6e3-48d7-952b-1483b08e8e3d HTTP/1.1" 404 135
+INFO 05/15/2020 07:50:55 AM Request successful
+INFO 05/15/2020 07:50:55 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:55 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:55 AM 		Fetching attribute 'Information Classification' for asset '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d' from Collibra
+INFO 05/15/2020 07:50:55 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:55 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:50:55 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:50:55 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:55 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:55 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:55 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=8b0d69f8-b6e3-48d7-952b-1483b08e8e3d HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:55 AM Request successful
+INFO 05/15/2020 07:50:55 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:55 AM 		No attribute 'Information Classification' returned for asset '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d'
+INFO 05/15/2020 07:50:55 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:55 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:55 AM 		Fetching attribute 'PII 2' for asset '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d' from Collibra
+INFO 05/15/2020 07:50:55 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:55 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:50:55 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:50:55 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:55 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:55 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:56 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8b0d69f8-b6e3-48d7-952b-1483b08e8e3d HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:56 AM Request successful
+INFO 05/15/2020 07:50:56 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:56 AM 		No attribute 'PII 2' returned for asset '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d'
+INFO 05/15/2020 07:50:56 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:56 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.contactname' ######
+DEBUG 05/15/2020 07:50:56 AM 	Fetching column 'test_collibra_business_md_only.transactions.contactname'
+INFO 05/15/2020 07:50:56 AM Fetching attributes for 'test_collibra_business_md_only.transactions.contactname' from Collibra
+INFO 05/15/2020 07:50:56 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:56 AM 		Fetching attribute 'Description' for asset '4cad0c9e-1990-4613-9e57-aaf21760ceb8' from Collibra
+INFO 05/15/2020 07:50:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:56 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:50:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:50:56 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:56 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:56 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:57 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4cad0c9e-1990-4613-9e57-aaf21760ceb8 HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:57 AM Request successful
+INFO 05/15/2020 07:50:57 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:57 AM 		No attribute 'Description' returned for asset '4cad0c9e-1990-4613-9e57-aaf21760ceb8'
+INFO 05/15/2020 07:50:57 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:57 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:57 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:58 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4cad0c9e-1990-4613-9e57-aaf21760ceb8 HTTP/1.1" 404 135
+INFO 05/15/2020 07:50:58 AM Request successful
+INFO 05/15/2020 07:50:58 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:50:58 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:58 AM 		Fetching attribute 'Information Classification' for asset '4cad0c9e-1990-4613-9e57-aaf21760ceb8' from Collibra
+INFO 05/15/2020 07:50:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:58 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:50:58 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:50:58 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:58 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:58 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:58 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=4cad0c9e-1990-4613-9e57-aaf21760ceb8 HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:58 AM Request successful
+INFO 05/15/2020 07:50:58 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:58 AM 		No attribute 'Information Classification' returned for asset '4cad0c9e-1990-4613-9e57-aaf21760ceb8'
+INFO 05/15/2020 07:50:58 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:58 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:58 AM 		Fetching attribute 'PII 2' for asset '4cad0c9e-1990-4613-9e57-aaf21760ceb8' from Collibra
+INFO 05/15/2020 07:50:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:58 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:50:58 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:50:58 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:58 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:58 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:50:59 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4cad0c9e-1990-4613-9e57-aaf21760ceb8 HTTP/1.1" 200 62
+INFO 05/15/2020 07:50:59 AM Request successful
+INFO 05/15/2020 07:50:59 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:50:59 AM 		No attribute 'PII 2' returned for asset '4cad0c9e-1990-4613-9e57-aaf21760ceb8'
+INFO 05/15/2020 07:50:59 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:50:59 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.year_id' ######
+DEBUG 05/15/2020 07:50:59 AM 	Fetching column 'test_collibra_business_md_only.transactions.year_id'
+INFO 05/15/2020 07:50:59 AM Fetching attributes for 'test_collibra_business_md_only.transactions.year_id' from Collibra
+INFO 05/15/2020 07:50:59 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:50:59 AM 		Fetching attribute 'Description' for asset 'a6394da5-c364-424e-bf74-be07f2489c5b' from Collibra
+INFO 05/15/2020 07:50:59 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:59 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:50:59 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:50:59 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:50:59 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:50:59 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:00 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=a6394da5-c364-424e-bf74-be07f2489c5b HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:00 AM Request successful
+INFO 05/15/2020 07:51:00 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:00 AM 		No attribute 'Description' returned for asset 'a6394da5-c364-424e-bf74-be07f2489c5b'
+INFO 05/15/2020 07:51:00 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:00 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:00 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:00 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/a6394da5-c364-424e-bf74-be07f2489c5b HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:00 AM Request successful
+INFO 05/15/2020 07:51:00 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:00 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:00 AM 		Fetching attribute 'Information Classification' for asset 'a6394da5-c364-424e-bf74-be07f2489c5b' from Collibra
+INFO 05/15/2020 07:51:00 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:00 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:00 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:00 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:00 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:00 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:01 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=a6394da5-c364-424e-bf74-be07f2489c5b HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:01 AM Request successful
+INFO 05/15/2020 07:51:01 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:01 AM 		No attribute 'Information Classification' returned for asset 'a6394da5-c364-424e-bf74-be07f2489c5b'
+INFO 05/15/2020 07:51:01 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:01 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:01 AM 		Fetching attribute 'PII 2' for asset 'a6394da5-c364-424e-bf74-be07f2489c5b' from Collibra
+INFO 05/15/2020 07:51:01 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:01 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:01 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:01 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:01 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:01 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:02 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a6394da5-c364-424e-bf74-be07f2489c5b HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:02 AM Request successful
+INFO 05/15/2020 07:51:02 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:02 AM 		No attribute 'PII 2' returned for asset 'a6394da5-c364-424e-bf74-be07f2489c5b'
+INFO 05/15/2020 07:51:02 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:02 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.ipaddress' ######
+DEBUG 05/15/2020 07:51:02 AM 	Fetching column 'test_collibra_business_md_only.transactions.ipaddress'
+INFO 05/15/2020 07:51:02 AM Fetching attributes for 'test_collibra_business_md_only.transactions.ipaddress' from Collibra
+INFO 05/15/2020 07:51:02 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:02 AM 		Fetching attribute 'Description' for asset '975d4183-6b19-4272-b104-81d54ee533ef' from Collibra
+INFO 05/15/2020 07:51:02 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:02 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:02 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:02 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:02 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:02 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:03 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=975d4183-6b19-4272-b104-81d54ee533ef HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:03 AM Request successful
+INFO 05/15/2020 07:51:03 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:03 AM 		No attribute 'Description' returned for asset '975d4183-6b19-4272-b104-81d54ee533ef'
+INFO 05/15/2020 07:51:03 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:03 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:03 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:03 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/975d4183-6b19-4272-b104-81d54ee533ef HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:03 AM Request successful
+INFO 05/15/2020 07:51:03 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:03 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:03 AM 		Fetching attribute 'Information Classification' for asset '975d4183-6b19-4272-b104-81d54ee533ef' from Collibra
+INFO 05/15/2020 07:51:03 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:03 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:03 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:03 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:03 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:03 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:04 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=975d4183-6b19-4272-b104-81d54ee533ef HTTP/1.1" 200 352
+INFO 05/15/2020 07:51:04 AM Request successful
+INFO 05/15/2020 07:51:04 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:04 AM 		Successfully fetched 'Information Classification' for asset '975d4183-6b19-4272-b104-81d54ee533ef': restricted
+INFO 05/15/2020 07:51:04 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:04 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:04 AM 		Fetching attribute 'PII 2' for asset '975d4183-6b19-4272-b104-81d54ee533ef' from Collibra
+INFO 05/15/2020 07:51:04 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:04 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:04 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:04 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:04 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:04 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:05 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=975d4183-6b19-4272-b104-81d54ee533ef HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:05 AM Request successful
+INFO 05/15/2020 07:51:05 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:05 AM 		No attribute 'PII 2' returned for asset '975d4183-6b19-4272-b104-81d54ee533ef'
+INFO 05/15/2020 07:51:05 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:05 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.ordernumber' ######
+DEBUG 05/15/2020 07:51:05 AM 	Fetching column 'test_collibra_business_md_only.transactions.ordernumber'
+INFO 05/15/2020 07:51:05 AM Fetching attributes for 'test_collibra_business_md_only.transactions.ordernumber' from Collibra
+INFO 05/15/2020 07:51:05 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:05 AM 		Fetching attribute 'Description' for asset 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4' from Collibra
+INFO 05/15/2020 07:51:05 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:05 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:05 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:05 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:05 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:05 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:05 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:05 AM Request successful
+INFO 05/15/2020 07:51:05 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:05 AM 		No attribute 'Description' returned for asset 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4'
+INFO 05/15/2020 07:51:05 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:05 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:05 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:06 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:06 AM Request successful
+INFO 05/15/2020 07:51:06 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:06 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:06 AM 		Fetching attribute 'Information Classification' for asset 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4' from Collibra
+INFO 05/15/2020 07:51:06 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:06 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:06 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:06 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:06 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:06 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:07 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:07 AM Request successful
+INFO 05/15/2020 07:51:07 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:07 AM 		No attribute 'Information Classification' returned for asset 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4'
+INFO 05/15/2020 07:51:07 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:07 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:07 AM 		Fetching attribute 'PII 2' for asset 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4' from Collibra
+INFO 05/15/2020 07:51:07 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:07 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:07 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:07 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:07 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:07 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:07 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:07 AM Request successful
+INFO 05/15/2020 07:51:07 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:07 AM 		No attribute 'PII 2' returned for asset 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4'
+INFO 05/15/2020 07:51:07 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:07 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.dealsize' ######
+DEBUG 05/15/2020 07:51:07 AM 	Fetching column 'test_collibra_business_md_only.transactions.dealsize'
+INFO 05/15/2020 07:51:07 AM Fetching attributes for 'test_collibra_business_md_only.transactions.dealsize' from Collibra
+INFO 05/15/2020 07:51:07 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:07 AM 		Fetching attribute 'Description' for asset 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4' from Collibra
+INFO 05/15/2020 07:51:07 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:07 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:07 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:07 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:07 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:07 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:08 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:08 AM Request successful
+INFO 05/15/2020 07:51:08 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:08 AM 		No attribute 'Description' returned for asset 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4'
+INFO 05/15/2020 07:51:08 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:08 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:08 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:09 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:09 AM Request successful
+INFO 05/15/2020 07:51:09 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:09 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:09 AM 		Fetching attribute 'Information Classification' for asset 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4' from Collibra
+INFO 05/15/2020 07:51:09 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:09 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:09 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:09 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:09 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:09 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:10 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:10 AM Request successful
+INFO 05/15/2020 07:51:10 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:10 AM 		No attribute 'Information Classification' returned for asset 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4'
+INFO 05/15/2020 07:51:10 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:10 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:10 AM 		Fetching attribute 'PII 2' for asset 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4' from Collibra
+INFO 05/15/2020 07:51:10 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:10 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:10 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:10 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:10 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:10 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:11 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:11 AM Request successful
+INFO 05/15/2020 07:51:11 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:11 AM 		No attribute 'PII 2' returned for asset 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4'
+INFO 05/15/2020 07:51:11 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:11 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.postalcode' ######
+DEBUG 05/15/2020 07:51:11 AM 	Fetching column 'test_collibra_business_md_only.transactions.postalcode'
+INFO 05/15/2020 07:51:11 AM Fetching attributes for 'test_collibra_business_md_only.transactions.postalcode' from Collibra
+INFO 05/15/2020 07:51:11 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:11 AM 		Fetching attribute 'Description' for asset 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0' from Collibra
+INFO 05/15/2020 07:51:11 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:11 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:11 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:11 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:11 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:11 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:11 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=f0b4d643-0ef4-4a3f-8fb2-0c13876452e0 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:11 AM Request successful
+INFO 05/15/2020 07:51:11 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:11 AM 		No attribute 'Description' returned for asset 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0'
+INFO 05/15/2020 07:51:11 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:11 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:11 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:12 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/f0b4d643-0ef4-4a3f-8fb2-0c13876452e0 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:12 AM Request successful
+INFO 05/15/2020 07:51:12 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:12 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:12 AM 		Fetching attribute 'Information Classification' for asset 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0' from Collibra
+INFO 05/15/2020 07:51:12 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:12 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:12 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:12 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:12 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:12 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:13 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=f0b4d643-0ef4-4a3f-8fb2-0c13876452e0 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:13 AM Request successful
+INFO 05/15/2020 07:51:13 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:13 AM 		No attribute 'Information Classification' returned for asset 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0'
+INFO 05/15/2020 07:51:13 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:13 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:13 AM 		Fetching attribute 'PII 2' for asset 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0' from Collibra
+INFO 05/15/2020 07:51:13 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:13 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:13 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:13 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:13 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:13 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:13 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=f0b4d643-0ef4-4a3f-8fb2-0c13876452e0 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:13 AM Request successful
+INFO 05/15/2020 07:51:13 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:13 AM 		No attribute 'PII 2' returned for asset 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0'
+INFO 05/15/2020 07:51:13 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:13 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.rep' ######
+DEBUG 05/15/2020 07:51:13 AM 	Fetching column 'test_collibra_business_md_only.transactions.rep'
+INFO 05/15/2020 07:51:13 AM Fetching attributes for 'test_collibra_business_md_only.transactions.rep' from Collibra
+INFO 05/15/2020 07:51:13 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:13 AM 		Fetching attribute 'Description' for asset '7b133278-b86f-4820-a99d-8a51686e2331' from Collibra
+INFO 05/15/2020 07:51:13 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:13 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:13 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:13 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:13 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:13 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:14 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=7b133278-b86f-4820-a99d-8a51686e2331 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:14 AM Request successful
+INFO 05/15/2020 07:51:14 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:14 AM 		No attribute 'Description' returned for asset '7b133278-b86f-4820-a99d-8a51686e2331'
+INFO 05/15/2020 07:51:14 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:14 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:14 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:15 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/7b133278-b86f-4820-a99d-8a51686e2331 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:15 AM Request successful
+INFO 05/15/2020 07:51:15 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:15 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:15 AM 		Fetching attribute 'Information Classification' for asset '7b133278-b86f-4820-a99d-8a51686e2331' from Collibra
+INFO 05/15/2020 07:51:15 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:15 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:15 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:15 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:15 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:15 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:16 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=7b133278-b86f-4820-a99d-8a51686e2331 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:16 AM Request successful
+INFO 05/15/2020 07:51:16 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:16 AM 		No attribute 'Information Classification' returned for asset '7b133278-b86f-4820-a99d-8a51686e2331'
+INFO 05/15/2020 07:51:16 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:16 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:16 AM 		Fetching attribute 'PII 2' for asset '7b133278-b86f-4820-a99d-8a51686e2331' from Collibra
+INFO 05/15/2020 07:51:16 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:16 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:16 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:16 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:16 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:16 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:16 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=7b133278-b86f-4820-a99d-8a51686e2331 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:16 AM Request successful
+INFO 05/15/2020 07:51:16 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:16 AM 		No attribute 'PII 2' returned for asset '7b133278-b86f-4820-a99d-8a51686e2331'
+INFO 05/15/2020 07:51:16 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:16 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.productcode' ######
+DEBUG 05/15/2020 07:51:16 AM 	Fetching column 'test_collibra_business_md_only.transactions.productcode'
+INFO 05/15/2020 07:51:16 AM Fetching attributes for 'test_collibra_business_md_only.transactions.productcode' from Collibra
+INFO 05/15/2020 07:51:16 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:16 AM 		Fetching attribute 'Description' for asset '6bf889af-f4f7-4e84-8b6e-bac390d0566d' from Collibra
+INFO 05/15/2020 07:51:16 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:16 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:16 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:16 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:16 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:16 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:17 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6bf889af-f4f7-4e84-8b6e-bac390d0566d HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:17 AM Request successful
+INFO 05/15/2020 07:51:17 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:17 AM 		No attribute 'Description' returned for asset '6bf889af-f4f7-4e84-8b6e-bac390d0566d'
+INFO 05/15/2020 07:51:17 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:17 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:17 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:18 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6bf889af-f4f7-4e84-8b6e-bac390d0566d HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:18 AM Request successful
+INFO 05/15/2020 07:51:18 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:18 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:18 AM 		Fetching attribute 'Information Classification' for asset '6bf889af-f4f7-4e84-8b6e-bac390d0566d' from Collibra
+INFO 05/15/2020 07:51:18 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:18 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:18 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:18 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:18 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:18 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=6bf889af-f4f7-4e84-8b6e-bac390d0566d HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:18 AM Request successful
+INFO 05/15/2020 07:51:18 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:18 AM 		No attribute 'Information Classification' returned for asset '6bf889af-f4f7-4e84-8b6e-bac390d0566d'
+INFO 05/15/2020 07:51:18 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:18 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:18 AM 		Fetching attribute 'PII 2' for asset '6bf889af-f4f7-4e84-8b6e-bac390d0566d' from Collibra
+INFO 05/15/2020 07:51:18 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:18 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:18 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:18 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:18 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:18 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:19 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6bf889af-f4f7-4e84-8b6e-bac390d0566d HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:19 AM Request successful
+INFO 05/15/2020 07:51:19 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:19 AM 		No attribute 'PII 2' returned for asset '6bf889af-f4f7-4e84-8b6e-bac390d0566d'
+INFO 05/15/2020 07:51:19 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:19 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.qtr_id' ######
+DEBUG 05/15/2020 07:51:19 AM 	Fetching column 'test_collibra_business_md_only.transactions.qtr_id'
+INFO 05/15/2020 07:51:19 AM Fetching attributes for 'test_collibra_business_md_only.transactions.qtr_id' from Collibra
+INFO 05/15/2020 07:51:19 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:19 AM 		Fetching attribute 'Description' for asset '380dd16b-48a2-43ea-8d0a-51304003342e' from Collibra
+INFO 05/15/2020 07:51:19 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:19 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:19 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:19 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:19 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:19 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:20 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=380dd16b-48a2-43ea-8d0a-51304003342e HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:20 AM Request successful
+INFO 05/15/2020 07:51:20 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:20 AM 		No attribute 'Description' returned for asset '380dd16b-48a2-43ea-8d0a-51304003342e'
+INFO 05/15/2020 07:51:20 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:20 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:20 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:20 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/380dd16b-48a2-43ea-8d0a-51304003342e HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:20 AM Request successful
+INFO 05/15/2020 07:51:20 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:20 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:20 AM 		Fetching attribute 'Information Classification' for asset '380dd16b-48a2-43ea-8d0a-51304003342e' from Collibra
+INFO 05/15/2020 07:51:20 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:20 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:20 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:20 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:20 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:20 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:21 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=380dd16b-48a2-43ea-8d0a-51304003342e HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:21 AM Request successful
+INFO 05/15/2020 07:51:21 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:21 AM 		No attribute 'Information Classification' returned for asset '380dd16b-48a2-43ea-8d0a-51304003342e'
+INFO 05/15/2020 07:51:21 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:21 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:21 AM 		Fetching attribute 'PII 2' for asset '380dd16b-48a2-43ea-8d0a-51304003342e' from Collibra
+INFO 05/15/2020 07:51:21 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:21 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:21 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:21 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:21 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:21 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:22 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=380dd16b-48a2-43ea-8d0a-51304003342e HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:22 AM Request successful
+INFO 05/15/2020 07:51:22 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:22 AM 		No attribute 'PII 2' returned for asset '380dd16b-48a2-43ea-8d0a-51304003342e'
+INFO 05/15/2020 07:51:22 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:22 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.phone' ######
+DEBUG 05/15/2020 07:51:22 AM 	Fetching column 'test_collibra_business_md_only.transactions.phone'
+INFO 05/15/2020 07:51:22 AM Fetching attributes for 'test_collibra_business_md_only.transactions.phone' from Collibra
+INFO 05/15/2020 07:51:22 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:22 AM 		Fetching attribute 'Description' for asset '8ec4e52c-737e-4297-83f6-b9fbd20ef812' from Collibra
+INFO 05/15/2020 07:51:22 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:22 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:22 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:22 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:22 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:22 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:23 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=8ec4e52c-737e-4297-83f6-b9fbd20ef812 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:23 AM Request successful
+INFO 05/15/2020 07:51:23 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:23 AM 		No attribute 'Description' returned for asset '8ec4e52c-737e-4297-83f6-b9fbd20ef812'
+INFO 05/15/2020 07:51:23 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:23 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:23 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:23 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/8ec4e52c-737e-4297-83f6-b9fbd20ef812 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:23 AM Request successful
+INFO 05/15/2020 07:51:23 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:23 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:23 AM 		Fetching attribute 'Information Classification' for asset '8ec4e52c-737e-4297-83f6-b9fbd20ef812' from Collibra
+INFO 05/15/2020 07:51:23 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:23 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:23 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:23 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:23 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:23 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:24 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=8ec4e52c-737e-4297-83f6-b9fbd20ef812 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:24 AM Request successful
+INFO 05/15/2020 07:51:24 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:24 AM 		No attribute 'Information Classification' returned for asset '8ec4e52c-737e-4297-83f6-b9fbd20ef812'
+INFO 05/15/2020 07:51:24 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:24 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:24 AM 		Fetching attribute 'PII 2' for asset '8ec4e52c-737e-4297-83f6-b9fbd20ef812' from Collibra
+INFO 05/15/2020 07:51:24 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:24 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:24 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:24 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:24 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:24 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:25 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8ec4e52c-737e-4297-83f6-b9fbd20ef812 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:25 AM Request successful
+INFO 05/15/2020 07:51:25 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:25 AM 		No attribute 'PII 2' returned for asset '8ec4e52c-737e-4297-83f6-b9fbd20ef812'
+INFO 05/15/2020 07:51:25 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:25 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.status' ######
+DEBUG 05/15/2020 07:51:25 AM 	Fetching column 'test_collibra_business_md_only.transactions.status'
+INFO 05/15/2020 07:51:25 AM Fetching attributes for 'test_collibra_business_md_only.transactions.status' from Collibra
+INFO 05/15/2020 07:51:25 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:25 AM 		Fetching attribute 'Description' for asset 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107' from Collibra
+INFO 05/15/2020 07:51:25 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:25 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:25 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:25 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:25 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:25 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:25 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=fc2d545c-48e6-43ee-bc51-a4ca86f6a107 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:25 AM Request successful
+INFO 05/15/2020 07:51:25 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:25 AM 		No attribute 'Description' returned for asset 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107'
+INFO 05/15/2020 07:51:25 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:25 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:25 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:26 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/fc2d545c-48e6-43ee-bc51-a4ca86f6a107 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:26 AM Request successful
+INFO 05/15/2020 07:51:26 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:26 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:26 AM 		Fetching attribute 'Information Classification' for asset 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107' from Collibra
+INFO 05/15/2020 07:51:26 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:26 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:26 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:26 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:26 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:26 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=fc2d545c-48e6-43ee-bc51-a4ca86f6a107 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:27 AM Request successful
+INFO 05/15/2020 07:51:27 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:27 AM 		No attribute 'Information Classification' returned for asset 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107'
+INFO 05/15/2020 07:51:27 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:27 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:27 AM 		Fetching attribute 'PII 2' for asset 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107' from Collibra
+INFO 05/15/2020 07:51:27 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:27 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:27 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:27 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:27 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:27 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=fc2d545c-48e6-43ee-bc51-a4ca86f6a107 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:27 AM Request successful
+INFO 05/15/2020 07:51:27 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:27 AM 		No attribute 'PII 2' returned for asset 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107'
+INFO 05/15/2020 07:51:27 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:27 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.msrp' ######
+DEBUG 05/15/2020 07:51:27 AM 	Fetching column 'test_collibra_business_md_only.transactions.msrp'
+INFO 05/15/2020 07:51:27 AM Fetching attributes for 'test_collibra_business_md_only.transactions.msrp' from Collibra
+INFO 05/15/2020 07:51:27 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:27 AM 		Fetching attribute 'Description' for asset '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6' from Collibra
+INFO 05/15/2020 07:51:27 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:27 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:27 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:27 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:27 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:27 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:28 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=5168bfab-f438-4c3d-aedf-e9bb70ce6ed6 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:28 AM Request successful
+INFO 05/15/2020 07:51:28 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:28 AM 		No attribute 'Description' returned for asset '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6'
+INFO 05/15/2020 07:51:28 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:28 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:28 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:29 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/5168bfab-f438-4c3d-aedf-e9bb70ce6ed6 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:29 AM Request successful
+INFO 05/15/2020 07:51:29 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:29 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:29 AM 		Fetching attribute 'Information Classification' for asset '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6' from Collibra
+INFO 05/15/2020 07:51:29 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:29 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:29 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:29 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:29 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:29 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:30 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=5168bfab-f438-4c3d-aedf-e9bb70ce6ed6 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:30 AM Request successful
+INFO 05/15/2020 07:51:30 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:30 AM 		No attribute 'Information Classification' returned for asset '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6'
+INFO 05/15/2020 07:51:30 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:30 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:30 AM 		Fetching attribute 'PII 2' for asset '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6' from Collibra
+INFO 05/15/2020 07:51:30 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:30 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:30 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:30 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:30 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:30 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:30 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=5168bfab-f438-4c3d-aedf-e9bb70ce6ed6 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:30 AM Request successful
+INFO 05/15/2020 07:51:30 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:30 AM 		No attribute 'PII 2' returned for asset '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6'
+INFO 05/15/2020 07:51:30 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:30 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.priceeach' ######
+DEBUG 05/15/2020 07:51:30 AM 	Fetching column 'test_collibra_business_md_only.transactions.priceeach'
+INFO 05/15/2020 07:51:30 AM Fetching attributes for 'test_collibra_business_md_only.transactions.priceeach' from Collibra
+INFO 05/15/2020 07:51:30 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:30 AM 		Fetching attribute 'Description' for asset 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05' from Collibra
+INFO 05/15/2020 07:51:30 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:30 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:30 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:30 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:30 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:30 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:31 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=a0b6df0d-9ba9-45c8-8337-1bde7ed18b05 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:31 AM Request successful
+INFO 05/15/2020 07:51:31 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:31 AM 		No attribute 'Description' returned for asset 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05'
+INFO 05/15/2020 07:51:31 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:31 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:31 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:32 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/a0b6df0d-9ba9-45c8-8337-1bde7ed18b05 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:32 AM Request successful
+INFO 05/15/2020 07:51:32 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:32 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:32 AM 		Fetching attribute 'Information Classification' for asset 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05' from Collibra
+INFO 05/15/2020 07:51:32 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:32 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:32 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:32 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:32 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=a0b6df0d-9ba9-45c8-8337-1bde7ed18b05 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:32 AM Request successful
+INFO 05/15/2020 07:51:32 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:32 AM 		No attribute 'Information Classification' returned for asset 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05'
+INFO 05/15/2020 07:51:32 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:32 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:32 AM 		Fetching attribute 'PII 2' for asset 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05' from Collibra
+INFO 05/15/2020 07:51:32 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:32 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:32 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:32 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:32 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:32 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:33 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=a0b6df0d-9ba9-45c8-8337-1bde7ed18b05 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:33 AM Request successful
+INFO 05/15/2020 07:51:33 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:33 AM 		No attribute 'PII 2' returned for asset 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05'
+INFO 05/15/2020 07:51:33 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:33 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.month_id' ######
+DEBUG 05/15/2020 07:51:33 AM 	Fetching column 'test_collibra_business_md_only.transactions.month_id'
+INFO 05/15/2020 07:51:33 AM Fetching attributes for 'test_collibra_business_md_only.transactions.month_id' from Collibra
+INFO 05/15/2020 07:51:33 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:33 AM 		Fetching attribute 'Description' for asset '47acc799-dbd1-4335-9fd6-13cc31247cea' from Collibra
+INFO 05/15/2020 07:51:33 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:33 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:33 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:33 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:33 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:33 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:34 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=47acc799-dbd1-4335-9fd6-13cc31247cea HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:34 AM Request successful
+INFO 05/15/2020 07:51:34 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:34 AM 		No attribute 'Description' returned for asset '47acc799-dbd1-4335-9fd6-13cc31247cea'
+INFO 05/15/2020 07:51:34 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:34 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:34 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/47acc799-dbd1-4335-9fd6-13cc31247cea HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:34 AM Request successful
+INFO 05/15/2020 07:51:34 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:34 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:34 AM 		Fetching attribute 'Information Classification' for asset '47acc799-dbd1-4335-9fd6-13cc31247cea' from Collibra
+INFO 05/15/2020 07:51:34 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:34 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:34 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:34 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:34 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:34 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:35 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=47acc799-dbd1-4335-9fd6-13cc31247cea HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:35 AM Request successful
+INFO 05/15/2020 07:51:35 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:35 AM 		No attribute 'Information Classification' returned for asset '47acc799-dbd1-4335-9fd6-13cc31247cea'
+INFO 05/15/2020 07:51:35 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:35 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:35 AM 		Fetching attribute 'PII 2' for asset '47acc799-dbd1-4335-9fd6-13cc31247cea' from Collibra
+INFO 05/15/2020 07:51:35 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:35 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:35 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:35 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:35 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:35 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:36 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=47acc799-dbd1-4335-9fd6-13cc31247cea HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:36 AM Request successful
+INFO 05/15/2020 07:51:36 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:36 AM 		No attribute 'PII 2' returned for asset '47acc799-dbd1-4335-9fd6-13cc31247cea'
+INFO 05/15/2020 07:51:36 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:36 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.address' ######
+DEBUG 05/15/2020 07:51:36 AM 	Fetching column 'test_collibra_business_md_only.transactions.address'
+INFO 05/15/2020 07:51:36 AM Fetching attributes for 'test_collibra_business_md_only.transactions.address' from Collibra
+INFO 05/15/2020 07:51:36 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:36 AM 		Fetching attribute 'Description' for asset '1816148a-dca6-4323-a97f-4cb7008e22e8' from Collibra
+INFO 05/15/2020 07:51:36 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:36 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:36 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:36 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:36 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:36 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=1816148a-dca6-4323-a97f-4cb7008e22e8 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:36 AM Request successful
+INFO 05/15/2020 07:51:36 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:36 AM 		No attribute 'Description' returned for asset '1816148a-dca6-4323-a97f-4cb7008e22e8'
+INFO 05/15/2020 07:51:36 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:36 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:36 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:37 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/1816148a-dca6-4323-a97f-4cb7008e22e8 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:37 AM Request successful
+INFO 05/15/2020 07:51:37 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:37 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:37 AM 		Fetching attribute 'Information Classification' for asset '1816148a-dca6-4323-a97f-4cb7008e22e8' from Collibra
+INFO 05/15/2020 07:51:37 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:37 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:37 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:37 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:37 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:37 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:38 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=1816148a-dca6-4323-a97f-4cb7008e22e8 HTTP/1.1" 200 353
+INFO 05/15/2020 07:51:38 AM Request successful
+INFO 05/15/2020 07:51:38 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:38 AM 		Successfully fetched 'Information Classification' for asset '1816148a-dca6-4323-a97f-4cb7008e22e8': nonpublic
+INFO 05/15/2020 07:51:38 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:38 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:38 AM 		Fetching attribute 'PII 2' for asset '1816148a-dca6-4323-a97f-4cb7008e22e8' from Collibra
+INFO 05/15/2020 07:51:38 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:38 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:38 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:38 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:38 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:38 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:39 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=1816148a-dca6-4323-a97f-4cb7008e22e8 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:39 AM Request successful
+INFO 05/15/2020 07:51:39 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:39 AM 		No attribute 'PII 2' returned for asset '1816148a-dca6-4323-a97f-4cb7008e22e8'
+INFO 05/15/2020 07:51:39 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:39 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.orderdate' ######
+DEBUG 05/15/2020 07:51:39 AM 	Fetching column 'test_collibra_business_md_only.transactions.orderdate'
+INFO 05/15/2020 07:51:39 AM Fetching attributes for 'test_collibra_business_md_only.transactions.orderdate' from Collibra
+INFO 05/15/2020 07:51:39 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:39 AM 		Fetching attribute 'Description' for asset 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194' from Collibra
+INFO 05/15/2020 07:51:39 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:39 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:39 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:39 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:39 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:39 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:39 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=cb43ee8b-46ca-406d-81a2-0bb6bae9f194 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:39 AM Request successful
+INFO 05/15/2020 07:51:39 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:39 AM 		No attribute 'Description' returned for asset 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194'
+INFO 05/15/2020 07:51:39 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:39 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:39 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:40 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/cb43ee8b-46ca-406d-81a2-0bb6bae9f194 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:40 AM Request successful
+INFO 05/15/2020 07:51:40 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:40 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:40 AM 		Fetching attribute 'Information Classification' for asset 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194' from Collibra
+INFO 05/15/2020 07:51:40 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:40 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:40 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:40 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:40 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:40 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:41 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=cb43ee8b-46ca-406d-81a2-0bb6bae9f194 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:41 AM Request successful
+INFO 05/15/2020 07:51:41 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:41 AM 		No attribute 'Information Classification' returned for asset 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194'
+INFO 05/15/2020 07:51:41 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:41 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:41 AM 		Fetching attribute 'PII 2' for asset 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194' from Collibra
+INFO 05/15/2020 07:51:41 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:41 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:41 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:41 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:41 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:41 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:41 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=cb43ee8b-46ca-406d-81a2-0bb6bae9f194 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:41 AM Request successful
+INFO 05/15/2020 07:51:41 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:41 AM 		No attribute 'PII 2' returned for asset 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194'
+INFO 05/15/2020 07:51:41 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:41 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.sales' ######
+DEBUG 05/15/2020 07:51:41 AM 	Fetching column 'test_collibra_business_md_only.transactions.sales'
+INFO 05/15/2020 07:51:41 AM Fetching attributes for 'test_collibra_business_md_only.transactions.sales' from Collibra
+INFO 05/15/2020 07:51:41 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:41 AM 		Fetching attribute 'Description' for asset '8edbc141-8505-4831-8655-cd17d93066fe' from Collibra
+INFO 05/15/2020 07:51:41 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:41 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:41 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:41 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:41 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:41 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:42 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=8edbc141-8505-4831-8655-cd17d93066fe HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:42 AM Request successful
+INFO 05/15/2020 07:51:42 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:42 AM 		No attribute 'Description' returned for asset '8edbc141-8505-4831-8655-cd17d93066fe'
+INFO 05/15/2020 07:51:42 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:42 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:42 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:43 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/8edbc141-8505-4831-8655-cd17d93066fe HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:43 AM Request successful
+INFO 05/15/2020 07:51:43 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:43 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:43 AM 		Fetching attribute 'Information Classification' for asset '8edbc141-8505-4831-8655-cd17d93066fe' from Collibra
+INFO 05/15/2020 07:51:43 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:43 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:43 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:43 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:43 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=8edbc141-8505-4831-8655-cd17d93066fe HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:43 AM Request successful
+INFO 05/15/2020 07:51:43 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:43 AM 		No attribute 'Information Classification' returned for asset '8edbc141-8505-4831-8655-cd17d93066fe'
+INFO 05/15/2020 07:51:43 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:43 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:43 AM 		Fetching attribute 'PII 2' for asset '8edbc141-8505-4831-8655-cd17d93066fe' from Collibra
+INFO 05/15/2020 07:51:43 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:43 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:43 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:43 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:43 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:43 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:44 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=8edbc141-8505-4831-8655-cd17d93066fe HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:44 AM Request successful
+INFO 05/15/2020 07:51:44 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:44 AM 		No attribute 'PII 2' returned for asset '8edbc141-8505-4831-8655-cd17d93066fe'
+INFO 05/15/2020 07:51:44 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:44 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.territory' ######
+DEBUG 05/15/2020 07:51:44 AM 	Fetching column 'test_collibra_business_md_only.transactions.territory'
+INFO 05/15/2020 07:51:44 AM Fetching attributes for 'test_collibra_business_md_only.transactions.territory' from Collibra
+INFO 05/15/2020 07:51:44 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:44 AM 		Fetching attribute 'Description' for asset '227c12d6-eb0f-49aa-88ed-7d0edea636df' from Collibra
+INFO 05/15/2020 07:51:44 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:44 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:44 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:44 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:44 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:44 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:45 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=227c12d6-eb0f-49aa-88ed-7d0edea636df HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:45 AM Request successful
+INFO 05/15/2020 07:51:45 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:45 AM 		No attribute 'Description' returned for asset '227c12d6-eb0f-49aa-88ed-7d0edea636df'
+INFO 05/15/2020 07:51:45 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:45 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:45 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:46 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/227c12d6-eb0f-49aa-88ed-7d0edea636df HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:46 AM Request successful
+INFO 05/15/2020 07:51:46 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:46 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:46 AM 		Fetching attribute 'Information Classification' for asset '227c12d6-eb0f-49aa-88ed-7d0edea636df' from Collibra
+INFO 05/15/2020 07:51:46 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:46 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:46 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:46 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:46 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:46 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:46 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=227c12d6-eb0f-49aa-88ed-7d0edea636df HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:46 AM Request successful
+INFO 05/15/2020 07:51:46 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:46 AM 		No attribute 'Information Classification' returned for asset '227c12d6-eb0f-49aa-88ed-7d0edea636df'
+INFO 05/15/2020 07:51:46 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:46 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:46 AM 		Fetching attribute 'PII 2' for asset '227c12d6-eb0f-49aa-88ed-7d0edea636df' from Collibra
+INFO 05/15/2020 07:51:46 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:46 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:46 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:46 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:46 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:46 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:47 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=227c12d6-eb0f-49aa-88ed-7d0edea636df HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:47 AM Request successful
+INFO 05/15/2020 07:51:47 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:47 AM 		No attribute 'PII 2' returned for asset '227c12d6-eb0f-49aa-88ed-7d0edea636df'
+INFO 05/15/2020 07:51:47 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:47 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.quantityordered' ######
+DEBUG 05/15/2020 07:51:47 AM 	Fetching column 'test_collibra_business_md_only.transactions.quantityordered'
+INFO 05/15/2020 07:51:47 AM Fetching attributes for 'test_collibra_business_md_only.transactions.quantityordered' from Collibra
+INFO 05/15/2020 07:51:47 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:47 AM 		Fetching attribute 'Description' for asset '4fd74e2c-82dc-45c4-b93b-7309a69be3e3' from Collibra
+INFO 05/15/2020 07:51:47 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:47 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:47 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:47 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:47 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:47 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:48 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=4fd74e2c-82dc-45c4-b93b-7309a69be3e3 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:48 AM Request successful
+INFO 05/15/2020 07:51:48 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:48 AM 		No attribute 'Description' returned for asset '4fd74e2c-82dc-45c4-b93b-7309a69be3e3'
+INFO 05/15/2020 07:51:48 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:48 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:48 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:48 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/4fd74e2c-82dc-45c4-b93b-7309a69be3e3 HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:48 AM Request successful
+INFO 05/15/2020 07:51:48 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:48 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:48 AM 		Fetching attribute 'Information Classification' for asset '4fd74e2c-82dc-45c4-b93b-7309a69be3e3' from Collibra
+INFO 05/15/2020 07:51:48 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:48 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:48 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:48 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:48 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:48 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:49 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=4fd74e2c-82dc-45c4-b93b-7309a69be3e3 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:49 AM Request successful
+INFO 05/15/2020 07:51:49 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:49 AM 		No attribute 'Information Classification' returned for asset '4fd74e2c-82dc-45c4-b93b-7309a69be3e3'
+INFO 05/15/2020 07:51:49 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:49 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:49 AM 		Fetching attribute 'PII 2' for asset '4fd74e2c-82dc-45c4-b93b-7309a69be3e3' from Collibra
+INFO 05/15/2020 07:51:49 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:49 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:49 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:49 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:49 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:49 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:50 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=4fd74e2c-82dc-45c4-b93b-7309a69be3e3 HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:50 AM Request successful
+INFO 05/15/2020 07:51:50 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:50 AM 		No attribute 'PII 2' returned for asset '4fd74e2c-82dc-45c4-b93b-7309a69be3e3'
+INFO 05/15/2020 07:51:50 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:50 AM ###### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.orderlinenumber' ######
+DEBUG 05/15/2020 07:51:50 AM 	Fetching column 'test_collibra_business_md_only.transactions.orderlinenumber'
+INFO 05/15/2020 07:51:50 AM Fetching attributes for 'test_collibra_business_md_only.transactions.orderlinenumber' from Collibra
+INFO 05/15/2020 07:51:50 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:50 AM 		Fetching attribute 'Description' for asset '6e81a7e8-5912-4dda-af0a-f0ff5660037c' from Collibra
+INFO 05/15/2020 07:51:50 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:50 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:50 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:50 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:50 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:50 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:50 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=00000000-0000-0000-0000-000000003114&assetId=6e81a7e8-5912-4dda-af0a-f0ff5660037c HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:50 AM Request successful
+INFO 05/15/2020 07:51:50 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:50 AM 		No attribute 'Description' returned for asset '6e81a7e8-5912-4dda-af0a-f0ff5660037c'
+INFO 05/15/2020 07:51:50 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:50 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:50 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:51 AM https://okera.collibra.com:443 "GET /rest/2.0/mappings/externalSystem/okera/mappedResource/6e81a7e8-5912-4dda-af0a-f0ff5660037c HTTP/1.1" 404 135
+INFO 05/15/2020 07:51:51 AM Request successful
+INFO 05/15/2020 07:51:51 AM ### END: Making Collibra request ###
+INFO 05/15/2020 07:51:51 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:51 AM 		Fetching attribute 'Information Classification' for asset '6e81a7e8-5912-4dda-af0a-f0ff5660037c' from Collibra
+INFO 05/15/2020 07:51:51 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:51 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:51 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:51 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:51 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:51 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:52 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=339481cfd-bace-4634-9277-ceacb9b71e87&assetId=6e81a7e8-5912-4dda-af0a-f0ff5660037c HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:52 AM Request successful
+INFO 05/15/2020 07:51:52 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:52 AM 		No attribute 'Information Classification' returned for asset '6e81a7e8-5912-4dda-af0a-f0ff5660037c'
+INFO 05/15/2020 07:51:52 AM 	### END: Get attributes from Collibra ###
+INFO 05/15/2020 07:51:52 AM 	### START: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:52 AM 		Fetching attribute 'PII 2' for asset '6e81a7e8-5912-4dda-af0a-f0ff5660037c' from Collibra
+INFO 05/15/2020 07:51:52 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:52 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:52 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:52 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:52 AM ### START: Making Collibra request ###
+DEBUG 05/15/2020 07:51:52 AM Starting new HTTPS connection (1): okera.collibra.com:443
+DEBUG 05/15/2020 07:51:52 AM https://okera.collibra.com:443 "GET /rest/2.0/attributes?typeIds=48007d3a-7843-45e0-a99b-5117fa16576f&assetId=6e81a7e8-5912-4dda-af0a-f0ff5660037c HTTP/1.1" 200 62
+INFO 05/15/2020 07:51:52 AM Request successful
+INFO 05/15/2020 07:51:52 AM ### END: Making Collibra request ###
+DEBUG 05/15/2020 07:51:52 AM 		No attribute 'PII 2' returned for asset '6e81a7e8-5912-4dda-af0a-f0ff5660037c'
+INFO 05/15/2020 07:51:52 AM 	### END: Get attributes from Collibra ###
+DEBUG 05/15/2020 07:51:52 AM 	Successfully fetched columns for table 'test_collibra_business_md_only.transactions'
+INFO 05/15/2020 07:51:52 AM ############ END: Collibra calls ############
+INFO 05/15/2020 07:51:52 AM ############ START: PyOkera calls ############
+DEBUG 05/15/2020 07:51:52 AM Connecting to planner nightly.internal.okera.rocks:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 05/15/2020 07:51:52 AM get_socket: host=nightly.internal.okera.rocks port=12050 use_ssl=False ca_cert=None
+DEBUG 05/15/2020 07:51:52 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x11278e950> host=nightly.internal.okera.rocks service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 05/15/2020 07:51:53 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x112da8710>)
+INFO 05/15/2020 07:51:54 AM 	Fetching table 'test_collibra_business_md_only.transactions'
+DEBUG 05/15/2020 07:51:54 AM Closing Planner connection
+DEBUG 05/15/2020 07:51:54 AM close_service: client=<thriftpy.thrift.TClient object at 0x112da8fd0>
+INFO 05/15/2020 07:51:54 AM ############ END: PyOkera calls ############
+INFO 05/15/2020 07:51:54 AM ############ START: Compare Collibra assets to Okera assets ############
+INFO 05/15/2020 07:51:54 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:54 AM 		Fetching resource ID for 'Description'
+INFO 05/15/2020 07:51:54 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000003114 for 'Description'
+INFO 05/15/2020 07:51:54 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:54 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:54 AM 		Fetching resource ID for 'Information Classification'
+INFO 05/15/2020 07:51:54 AM 		Successfully fetched resource ID 339481cfd-bace-4634-9277-ceacb9b71e87 for 'Information Classification'
+INFO 05/15/2020 07:51:54 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:54 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:54 AM 		Fetching resource ID for 'PII 2'
+INFO 05/15/2020 07:51:54 AM 		Successfully fetched resource ID 48007d3a-7843-45e0-a99b-5117fa16576f for 'PII 2'
+INFO 05/15/2020 07:51:54 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:54 AM ###### Comparing Collibra attributes of table (name: 'test_collibra_business_md_only.transactions', asset ID: '4a8db83a-9439-4edc-b29a-7ccfec34ee54') to Okera tags of table 'test_collibra_business_md_only.transactions': ######
+Collibra attributes: ['collibra_status.under_review']
+Okera tags: None
+DEBUG 05/15/2020 07:51:54 AM 	 Differences found, starting Okera tag operations
+INFO 05/15/2020 07:51:54 AM ### START: Okera tag operations ###
+DEBUG 05/15/2020 07:51:54 AM Connecting to planner nightly.internal.okera.rocks:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 05/15/2020 07:51:54 AM get_socket: host=nightly.internal.okera.rocks port=12050 use_ssl=False ca_cert=None
+DEBUG 05/15/2020 07:51:54 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x11465c610> host=nightly.internal.okera.rocks service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 05/15/2020 07:51:55 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x11465c390>)
+INFO 05/15/2020 07:51:55 AM 	Creating new Okera tag and namespace 'collibra_status.under_review'
+INFO 05/15/2020 07:51:56 AM 	Successfully created new Okera tag and namespace 'collibra_status.under_review'
+INFO 05/15/2020 07:51:56 AM 	Assigning tag 'collibra_status.under_review' to table 'transactions'
+INFO 05/15/2020 07:51:56 AM 	Successfully assigned tag 'collibra_status.under_review' to table 'transactions'
+DEBUG 05/15/2020 07:51:56 AM Closing Planner connection
+DEBUG 05/15/2020 07:51:56 AM close_service: client=<thriftpy.thrift.TClient object at 0x11465cdd0>
+INFO 05/15/2020 07:51:56 AM ### END: Okera tag operations ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of table (name: 'test_collibra_business_md_only.transactions', asset ID: '4a8db83a-9439-4edc-b29a-7ccfec34ee54') to Okera description of table 'test_collibra_business_md_only.transactions': ######
+Collibra description: Dataset to test Collibra to Okera sync.
+Okera description: Dataset to test Collibra to Okera sync.
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Table'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031007 for 'Table'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.ordernumber' to Okera tags of column 'test_collibra_business_md_only.transactions.ordernumber': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.ordernumber' to Okera description of column 'test_collibra_business_md_only.transactions.ordernumber': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.quantityordered' to Okera tags of column 'test_collibra_business_md_only.transactions.quantityordered': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.quantityordered' to Okera description of column 'test_collibra_business_md_only.transactions.quantityordered': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.priceeach' to Okera tags of column 'test_collibra_business_md_only.transactions.priceeach': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.priceeach' to Okera description of column 'test_collibra_business_md_only.transactions.priceeach': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.orderlinenumber' to Okera tags of column 'test_collibra_business_md_only.transactions.orderlinenumber': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.orderlinenumber' to Okera description of column 'test_collibra_business_md_only.transactions.orderlinenumber': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.sales' to Okera tags of column 'test_collibra_business_md_only.transactions.sales': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.sales' to Okera description of column 'test_collibra_business_md_only.transactions.sales': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.orderdate' to Okera tags of column 'test_collibra_business_md_only.transactions.orderdate': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.orderdate' to Okera description of column 'test_collibra_business_md_only.transactions.orderdate': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.status' to Okera tags of column 'test_collibra_business_md_only.transactions.status': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.status' to Okera description of column 'test_collibra_business_md_only.transactions.status': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.qtr_id' to Okera tags of column 'test_collibra_business_md_only.transactions.qtr_id': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.qtr_id' to Okera description of column 'test_collibra_business_md_only.transactions.qtr_id': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.month_id' to Okera tags of column 'test_collibra_business_md_only.transactions.month_id': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.month_id' to Okera description of column 'test_collibra_business_md_only.transactions.month_id': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.year_id' to Okera tags of column 'test_collibra_business_md_only.transactions.year_id': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.year_id' to Okera description of column 'test_collibra_business_md_only.transactions.year_id': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.productline' to Okera tags of column 'test_collibra_business_md_only.transactions.productline': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.productline' to Okera description of column 'test_collibra_business_md_only.transactions.productline': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.msrp' to Okera tags of column 'test_collibra_business_md_only.transactions.msrp': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.msrp' to Okera description of column 'test_collibra_business_md_only.transactions.msrp': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.productcode' to Okera tags of column 'test_collibra_business_md_only.transactions.productcode': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.productcode' to Okera description of column 'test_collibra_business_md_only.transactions.productcode': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.customername' to Okera tags of column 'test_collibra_business_md_only.transactions.customername': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.customername' to Okera description of column 'test_collibra_business_md_only.transactions.customername': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.phone' to Okera tags of column 'test_collibra_business_md_only.transactions.phone': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.phone' to Okera description of column 'test_collibra_business_md_only.transactions.phone': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:56 AM 	No differences found
+INFO 05/15/2020 07:51:56 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:56 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:56 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:56 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:56 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.address' to Okera tags of column 'test_collibra_business_md_only.transactions.address': ######
+Collibra attributes: ['information_classification.nonpublic']
+Okera tags: None
+DEBUG 05/15/2020 07:51:56 AM 	 Differences found, starting Okera tag operations
+INFO 05/15/2020 07:51:56 AM ### START: Okera tag operations ###
+DEBUG 05/15/2020 07:51:56 AM Connecting to planner nightly.internal.okera.rocks:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 05/15/2020 07:51:56 AM get_socket: host=nightly.internal.okera.rocks port=12050 use_ssl=False ca_cert=None
+DEBUG 05/15/2020 07:51:56 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x114684dd0> host=nightly.internal.okera.rocks service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 05/15/2020 07:51:57 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x114675ad0>)
+INFO 05/15/2020 07:51:57 AM 	Creating new Okera tag and namespace 'information_classification.nonpublic'
+INFO 05/15/2020 07:51:57 AM 	Successfully created new Okera tag and namespace 'information_classification.nonpublic'
+INFO 05/15/2020 07:51:57 AM 	Assigning tag 'information_classification.nonpublic' to column 'test_collibra_business_md_only.transactions.address'
+INFO 05/15/2020 07:51:58 AM 	Successfully assigned tag 'information_classification.nonpublic' to column 'test_collibra_business_md_only.transactions.address'
+DEBUG 05/15/2020 07:51:58 AM Closing Planner connection
+DEBUG 05/15/2020 07:51:58 AM close_service: client=<thriftpy.thrift.TClient object at 0x114675090>
+INFO 05/15/2020 07:51:58 AM ### END: Okera tag operations ###
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.address' to Okera description of column 'test_collibra_business_md_only.transactions.address': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+INFO 05/15/2020 07:51:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:58 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:58 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:58 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.postalcode' to Okera tags of column 'test_collibra_business_md_only.transactions.postalcode': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.postalcode' to Okera description of column 'test_collibra_business_md_only.transactions.postalcode': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+INFO 05/15/2020 07:51:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:58 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:58 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:58 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.country' to Okera tags of column 'test_collibra_business_md_only.transactions.country': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.country' to Okera description of column 'test_collibra_business_md_only.transactions.country': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+INFO 05/15/2020 07:51:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:58 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:58 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:58 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.territory' to Okera tags of column 'test_collibra_business_md_only.transactions.territory': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.territory' to Okera description of column 'test_collibra_business_md_only.transactions.territory': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:58 AM 	No differences found
+INFO 05/15/2020 07:51:58 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:58 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:58 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:58 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:58 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.ipaddress' to Okera tags of column 'test_collibra_business_md_only.transactions.ipaddress': ######
+Collibra attributes: ['information_classification.restricted']
+Okera tags: None
+DEBUG 05/15/2020 07:51:58 AM 	 Differences found, starting Okera tag operations
+INFO 05/15/2020 07:51:58 AM ### START: Okera tag operations ###
+DEBUG 05/15/2020 07:51:58 AM Connecting to planner nightly.internal.okera.rocks:12050 with DIGEST-MD5 authentication mechanism
+DEBUG 05/15/2020 07:51:58 AM get_socket: host=nightly.internal.okera.rocks port=12050 use_ssl=False ca_cert=None
+DEBUG 05/15/2020 07:51:58 AM get_transport: socket=<thriftpy.transport.socket.TSocket object at 0x11465c410> host=nightly.internal.okera.rocks service_name=cerebro auth_mechanism=DIGEST-MD5 user=None password=fuggetaboutit host_override=None
+DEBUG 05/15/2020 07:51:58 AM PlannerConnection(service=<okera.odas._ThriftService object at 0x114675310>)
+INFO 05/15/2020 07:51:59 AM 	Creating new Okera tag and namespace 'information_classification.restricted'
+INFO 05/15/2020 07:51:59 AM 	Successfully created new Okera tag and namespace 'information_classification.restricted'
+INFO 05/15/2020 07:51:59 AM 	Assigning tag 'information_classification.restricted' to column 'test_collibra_business_md_only.transactions.ipaddress'
+INFO 05/15/2020 07:51:59 AM 	Successfully assigned tag 'information_classification.restricted' to column 'test_collibra_business_md_only.transactions.ipaddress'
+DEBUG 05/15/2020 07:51:59 AM Closing Planner connection
+DEBUG 05/15/2020 07:51:59 AM close_service: client=<thriftpy.thrift.TClient object at 0x112da8d90>
+INFO 05/15/2020 07:51:59 AM ### END: Okera tag operations ###
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.ipaddress' to Okera description of column 'test_collibra_business_md_only.transactions.ipaddress': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+INFO 05/15/2020 07:51:59 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:59 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:59 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:59 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.contactname' to Okera tags of column 'test_collibra_business_md_only.transactions.contactname': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.contactname' to Okera description of column 'test_collibra_business_md_only.transactions.contactname': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+INFO 05/15/2020 07:51:59 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:59 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:59 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:59 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.dealsize' to Okera tags of column 'test_collibra_business_md_only.transactions.dealsize': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.dealsize' to Okera description of column 'test_collibra_business_md_only.transactions.dealsize': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+INFO 05/15/2020 07:51:59 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:59 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:59 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:59 AM 	### END: Get resource IDs from resourceids.py ###
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra attributes of column 'test_collibra_business_md_only.transactions.rep' to Okera tags of column 'test_collibra_business_md_only.transactions.rep': ######
+Collibra attributes: []
+Okera tags: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+DEBUG 05/15/2020 07:51:59 AM ###### Comparing Collibra description of column 'test_collibra_business_md_only.transactions.rep' to Okera description of column 'test_collibra_business_md_only.transactions.rep': ######
+Collibra description: None
+Okera description: None
+DEBUG 05/15/2020 07:51:59 AM 	No differences found
+INFO 05/15/2020 07:51:59 AM 	### START: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:59 AM 		Fetching resource ID for 'Column'
+INFO 05/15/2020 07:51:59 AM 		Successfully fetched resource ID 00000000-0000-0000-0000-000000031008 for 'Column'
+INFO 05/15/2020 07:51:59 AM 	### END: Get resource IDs from resourceids.py ###
+INFO 05/15/2020 07:51:59 AM ############ END: Compare Collibra assets to Okera assets ############
+INFO 05/15/2020 07:51:59 AM ############ SUMMARY: ASSETS FETCHED AND COMPARED ############
+DEBUG 05/15/2020 07:51:59 AM ### OKERA TABLE 'test_collibra_business_md_only.transactions' ###
+{'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+ 'asset_name': 'test_collibra_business_md_only.transactions',
+ 'asset_type': 'Table',
+ 'attributes': {'description': 'Dataset to test Collibra to Okera sync.',
+                'tags': None},
+ 'location': {'database': 'test_collibra_business_md_only', 'system': 'Okera'},
+ 'log_type': "OKERA TABLE 'test_collibra_business_md_only.transactions'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA TABLE 'test_collibra_business_md_only.transactions' ###
+{'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+ 'asset_name': 'test_collibra_business_md_only.transactions',
+ 'asset_type': {'name': 'Table',
+                'type_id': '00000000-0000-0000-0000-000000031007'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'Dataset to test Collibra to Okera '
+                                         'sync.'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['collibra_status.under_review']}},
+ 'location': {'community': 'Okera Test',
+              'database': 'test_collibra_business_md_only',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra'},
+ 'log_type': "COLLIBRA TABLE 'test_collibra_business_md_only.transactions'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.ordernumber' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.ordernumber',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.ordernumber'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.ordernumber' ###
+{'asset_id': 'c2ab0f7d-f667-47fc-ba2d-0ab48a427bc4',
+ 'asset_name': 'test_collibra_business_md_only.transactions.ordernumber',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.ordernumber'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.quantityordered' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.quantityordered',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.quantityordered'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.quantityordered' ###
+{'asset_id': '4fd74e2c-82dc-45c4-b93b-7309a69be3e3',
+ 'asset_name': 'test_collibra_business_md_only.transactions.quantityordered',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.quantityordered'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.priceeach' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.priceeach',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.priceeach'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.priceeach' ###
+{'asset_id': 'a0b6df0d-9ba9-45c8-8337-1bde7ed18b05',
+ 'asset_name': 'test_collibra_business_md_only.transactions.priceeach',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.priceeach'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.orderlinenumber' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.orderlinenumber',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.orderlinenumber'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.orderlinenumber' ###
+{'asset_id': '6e81a7e8-5912-4dda-af0a-f0ff5660037c',
+ 'asset_name': 'test_collibra_business_md_only.transactions.orderlinenumber',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.orderlinenumber'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.sales' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.sales',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': "OKERA COLUMN 'test_collibra_business_md_only.transactions.sales'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.sales' ###
+{'asset_id': '8edbc141-8505-4831-8655-cd17d93066fe',
+ 'asset_name': 'test_collibra_business_md_only.transactions.sales',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.sales'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.orderdate' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.orderdate',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.orderdate'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.orderdate' ###
+{'asset_id': 'cb43ee8b-46ca-406d-81a2-0bb6bae9f194',
+ 'asset_name': 'test_collibra_business_md_only.transactions.orderdate',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.orderdate'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.status' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.status',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.status'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.status' ###
+{'asset_id': 'fc2d545c-48e6-43ee-bc51-a4ca86f6a107',
+ 'asset_name': 'test_collibra_business_md_only.transactions.status',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.status'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.qtr_id' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.qtr_id',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.qtr_id'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.qtr_id' ###
+{'asset_id': '380dd16b-48a2-43ea-8d0a-51304003342e',
+ 'asset_name': 'test_collibra_business_md_only.transactions.qtr_id',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.qtr_id'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.month_id' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.month_id',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.month_id'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.month_id' ###
+{'asset_id': '47acc799-dbd1-4335-9fd6-13cc31247cea',
+ 'asset_name': 'test_collibra_business_md_only.transactions.month_id',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.month_id'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.year_id' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.year_id',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.year_id'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.year_id' ###
+{'asset_id': 'a6394da5-c364-424e-bf74-be07f2489c5b',
+ 'asset_name': 'test_collibra_business_md_only.transactions.year_id',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.year_id'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.productline' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.productline',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.productline'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.productline' ###
+{'asset_id': '2461618f-4fb1-45de-8a54-56dbfb0188ab',
+ 'asset_name': 'test_collibra_business_md_only.transactions.productline',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.productline'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.msrp' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.msrp',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': "OKERA COLUMN 'test_collibra_business_md_only.transactions.msrp'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.msrp' ###
+{'asset_id': '5168bfab-f438-4c3d-aedf-e9bb70ce6ed6',
+ 'asset_name': 'test_collibra_business_md_only.transactions.msrp',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.msrp'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.productcode' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.productcode',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.productcode'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.productcode' ###
+{'asset_id': '6bf889af-f4f7-4e84-8b6e-bac390d0566d',
+ 'asset_name': 'test_collibra_business_md_only.transactions.productcode',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.productcode'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.customername' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.customername',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.customername'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.customername' ###
+{'asset_id': '07bf415a-1ca3-4df9-bcc4-166ce0a0bd3e',
+ 'asset_name': 'test_collibra_business_md_only.transactions.customername',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.customername'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.phone' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.phone',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': "OKERA COLUMN 'test_collibra_business_md_only.transactions.phone'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.phone' ###
+{'asset_id': '8ec4e52c-737e-4297-83f6-b9fbd20ef812',
+ 'asset_name': 'test_collibra_business_md_only.transactions.phone',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.phone'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.address' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.address',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.address'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.address' ###
+{'asset_id': '1816148a-dca6-4323-a97f-4cb7008e22e8',
+ 'asset_name': 'test_collibra_business_md_only.transactions.address',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.nonpublic']}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.address'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.postalcode' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.postalcode',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.postalcode'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.postalcode' ###
+{'asset_id': 'f0b4d643-0ef4-4a3f-8fb2-0c13876452e0',
+ 'asset_name': 'test_collibra_business_md_only.transactions.postalcode',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.postalcode'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.country' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.country',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.country'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.country' ###
+{'asset_id': '8b0d69f8-b6e3-48d7-952b-1483b08e8e3d',
+ 'asset_name': 'test_collibra_business_md_only.transactions.country',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.country'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.territory' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.territory',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.territory'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.territory' ###
+{'asset_id': '227c12d6-eb0f-49aa-88ed-7d0edea636df',
+ 'asset_name': 'test_collibra_business_md_only.transactions.territory',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.territory'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.ipaddress' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.ipaddress',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.ipaddress'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.ipaddress' ###
+{'asset_id': '975d4183-6b19-4272-b104-81d54ee533ef',
+ 'asset_name': 'test_collibra_business_md_only.transactions.ipaddress',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': ['information_classification.restricted']}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.ipaddress'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.contactname' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.contactname',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.contactname'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.contactname' ###
+{'asset_id': '4cad0c9e-1990-4613-9e57-aaf21760ceb8',
+ 'asset_name': 'test_collibra_business_md_only.transactions.contactname',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.contactname'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.dealsize' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.dealsize',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': 'OKERA COLUMN '
+             "'test_collibra_business_md_only.transactions.dealsize'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.dealsize' ###
+{'asset_id': 'cdfdbdf2-88be-42b2-8da9-344c2ba5fcc4',
+ 'asset_name': 'test_collibra_business_md_only.transactions.dealsize',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.dealsize'"}
+DEBUG 05/15/2020 07:51:59 AM ### OKERA COLUMN 'test_collibra_business_md_only.transactions.rep' ###
+{'asset_id': 'None',
+ 'asset_name': 'test_collibra_business_md_only.transactions.rep',
+ 'asset_type': 'Column',
+ 'attributes': {'description': 'None', 'tags': 'None'},
+ 'location': {'system': 'Okera',
+              'table': 'test_collibra_business_md_only.transactions'},
+ 'log_type': "OKERA COLUMN 'test_collibra_business_md_only.transactions.rep'"}
+DEBUG 05/15/2020 07:51:59 AM ### COLLIBRA COLUMN 'test_collibra_business_md_only.transactions.rep' ###
+{'asset_id': '7b133278-b86f-4820-a99d-8a51686e2331',
+ 'asset_name': 'test_collibra_business_md_only.transactions.rep',
+ 'asset_type': {'name': 'Column',
+                'type_id': '00000000-0000-0000-0000-000000031008'},
+ 'attributes': {'description': {'resource_id': '00000000-0000-0000-0000-000000003114',
+                                'value': 'None'},
+                'tags': {'resource_ids': [{'id': '339481cfd-bace-4634-9277-ceacb9b71e87',
+                                           'name': 'Information '
+                                                   'Classification'},
+                                          {'id': '48007d3a-7843-45e0-a99b-5117fa16576f',
+                                           'name': 'PII 2'}],
+                         'value': []}},
+ 'location': {'community': 'Okera Test',
+              'domain': 'Collibra to Okera',
+              'system': 'Collibra',
+              'table': {'asset_id': '4a8db83a-9439-4edc-b29a-7ccfec34ee54',
+                        'name': 'test_collibra_business_md_only.transactions'}},
+ 'log_type': 'COLLIBRA COLUMN '
+             "'test_collibra_business_md_only.transactions.rep'"}
+INFO 05/15/2020 07:51:59 AM Export complete!

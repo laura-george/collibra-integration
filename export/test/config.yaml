@@ -24,20 +24,20 @@
 #    - "Prefix Two"
 #
 configs:
-  log_directory: "logs/"
+  log_directory: "logs"
   # Okera specific information
-  okera_host: "sandbox.demo.okera.com"
-  okera_token: "AAtsYXVyYV9hZG1pbgALbGF1cmFfYWRtaW6KAXIThXo5igFyN5H-ORw8.zF8nUSe1GM2Y8XWx0nwmJDiTAxI$"
+  okera_host: "nightly.internal.okera.rocks"
+  okera_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzUxMiJ9.eyJpc3MiOiAiY2Rhcy1yZXN0LXNlcnZlci90b2tlbnMiLCAic3ViIjogImFkbWluIiwgImV4cCI6IDE1ODk2NTMzMjUuNjkzOTE0fQ.Fy2tt6SGcOhgPnsmcXTWPeQ5FXkcIxV_6FslhQYlDLDsViobKy44MXsRTyHnwIC7LYDOUIhzTTa3slScFrRLLrdV6W8DFqGlyYugmmdCwEnZQxmTdYic9aht0rqBoDMu2ch9uE2s7R2Sv3y_SXUEkLMHE34gax2VUAcLkTLxifXX4NAy6vOKyZ-VS_ZHkVPLXSGZ-iu4xpEKdDF2-R44MqW_XvBPvydlcMz5Oevdh8QElQbOuipkDEedwu8mt-JLdO_qUEYLHo__XCV_6NHbTrSyaThvsdrdlbEq24kIpnYiQKBsGvEkqGfQi-ZVKg36WyiMKVgpzWl8dMxVGemRvqp58bhKAlc9AP2UOxUCfrv_V5s_YiYeLt5Mxm3Hf0BNN_9D4los9jSw4_nviUavecdc_3P64EsKzwzPR_Xv30dMQmKrQ2MmUYH2OQmi7wPCmzVM8H0x1IL1pUfl6dPF0onOmsLYmiGoCTpmrJ-js0gZaPwRGe2XXc1Uq7uQWVO6hB_bkQ7iRlt74-SihBDfFHS_fGM8BxaV_-KRzRBCiCWnhMVHR6_q1DDob1O6xaiBSMn-y7MDMcm7tGrDikOJUoF2O1BdPODR9Wg7tDD6DLX5mQps_jmatVv9YkolareOcXzrRYD_CyNC0r2z_yhugqJnIrLsYyZx5CNMOyGlBFY"
   #Collibra specific information
   collibra_dgc: "https://okera.collibra.com:443"
   collibra_username: "Admin"
   collibra_password: "Gac2Quencotdilo"
-  collibra_assets:
+  collibra_assets: "assets_test.yaml"
   # community and domain only need to be defined if collibra_assets is not defined
-  community: "Okera3.0"
+  community:
   domain:
-    name: "export_only"
-    type: "Physical Data Dictionary"
+    name:
+    type:
   #
   # Collibra custom attribute mapping information.
   # Specify what Collibra custom attribute you would like mapped to an Okera tag namespace.
